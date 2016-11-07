@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */; };
+		034EC16D1DD0B34D00E32EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* ViewController.swift */; };
+		034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC16E1DD0B34D00E32EC6 /* Main.storyboard */; };
+		034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */; };
+		034EC1751DD0B34D00E32EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034EC1741DD0B34D00E32EC6 /* Assets.xcassets */; };
+		034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */; };
+		034EC1831DD0B34D00E32EC6 /* HerbieNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1821DD0B34D00E32EC6 /* HerbieNowTests.swift */; };
+		034EC18E1DD0B34D00E32EC6 /* HerbieNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		034EC17F1DD0B34D00E32EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 034EC15F1DD0B34D00E32EC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 034EC1661DD0B34D00E32EC6;
+			remoteInfo = HerbieNow;
+		};
+		034EC18A1DD0B34D00E32EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 034EC15F1DD0B34D00E32EC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 034EC1661DD0B34D00E32EC6;
+			remoteInfo = HerbieNow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		034EC1671DD0B34D00E32EC6 /* HerbieNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HerbieNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		034EC16C1DD0B34D00E32EC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		034EC16F1DD0B34D00E32EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		034EC1721DD0B34D00E32EC6 /* HerbieNow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HerbieNow.xcdatamodel; sourceTree = "<group>"; };
+		034EC1741DD0B34D00E32EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		034EC1771DD0B34D00E32EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		034EC1791DD0B34D00E32EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034EC17E1DD0B34D00E32EC6 /* HerbieNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HerbieNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		034EC1821DD0B34D00E32EC6 /* HerbieNowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbieNowTests.swift; sourceTree = "<group>"; };
+		034EC1841DD0B34D00E32EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034EC1891DD0B34D00E32EC6 /* HerbieNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HerbieNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbieNowUITests.swift; sourceTree = "<group>"; };
+		034EC18F1DD0B34D00E32EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		034EC1641DD0B34D00E32EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		034EC17B1DD0B34D00E32EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		034EC1861DD0B34D00E32EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034EC15E1DD0B34D00E32EC6 = {
+			isa = PBXGroup;
+			children = (
+				034EC1691DD0B34D00E32EC6 /* HerbieNow */,
+				034EC1811DD0B34D00E32EC6 /* HerbieNowTests */,
+				034EC18C1DD0B34D00E32EC6 /* HerbieNowUITests */,
+				034EC1681DD0B34D00E32EC6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		034EC1681DD0B34D00E32EC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				034EC1671DD0B34D00E32EC6 /* HerbieNow.app */,
+				034EC17E1DD0B34D00E32EC6 /* HerbieNowTests.xctest */,
+				034EC1891DD0B34D00E32EC6 /* HerbieNowUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		034EC1691DD0B34D00E32EC6 /* HerbieNow */ = {
+			isa = PBXGroup;
+			children = (
+				034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */,
+				034EC16C1DD0B34D00E32EC6 /* ViewController.swift */,
+				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
+				034EC1741DD0B34D00E32EC6 /* Assets.xcassets */,
+				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
+				034EC1791DD0B34D00E32EC6 /* Info.plist */,
+				034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */,
+			);
+			path = HerbieNow;
+			sourceTree = "<group>";
+		};
+		034EC1811DD0B34D00E32EC6 /* HerbieNowTests */ = {
+			isa = PBXGroup;
+			children = (
+				034EC1821DD0B34D00E32EC6 /* HerbieNowTests.swift */,
+				034EC1841DD0B34D00E32EC6 /* Info.plist */,
+			);
+			path = HerbieNowTests;
+			sourceTree = "<group>";
+		};
+		034EC18C1DD0B34D00E32EC6 /* HerbieNowUITests */ = {
+			isa = PBXGroup;
+			children = (
+				034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */,
+				034EC18F1DD0B34D00E32EC6 /* Info.plist */,
+			);
+			path = HerbieNowUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		034EC1661DD0B34D00E32EC6 /* HerbieNow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 034EC1921DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNow" */;
+			buildPhases = (
+				034EC1631DD0B34D00E32EC6 /* Sources */,
+				034EC1641DD0B34D00E32EC6 /* Frameworks */,
+				034EC1651DD0B34D00E32EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HerbieNow;
+			productName = HerbieNow;
+			productReference = 034EC1671DD0B34D00E32EC6 /* HerbieNow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		034EC17D1DD0B34D00E32EC6 /* HerbieNowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 034EC1951DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNowTests" */;
+			buildPhases = (
+				034EC17A1DD0B34D00E32EC6 /* Sources */,
+				034EC17B1DD0B34D00E32EC6 /* Frameworks */,
+				034EC17C1DD0B34D00E32EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				034EC1801DD0B34D00E32EC6 /* PBXTargetDependency */,
+			);
+			name = HerbieNowTests;
+			productName = HerbieNowTests;
+			productReference = 034EC17E1DD0B34D00E32EC6 /* HerbieNowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		034EC1881DD0B34D00E32EC6 /* HerbieNowUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 034EC1981DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNowUITests" */;
+			buildPhases = (
+				034EC1851DD0B34D00E32EC6 /* Sources */,
+				034EC1861DD0B34D00E32EC6 /* Frameworks */,
+				034EC1871DD0B34D00E32EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				034EC18B1DD0B34D00E32EC6 /* PBXTargetDependency */,
+			);
+			name = HerbieNowUITests;
+			productName = HerbieNowUITests;
+			productReference = 034EC1891DD0B34D00E32EC6 /* HerbieNowUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		034EC15F1DD0B34D00E32EC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = LMU;
+				TargetAttributes = {
+					034EC1661DD0B34D00E32EC6 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = EM47M4JQ9E;
+						ProvisioningStyle = Automatic;
+					};
+					034EC17D1DD0B34D00E32EC6 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = EM47M4JQ9E;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 034EC1661DD0B34D00E32EC6;
+					};
+					034EC1881DD0B34D00E32EC6 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = EM47M4JQ9E;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 034EC1661DD0B34D00E32EC6;
+					};
+				};
+			};
+			buildConfigurationList = 034EC1621DD0B34D00E32EC6 /* Build configuration list for PBXProject "HerbieNow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 034EC15E1DD0B34D00E32EC6;
+			productRefGroup = 034EC1681DD0B34D00E32EC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				034EC1661DD0B34D00E32EC6 /* HerbieNow */,
+				034EC17D1DD0B34D00E32EC6 /* HerbieNowTests */,
+				034EC1881DD0B34D00E32EC6 /* HerbieNowUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		034EC1651DD0B34D00E32EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */,
+				034EC1751DD0B34D00E32EC6 /* Assets.xcassets in Resources */,
+				034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		034EC17C1DD0B34D00E32EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		034EC1871DD0B34D00E32EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		034EC1631DD0B34D00E32EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034EC16D1DD0B34D00E32EC6 /* ViewController.swift in Sources */,
+				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
+				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		034EC17A1DD0B34D00E32EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034EC1831DD0B34D00E32EC6 /* HerbieNowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		034EC1851DD0B34D00E32EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				034EC18E1DD0B34D00E32EC6 /* HerbieNowUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		034EC1801DD0B34D00E32EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 034EC1661DD0B34D00E32EC6 /* HerbieNow */;
+			targetProxy = 034EC17F1DD0B34D00E32EC6 /* PBXContainerItemProxy */;
+		};
+		034EC18B1DD0B34D00E32EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 034EC1661DD0B34D00E32EC6 /* HerbieNow */;
+			targetProxy = 034EC18A1DD0B34D00E32EC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		034EC16E1DD0B34D00E32EC6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034EC16F1DD0B34D00E32EC6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				034EC1771DD0B34D00E32EC6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		034EC1901DD0B34D00E32EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		034EC1911DD0B34D00E32EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		034EC1931DD0B34D00E32EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				INFOPLIST_FILE = HerbieNow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		034EC1941DD0B34D00E32EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				INFOPLIST_FILE = HerbieNow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		034EC1961DD0B34D00E32EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				INFOPLIST_FILE = HerbieNowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HerbieNow.app/HerbieNow";
+			};
+			name = Debug;
+		};
+		034EC1971DD0B34D00E32EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				INFOPLIST_FILE = HerbieNowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HerbieNow.app/HerbieNow";
+			};
+			name = Release;
+		};
+		034EC1991DD0B34D00E32EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				INFOPLIST_FILE = HerbieNowUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNowUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = HerbieNow;
+			};
+			name = Debug;
+		};
+		034EC19A1DD0B34D00E32EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				INFOPLIST_FILE = HerbieNowUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNowUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = HerbieNow;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		034EC1621DD0B34D00E32EC6 /* Build configuration list for PBXProject "HerbieNow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034EC1901DD0B34D00E32EC6 /* Debug */,
+				034EC1911DD0B34D00E32EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		034EC1921DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034EC1931DD0B34D00E32EC6 /* Debug */,
+				034EC1941DD0B34D00E32EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		034EC1951DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034EC1961DD0B34D00E32EC6 /* Debug */,
+				034EC1971DD0B34D00E32EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		034EC1981DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNowUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034EC1991DD0B34D00E32EC6 /* Debug */,
+				034EC19A1DD0B34D00E32EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				034EC1721DD0B34D00E32EC6 /* HerbieNow.xcdatamodel */,
+			);
+			currentVersion = 034EC1721DD0B34D00E32EC6 /* HerbieNow.xcdatamodel */;
+			path = HerbieNow.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 034EC15F1DD0B34D00E32EC6 /* Project object */;
+}
