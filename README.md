@@ -1,5 +1,5 @@
 # HerbieNow
-[![Build Status](https://travis-ci.com/bennokress/HerbieNow.svg?token=nskHPc4LqD2upxe1tvEj&branch=master)](https://travis-ci.com/bennokress/HerbieNow)
+[![Build Status](https://travis-ci.com/bennokress/HerbieNow.svg?token=nskHPc4LqD2upxe1tvEj&branch=master)](https://travis-ci.com/bennokress/HerbieNow) ![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg) ![Swift Version](https://img.shields.io/badge/Swift-3.1-blue.svg)
 
 HerbieNow is an app project by team 6 of the "Praktikum iOS Entwicklung" at the LMU. It's goal is to provide a different approach to car sharing than the official DriveNow and Car2Go apps do. The experience will be based on filters by parsing the data gathered from the respective APIs to get more detailed information on the vehicles. The filters will include horse power, special equipment, distance to fueling bonus and more.
 
