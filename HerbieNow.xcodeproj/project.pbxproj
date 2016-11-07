@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */; };
-		034EC16D1DD0B34D00E32EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* ViewController.swift */; };
+		034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */; };
 		034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC16E1DD0B34D00E32EC6 /* Main.storyboard */; };
 		034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */; };
 		034EC1751DD0B34D00E32EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034EC1741DD0B34D00E32EC6 /* Assets.xcassets */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		034EC1671DD0B34D00E32EC6 /* HerbieNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HerbieNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		034EC16C1DD0B34D00E32EC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		034EC16F1DD0B34D00E32EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		034EC1721DD0B34D00E32EC6 /* HerbieNow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HerbieNow.xcdatamodel; sourceTree = "<group>"; };
 		034EC1741DD0B34D00E32EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,13 +99,11 @@
 		034EC1691DD0B34D00E32EC6 /* HerbieNow */ = {
 			isa = PBXGroup;
 			children = (
-				034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */,
-				034EC16C1DD0B34D00E32EC6 /* ViewController.swift */,
-				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
+				0375789C1DD0B43000AA8FC0 /* Model */,
+				0375789D1DD0B43E00AA8FC0 /* Controller */,
+				0375789E1DD0B46400AA8FC0 /* View */,
+				0375789F1DD0B47F00AA8FC0 /* Helper Files */,
 				034EC1741DD0B34D00E32EC6 /* Assets.xcassets */,
-				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
-				034EC1791DD0B34D00E32EC6 /* Info.plist */,
-				034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */,
 			);
 			path = HerbieNow;
 			sourceTree = "<group>";
@@ -126,6 +124,40 @@
 				034EC18F1DD0B34D00E32EC6 /* Info.plist */,
 			);
 			path = HerbieNowUITests;
+			sourceTree = "<group>";
+		};
+		0375789C1DD0B43000AA8FC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0375789D1DD0B43E00AA8FC0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0375789E1DD0B46400AA8FC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
+				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0375789F1DD0B47F00AA8FC0 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */,
+				034EC1791DD0B34D00E32EC6 /* Info.plist */,
+				034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */,
+			);
+			name = "Helper Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034EC16D1DD0B34D00E32EC6 /* ViewController.swift in Sources */,
+				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
 			);
@@ -518,6 +550,7 @@
 				034EC1941DD0B34D00E32EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		034EC1951DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNowTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +559,7 @@
 				034EC1971DD0B34D00E32EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		034EC1981DD0B34D00E32EC6 /* Build configuration list for PBXNativeTarget "HerbieNowUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +568,7 @@
 				034EC19A1DD0B34D00E32EC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
