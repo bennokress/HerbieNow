@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewControllers have no logic other than what to display
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
