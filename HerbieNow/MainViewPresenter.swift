@@ -10,7 +10,19 @@ import Foundation
 
 protocol MainViewPresenterProtocol {
     
+    // This protocol contains every function, the MainViewInterpreter can call.
     
+    /// Displays a checkmark on the selected filter.
+    func showCheckmark(for filter: Filteroption)
+    
+    /// Displays no checkmark on the selected filter.
+    func hideCheckmark(for filter: Filteroption)
+    
+    /// Activates segue to Settings View
+    func showSettingsView()
+    
+    /// Activates segue to Map View
+    func showMapView()
     
 }
 
@@ -27,6 +39,20 @@ class MainViewPresenter {
 
 extension MainViewPresenter: MainViewPresenterProtocol {
     
+    func showCheckmark(for filter: Filteroption) {
+        <#code#>
+    }
     
+    func hideCheckmark(for filter: Filteroption) {
+        <#code#>
+    }
+    
+    func showSettingsView() {
+        <#code#>
+    }
+    
+    func showMapView() {
+        <#code#>
+    }
     
 }

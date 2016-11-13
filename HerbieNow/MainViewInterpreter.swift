@@ -44,9 +44,9 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         
         <#convert senderID to Filteroption#>
         
-        <#save state of filteroptions#>
+        <#invert current state of the Filteroption#>
         
-        <#Presenter: show checkmark on filter button#>
+        <#Presenter: show / hide the checkmark on the selected filter button#>
     
     }
     
