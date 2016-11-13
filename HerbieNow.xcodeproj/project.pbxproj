@@ -20,6 +20,7 @@
 		037578A51DD0B68200AA8FC0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A41DD0B68200AA8FC0 /* Address.swift */; };
 		037578A81DD0B7D800AA8FC0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A71DD0B7D800AA8FC0 /* Presenter.swift */; };
 		037578AA1DD0B7E200AA8FC0 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A91DD0B7E200AA8FC0 /* Interpreter.swift */; };
+		039F0B721DD8D6A000AB56C0 /* Filteroption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Filteroption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		037578A41DD0B68200AA8FC0 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		037578A71DD0B7D800AA8FC0 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		037578A91DD0B7E200AA8FC0 /* Interpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
+		039F0B711DD8D6A000AB56C0 /* Filteroption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filteroption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				037578A41DD0B68200AA8FC0 /* Address.swift */,
 				037578A01DD0B4E500AA8FC0 /* Provider.swift */,
 				037578A21DD0B53400AA8FC0 /* Vehicle.swift */,
+				039F0B711DD8D6A000AB56C0 /* Filteroption.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				037578A81DD0B7D800AA8FC0 /* Presenter.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
 				037578A11DD0B4E500AA8FC0 /* Provider.swift in Sources */,
+				039F0B721DD8D6A000AB56C0 /* Filteroption.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
