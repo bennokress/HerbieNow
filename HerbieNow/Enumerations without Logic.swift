@@ -22,3 +22,10 @@ enum Filteroption {
     // TODO: Implement more filteroptions
     
 }
+
+enum Provider {
+    
+    case driveNow
+    case car2go
+    
+}

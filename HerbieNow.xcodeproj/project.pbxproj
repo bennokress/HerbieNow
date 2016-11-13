@@ -15,12 +15,13 @@
 		034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */; };
 		034EC1831DD0B34D00E32EC6 /* HerbieNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1821DD0B34D00E32EC6 /* HerbieNowTests.swift */; };
 		034EC18E1DD0B34D00E32EC6 /* HerbieNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */; };
-		037578A11DD0B4E500AA8FC0 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A01DD0B4E500AA8FC0 /* Provider.swift */; };
 		037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A21DD0B53400AA8FC0 /* Vehicle.swift */; };
 		037578A51DD0B68200AA8FC0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A41DD0B68200AA8FC0 /* Address.swift */; };
-		037578A81DD0B7D800AA8FC0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A71DD0B7D800AA8FC0 /* Presenter.swift */; };
-		037578AA1DD0B7E200AA8FC0 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A91DD0B7E200AA8FC0 /* Interpreter.swift */; };
-		039F0B721DD8D6A000AB56C0 /* Filteroption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Filteroption.swift */; };
+		037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */; };
+		037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */; };
+		039F0B721DD8D6A000AB56C0 /* Enumerations without Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations without Logic.swift */; };
+		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
+		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +56,13 @@
 		034EC1891DD0B34D00E32EC6 /* HerbieNowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HerbieNowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbieNowUITests.swift; sourceTree = "<group>"; };
 		034EC18F1DD0B34D00E32EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		037578A01DD0B4E500AA8FC0 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		037578A21DD0B53400AA8FC0 /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		037578A41DD0B68200AA8FC0 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		037578A71DD0B7D800AA8FC0 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		037578A91DD0B7E200AA8FC0 /* Interpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
-		039F0B711DD8D6A000AB56C0 /* Filteroption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filteroption.swift; sourceTree = "<group>"; };
+		037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewInterpreter.swift; sourceTree = "<group>"; };
+		039F0B711DD8D6A000AB56C0 /* Enumerations without Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enumerations without Logic.swift"; sourceTree = "<group>"; };
+		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +144,11 @@
 		0375789C1DD0B43000AA8FC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				039F0B711DD8D6A000AB56C0 /* Enumerations without Logic.swift */,
 				037578A41DD0B68200AA8FC0 /* Address.swift */,
-				037578A01DD0B4E500AA8FC0 /* Provider.swift */,
+				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
+				039F0B731DD8DBC500AB56C0 /* User.swift */,
 				037578A21DD0B53400AA8FC0 /* Vehicle.swift */,
-				039F0B711DD8D6A000AB56C0 /* Filteroption.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -154,8 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
-				037578A71DD0B7D800AA8FC0 /* Presenter.swift */,
-				037578A91DD0B7E200AA8FC0 /* Interpreter.swift */,
+				037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */,
+				037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,14 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				037578AA1DD0B7E200AA8FC0 /* Interpreter.swift in Sources */,
+				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
 				037578A51DD0B68200AA8FC0 /* Address.swift in Sources */,
-				037578A81DD0B7D800AA8FC0 /* Presenter.swift in Sources */,
+				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
-				037578A11DD0B4E500AA8FC0 /* Provider.swift in Sources */,
-				039F0B721DD8D6A000AB56C0 /* Filteroption.swift in Sources */,
+				039F0B721DD8D6A000AB56C0 /* Enumerations without Logic.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
+				039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */,
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
+				039F0B741DD8DBC500AB56C0 /* User.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

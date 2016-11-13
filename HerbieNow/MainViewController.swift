@@ -10,7 +10,7 @@ import UIKit
 
 protocol MainViewControllerProtocol {
     
-    // This Protocol contains every function, the presenter can call.
+    // This protocol contains every function, the MainViewPresenter can call.
     
     /// Displays a checkmark at the given filterbutton. Typically after a previously deactivated button is pressed.
     func activate(filter: Filteroption)
@@ -28,6 +28,8 @@ protocol MainViewControllerProtocol {
 
 /// ViewControllers have no logic other than what to display
 class MainViewController: UIViewController {
+    
+    lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self)
 
     override func viewDidLoad() {
         
