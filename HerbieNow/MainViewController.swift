@@ -30,11 +30,21 @@ protocol MainViewControllerProtocol {
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        <#load last known filter configuration#>
+        
+        <#set exclusive touch for all buttons#>
+    
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        <#ask for current user reservation status#>
+        
     }
 
 }
