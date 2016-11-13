@@ -12,6 +12,15 @@ protocol MainViewInterpreterProtocol {
     
     // This protocol contains every function, the MainViewController can call.
     
+    /// Called by MainViewController when one of the filter buttons is pressed.
+    func filterButtonPressed(withSenderID: Int)
+    
+    /// Called by MainViewController when the settings button is pressed.
+    func settingsButtonPressed()
+    
+    /// Called by MainViewController when the search button is pressed.
+    func searchButtonPressed()
+    
 }
 
 /// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures. 
@@ -31,6 +40,30 @@ class MainViewInterpreter {
 
 extension MainViewInterpreter: MainViewInterpreterProtocol {
     
+    func filterButtonPressed(withSenderID senderID: Int) {
+        
+        <#convert senderID to Filteroption#>
+        
+        <#save state of filteroptions#>
+        
+        <#Presenter: show checkmark on filter button#>
     
+    }
+    
+    func settingsButtonPressed() {
+        
+        <#Presenter: activate segue to Settings View#>
+        
+    }
+    
+    func searchButtonPressed() {
+        
+        <#call API(s) to get the current vehicle list#>
+
+        <#filter vehicle list with selected filters#>
+        
+        <#Presenter: activate segue to Map View#>
+        
+    }
     
 }
