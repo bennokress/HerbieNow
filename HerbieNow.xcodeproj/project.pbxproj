@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0338BF5E1DD9F5880061EC48 /* Async.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF571DD9F5880061EC48 /* Async.framework */; };
+		0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */; };
+		0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */; };
+		0338BF611DD9F5880061EC48 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */; };
+		0338BF621DD9F5880061EC48 /* SwiftSpinner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */; };
+		0338BF631DD9F5880061EC48 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5C1DD9F5880061EC48 /* Unbox.framework */; };
+		0338BF641DD9F5880061EC48 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5D1DD9F5880061EC48 /* Whisper.framework */; };
 		034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */; };
 		034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */; };
 		034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC16E1DD0B34D00E32EC6 /* Main.storyboard */; };
@@ -42,6 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0338BF571DD9F5880061EC48 /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = Carthage/Build/iOS/Async.framework; sourceTree = "<group>"; };
+		0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = Carthage/Build/iOS/IQKeyboardManager.framework; sourceTree = "<group>"; };
+		0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
+		0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSpinner.framework; path = Carthage/Build/iOS/SwiftSpinner.framework; sourceTree = "<group>"; };
+		0338BF5C1DD9F5880061EC48 /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = Carthage/Build/iOS/Unbox.framework; sourceTree = "<group>"; };
+		0338BF5D1DD9F5880061EC48 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		034EC1671DD0B34D00E32EC6 /* HerbieNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HerbieNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +84,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0338BF5E1DD9F5880061EC48 /* Async.framework in Frameworks */,
+				0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */,
+				0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */,
+				0338BF611DD9F5880061EC48 /* KeychainAccess.framework in Frameworks */,
+				0338BF621DD9F5880061EC48 /* SwiftSpinner.framework in Frameworks */,
+				0338BF631DD9F5880061EC48 /* Unbox.framework in Frameworks */,
+				0338BF641DD9F5880061EC48 /* Whisper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +111,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0338BF561DD9F5870061EC48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0338BF571DD9F5880061EC48 /* Async.framework */,
+				0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */,
+				0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */,
+				0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */,
+				0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */,
+				0338BF5C1DD9F5880061EC48 /* Unbox.framework */,
+				0338BF5D1DD9F5880061EC48 /* Whisper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		034EC15E1DD0B34D00E32EC6 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +132,7 @@
 				034EC1811DD0B34D00E32EC6 /* HerbieNowTests */,
 				034EC18C1DD0B34D00E32EC6 /* HerbieNowUITests */,
 				034EC1681DD0B34D00E32EC6 /* Products */,
+				0338BF561DD9F5870061EC48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,6 +235,7 @@
 				034EC1631DD0B34D00E32EC6 /* Sources */,
 				034EC1641DD0B34D00E32EC6 /* Frameworks */,
 				034EC1651DD0B34D00E32EC6 /* Resources */,
+				0338BF551DD9F5490061EC48 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,6 +357,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0338BF551DD9F5490061EC48 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Async.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManager.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftSpinner.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Whisper.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		034EC1631DD0B34D00E32EC6 /* Sources */ = {
@@ -488,6 +548,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HerbieNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNow;
@@ -501,6 +565,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EM47M4JQ9E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HerbieNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNow;

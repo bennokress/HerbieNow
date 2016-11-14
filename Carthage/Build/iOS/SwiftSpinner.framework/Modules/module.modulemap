@@ -1,0 +1,10 @@
+framework module SwiftSpinner {
+  umbrella header "SwiftSpinner.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftSpinner.Swift {
+    header "SwiftSpinner-Swift.h"
+}

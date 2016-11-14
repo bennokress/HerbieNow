@@ -1,0 +1,7 @@
+framework module Async {
+    umbrella header "Async.h"
+}
+
+module Async.Swift {
+    header "Async-Swift.h"
+}
