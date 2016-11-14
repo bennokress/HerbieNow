@@ -1,0 +1,6 @@
+github "duemunk/Async" "2.0.0"
+github "hackiftekhar/IQKeyboardManager" "v4.0.7"
+github "kishikawakatsumi/KeychainAccess" "v3.0.1"
+github "icanzilb/SwiftSpinner" "1.1.0"
+github "JohnSundell/Unbox" "2.2.1"
+github "hyperoslo/Whisper" "4.0.0"

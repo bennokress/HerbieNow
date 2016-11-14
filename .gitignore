@@ -1,0 +1,4 @@
+Carthage/Checkouts
+Carthage/Build
+xcuserdata/
+*.xcuserstate
