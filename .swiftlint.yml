@@ -51,11 +51,6 @@ custom_rules:
     regex: "([a-zA-Z0-9=?.\(\),><!'\"][ ]{2,}[a-zA-Z0-9?.\(\),><!'\"])"
     message: "Remove extra whitespaces"
     severity: warning
-  missing_closure_name:
-    name: "Missing closure name"
-    regex: "^\s*\}\) \{.*"
-    message: "Add the missing closure name"
-    severity: warning
   empty_commented_line:
     name: "Empty Commented Out Line"
     regex: "(\t+| +)//\n"
@@ -100,11 +95,6 @@ custom_rules:
     name: "Empty closure params"
     regex: "\{ (\(\) -> Void in)$"
     message: "`() -> Void in` should be avoided"
-    severity: warning
-  missing_closure_datatype:
-    name: "Missing Closure Data Type"
-    regex: "(\{[\s]{1}\([^:]+?\)[\s]{1}in)"
-    message: "Data Type in Closure is missing"
     severity: warning
   invalid_mark_format:
     name: "Invalid MARK Format"
