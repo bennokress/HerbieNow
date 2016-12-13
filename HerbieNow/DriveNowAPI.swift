@@ -74,7 +74,7 @@ extension DriveNowAPI: API {
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
             print("Result: \(response.result)")      // result of response serialization
-            
+
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
@@ -88,7 +88,7 @@ extension DriveNowAPI: API {
     }
 
     func getUserData() {
-        
+
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/legacy/user?language=de&auth=\(xAuthToken)"
@@ -103,7 +103,7 @@ extension DriveNowAPI: API {
                 print("JSON: \(JSON)")
             }
         }
-        
+
         // TODO: JSON parsen
         // TODO: Open Car Token in Keychain speichern
 
@@ -131,7 +131,7 @@ extension DriveNowAPI: API {
     }
 
     func getAvailableVehicles() {
-        
+
         let url = "https://api2.drive-now.com/cities/4604/cars?expand=full"
 
         api.request(url, method: .get, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
@@ -148,25 +148,25 @@ extension DriveNowAPI: API {
     }
 
     func reserveVehicle(withVIN vin: String) {
-        
+
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"
         let openCarToken = "YYY"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/reservation/request?auth=\(xAuthToken)&language=de"
-        
+
         let parameters: Parameters = [
             "auth" : xAuthToken,
             "carID" : vin,
             "language" : "de",
             "openCarToken" : openCarToken
         ]
-        
+
         api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
             print("Result: \(response.result)")      // result of response serialization
-            
+
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
@@ -175,24 +175,24 @@ extension DriveNowAPI: API {
     }
 
     func cancelReservation() {
-        
+
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"
         let openCarToken = "YYY"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/reservation/cancel?auth=\(xAuthToken)&language=de"
-        
+
         let parameters: Parameters = [
             "auth" : xAuthToken,
             "language" : "de",
             "openCarToken" : openCarToken
         ]
-        
+
         api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
             print("Result: \(response.result)")      // result of response serialization
-            
+
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
@@ -201,24 +201,24 @@ extension DriveNowAPI: API {
     }
 
     func openVehicle(withVIN vin: String) {
-        
+
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"
         let openCarToken = "YYY"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/open?auth=\(xAuthToken)&language=de"
-        
+
         let parameters: Parameters = [
             "auth" : xAuthToken,
             "language" : "de",
             "openCarToken" : openCarToken
         ]
-        
+
         api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
             print("Result: \(response.result)")      // result of response serialization
-            
+
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
@@ -227,24 +227,24 @@ extension DriveNowAPI: API {
     }
 
     func closeVehicle(withVIN vin: String) {
-        
+
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"
         let openCarToken = "YYY"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/close?auth=\(xAuthToken)&language=de"
-        
+
         let parameters: Parameters = [
             "auth" : xAuthToken,
             "language" : "de",
             "openCarToken" : openCarToken
         ]
-        
+
         api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
             print("Result: \(response.result)")      // result of response serialization
-            
+
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
