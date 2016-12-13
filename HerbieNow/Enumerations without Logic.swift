@@ -31,11 +31,12 @@ enum Provider {
 
 }
 
-enum APIRequestMethod {
+enum APIRequestMethod: String {
     
-    case get
-    case post
-    case delete
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
     
 }
 

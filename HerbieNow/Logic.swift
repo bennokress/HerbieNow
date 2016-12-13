@@ -11,6 +11,7 @@ import Foundation
 protocol LogicProtocol {
 
     // This protocol contains every function, every […]ViewInterpreter can call.
+    
     func getConfiguredAccounts() -> [Account]
 
     func getConfiguredFiltersets() -> [Int : Filterset]
@@ -18,30 +19,17 @@ protocol LogicProtocol {
     func isAccountConfigured(for provider: Provider) -> Bool
 
     func getFilterset(for id: Int) -> Filterset?
-
-    //    /**
-    //     Trigger login at specified provider.
-
-    //     - Parameters:
-    //         - provider: Specified provider
-    //         - successful: Closure, that tells if the login was successful
-    //     */
-    //    func login(at provider: Provider, successful: (Bool) -> Void)
-
-    //    /// Get user data from the specified provider and save it to the user model.
-    //    func getUserData(from provider: Provider)
-
-    //    /**
-    //     Look for an active reservation with the specified provider.
-
-    //     - Parameters:
-    //     - provider: Specified provider
-    //     - userHasActiveReservation: Closure, that tells if the user has an active reservation
-    //     */
-    //    func getReservationStatus(from provider: Provider, userHasActiveReservation: (Bool) -> Void)
-
-    //    func getAvailableVehicles(from provider: Provider)
-    //    func reserveVehicle(at provider: Provider)
+    
+    // MARK: - API Methods
+    
+    func login(with provider: Provider, as username: String, withPassword password: String)
+    func getUserData(from provider: Provider)
+    func getReservationStatus(from provider: Provider)
+    func getAvailableVehicles(from provider: Provider)
+    func reserveVehicle(with provider: Provider)
+    func cancelReservation(with provider: Provider)
+    func openVehicle(with provider: Provider)
+    func closeVehicle(with provider: Provider)
 
 }
 
@@ -78,5 +66,55 @@ extension Logic: LogicProtocol {
         return nil
 
     }
-
+    
+    // MARK: - API Methods
+    
+    func login(with provider: Provider, as username: String, withPassword password: String) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func getUserData(from provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func getReservationStatus(from provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func getAvailableVehicles(from provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func reserveVehicle(with provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func cancelReservation(with provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func openVehicle(with provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
+    func closeVehicle(with provider: Provider) {
+        
+        // TODO: Route calls to correct API
+        
+    }
+    
 }
