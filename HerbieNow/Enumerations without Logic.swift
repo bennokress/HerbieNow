@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum Filterset {
 
@@ -28,4 +29,25 @@ enum Provider {
     case driveNow
     case car2go
 
+}
+
+enum APIRequestMethod {
+    
+    case get
+    case post
+    case delete
+    
+}
+
+enum APIRequest {
+    
+    case login(username: String, password: String)
+    case userData
+    case carList
+    case reservationStatus
+    case reserveCar(withVIN: String)
+    case cancelReservation
+    case openCar
+    case closeCar
+    
 }

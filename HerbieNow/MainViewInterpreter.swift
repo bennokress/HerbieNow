@@ -53,8 +53,6 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
         presenter.configureFiltersetButtons(with: configuredFiltersets)
 
-        // TODO: Location laden
-
     }
 
     func accountButtonPressed() {

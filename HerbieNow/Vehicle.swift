@@ -11,6 +11,7 @@ import Foundation
 // struct, because it makes sense for a vehicle to be called by value (and therefore copied, when assigned to a variable)
 struct Vehicle {
 
+    //    let provider: Provider
     //    let name: String
     //    let vin: String
     //    let model: String
