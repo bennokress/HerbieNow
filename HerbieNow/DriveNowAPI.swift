@@ -8,14 +8,15 @@
 
 import Foundation
 
-class DriveNowAPI: API {
+class DriveNowAPI {
 
     // Singleton - call via DriveNowAPI.shared
     static var shared = DriveNowAPI()
+    private init() {}
 
-    private init() {
+}
 
-    }
+extension DriveNowAPI: API {
 
     func login(as username: String, withPassword password: String) {
 

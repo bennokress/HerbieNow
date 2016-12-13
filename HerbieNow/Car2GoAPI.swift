@@ -8,14 +8,15 @@
 
 import Foundation
 
-class Car2GoAPI: API {
-
+class Car2GoAPI {
+    
     // Singleton - call via Car2GoAPI.shared
     static var shared = Car2GoAPI()
+    private init() {}
+    
+}
 
-    private init() {
-
-    }
+extension Car2GoAPI: API {
 
     func login(as username: String, withPassword password: String) {
 
