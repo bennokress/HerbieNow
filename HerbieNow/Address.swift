@@ -15,13 +15,13 @@ class Address {
     //    let city: String
     //    let latitude: Double
     //    let longitude: Double
-    //
+
     //    init(street: String, areaCode: String, city: String) {
     //        self.street = street
     //        self.areaCode = areaCode
     //        self.city = city
     //    }
-    //
+
     //    init(latitude: Double, longitude: Double) {
     //        self.latitude = latitude
     //        self.longitude = longitude

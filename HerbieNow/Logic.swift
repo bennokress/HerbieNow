@@ -21,26 +21,25 @@ protocol LogicProtocol {
 
     //    /**
     //     Trigger login at specified provider.
-    //
+
     //     - Parameters:
     //         - provider: Specified provider
     //         - successful: Closure, that tells if the login was successful
     //     */
     //    func login(at provider: Provider, successful: (Bool) -> Void)
-    //
+
     //    /// Get user data from the specified provider and save it to the user model.
     //    func getUserData(from provider: Provider)
-    //
+
     //    /**
     //     Look for an active reservation with the specified provider.
-    //
+
     //     - Parameters:
     //     - provider: Specified provider
     //     - userHasActiveReservation: Closure, that tells if the user has an active reservation
     //     */
     //    func getReservationStatus(from provider: Provider, userHasActiveReservation: (Bool) -> Void)
-    //
-    //
+
     //    func getAvailableVehicles(from provider: Provider)
     //    func reserveVehicle(at provider: Provider)
 

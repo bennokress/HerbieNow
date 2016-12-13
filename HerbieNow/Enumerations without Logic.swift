@@ -10,11 +10,11 @@ import Foundation
 
 enum Filterset {
 
-    // MARK: Providers
+    // MARK: - Providers
     case driveNow
     case car2go
 
-    // MARK: Characteristics
+    // MARK: - Characteristics
     case sportscar
     case hifiUpgrade
     case convertible

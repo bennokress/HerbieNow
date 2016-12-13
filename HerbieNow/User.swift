@@ -17,11 +17,11 @@ class User {
         return hasConfiguredAccount(for: .driveNow) || hasConfiguredAccount(for: .car2go)
     }
 
-    // MARK: DriveNow
+    // MARK: - DriveNow
     var xAuthToken: String? = nil // maybe move to keychain for more security
     var openCarToken: String? = nil // maybe move to keychain for more security
 
-    // MARK: Car2Go
+    // MARK: - Car2Go
     // TODO: List necessary User Data to be stored in model
 
     private init() {
