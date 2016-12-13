@@ -10,11 +10,11 @@ import Foundation
 
 // struct, because it makes sense for a vehicle to be called by value (and therefore copied, when assigned to a variable)
 struct Vehicle {
-    
-//    let name: String
-//    let vin: String
-//    let model: String
-//    let hp: Int
-//    let address: Address
-    
+
+    //    let name: String
+    //    let vin: String
+    //    let model: String
+    //    let hp: Int
+    //    let address: Address
+
 }

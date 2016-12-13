@@ -9,23 +9,23 @@
 import Foundation
 
 enum Filterset {
-    
+
     // MARK: Providers
     case driveNow
     case car2go
-    
+
     // MARK: Characteristics
     case sportscar
     case hifiUpgrade
     case convertible
     case electric
     // TODO: Implement more filteroptions
-    
+
 }
 
 enum Provider {
-    
+
     case driveNow
     case car2go
-    
+
 }

@@ -155,8 +155,8 @@
 				0375789F1DD0B47F00AA8FC0 /* Helper Files */,
 				037578A61DD0B7B000AA8FC0 /* Services */,
 				0375789C1DD0B43000AA8FC0 /* Model */,
+				0375789D1DD0B43E00AA8FC0 /* Presenter */,
 				0375789E1DD0B46400AA8FC0 /* View */,
-				0375789D1DD0B43E00AA8FC0 /* Controller */,
 			);
 			path = HerbieNow;
 			sourceTree = "<group>";
@@ -192,14 +192,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		0375789D1DD0B43E00AA8FC0 /* Controller */ = {
+		0375789D1DD0B43E00AA8FC0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
 				037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */,
 				037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */,
 			);
-			name = Controller;
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 		0375789E1DD0B46400AA8FC0 /* View */ = {
@@ -207,6 +206,7 @@
 			children = (
 				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
+				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

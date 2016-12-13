@@ -9,15 +9,15 @@
 import Foundation
 
 class Account {
-    
+
     var provider: Provider
     var username: String
     var password: String
-    
+
     init(provider: Provider, username: String, password: String) {
         self.provider = provider
         self.username = username
         self.password = password
     }
-    
+
 }
