@@ -57,14 +57,20 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     
     func viewDidAppear() {
         
-        // TODO: Überprüfe, welche Accounts verbunden sind
-        // TODO: Filtersets laden
+        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
+        // TODO: Presenter --> zeige Account-Buttons mit korrektem Status (angemeldet oder nicht) an
+        
+        let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
+        // TODO: Presenter --> zeige Filterset-Buttons mit korrektem Status (konfiguriert oder nicht) an
+        
+        // TODO: Location laden
         
     }
     
     func accountButtonPressed() {
         
         // TODO: Überprüfe, ob der Account verbunden ist
+        // logic.isAccountConfigured(for: Provider)
         
     }
     
@@ -74,15 +80,17 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     
     func filtersetButtonPressed() {
         
-        // TODO: Prüfe, ob der Button unbelegt oder schon mit Filterset belegt ist
-        // unbelegt: createFilterset()
-        // belegt: goToMapView(with: Filterset)
+        // TODO: id durch filtersetButton ID ersetzen
+        let id = 1
+        
+        let filterset = logic.getFilterset(for: id)
+        goToMapView(with: filterset)
     
     }
     
     func filtersetButtonLongPressed() {
         
-        // TODO: Anzeige von Delete Alert View
+        // TODO: Presenter --> Anzeige von Delete Alert View
         
     }
     

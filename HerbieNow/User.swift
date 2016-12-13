@@ -13,14 +13,8 @@ class User {
     // Singleton - call via User.shared
     static var shared = User()
     
-    var hasDriveNowAccount: Bool {
-        // TODO: Add logic by querying, if username and password is stored -> change return value
-        return true
-    }
-    
-    var hasCar2GoAccount: Bool {
-        // TODO: Add logic by querying, if username and password is stored -> change return value
-        return true
+    var hasAtLeastOneAccountConfigured: Bool {
+        return hasConfiguredAccount(for: .driveNow) || hasConfiguredAccount(for: .car2go)
     }
     
     // MARK: DriveNow
@@ -32,6 +26,11 @@ class User {
     
     private init() {
         
+    }
+    
+    func hasConfiguredAccount(for provider: Provider) -> Bool {
+        // TODO: Add logic by querying, if username and password is stored -> change return value
+        return true
     }
 
 }

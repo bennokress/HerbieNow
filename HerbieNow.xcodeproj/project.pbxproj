@@ -29,6 +29,7 @@
 		039F0B721DD8D6A000AB56C0 /* Enumerations without Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations without Logic.swift */; };
 		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
+		D3C2475F1E0035FE0019AFA7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C2475E1E0035FE0019AFA7 /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		039F0B711DD8D6A000AB56C0 /* Enumerations without Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enumerations without Logic.swift"; sourceTree = "<group>"; };
 		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		D3C2475E1E0035FE0019AFA7 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				039F0B711DD8D6A000AB56C0 /* Enumerations without Logic.swift */,
+				D3C2475E1E0035FE0019AFA7 /* Account.swift */,
 				037578A41DD0B68200AA8FC0 /* Address.swift */,
 				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
 				039F0B731DD8DBC500AB56C0 /* User.swift */,
@@ -401,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
+				D3C2475F1E0035FE0019AFA7 /* Account.swift in Sources */,
 				037578A51DD0B68200AA8FC0 /* Address.swift in Sources */,
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
