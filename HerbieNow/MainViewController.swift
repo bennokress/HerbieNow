@@ -15,14 +15,14 @@ protocol MainViewControllerProtocol {
     /// Performs the segue to Map View. Typically after the search button is pressed.
     func goToMapView(with filter: Filterset?)
     
-    /// Performs the segue to Settings View. Typically after the settings button is pressed.
-    func goToSettingsView()
-    
     // TODO: Add arguments and documentation comment
     func displayFiltersetButtons()
     
     // TODO: Add arguments and documentation comment
     func displayAccountButtons()
+    
+    // TODO: Add arguments and documentation comment
+    func displayWelcomeSequence()
     
 }
 
@@ -47,8 +47,6 @@ class MainViewController: UIViewController {
         // TODO: 6. Filtersets + Symbol ->  Filter erstellen (View Wechsel)
         // TODO: 7. Kartenansicht -> Karte (ohne Filter) (View Wechsel)
         // TODO: 8. Einstellungen -> Einstellungen (View Wechsel)
-        
-        interpreter.viewDidLoad()
     
     }
     
@@ -60,7 +58,11 @@ class MainViewController: UIViewController {
         
     }
     
-    private func filterSetButtonPressed() {
+    private func filtersetButtonPressed() {
+        
+    }
+    
+    private func filtersetButtonLongPressed() {
         
     }
     
@@ -69,10 +71,6 @@ class MainViewController: UIViewController {
     }
     
     private func mapButtonPressed() {
-        
-    }
-    
-    private func settingsButtonPressed() {
         
     }
     
@@ -85,10 +83,6 @@ class MainViewController: UIViewController {
 //extension MainViewController: MainViewControllerProtocol {
 //    
 //    func goToMapView(with filter: Filterset? = nil) {
-//        <#code#>
-//    }
-//    
-//    func goToSettingsView() {
 //        <#code#>
 //    }
 //    

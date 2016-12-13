@@ -12,18 +12,15 @@ protocol MainViewInterpreterProtocol {
     
     // This protocol contains every function, the MainViewController can call.
     
-    func viewDidLoad()
-    
     func viewDidAppear()
     
-    /// Called by MainViewController when one of the filter buttons is pressed.
-    func filterButtonPressed(withSenderID: Int)
+    func accountButtonPressed()
     
-    /// Called by MainViewController when the settings button is pressed.
-    func settingsButtonPressed()
+    func mapButtonPressed()
     
-    /// Called by MainViewController when the search button is pressed.
-    func searchButtonPressed()
+    func filtersetButtonPressed()
+    
+    func filtersetButtonLongPressed()
     
 }
 
@@ -40,41 +37,52 @@ class MainViewInterpreter {
         
     }
     
+    fileprivate func createFilterset() {
+        
+    }
+    
+    fileprivate func goToMapView(with filterset: Filterset? = nil) {
+        
+        if let selectFilterset = filterset {
+            // TODO: Presenter --> zeige gefilterte Kartenansicht
+        } else {
+            // TODO: Presenter --> zeige ungefilterte Kartenansicht
+        }
+        
+    }
+    
 }
 
 extension MainViewInterpreter: MainViewInterpreterProtocol {
     
-    func viewDidLoad() {
-        <#code#>
-    }
-    
     func viewDidAppear() {
-        <#code#>
-    }
-    
-    func filterButtonPressed(withSenderID senderID: Int) {
         
-        <#convert senderID to Filteroption#>
-        
-        <#invert current state of the Filteroption#>
-        
-        <#Presenter: show / hide the checkmark on the selected filter button#>
-    
-    }
-    
-    func settingsButtonPressed() {
-        
-        <#Presenter: activate segue to Settings View#>
+        // TODO: Überprüfe, welche Accounts verbunden sind
+        // TODO: Filtersets laden
         
     }
     
-    func searchButtonPressed() {
+    func accountButtonPressed() {
         
-        <#call API(s) to get the current vehicle list#>
-
-        <#filter vehicle list with selected filters#>
+        // TODO: Überprüfe, ob der Account verbunden ist
         
-        <#Presenter: activate segue to Map View#>
+    }
+    
+    func mapButtonPressed() {
+        goToMapView()
+    }
+    
+    func filtersetButtonPressed() {
+        
+        // TODO: Prüfe, ob der Button unbelegt oder schon mit Filterset belegt ist
+        // unbelegt: createFilterset()
+        // belegt: goToMapView(with: Filterset)
+    
+    }
+    
+    func filtersetButtonLongPressed() {
+        
+        // TODO: Anzeige von Delete Alert View
         
     }
     
