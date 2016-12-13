@@ -35,7 +35,19 @@ class MainViewController: UIViewController {
         
         super.viewDidLoad()
         
-        <#load last known filter configuration#>
+        // TODO: 1. Überprüfe, welche Accounts verbunden sind, wenn verbunden, ohne Transparenz
+        // TODO: 2. Wenn keine Accounts verbunden sind, welcome Sequence
+        // TODO: 3. Wenn einer nicht Verbunden, Plus Symbol anzeigen über logo anzeigen, zum verbinden
+        // TODO: 4. Klick auf Plus - POP up mit Login-Daten eingeben -> Überprüfen + Persitent speichern
+        
+        // TODO: 5. Filtersets laden
+        
+        // TODO: 6. Filtersets + Symbol ->  Filter erstellen (View Wechsel)
+        // TODO: 7. Kartenansicht -> Karte (ohne Filter) (View Wechsel)
+        // TODO: 8. Einstellungen -> Einstellungen (View Wechsel)
+        
+     
+        load last known filter configuration
         
         <#set exclusive touch for all buttons#>
     
