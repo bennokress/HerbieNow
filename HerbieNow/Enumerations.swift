@@ -1,5 +1,5 @@
 //
-//  Filteroption.swift
+//  Enumerations.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 13.11.16.
