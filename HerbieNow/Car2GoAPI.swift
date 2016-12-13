@@ -42,11 +42,11 @@ extension Car2GoAPI: API {
 
     }
 
-    func openVehicle(withVin vin: String) {
+    func openVehicle(withVIN vin: String) {
 
     }
 
-    func closeVehicle(withVin vin: String) {
+    func closeVehicle(withVIN vin: String) {
 
     }
 

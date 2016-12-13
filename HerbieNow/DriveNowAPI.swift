@@ -200,7 +200,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func openVehicle(withVin vin: String) {
+    func openVehicle(withVIN vin: String) {
         
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"
@@ -226,7 +226,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func closeVehicle(withVin vin: String) {
+    func closeVehicle(withVIN vin: String) {
         
         // TODO: X-Auth-Token aus Keychain laden
         let xAuthToken = "XXX"

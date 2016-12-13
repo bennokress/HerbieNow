@@ -26,10 +26,10 @@ protocol LogicProtocol {
     func getUserData(from provider: Provider)
     func getReservationStatus(from provider: Provider)
     func getAvailableVehicles(from provider: Provider)
-    func reserveVehicle(with provider: Provider)
+    func reserveVehicle(withVIN vin: String, of provider: Provider)
     func cancelReservation(with provider: Provider)
-    func openVehicle(with provider: Provider)
-    func closeVehicle(with provider: Provider)
+    func openVehicle(withVIN vin: String, of provider: Provider)
+    func closeVehicle(withVIN vin: String, of provider: Provider)
 
 }
 
@@ -101,10 +101,10 @@ extension Logic: LogicProtocol {
 
     }
 
-    func reserveVehicle(with provider: Provider) {
+    func reserveVehicle(withVIN vin: String, of provider: Provider) {
 
         let api = provider.api()
-        api.reserveVehicle()
+        api.reserveVehicle(withVIN: vin)
 
     }
 
@@ -115,17 +115,17 @@ extension Logic: LogicProtocol {
 
     }
 
-    func openVehicle(with provider: Provider) {
+    func openVehicle(withVIN vin: String, of provider: Provider) {
 
         let api = provider.api()
-        api.openVehicle()
+        api.openVehicle(withVIN: vin)
 
     }
 
-    func closeVehicle(with provider: Provider) {
+    func closeVehicle(withVIN vin: String, of provider: Provider) {
 
         let api = provider.api()
-        api.closeVehicle()
+        api.closeVehicle(withVIN: vin)
 
     }
 
