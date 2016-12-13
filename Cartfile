@@ -1,3 +1,4 @@
+github "Alamofire/Alamofire"							 	# easy API call framework
 github "JohnSundell/Unbox"								 	# deal with JSON responses more easily
 github "kishikawakatsumi/KeychainAccess"					# better keychain usage for saving passwords and tokens
 github "duemunk/Async"										# better thread handling with less "pyramid of doom"

@@ -48,5 +48,9 @@ enum APIRequestMethod: String {
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
+    
+    func method() -> String {
+        return self.rawValue
+    }
 
 }
