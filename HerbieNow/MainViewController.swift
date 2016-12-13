@@ -54,31 +54,51 @@ class MainViewController: UIViewController {
     }
     
     private func filtersetButtonPressed() {
-        
+        interpreter.filtersetButtonPressed()
     }
     
     private func filtersetButtonLongPressed() {
-        
+        interpreter.filtersetButtonLongPressed()
     }
     
     private func accountButtonPressed() {
-        
+        interpreter.accountButtonPressed()
     }
     
     private func mapButtonPressed() {
-        
+        interpreter.mapButtonPressed()
     }
     
     private func setExclusiveTouchForAllButtons() {
-        
+        // TODO: implement exclusive touch for all buttons
     }
 
 }
 
-//extension MainViewController: MainViewControllerProtocol {
-//    
-//    func goToMapView(with filterset: Filterset? = nil) {
-//        
-//    }
-//    
-//}
+extension MainViewController: MainViewControllerProtocol {
+    
+    func goToMapView(with filterset: Filterset) {
+        // TODO: implement function
+    }
+    
+    func goToMapViewWithoutFilter() {
+        // TODO: implement function
+    }
+    
+    func displayFiltersetButtons() {
+        // TODO: implement function
+    }
+    
+    func displayAccountButtons() {
+        // TODO: implement function
+    }
+    
+    func displayWelcomeSequence() {
+        // TODO: implement function
+    }
+    
+    func showDeleteFiltersetAlert(for filterset: Filterset) {
+        // TODO: implement function
+    }
+    
+}
