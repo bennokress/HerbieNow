@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Filteroption {
+enum Filterset {
     
     // MARK: Providers
     case driveNow

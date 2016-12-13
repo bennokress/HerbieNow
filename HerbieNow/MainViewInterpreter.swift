@@ -12,6 +12,10 @@ protocol MainViewInterpreterProtocol {
     
     // This protocol contains every function, the MainViewController can call.
     
+    func viewDidLoad()
+    
+    func viewDidAppear()
+    
     /// Called by MainViewController when one of the filter buttons is pressed.
     func filterButtonPressed(withSenderID: Int)
     
@@ -39,6 +43,14 @@ class MainViewInterpreter {
 }
 
 extension MainViewInterpreter: MainViewInterpreterProtocol {
+    
+    func viewDidLoad() {
+        <#code#>
+    }
+    
+    func viewDidAppear() {
+        <#code#>
+    }
     
     func filterButtonPressed(withSenderID senderID: Int) {
         
