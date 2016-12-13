@@ -30,7 +30,7 @@ class MainViewInterpreter {
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
     
-    init(for mainVC: MainViewController? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
+    init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
         
         self.presenter = MainViewPresenter(to: mainVC)
         self.logic = Logic()
@@ -41,16 +41,6 @@ class MainViewInterpreter {
         
     }
     
-    fileprivate func goToMapView(with filterset: Filterset? = nil) {
-        
-        if let selectFilterset = filterset {
-            // TODO: Presenter --> zeige gefilterte Kartenansicht
-        } else {
-            // TODO: Presenter --> zeige ungefilterte Kartenansicht
-        }
-        
-    }
-    
 }
 
 extension MainViewInterpreter: MainViewInterpreterProtocol {
@@ -58,10 +48,10 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     func viewDidAppear() {
         
         let configuredAccounts: [Account] = logic.getConfiguredAccounts()
-        // TODO: Presenter --> zeige Account-Buttons mit korrektem Status (angemeldet oder nicht) an
+        presenter.configureAccountButtons(with: configuredAccounts)
         
         let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
-        // TODO: Presenter --> zeige Filterset-Buttons mit korrektem Status (konfiguriert oder nicht) an
+        presenter.configureFiltersetButtons(with: configuredFiltersets)
         
         // TODO: Location laden
         
@@ -75,7 +65,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     }
     
     func mapButtonPressed() {
-        goToMapView()
+        presenter.goToMapView()
     }
     
     func filtersetButtonPressed() {
@@ -84,14 +74,14 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         let id = 1
         
         let filterset = logic.getFilterset(for: id)
-        goToMapView(with: filterset)
+        presenter.goToMapView(with: filterset)
     
     }
     
     func filtersetButtonLongPressed() {
         
-        // TODO: Presenter --> Anzeige von Delete Alert View
-        
+        // TODO: richtiges filterset herausfinden und übergeben
+        // presenter.showDeleteFiltersetAlert(for: filterset)
     }
     
 }

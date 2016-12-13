@@ -59,12 +59,14 @@ extension Logic: LogicProtocol {
     func getConfiguredAccounts() -> [Account] {
         
         // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
+        return []
         
     }
     
     func getConfiguredFiltersets() -> [Int : Filterset] {
         
         // TODO: Filtersets abfragen und zurückgeben als Dictionary mit Set-Nummer 1-9 und Filterset.
+        return [:]
         
     }
     

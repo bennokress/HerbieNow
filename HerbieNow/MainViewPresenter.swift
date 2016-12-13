@@ -12,26 +12,30 @@ protocol MainViewPresenterProtocol {
     
     // This protocol contains every function, the MainViewInterpreter can call.
     
-    /// Displays a checkmark on the selected filter.
-    func showCheckmark(for filter: Filteroption)
+    func goToMapView(with filterset: Filterset?)
     
-    /// Displays no checkmark on the selected filter.
-    func hideCheckmark(for filter: Filteroption)
+    func configureAccountButtons(with accounts: [Account])
     
-    /// Activates segue to Settings View
-    func showSettingsView()
+    func configureFiltersetButtons(with filtersets: [Int : Filterset])
     
-    /// Activates segue to Map View
-    func showMapView()
+    func showDeleteFiltersetAlert(for filterset: Filterset)
+    
+}
+
+extension MainViewPresenterProtocol {
+    
+    func goToMapView(with filterset: Filterset? = nil) {
+        goToMapView(with: filterset)
+    }
     
 }
 
 /// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
 class MainViewPresenter {
     
-    weak var mainVC: MainViewController? // avoiding a retain cycle with this weak reference
+    weak var mainVC: MainViewControllerProtocol? // avoiding a retain cycle with this weak reference
     
-    init(to mainViewController: MainViewController? = nil) {
+    init(to mainViewController: MainViewControllerProtocol? = nil) {
         mainVC = mainViewController
     }
     
@@ -39,20 +43,30 @@ class MainViewPresenter {
 
 extension MainViewPresenter: MainViewPresenterProtocol {
     
-    func showCheckmark(for filter: Filteroption) {
-        <#code#>
+    func goToMapView(with filterset: Filterset?) {
+        if let selectedFilterset = filterset {
+            mainVC?.goToMapView(with: selectedFilterset)
+        } else {
+            mainVC?.goToMapViewWithoutFilter()
+        }
     }
     
-    func hideCheckmark(for filter: Filteroption) {
-        <#code#>
+    func configureAccountButtons(with accounts: [Account]) {
+        
+        // TODO: activate or deactivate account buttons
+        
     }
     
-    func showSettingsView() {
-        <#code#>
+    func configureFiltersetButtons(with filtersets: [Int : Filterset]) {
+        
+        // TODO: activate or deactivate filterset buttons
+        
     }
     
-    func showMapView() {
-        <#code#>
+    func showDeleteFiltersetAlert(for filterset: Filterset) {
+        
+        // TODO: present alert
+        
     }
     
 }
