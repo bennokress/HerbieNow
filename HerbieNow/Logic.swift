@@ -11,7 +11,7 @@ import Foundation
 protocol LogicProtocol {
 
     // This protocol contains every function, every […]ViewInterpreter can call.
-    
+
     func getConfiguredAccounts() -> [Account]
 
     func getConfiguredFiltersets() -> [Int : Filterset]
@@ -19,9 +19,9 @@ protocol LogicProtocol {
     func isAccountConfigured(for provider: Provider) -> Bool
 
     func getFilterset(for id: Int) -> Filterset?
-    
+
     // MARK: - API Methods
-    
+
     func login(with provider: Provider, as username: String, withPassword password: String)
     func getUserData(from provider: Provider)
     func getReservationStatus(from provider: Provider)
@@ -66,55 +66,67 @@ extension Logic: LogicProtocol {
         return nil
 
     }
-    
+
     // MARK: - API Methods
-    
+
+    // TODO: Closures zu allen API Calls hinzufügen
+
     func login(with provider: Provider, as username: String, withPassword password: String) {
-        
-        // TODO: Route calls to correct API
-        
+
+        // TODO: Nutzername und Passwort speichern --> UserDefaults & Keychain
+
+        let api = provider.api()
+        api.login(as: username, withPassword: password)
+
     }
-    
+
     func getUserData(from provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.getUserData()
+
     }
-    
+
     func getReservationStatus(from provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.getReservationStatus()
+
     }
-    
+
     func getAvailableVehicles(from provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.getAvailableVehicles()
+
     }
-    
+
     func reserveVehicle(with provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.reserveVehicle()
+
     }
-    
+
     func cancelReservation(with provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.cancelReservation()
+
     }
-    
+
     func openVehicle(with provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.openVehicle()
+
     }
-    
+
     func closeVehicle(with provider: Provider) {
-        
-        // TODO: Route calls to correct API
-        
+
+        let api = provider.api()
+        api.closeVehicle()
+
     }
-    
+
 }

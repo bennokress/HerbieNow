@@ -29,26 +29,24 @@ enum Provider {
     case driveNow
     case car2go
 
+    func api() -> API {
+
+        switch self {
+        case .driveNow:
+            return DriveNowAPI.shared
+        case .car2go:
+            return Car2GoAPI.shared
+        }
+
+    }
+
 }
 
 enum APIRequestMethod: String {
-    
+
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
-    
-}
 
-enum APIRequest {
-    
-    case login(username: String, password: String)
-    case userData
-    case carList
-    case reservationStatus
-    case reserveCar(withVIN: String)
-    case cancelReservation
-    case openCar
-    case closeCar
-    
 }
