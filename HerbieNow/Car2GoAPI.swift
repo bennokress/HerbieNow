@@ -9,11 +9,11 @@
 import Foundation
 
 class Car2GoAPI {
-    
+
     // Singleton - call via Car2GoAPI.shared
     static var shared = Car2GoAPI()
     private init() {}
-    
+
 }
 
 extension Car2GoAPI: API {
@@ -34,7 +34,7 @@ extension Car2GoAPI: API {
 
     }
 
-    func reserveVehicle() {
+    func reserveVehicle(withVIN vin: String) {
 
     }
 
@@ -42,11 +42,11 @@ extension Car2GoAPI: API {
 
     }
 
-    func openVehicle() {
+    func openVehicle(withVin vin: String) {
 
     }
 
-    func closeVehicle() {
+    func closeVehicle(withVin vin: String) {
 
     }
 

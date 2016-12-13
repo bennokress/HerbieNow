@@ -10,6 +10,8 @@ import Foundation
 
 protocol MainViewInterpreterProtocol {
 
+    func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
+
     // This protocol contains every function, the MainViewController can call.
 
     func viewDidAppear()
@@ -80,6 +82,12 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
 
         // TODO: richtiges filterset herausfinden und übergeben
         // presenter.showDeleteFiltersetAlert(for: filterset)
+    }
+
+    // Das da unten kann dann später mal weg ...
+
+    func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
+        logic.getAvailableVehicles(from: .driveNow)
     }
 
 }

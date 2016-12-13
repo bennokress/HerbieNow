@@ -43,6 +43,8 @@ class MainViewController: UIViewController {
 
         setExclusiveTouchForAllButtons()
 
+        interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

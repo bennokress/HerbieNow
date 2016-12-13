@@ -14,9 +14,9 @@ protocol API {
     func getUserData()
     func getReservationStatus()
     func getAvailableVehicles()
-    func reserveVehicle()
+    func reserveVehicle(withVIN vin: String)
     func cancelReservation()
-    func openVehicle()
-    func closeVehicle()
+    func openVehicle(withVin vin: String)
+    func closeVehicle(withVin vin: String)
 
 }
