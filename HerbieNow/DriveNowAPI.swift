@@ -21,40 +21,23 @@ extension String: ParameterEncoding {
 
 class DriveNowAPI {
 
-    var api: SessionManager
-
     // Singleton - call via DriveNowAPI.shared
     static var shared = DriveNowAPI()
-    private init() {
+    private init() {}
 
-        var headers = Alamofire.SessionManager.defaultHTTPHeaders
-        headers.removeAll()
-
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = headers
-
-        api = Alamofire.SessionManager(configuration: configuration)
-
-    }
-
-    let loginHeaders: HTTPHeaders = [
-        "Accept" : "application/json;v=1.6",
-        "Accept-Encoding" : "gzip, deflate, sdch",
-        "Accept-Language" : "de-DE,de;q=0.8,en-US;q=0.6,en;q=0.4",
-        "Connection" : "keep-alive",
-        "Host" : "api2.drive-now.com",
-        "Origin" : "https://de.drive-now.com",
-        "X-Api-Key" : "adf51226795afbc4e7575ccc124face7",
-        "X-Language" : "de",
-        "Content-Type" : "application/json"
+    let headers: HTTPHeaders = [
+        "host": "metrows.drive-now.com",
+        "accept": "application/json;v=1.9",
+        "accept-language": "de",
+        "x-api-key": "adf51226795afbc4e7575ccc124face7",
+        "accept-encoding": "json, deflate",
+        "content-type": "application/x-www-form-urlencoded",
+        "apikey": "hfh1ukf765iutqed4mvilmbzfexdywak",
+        "connection": "keep-alive"
     ]
 
-    var fullHeaders: HTTPHeaders {
-        var headers = loginHeaders
-        // TODO: X-Auth-Token aus Keychain laden
-        headers["X-Auth-Token"] = "XXX"
-        return headers
-    }
+    let apiKey = "hfh1ukf765iutqed4mvilmbzfexdywak"
+    let language = "en"
 
 }
 
@@ -62,28 +45,25 @@ extension DriveNowAPI: API {
 
     func login(as username: String, withPassword password: String) {
 
-        let url = "https://api2.drive-now.com/login"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v3/user/login"
 
         let parameters: Parameters = [
-            "username" : username,
+            "apikey" : apiKey,
+            "language" : language,
+            "user" : username,
             "password" : password
         ]
 
-        let postage = api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: loginHeaders).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
-
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
 
-        debugPrint(postage)
-
         // TODO: JSON parsen
-        // TODO: X-Auth-Token in Keychain speichern
+        // TODO: auth als X-Auth-Token in Keychain speichern
 
     }
 
@@ -93,7 +73,7 @@ extension DriveNowAPI: API {
         let xAuthToken = "XXX"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/legacy/user?language=de&auth=\(xAuthToken)"
 
-        api.request(url).responseJSON { response in
+        Alamofire.request(url).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
@@ -115,7 +95,7 @@ extension DriveNowAPI: API {
         let xAuthToken = "XXX"
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/user/status?language=de&auth=\(xAuthToken)"
 
-        api.request(url).responseJSON { response in
+        Alamofire.request(url).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
@@ -134,7 +114,7 @@ extension DriveNowAPI: API {
 
         let url = "https://api2.drive-now.com/cities/4604/cars?expand=full"
 
-        api.request(url, method: .get, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
+        Alamofire.request(url, headers: headers).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
@@ -161,7 +141,7 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
@@ -187,7 +167,7 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
@@ -213,7 +193,7 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
@@ -239,7 +219,7 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        api.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: fullHeaders).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             print("Request: \(response.request)")    // original URL request
             print("Response: \(response.response)")  // HTTP URL response
             print("Data: \(response.data)")          // server data
