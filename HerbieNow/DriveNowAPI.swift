@@ -21,23 +21,43 @@ extension String: ParameterEncoding {
 
 class DriveNowAPI {
 
+    let apiKey: String
+    let language: String
+    var metrowsHeaders: HTTPHeaders
+    var api2Headers: HTTPHeaders
+
+    // TODO: Tokens aus Keychain abrufen
+    //    var xAuthToken: String = { return keychain.xAuthToken }
+    //    var openCarToken: String = { return keychain.openCarToken }
+
+    let xAuthToken = "XXX"
+    let openCarToken = "XXX"
+
     // Singleton - call via DriveNowAPI.shared
     static var shared = DriveNowAPI()
-    private init() {}
+    private init() {
 
-    let headers: HTTPHeaders = [
-        "host": "metrows.drive-now.com",
-        "accept": "application/json;v=1.9",
-        "accept-language": "de",
-        "x-api-key": "adf51226795afbc4e7575ccc124face7",
-        "accept-encoding": "json, deflate",
-        "content-type": "application/x-www-form-urlencoded",
-        "apikey": "hfh1ukf765iutqed4mvilmbzfexdywak",
-        "connection": "keep-alive"
-    ]
+        apiKey = "hfh1ukf765iutqed4mvilmbzfexdywak"
+        language = "de"
 
-    let apiKey = "hfh1ukf765iutqed4mvilmbzfexdywak"
-    let language = "en"
+        let baseHeaders = [
+            "accept": "application/json;v=1.9",
+            "accept-language": language,
+            "x-api-key": "adf51226795afbc4e7575ccc124face7",
+            "accept-encoding": "json, deflate",
+            "apikey": apiKey,
+            "connection": "keep-alive"
+        ]
+
+        metrowsHeaders = baseHeaders
+            .appending("metrows.drive-now.com", forKey: "host")
+            .appending("mmkp=cAdEsw6k", forKey: "cookie")
+            .appending("application/x-www-form-urlencoded", forKey: "content-type")
+
+        api2Headers = baseHeaders
+            .appending("api2.drive-now.com", forKey: "host")
+
+    }
 
 }
 
@@ -54,9 +74,9 @@ extension DriveNowAPI: API {
             "password" : password
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
             } else {
                 print("Error: No JSON received!")
             }
@@ -69,40 +89,41 @@ extension DriveNowAPI: API {
 
     func getUserData() {
 
-        // TODO: X-Auth-Token aus Keychain laden
-        let xAuthToken = "XXX"
-        let url = "https://metrows.drive-now.com/php/drivenowws/v1/legacy/user?language=de&auth=\(xAuthToken)"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v1/legacy/user"
 
-        Alamofire.request(url).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
+        let parameters: Parameters = [
+            "auth" : xAuthToken,
+            "language" : language
+        ]
 
+        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
 
         // TODO: JSON parsen
-        // TODO: Open Car Token in Keychain speichern
 
     }
 
     func getReservationStatus() {
 
-        // TODO: X-Auth-Token aus Keychain laden
-        let xAuthToken = "XXX"
-        let url = "https://metrows.drive-now.com/php/drivenowws/v1/user/status?language=de&auth=\(xAuthToken)"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v1/user/status"
 
-        Alamofire.request(url).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
+        let parameters: Parameters = [
+            "auth" : xAuthToken,
+            "language" : language,
+            "openCarToken" : openCarToken,
+            "waitForPending" : "1"
+        ]
 
+        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
 
@@ -110,82 +131,84 @@ extension DriveNowAPI: API {
 
     }
 
-    func getAvailableVehicles() {
+    func getAvailableVehicles(around latitude: Double, _ longitude: Double) {
 
-        let url = "https://api2.drive-now.com/cities/4604/cars?expand=full"
+        let url = "https://api2.drive-now.com/cities"
 
-        Alamofire.request(url, headers: headers).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
+        let parameters: Parameters = [
+            "expand" : "full",
+            "expandNearestCity" : "1",
+            "language" : language,
+            "latitude" : "\(latitude)",
+            "longitude" : "\(longitude)",
+            "onlyCarsNotInParkingSpace" : "1"
+        ]
+
+        let post = Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: api2Headers).responseJSON { response in
+            //            print("Request: \(response.request)")    // original URL request
+            //            print("Response: \(response.response)")  // HTTP URL response
+            //            print("Data: \(response.data)")          // server data
             print("Result: \(response.result)")      // result of response serialization
 
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
+            //            if let JSON = response.result.value {
+            //                print("JSON: \(JSON)")
+            //            }
         }
+
+        debugPrint(post)
+
+        // TODO: JSON parsen
 
     }
 
     func reserveVehicle(withVIN vin: String) {
 
-        // TODO: X-Auth-Token aus Keychain laden
-        let xAuthToken = "XXX"
-        let openCarToken = "YYY"
-        let url = "https://metrows.drive-now.com/php/drivenowws/v1/reservation/request?auth=\(xAuthToken)&language=de"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v2/reservation/request"
 
         let parameters: Parameters = [
             "auth" : xAuthToken,
-            "carID" : vin,
-            "language" : "de",
+            "carId" : vin,
+            "language" : language,
             "openCarToken" : openCarToken
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
-
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
+
+        // TODO: JSON parsen
 
     }
 
     func cancelReservation() {
 
-        // TODO: X-Auth-Token aus Keychain laden
-        let xAuthToken = "XXX"
-        let openCarToken = "YYY"
-        let url = "https://metrows.drive-now.com/php/drivenowws/v1/reservation/cancel?auth=\(xAuthToken)&language=de"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v1/reservation/cancel"
 
         let parameters: Parameters = [
             "auth" : xAuthToken,
-            "language" : "de",
+            "language" : language,
             "openCarToken" : openCarToken
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
-
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
+
+        // TODO: JSON parsen
 
     }
 
     func openVehicle(withVIN vin: String) {
 
-        // TODO: X-Auth-Token aus Keychain laden
-        let xAuthToken = "XXX"
-        let openCarToken = "YYY"
-        let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/open?auth=\(xAuthToken)&language=de"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/open"
 
         let parameters: Parameters = [
             "auth" : xAuthToken,
@@ -193,25 +216,21 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
-
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
+
+        // TODO: JSON parsen
 
     }
 
     func closeVehicle(withVIN vin: String) {
 
-        // TODO: X-Auth-Token aus Keychain laden
-        let xAuthToken = "XXX"
-        let openCarToken = "YYY"
-        let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/close?auth=\(xAuthToken)&language=de"
+        let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/close"
 
         let parameters: Parameters = [
             "auth" : xAuthToken,
@@ -219,16 +238,62 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            print("Request: \(response.request)")    // original URL request
-            print("Response: \(response.response)")  // HTTP URL response
-            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
-
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
             }
         }
+
+        // TODO: JSON parsen
+
+    }
+
+    // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
+    private func getUserDataNewVersion() {
+
+        let url = "https://metrows.drive-now.com/php/drivenowws/v3/user"
+
+        let parameters: Parameters = [
+            "auth" : xAuthToken,
+            "language" : language,
+            "openCarToken" : openCarToken
+        ]
+
+        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
+            if let JSON = response.result.value {
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
+            }
+        }
+
+        // TODO: JSON parsen
+
+    }
+
+    private func getOpenCarToken(for cardNumber: String) {
+
+        let url = "https://metrows.drive-now.com/php/drivenowws/v1/user/opencar"
+
+        let parameters: Parameters = [
+            "auth" : xAuthToken,
+            "language" : language,
+            "device" : "HerbieNow iPhone",
+            "secret" : cardNumber
+        ]
+
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
+            if let JSON = response.result.value {
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
+            }
+        }
+
+        // TODO: JSON parsen
+        // TODO: token als Open Car Token in Keychain speichern
 
     }
 

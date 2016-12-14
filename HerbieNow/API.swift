@@ -13,7 +13,7 @@ protocol API {
     func login(as username: String, withPassword password: String)
     func getUserData()
     func getReservationStatus()
-    func getAvailableVehicles()
+    func getAvailableVehicles(around latitude: Double, _ longitude: Double)
     func reserveVehicle(withVIN vin: String)
     func cancelReservation()
     func openVehicle(withVIN vin: String)

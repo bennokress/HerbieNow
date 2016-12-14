@@ -30,7 +30,7 @@ extension Car2GoAPI: API {
 
     }
 
-    func getAvailableVehicles() {
+    func getAvailableVehicles(around latitude: Double, _ longitude: Double) {
 
     }
 

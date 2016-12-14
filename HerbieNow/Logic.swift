@@ -25,7 +25,7 @@ protocol LogicProtocol {
     func login(with provider: Provider, as username: String, withPassword password: String)
     func getUserData(from provider: Provider)
     func getReservationStatus(from provider: Provider)
-    func getAvailableVehicles(from provider: Provider)
+    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double)
     func reserveVehicle(withVIN vin: String, of provider: Provider)
     func cancelReservation(with provider: Provider)
     func openVehicle(withVIN vin: String, of provider: Provider)
@@ -94,10 +94,10 @@ extension Logic: LogicProtocol {
 
     }
 
-    func getAvailableVehicles(from provider: Provider) {
+    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double) {
 
         let api = provider.api()
-        api.getAvailableVehicles()
+        api.getAvailableVehicles(around: latitude, longitude)
 
     }
 

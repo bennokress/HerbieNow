@@ -87,7 +87,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     // Das da unten kann dann später mal weg ...
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        logic.login(with: .driveNow, as: "user@mail.de", withPassword: "123456")
+        logic.getAvailableVehicles(from: .driveNow, around: 48.183402, 11.550423)
     }
 
 }

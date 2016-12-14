@@ -1,0 +1,27 @@
+Die in der App verwendeten Bilder der Autos finden sind immer nach folgendem Schema zu finden:
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/{model}/{color}/{density}/car.png
+
+Beispiele:
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_1er/saphire_black/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/mini_5_tuerer/pepper_white/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/mini_3_tuerer/midnight_black/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_i3/laurus_grey/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_2er_cabrio/saphire_black/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_2er_active_tourer/alpine_white/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/mini_cabrio/midnight_black/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/mini_clubman/pure_burgundy/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_i3_rex/capparis_white/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_i3_rex/ionic_silver/2x/car.png
+
+https://prod.drive-now-content.com/fileadmin/user_upload_global/assets/cars/bmw_x1/alpine_white/2x/car.png
