@@ -44,7 +44,8 @@ class DriveNowAPI {
             "accept": "application/json;v=1.9",
             "accept-language": language,
             "x-api-key": "adf51226795afbc4e7575ccc124face7",
-            "accept-encoding": "json, deflate",
+            "User-Agent" : "DriveNow/3.16.1 (iPhone; iOS 10.2; Scale/3.00)",
+            "accept-encoding": "gzip, deflate",
             "apikey": apiKey,
             "connection": "keep-alive"
         ]
@@ -144,21 +145,15 @@ extension DriveNowAPI: API {
             "onlyCarsNotInParkingSpace" : "1"
         ]
 
-        let post = Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: api2Headers).responseJSON { response in
-            //            print("Request: \(response.request)")    // original URL request
-            //            print("Response: \(response.response)")  // HTTP URL response
-            //            print("Data: \(response.data)")          // server data
-            print("Result: \(response.result)")      // result of response serialization
-
-            //            if let JSON = response.result.value {
-            //                print("JSON: \(JSON)")
-            //            }
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: api2Headers).responseJSON { response in
+            if let JSON = response.result.value {
+                print("JSON:\n\(JSON)")
+            } else {
+                print("Error: No JSON received!")
+            }
         }
 
-        debugPrint(post)
-
         // TODO: JSON parsen
-
     }
 
     func reserveVehicle(withVIN vin: String) {
