@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import JASON
 
 class DriveNowAPI {
 
@@ -74,7 +75,7 @@ extension DriveNowAPI: API {
     func login() {
 
         guard let username = getSavedUsername(), let password = getSavedPassword() else {
-            errorHandling(message: "Error: DriveNow.getUserData - No X-Auth-Token present!")
+            errorHandling(message: "Error: DriveNow.login - No X-Auth-Token present!")
             return
         }
 
@@ -87,16 +88,19 @@ extension DriveNowAPI: API {
             "password" : password
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
-            if let JSON = response.result.value {
-                print("JSON:\n\(JSON)")
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { response in
+            if let json = response.result.value {
+                let xAuthToken = json["auth"].string
+                guard let confirmedXAuthToken = xAuthToken else {
+                    self.errorHandling(message: "Error: DriveNow.login - No X-Auth-Token in response!")
+                    return
+                }
+                print(confirmedXAuthToken)
+                self.keychain.add(value: confirmedXAuthToken, forKey: "DriveNow X-Auth-Token")
             } else {
-                print("Error: No JSON received!")
+                self.errorHandling(message: "Error: DriveNow.login - Response is not in JSON-format!")
             }
         }
-
-        // TODO: JSON parsen
-        // TODO: auth als X-Auth-Token in Keychain speichern
 
     }
 
