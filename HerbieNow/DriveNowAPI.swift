@@ -310,15 +310,13 @@ extension DriveNowAPI: API {
             "openCarToken" : openCarToken
         ]
 
-        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
-            if let JSON = response.result.value {
-                print("JSON:\n\(JSON)")
+        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { response in
+            if let json = response.result.value {
+                print(json)
             } else {
-                print("Error: No JSON received!")
+                self.errorHandling(message: "Error: DriveNow.getUserDataNewVersion - Response is not in JSON-format!")
             }
         }
-
-        // TODO: JSON parsen
 
     }
 
@@ -339,16 +337,18 @@ extension DriveNowAPI: API {
             "secret" : cardNumber
         ]
 
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
-            if let JSON = response.result.value {
-                print("JSON:\n\(JSON)")
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { response in
+            if let json = response.result.value {
+                let openCarToken = json["token"].string
+                guard let confirmedOpenCarToken = openCarToken else {
+                    self.errorHandling(message: "Error: DriveNow.getOpenCarToken - No Open-Car-Token in response!")
+                    return
+                }
+                self.keychain.add(value: confirmedOpenCarToken, forKey: "DriveNow Open-Car-Token")
             } else {
-                print("Error: No JSON received!")
+                self.errorHandling(message: "Error: DriveNow.getOpenCarToken - Response is not in JSON-format!")
             }
         }
-
-        // TODO: JSON parsen
-        // TODO: token als Open Car Token in Keychain speichern
 
     }
 
