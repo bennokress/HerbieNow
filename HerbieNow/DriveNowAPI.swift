@@ -20,18 +20,13 @@ extension String: ParameterEncoding {
 }
 
 class DriveNowAPI {
+    
+    let keychain = KeychainService.shared
 
     let apiKey: String
     let language: String
     var metrowsHeaders: HTTPHeaders
     var api2Headers: HTTPHeaders
-
-    // TODO: Tokens aus Keychain abrufen
-    //    var xAuthToken: String = { return keychain.xAuthToken }
-    //    var openCarToken: String = { return keychain.openCarToken }
-
-    let xAuthToken = "XXX"
-    let openCarToken = "XXX"
 
     // Singleton - call via DriveNowAPI.shared
     static var shared = DriveNowAPI()
@@ -59,12 +54,36 @@ class DriveNowAPI {
             .appending("api2.drive-now.com", forKey: "host")
 
     }
+    
+    fileprivate func getSavedUsername() -> String? {
+        // TODO: Get username from UserDefaults
+        return nil
+    }
+    
+    fileprivate func getSavedPassword() -> String? {
+        return keychain.findValue(forKey: "DriveNow Password")
+    }
+    
+    fileprivate func getSavedXAuthToken() -> String? {
+        return keychain.findValue(forKey: "DriveNow X-Auth-Token")
+    }
+    
+    fileprivate func getSavedOpenCarToken() -> String? {
+        return keychain.findValue(forKey: "DriveNow Open-Car-Token")
+    }
 
 }
 
 extension DriveNowAPI: API {
 
     func login(as username: String, withPassword password: String) {
+        
+        //TODO: Replace arguments username and password with retrieval from UserDefaults and Keychain
+        
+        guard let username = getSavedUsername(), let password = getSavedPassword() else {
+            print("Error: DriveNow.getUserData - No X-Auth-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v3/user/login"
 
@@ -89,6 +108,11 @@ extension DriveNowAPI: API {
     }
 
     func getUserData() {
+        
+        guard let xAuthToken = getSavedXAuthToken() else {
+            print("Error: DriveNow.getUserData - No X-Auth-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/legacy/user"
 
@@ -110,6 +134,11 @@ extension DriveNowAPI: API {
     }
 
     func getReservationStatus() {
+        
+        guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
+            print("Error: DriveNow.getReservationStatus - No X-Auth-Token or Open-Car-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/user/status"
 
@@ -157,6 +186,11 @@ extension DriveNowAPI: API {
     }
 
     func reserveVehicle(withVIN vin: String) {
+        
+        guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
+            print("Error: DriveNow.reserveVehicle - No X-Auth-Token or Open-Car-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v2/reservation/request"
 
@@ -180,6 +214,11 @@ extension DriveNowAPI: API {
     }
 
     func cancelReservation() {
+        
+        guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
+            print("Error: DriveNow.cancelReservation - No X-Auth-Token or Open-Car-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/reservation/cancel"
 
@@ -202,6 +241,11 @@ extension DriveNowAPI: API {
     }
 
     func openVehicle(withVIN vin: String) {
+        
+        guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
+            print("Error: DriveNow.openVehicle - No X-Auth-Token or Open-Car-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/open"
 
@@ -224,6 +268,11 @@ extension DriveNowAPI: API {
     }
 
     func closeVehicle(withVIN vin: String) {
+        
+        guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
+            print("Error: DriveNow.closeVehicle - No X-Auth-Token or Open-Car-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/cars/\(vin)/close"
 
@@ -247,6 +296,11 @@ extension DriveNowAPI: API {
 
     // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
     private func getUserDataNewVersion() {
+        
+        guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
+            print("Error: DriveNow.getUserData - No X-Auth-Token or Open-Car-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v3/user"
 
@@ -269,6 +323,11 @@ extension DriveNowAPI: API {
     }
 
     private func getOpenCarToken(for cardNumber: String) {
+        
+        guard let xAuthToken = getSavedXAuthToken() else {
+            print("Error: DriveNow.getOpenCarToken - No X-Auth-Token present!")
+            return
+        }
 
         let url = "https://metrows.drive-now.com/php/drivenowws/v1/user/opencar"
 

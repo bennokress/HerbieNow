@@ -1,7 +1,8 @@
 github "Alamofire/Alamofire"							 	# easy API call framework
 github "JohnSundell/Unbox"								 	# deal with JSON responses more easily
-github "kishikawakatsumi/KeychainAccess"					# better keychain usage for saving passwords and tokens
+# github "kishikawakatsumi/KeychainAccess"					# better keychain usage for saving passwords and tokens
 github "duemunk/Async"										# better thread handling with less "pyramid of doom"
 github "hyperoslo/Whisper"									# styled alerts in the status bar
 github "hackiftekhar/IQKeyboardManager"						# adjust view automatically when keyboard is present (for login with providers) - init in AppDelegate
 github "icanzilb/SwiftSpinner"								# loading animation
+github "bennokress/KeychainAccess"							# temporary fix for 'github "kishikawakatsumi/KeychainAccess"' - switch back when the original is operational

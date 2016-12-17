@@ -29,6 +29,7 @@
 		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
 		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
+		D3297A361E05684600831923 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A351E05684600831923 /* KeychainService.swift */; };
 		D340A2DF1E01FD60001D5153 /* TypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* TypeExtensions.swift */; };
 		D3C2475F1E0035FE0019AFA7 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C2475E1E0035FE0019AFA7 /* Account.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
@@ -82,6 +83,7 @@
 		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		D3297A351E05684600831923 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* TypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeExtensions.swift; sourceTree = "<group>"; };
 		D3C2475E1E0035FE0019AFA7 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				D3C247641E0064080019AFA7 /* API.swift */,
+				D3297A351E05684600831923 /* KeychainService.swift */,
 				D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */,
 				D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */,
 			);
@@ -423,6 +426,7 @@
 				D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */,
 				037578A51DD0B68200AA8FC0 /* Address.swift in Sources */,
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
+				D3297A361E05684600831923 /* KeychainService.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
 				039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
