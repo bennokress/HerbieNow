@@ -95,7 +95,6 @@ extension DriveNowAPI: API {
                     self.errorHandling(message: "Error: DriveNow.login - No X-Auth-Token in response!")
                     return
                 }
-                print(confirmedXAuthToken)
                 self.keychain.add(value: confirmedXAuthToken, forKey: "DriveNow X-Auth-Token")
             } else {
                 self.errorHandling(message: "Error: DriveNow.login - Response is not in JSON-format!")
@@ -118,16 +117,19 @@ extension DriveNowAPI: API {
             "language" : language
         ]
 
-        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJSON { response in
-            if let JSON = response.result.value {
-                print("JSON:\n\(JSON)")
+        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { response in
+            if let json = response.result.value {
+                let openCarToken = json["attributes"]["opencar"]["token"].string
+                guard let confirmedOpenCarToken = openCarToken else {
+                    self.errorHandling(message: "Error: DriveNow.getUserData - No Open-Car-Token in response!")
+                    return
+                }
+                print(confirmedOpenCarToken)
+                self.keychain.add(value: confirmedOpenCarToken, forKey: "DriveNow Open-Car-Token")
             } else {
-                print("Error: No JSON received!")
+                self.errorHandling(message: "Error: DriveNow.getUserData - Response is not in JSON-format!")
             }
         }
-
-        // TODO: JSON parsen
-        // TODO: Open Car Token in Keychain speichern
 
     }
 
