@@ -20,7 +20,7 @@ extension String: ParameterEncoding {
 }
 
 class DriveNowAPI {
-    
+
     let keychain = KeychainService.shared
     let userDefaults = UserDefaultsService.shared
 
@@ -55,23 +55,23 @@ class DriveNowAPI {
             .appending("api2.drive-now.com", forKey: "host")
 
     }
-    
+
     fileprivate func getSavedUsername() -> String? {
         return userDefaults.findValue(forKey: "DriveNow Username")
     }
-    
+
     fileprivate func getSavedPassword() -> String? {
         return keychain.findValue(forKey: "DriveNow Password")
     }
-    
+
     fileprivate func getSavedXAuthToken() -> String? {
         return keychain.findValue(forKey: "DriveNow X-Auth-Token")
     }
-    
+
     fileprivate func getSavedOpenCarToken() -> String? {
         return keychain.findValue(forKey: "DriveNow Open-Car-Token")
     }
-    
+
     fileprivate func errorHandling(message: String) {
         // TODO: implement error handling
         print(message)
@@ -82,7 +82,7 @@ class DriveNowAPI {
 extension DriveNowAPI: API {
 
     func login() {
-        
+
         guard let username = getSavedUsername(), let password = getSavedPassword() else {
             errorHandling(message: "Error: DriveNow.getUserData - No X-Auth-Token present!")
             return
@@ -111,7 +111,7 @@ extension DriveNowAPI: API {
     }
 
     func getUserData() {
-        
+
         guard let xAuthToken = getSavedXAuthToken() else {
             errorHandling(message: "Error: DriveNow.getUserData - No X-Auth-Token present!")
             return
@@ -138,7 +138,7 @@ extension DriveNowAPI: API {
     }
 
     func getReservationStatus() {
-        
+
         guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
             errorHandling(message: "Error: DriveNow.getReservationStatus - No X-Auth-Token or Open-Car-Token present!")
             return
@@ -190,7 +190,7 @@ extension DriveNowAPI: API {
     }
 
     func reserveVehicle(withVIN vin: String) {
-        
+
         guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
             errorHandling(message: "Error: DriveNow.reserveVehicle - No X-Auth-Token or Open-Car-Token present!")
             return
@@ -218,7 +218,7 @@ extension DriveNowAPI: API {
     }
 
     func cancelReservation() {
-        
+
         guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
             errorHandling(message: "Error: DriveNow.cancelReservation - No X-Auth-Token or Open-Car-Token present!")
             return
@@ -245,7 +245,7 @@ extension DriveNowAPI: API {
     }
 
     func openVehicle(withVIN vin: String) {
-        
+
         guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
             errorHandling(message: "Error: DriveNow.openVehicle - No X-Auth-Token or Open-Car-Token present!")
             return
@@ -272,7 +272,7 @@ extension DriveNowAPI: API {
     }
 
     func closeVehicle(withVIN vin: String) {
-        
+
         guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
             errorHandling(message: "Error: DriveNow.closeVehicle - No X-Auth-Token or Open-Car-Token present!")
             return
@@ -300,7 +300,7 @@ extension DriveNowAPI: API {
 
     // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
     private func getUserDataNewVersion() {
-        
+
         guard let xAuthToken = getSavedXAuthToken(), let openCarToken = getSavedOpenCarToken() else {
             errorHandling(message: "Error: DriveNow.getUserData - No X-Auth-Token or Open-Car-Token present!")
             return
@@ -328,7 +328,7 @@ extension DriveNowAPI: API {
 
     // This is just in case DriveNow decides to remove the legacy version of getUserData(), which returns the present openCarToken and makes this call unnecessary
     private func getOpenCarToken(for cardNumber: String) {
-        
+
         guard let xAuthToken = getSavedXAuthToken() else {
             errorHandling(message: "Error: DriveNow.getOpenCarToken - No X-Auth-Token present!")
             return

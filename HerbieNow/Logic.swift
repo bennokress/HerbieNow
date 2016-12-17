@@ -74,7 +74,7 @@ extension Logic: LogicProtocol {
     // TODO: Closures zu allen API Calls hinzufügen
 
     func login(with provider: Provider, as username: String, withPassword password: String) {
-        
+
         userDefaults.add(value: username, forKey: "\(provider.rawValue) Username")
         keychain.add(value: password, forKey: "\(provider.rawValue) Password")
 

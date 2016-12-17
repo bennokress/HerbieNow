@@ -25,7 +25,7 @@ enum Filterset {
 }
 
 enum Provider: String {
-    
+
     // String representation is used for prefixing UserDefaults and Keychain keys
 
     case driveNow = "DriveNow"
