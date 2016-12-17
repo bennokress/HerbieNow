@@ -18,7 +18,7 @@ class Car2GoAPI {
 
 extension Car2GoAPI: API {
 
-    func login(as username: String, withPassword password: String) {
+    func login() {
 
     }
 

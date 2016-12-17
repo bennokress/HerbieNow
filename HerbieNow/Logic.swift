@@ -37,6 +37,8 @@ protocol LogicProtocol {
 class Logic {
 
     let user = User.shared
+    let userDefaults = UserDefaultsService.shared
+    let keychain = KeychainService.shared
 
 }
 
@@ -72,11 +74,12 @@ extension Logic: LogicProtocol {
     // TODO: Closures zu allen API Calls hinzufügen
 
     func login(with provider: Provider, as username: String, withPassword password: String) {
-
-        // TODO: Nutzername und Passwort speichern --> UserDefaults & Keychain
+        
+        userDefaults.add(value: username, forKey: "\(provider.rawValue) Username")
+        keychain.add(value: password, forKey: "\(provider.rawValue) Password")
 
         let api = provider.api()
-        api.login(as: username, withPassword: password)
+        api.login()
 
     }
 

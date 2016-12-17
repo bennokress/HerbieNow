@@ -10,7 +10,7 @@ import Foundation
 
 protocol API {
 
-    func login(as username: String, withPassword password: String)
+    func login()
     func getUserData()
     func getReservationStatus()
     func getAvailableVehicles(around latitude: Double, _ longitude: Double)

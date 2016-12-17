@@ -24,10 +24,12 @@ enum Filterset {
 
 }
 
-enum Provider {
+enum Provider: String {
+    
+    // String representation is used for prefixing UserDefaults and Keychain keys
 
-    case driveNow
-    case car2go
+    case driveNow = "DriveNow"
+    case car2go = "Car2Go"
 
     func api() -> API {
 

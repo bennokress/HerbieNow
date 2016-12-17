@@ -81,9 +81,7 @@ class DriveNowAPI {
 
 extension DriveNowAPI: API {
 
-    func login(as username: String, withPassword password: String) {
-        
-        //TODO: Replace arguments username and password with retrieval from UserDefaults and Keychain
+    func login() {
         
         guard let username = getSavedUsername(), let password = getSavedPassword() else {
             errorHandling(message: "Error: DriveNow.getUserData - No X-Auth-Token present!")
@@ -135,6 +133,7 @@ extension DriveNowAPI: API {
         }
 
         // TODO: JSON parsen
+        // TODO: Open Car Token in Keychain speichern
 
     }
 
@@ -327,6 +326,7 @@ extension DriveNowAPI: API {
 
     }
 
+    // This is just in case DriveNow decides to remove the legacy version of getUserData(), which returns the present openCarToken and makes this call unnecessary
     private func getOpenCarToken(for cardNumber: String) {
         
         guard let xAuthToken = getSavedXAuthToken() else {
