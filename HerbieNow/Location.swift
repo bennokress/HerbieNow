@@ -1,5 +1,5 @@
 //
-//  Address.swift
+//  Location.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 07.11.16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Address {
+class Location {
 
     //    let street: String
     //    let areaCode: String

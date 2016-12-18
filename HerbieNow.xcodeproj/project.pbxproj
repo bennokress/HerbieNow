@@ -23,7 +23,7 @@
 		034EC1831DD0B34D00E32EC6 /* HerbieNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1821DD0B34D00E32EC6 /* HerbieNowTests.swift */; };
 		034EC18E1DD0B34D00E32EC6 /* HerbieNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */; };
 		037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A21DD0B53400AA8FC0 /* Vehicle.swift */; };
-		037578A51DD0B68200AA8FC0 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A41DD0B68200AA8FC0 /* Address.swift */; };
+		037578A51DD0B68200AA8FC0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A41DD0B68200AA8FC0 /* Location.swift */; };
 		037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */; };
 		037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */; };
 		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
@@ -79,7 +79,7 @@
 		034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbieNowUITests.swift; sourceTree = "<group>"; };
 		034EC18F1DD0B34D00E32EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037578A21DD0B53400AA8FC0 /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
-		037578A41DD0B68200AA8FC0 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		037578A41DD0B68200AA8FC0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewInterpreter.swift; sourceTree = "<group>"; };
 		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			children = (
 				039F0B711DD8D6A000AB56C0 /* Enumerations.swift */,
 				D3C2475E1E0035FE0019AFA7 /* Account.swift */,
-				037578A41DD0B68200AA8FC0 /* Address.swift */,
+				037578A41DD0B68200AA8FC0 /* Location.swift */,
 				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
 				039F0B731DD8DBC500AB56C0 /* User.swift */,
 				037578A21DD0B53400AA8FC0 /* Vehicle.swift */,
@@ -432,7 +432,7 @@
 				D3C2475F1E0035FE0019AFA7 /* Account.swift in Sources */,
 				D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */,
 				D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */,
-				037578A51DD0B68200AA8FC0 /* Address.swift in Sources */,
+				037578A51DD0B68200AA8FC0 /* Location.swift in Sources */,
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
 				D3297A361E05684600831923 /* KeychainService.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
