@@ -20,6 +20,7 @@ struct Vehicle {
     let address: Location
     
     // Computed Properties from VIN - Optional can be nil, if unknown
+    // TODO: Write string extensions to determine attributes below via e.g. vin.isConvertible
     let make: String
     let model: String
     let hp: Int?
