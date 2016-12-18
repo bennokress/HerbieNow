@@ -88,7 +88,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
         //        logic.getAvailableVehicles(from: .driveNow, around: 48.183402, 11.550423)
-        logic.getReservationStatus(from: .driveNow)
+        logic.getUserData(from: .driveNow)
     }
 
 }

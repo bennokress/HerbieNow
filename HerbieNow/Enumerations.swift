@@ -56,3 +56,20 @@ enum APIRequestMethod: String {
     }
 
 }
+
+enum APICallResult {
+
+    // TODO: handle response type better
+    case success(contents: Any?)
+    case error(code: Int, codeDetail: String, message: String, parentFunction: String)
+
+    var description: String {
+        switch self {
+        case .success:
+            return "API Call was successful."
+        case .error(let code, let codeDetail, let message, let parentFunction):
+            return "Error \(code) in \(parentFunction): \(message) (\(codeDetail))"
+        }
+    }
+
+}

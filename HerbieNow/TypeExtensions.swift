@@ -10,16 +10,6 @@ import Foundation
 import JASON
 import Alamofire
 
-extension Dictionary {
-
-    func appending(_ value: Value, forKey key: Key) -> [Key: Value] {
-        var result = self
-        result[key] = value
-        return result
-    }
-
-}
-
 extension DataRequest {
 
     /**
@@ -48,6 +38,28 @@ extension DataRequest {
     @discardableResult
     public func responseJASON(completionHandler: @escaping (DataResponse<JASON.JSON>) -> Void) -> Self {
         return response(responseSerializer: DataRequest.JASONReponseSerializer(), completionHandler: completionHandler)
+    }
+
+}
+
+extension Dictionary {
+
+    func appending(_ value: Value, forKey key: Key) -> [Key: Value] {
+        var result = self
+        result[key] = value
+        return result
+    }
+
+}
+
+extension String {
+
+    func toDate(format: String = "yyyy-MM-dd'T'HH:mm:ssZ") -> Date? {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self) ?? nil
+
     }
 
 }
