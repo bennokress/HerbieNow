@@ -11,6 +11,8 @@ import Alamofire
 import JASON
 
 class DriveNowAPI {
+    
+    typealias callback = (APICallResult) -> ()
 
     let keychain = KeychainService.shared
     let userDefaults = UserDefaultsService.shared
@@ -89,14 +91,13 @@ class DriveNowAPI {
 
 extension DriveNowAPI: API {
 
-    func login() {
+    func login(completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.cancelReservation"
 
         guard let username = userDefaults.getUsername(for: driveNow), let password = keychain.getPassword(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow Username in UserDefaults and / or the password in Keychain are missing!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -117,8 +118,7 @@ extension DriveNowAPI: API {
 
                 guard let xAuthToken = json["auth"].string else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
 
@@ -130,21 +130,19 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
-    func getUserData() {
+    func getUserData(completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.getUserData"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token is missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -163,8 +161,7 @@ extension DriveNowAPI: API {
 
                 guard let openCarToken = json["attributes"]["opencar"]["token"].string else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
 
@@ -176,21 +173,19 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
-    func getReservationStatus() {
+    func getReservationStatus(completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.getReservationStatus"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -211,8 +206,7 @@ extension DriveNowAPI: API {
 
                 guard json["reservation"]["status"].string != nil else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
                 
@@ -225,14 +219,13 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
-    func getAvailableVehicles(around latitude: Double, _ longitude: Double) {
+    func getAvailableVehicles(around latitude: Double, _ longitude: Double, completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.getAvailableVehicles"
 
@@ -257,8 +250,7 @@ extension DriveNowAPI: API {
                 
                 guard let jsonVehicles = json["items"][0]["cars"]["items"].jsonArray else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
                 
@@ -274,20 +266,18 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
     }
 
-    func reserveVehicle(withVIN vin: String) {
+    func reserveVehicle(withVIN vin: String, completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.reserveVehicles"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -308,8 +298,7 @@ extension DriveNowAPI: API {
 
                 guard let reservationStatus = json["status"].string else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
 
@@ -320,21 +309,19 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
-    func cancelReservation() {
+    func cancelReservation(completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.cancelReservation"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -354,8 +341,7 @@ extension DriveNowAPI: API {
 
                 guard let reservedUntil = json["reserveduntil"].string?.toDate(), let systemTime = json["systemTime"].string?.toDate() else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
 
@@ -366,21 +352,19 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
-    func openVehicle(withVIN vin: String) {
+    func openVehicle(withVIN vin: String, completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.openVehicle"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -400,8 +384,7 @@ extension DriveNowAPI: API {
                 
                 guard let success = json["success"].string else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
                 
@@ -412,21 +395,19 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
-    func closeVehicle(withVIN vin: String) {
+    func closeVehicle(withVIN vin: String, completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.closeVehicle"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -446,8 +427,7 @@ extension DriveNowAPI: API {
                 
                 guard let success = json["success"].string else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
                 
@@ -458,22 +438,20 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
             
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
     // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
-    private func getUserDataNewVersion() {
+    private func getUserDataNewVersion(completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.getUserDataNewVersion"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -499,22 +477,20 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 
     }
 
     // This is just in case DriveNow decides to remove the legacy version of getUserData(), which returns the present openCarToken and makes this call unnecessary
-    private func getOpenCarToken(for cardNumber: String) {
+    private func getOpenCarToken(for cardNumber: String, completion: @escaping callback) {
 
         let functionName = "DriveNowAPI.getReservationStatus"
 
         guard let xAuthToken = keychain.getXAuthToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token is missing in Keychain!", parentFunction: functionName)
-            // TODO: Completion Handling
-            print(error.description)
+            completion(error)
             return
         }
 
@@ -535,8 +511,7 @@ extension DriveNowAPI: API {
 
                 guard let openCarToken = json["token"].string else {
                     response = self.errorDetails(for: json, in: functionName)
-                    // TODO: Completion Handling
-                    print(response.description)
+                    completion(response)
                     return
                 }
 
@@ -548,8 +523,7 @@ extension DriveNowAPI: API {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
 
-            // TODO: Completion Handling
-            print(response.description)
+            completion(response)
 
         }
 

@@ -88,56 +88,72 @@ extension Logic: LogicProtocol {
         keychain.addPassword(password, for: provider)
 
         let api = provider.api()
-        api.login()
+        api.login() { response in
+            
+        }
 
     }
 
     func getUserData(from provider: Provider) {
 
         let api = provider.api()
-        api.getUserData()
+        api.getUserData() { response in
+            
+        }
 
     }
 
     func getReservationStatus(from provider: Provider) {
 
         let api = provider.api()
-        api.getReservationStatus()
+        api.getReservationStatus() { response in
+            
+        }
 
     }
 
     func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double) {
 
         let api = provider.api()
-        api.getAvailableVehicles(around: latitude, longitude)
+        api.getAvailableVehicles(around: latitude, longitude) { response in
+            
+        }
 
     }
 
     func reserveVehicle(withVIN vin: String, of provider: Provider) {
 
         let api = provider.api()
-        api.reserveVehicle(withVIN: vin)
+        api.reserveVehicle(withVIN: vin) { response in
+            
+        }
 
     }
 
     func cancelReservation(with provider: Provider) {
 
         let api = provider.api()
-        api.cancelReservation()
+        api.cancelReservation() { response in
+            
+        }
 
     }
 
     func openVehicle(withVIN vin: String, of provider: Provider) {
 
         let api = provider.api()
-        api.openVehicle(withVIN: vin)
+        api.openVehicle(withVIN: vin) { response in
+            
+        }
 
     }
 
     func closeVehicle(withVIN vin: String, of provider: Provider) {
 
         let api = provider.api()
-        api.closeVehicle(withVIN: vin)
+        api.closeVehicle(withVIN: vin) { response in
+            
+        }
 
     }
 
