@@ -1,56 +1,12 @@
 //
-//  TypeExtensions.swift
+//  VINExtensions.swift
 //  HerbieNow
 //
-//  Created by Benno Kress on 14.12.16.
+//  Created by Benno Kress on 19.12.16.
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
 import Foundation
-import JASON
-import Alamofire
-
-extension DataRequest {
-
-    /**
-     Creates a response serializer that returns a JASON.JSON object constructed from the response data.
-
-     - returns: A JASON.JSON object response serializer.
-     */
-    static public func JASONReponseSerializer() -> DataResponseSerializer<JASON.JSON> {
-        return DataResponseSerializer { _, _, data, error in
-            guard error == nil else {
-                // swiftlint:disable:next force_unwrapping
-                return .failure(error!)
-            }
-
-            return .success(JASON.JSON(data))
-        }
-    }
-
-    /**
-     Adds a handler to be called once the request has finished.
-
-     - parameter completionHandler: A closure to be executed once the request has finished.
-
-     - returns: The request.
-     */
-    @discardableResult
-    public func responseJASON(completionHandler: @escaping (DataResponse<JASON.JSON>) -> Void) -> Self {
-        return response(responseSerializer: DataRequest.JASONReponseSerializer(), completionHandler: completionHandler)
-    }
-
-}
-
-extension Dictionary {
-
-    func appending(_ value: Value, forKey key: Key) -> [Key: Value] {
-        var result = self
-        result[key] = value
-        return result
-    }
-
-}
 
 extension Int {
     
@@ -62,14 +18,6 @@ extension Int {
 }
 
 extension String {
-
-    func toDate(format: String = "yyyy-MM-dd'T'HH:mm:ssZ") -> Date? {
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.date(from: self) ?? nil
-
-    }
     
     subscript(i: Int) -> String {
         guard i >= 0 && i < characters.count else { return "" }
@@ -120,14 +68,14 @@ extension String {
     var model: String {
         
         if self.makeID == "BMW" || self.makeID == "MINI" {
-        
+            
             switch self.modelID {
                 
             case "LN31", "LN51", "LN71", "LN91", "LR51", "LR71", "LR91", "LU31", "LU71", "LU91": return "Clubman"                                                                   // F54
             case "XS11", "XS51", "XS71", "XS91", "XT11", "XT31", "XT71", "XT91", "XU11", "XU31": return "5 Door"                                                                    // F55
             case "XM51", "XM71", "XM91", "XN11", "XN31", "XN71", "XN91", "XP11", "XP51", "XP51": return "3 Door"                                                                    // F56
             case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return "Cabrio"                                                                                            // F57
-                                                                                                                                                                                    // F60
+            // F60
             case "1Z21", "1Z41": return "i3"                                                                                                                                        // I01
             case "RA11", "RA31", "RB11", "RC31": return "3 Door"                                                                                                                    // R50
             case "RD31", "RF31", "RH31": return "Cabrio"                                                                                                                            // R52
@@ -169,8 +117,24 @@ extension String {
     var kW: Int {
         
         if self.makeID == "BMW" || self.makeID == "MINI" {
-        
+            
             switch self.modelID {
+                
+                // E81 BMW 1er 3 Door (2007)
+                // E82 BMW 1er Coupé (2007)
+                // E84 BMW X1 (2009)
+                // E87 BMW 1er 5 Door (2004)
+                // E88 BMW 1er Cabrio (2008)
+                // F20 BMW 1er 5 Door (2011)
+                // F21 BMW 1er 3 Door (2012)
+                // F22 BMW 2er Coupé (2014)
+                // F23 BMW 2er Cabrio (2014)
+                // F45 BMW 2er Active Tourer (2014)
+                // F46 BMW 2er Grand Tourer (2015)
+                // F48 BMW X1 (2015)
+                // F49 BMW X1 (Langversion - 2016)
+                // F87 BMW M2 Coupé (2015)
+                
                 
             // F54 MINI Clubman (2015)
             case "LN31": return 100 // MINI Cooper Clubman
@@ -217,7 +181,7 @@ extension String {
             case "WH51": return 125 // MINI Cooper SD Cabrio
             case "WH91": return 170 // MINI John Cooper Works Cabrio
                 
-            // F60 MINI Countryman (2017)
+                // F60 MINI Countryman (2017)
                 
             // I01 BMW i3 (2013)
             case "1Z21": return 125 // BMW i3
@@ -330,12 +294,12 @@ extension String {
             case "SS51": return 135 // MINI Cooper S Paceman
             case "SS71": return 135 // MINI Cooper S ALL4 Paceman
             case "SS91": return 160 // MINI John Cooper Works Paceman
-            
+                
             // Unknown
             default: return 0
                 
             }
-        
+            
         } else if self.makeID == "smart" {
             
             switch self.smartEngineID {
@@ -350,7 +314,7 @@ extension String {
             default: return 0
                 
             }
-                
+            
         } else if self.makeID == "Mercedes-Benz" {
             
             // TODO: Add kW informations for Mercedes-Benz vehicles
@@ -359,9 +323,9 @@ extension String {
         } else {
             
             return 0
-        
+            
         }
-    
+        
     }
     
     var hp: Int {
@@ -378,28 +342,28 @@ extension String {
              "WBY1Z21090V309164",
              "WBY1Z210X0V309271",
              "WMWXN310103A75532", // M-DX7837
-             "WMWXN310103A75773", // M-DX5217
-             "WMWXN310203A75636", // M-DX7992
-             "WMWXN310703A75759", // M-DX7812
-             "WMWXN310803A75771", // M-DX7868
-             "WMWXN31030T912195", // M-DX7867
-             "WMWXM710002B89893", // M-DX7948
-             "WMWXM710102B90390", // M-DX5137
-             "WMWXM710102B90440", // M-DX5214
-             "WMWXM710103B23606", // M-DX8802
-             "WMWXM710202B89894", // M-DX7949
-             "WMWXM710302B90438", // M-DX5215
-             "WMWXM710502B90991", // M-DX8666
-             "WMWXM710602B91020", // M-DX8840
-             "WMWXM710702B89941", // M-DX8708
-             "WMWXM710703B20578", // M-DX7866
-             "WMWXM710803B20184", // M-DX7951
-             "WMWXM710803B20234", // M-DX9723
-             "WMWXM710902B89892": // M-DX7952
+        "WMWXN310103A75773", // M-DX5217
+        "WMWXN310203A75636", // M-DX7992
+        "WMWXN310703A75759", // M-DX7812
+        "WMWXN310803A75771", // M-DX7868
+        "WMWXN31030T912195", // M-DX7867
+        "WMWXM710002B89893", // M-DX7948
+        "WMWXM710102B90390", // M-DX5137
+        "WMWXM710102B90440", // M-DX5214
+        "WMWXM710103B23606", // M-DX8802
+        "WMWXM710202B89894", // M-DX7949
+        "WMWXM710302B90438", // M-DX5215
+        "WMWXM710502B90991", // M-DX8666
+        "WMWXM710602B91020", // M-DX8840
+        "WMWXM710702B89941", // M-DX8708
+        "WMWXM710703B20578", // M-DX7866
+        "WMWXM710803B20184", // M-DX7951
+        "WMWXM710803B20234", // M-DX9723
+        "WMWXM710902B89892": // M-DX7952
             return true
         default:
             return false
-        
+            
         }
         
     }
@@ -407,7 +371,7 @@ extension String {
     var isConvertible: Bool {
         
         if self.makeID == "BMW" || self.makeID == "MINI" {
-        
+            
             switch self.modelID {
                 
             case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return true                                    // F57 MINI Cabrio (2016)
@@ -417,7 +381,7 @@ extension String {
             default: return false
                 
             }
-        
+            
         } else if self.makeID == "smart" {
             
             return self.modelID[3] == "4" ? true : false // a smart is only a convertible or roadster, if the 4th digit of its model ID is a 4
@@ -434,5 +398,5 @@ extension String {
         }
         
     }
-
+    
 }
