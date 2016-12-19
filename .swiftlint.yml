@@ -9,6 +9,7 @@ excluded: # paths to ignore during linting. overridden by `included`.
   - Pods
   - External
   - Submodules
+  - HerbieNow/VIN-related Extensions.swift # Custom format is better here
 
 # rule parameters
 cyclomatic_complexity:

@@ -71,21 +71,35 @@ extension String {
             
             switch self.modelID {
                 
-            case "LN31", "LN51", "LN71", "LN91", "LR51", "LR71", "LR91", "LU31", "LU71", "LU91": return "Clubman"                                                                   // F54
-            case "XS11", "XS51", "XS71", "XS91", "XT11", "XT31", "XT71", "XT91", "XU11", "XU31": return "5 Door"                                                                    // F55
-            case "XM51", "XM71", "XM91", "XN11", "XN31", "XN71", "XN91", "XP11", "XP51", "XP51": return "3 Door"                                                                    // F56
-            case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return "Cabrio"                                                                                            // F57
-            // F60
-            case "1Z21", "1Z41": return "i3"                                                                                                                                        // I01
-            case "RA11", "RA31", "RB11", "RC31": return "3 Door"                                                                                                                    // R50
-            case "RD31", "RF31", "RH31": return "Cabrio"                                                                                                                            // R52
-            case "RE31", "RE91": return "3 Door"                                                                                                                                    // R53
-            case "MH31", "MH91", "ML31", "MM31", "MM91", "MN51", "XE51", "ZE31", "ZF31", "ZG31", "ZG91", "ZH11", "ZH51", "ZH71": return "Clubman"                                   // R55
-            case "ME31", "MF31", "MF71", "MF91", "MG31", "MG51", "SR11", "SR31", "SR51", "SR81", "SU31", "SU91", "SV31", "SV91", "SW11", "SW31", "SW51", "SW71": return "3 Door"    // R56
-            case "MR31", "MR91", "MS31", "XF31", "MS91", "ZM31", "ZN31", "ZP31", "ZP91", "ZR31", "ZR71": return "Cabrio"                                                            // R57
-            case "SX11", "SX31", "SX51", "SX71", "SX91": return "Coupé"                                                                                                             // R58
-            case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return "Countryman"                                // R60
-            case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return "Paceman"                                                   // R61
+            case "UA11", "UA31", "UA51", "UA71", "UB11", "UB31", "UB51", "UB71", "UB91", "UK11", "UK31", "UK51": return "1er"                                                           // E81 - 3 Door
+            case "UC11", "UC31", "UC51", "UC71", "UC91", "UR11", "UR31", "UR51", "UR91": return "1er Coupé"                                                                             // E82
+            case "UP31": return "ActiveE"                                                                                                                                               // E82 - ActiveE
+            case "VL31", "VL51", "VL91", "VM11", "VM31", "VM71", "VM91", "VN11", "VN31", "VN71", "VN91", "VP11", "VP31", "VP51", "VP71", "VP91", "VX11", "VY11", "VZ91": return "X1"    // E84
+            case "UD11", "UD31", "UD51", "UD71", "UD91", "UE11", "UE31", "UE51", "UE71", "UF11", "UF31", "UF51", "UF91", "UG31", "UG51", "UH11", "UH31", "UH51": return "1er"           // E87 - 5 Door
+            case "UL51", "UL91", "UM11", "UM31", "UM51", "UM71", "UM91", "UN71", "UN91", "UP11": return "1er Cabrio"                                                                    // E88
+            case "1A11", "1A31", "1A51", "1B51", "1B71", "1B91", "1C11", "1C31", "1C51", "1C71", "1C91", "1R11", "1R51", "1S51", "1S71", "1T11", "1T31", "1T51", "1T91", "1U51",
+                 "1U71", "1U91", "1V11", "1V31", "1V51", "1V71", "1V91", "2R11", "2R31", "2R51": return "1er"                                                                           // F20 - 5 Door
+            case "1D11", "1D31", "1D51", "1E11", "1E31", "1E51", "1E71", "1N11", "1N31", "1N51", "1N71", "1N91", "1P11", "1P51", "1W51", "1W71", "1X11", "1X31", "1X51", "1Y11",
+                 "1Y31", "1Y51", "1Y71", "1Y91", "2P11", "2P31", "2P51", "2P71", "2P91", "2S11": return "1er"                                                                           // F21 - 3 Door
+            case "1F51", "1H11", "1H31", "1H71", "1J11", "1J71", "1J91", "2F11", "2G51", "2G71", "2G91", "2H11": return "2er Coupé"                                                     // F22
+            case "1K51", "1L71", "1M11", "1M31", "1M51", "2L51", "2L71", "2L91": return "2er Cabrio"                                                                                    // F23
+            case "2A31", "2A51", "2A71", "2A91", "2B11", "2B31", "2B91", "2C11", "2C31", "2C51", "2C71", "2X71": return "2er Active Tourer"                                             // F45
+            case "2D31", "2D51", "2D71", "2D91", "2E31", "2E51", "2E71": return "2er Grand Tourer"                                                                                      // F46
+            case "LN31", "LN51", "LN71", "LN91", "LR51", "LR71", "LR91", "LU31", "LU71", "LU91": return "Clubman"                                                                       // F54
+            case "XS11", "XS51", "XS71", "XS91", "XT11", "XT31", "XT71", "XT91", "XU11", "XU31": return "5 Door"                                                                        // F55
+            case "XM51", "XM71", "XM91", "XN11", "XN31", "XN71", "XN91", "XP11", "XP51", "XP51": return "3 Door"                                                                        // F56
+            case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return "Cabrio"                                                                                                // F57
+                                                                                                                                                                                        // F60
+            case "1Z21", "1Z41": return "i3"                                                                                                                                            // I01
+            case "RA11", "RA31", "RB11", "RC31": return "3 Door"                                                                                                                        // R50
+            case "RD31", "RF31", "RH31": return "Cabrio"                                                                                                                                // R52
+            case "RE31", "RE91": return "3 Door"                                                                                                                                        // R53
+            case "MH31", "MH91", "ML31", "MM31", "MM91", "MN51", "XE51", "ZE31", "ZF31", "ZG31", "ZG91", "ZH11", "ZH51", "ZH71": return "Clubman"                                       // R55
+            case "ME31", "MF31", "MF71", "MF91", "MG31", "MG51", "SR11", "SR31", "SR51", "SR81", "SU31", "SU91", "SV31", "SV91", "SW11", "SW31", "SW51", "SW71": return "3 Door"        // R56
+            case "MR31", "MR91", "MS31", "XF31", "MS91", "ZM31", "ZN31", "ZP31", "ZP91", "ZR31", "ZR71": return "Cabrio"                                                                // R57
+            case "SX11", "SX31", "SX51", "SX71", "SX91": return "Coupé"                                                                                                                 // R58
+            case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return "Countryman"                                    // R60
+            case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return "Paceman"                                                       // R61
             default: return "Model" // Unknown BMW or MINI
                 
             }
@@ -120,21 +134,207 @@ extension String {
             
             switch self.modelID {
                 
-                // E81 BMW 1er 3 Door (2007)
-                // E82 BMW 1er Coupé (2007)
-                // E84 BMW X1 (2009)
-                // E87 BMW 1er 5 Door (2004)
-                // E88 BMW 1er Cabrio (2008)
-                // F20 BMW 1er 5 Door (2011)
-                // F21 BMW 1er 3 Door (2012)
-                // F22 BMW 2er Coupé (2014)
-                // F23 BMW 2er Cabrio (2014)
-                // F45 BMW 2er Active Tourer (2014)
-                // F46 BMW 2er Grand Tourer (2015)
-                // F48 BMW X1 (2015)
-                // F49 BMW X1 (Langversion - 2016)
-                // F87 BMW M2 Coupé (2015)
+            // E81 BMW 1er 3 Door (2007)
+            case "UA11": return 85  // BMW 116i 3 Door
+            case "UA31": return 100 // BMW 118i 3 Door
+            case "UA51": return 115 // BMW 120i 3 Door
+            case "UA71": return 125 // BMW 120i 3 Door
+            case "UB11": return 190 // BMW 130i 3 Door
+            case "UB31": return 105 // BMW 118d 3 Door
+            case "UB51": return 130 // BMW 120d 3 Door
+            case "UB71": return 90  // BMW 116i 3 Door
+            case "UB91": return 105 // BMW 118i 3 Door
+            case "UK11": return 150 // BMW 123d 3 Door
+            case "UK31": return 90  // BMW 116d 3 Door
+            case "UK51": return 85  // BMW 116d 3 Door
                 
+            // E82 BMW 1er Coupé (2007)
+            case "UC11": return 125 // BMW 120i Coupé
+            case "UC31": return 160 // BMW 125i Coupé
+            case "UC51": return 115 // BMW 120i Coupé
+            case "UC71": return 225 // BMW 135is Coupé
+            case "UC91": return 225 // BMW 135i Coupé
+            case "UP31": return 120 // BMW ActiveE
+            case "UR11": return 105 // BMW 118d Coupé
+            case "UR31": return 130 // BMW 120d Coupé
+            case "UR51": return 150 // BMW 123d Coupé
+            case "UR91": return 250 // BMW M1 Coupé
+                
+            // E84 BMW X1 (2009)
+            case "VL31": return 110 // BMW X1 sDrive18i
+            case "VL51": return 160 // BMW X1 xDrive25i
+            case "VL91": return 135 // BMW X1 sDrive20i
+            case "VM11": return 180 // BMW X1 xDrive28i
+            case "VM31": return 190 // BMW X1 xDrive28i
+            case "VM71": return 160 // BMW X1 xDrive25d
+            case "VM91": return 135 // BMW X1 xDrive20i
+            case "VN11": return 105 // BMW X1 sDrive18d
+            case "VN31": return 130 // BMW X1 sDrive20d
+            case "VN71": return 105 // BMW X1 sDrive18d
+            case "VN91": return 135 // BMW X1 sDrive20d
+            case "VP11": return 105 // BMW X1 xDrive18d
+            case "VP31": return 130 // BMW X1 xDrive20d
+            case "VP51": return 150 // BMW X1 xDrive23d
+            case "VP71": return 105 // BMW X1 xDrive18d
+            case "VP91": return 135 // BMW X1 xDrive20d
+            case "VX11": return 105 // BMW X1 sDrive16i
+            case "VY11": return 85  // BMW X1 sDrive16d
+            case "VZ91": return 120 // BMW X1 sDrive20d EfficientDynamics Edition
+                
+            // E87 BMW 1er 5 Door (2004)
+            case "UD11": return 125 // BMW 120i 5 Door (LCI)
+            case "UD31": return 115 // BMW 120i 5 Door (LCI)
+            case "UD51": return 190 // BMW 130i 5 Door (LCI)
+            case "UD71": return 105 // BMW 118d 5 Door (LCI)
+            case "UD91": return 130 // BMW 120d 5 Door (LCI)
+            case "UE11": return 85  // BMW 116i 5 Door (LCI)
+            case "UE31": return 90  // BMW 116i 5 Door (LCI)
+            case "UE51": return 105 // BMW 118i 5 Door (LCI)
+            case "UE71": return 100 // BMW 118i 5 Door (LCI)
+            case "UF11": return 85  // BMW 116i 5 Door
+            case "UF31": return 95  // BMW 118i 5 Door
+            case "UF51": return 110 // BMW 120i 5 Door
+            case "UF91": return 195 // BMW 130i 5 Door
+            case "UG31": return 90  // BMW 118d 5 Door
+            case "UG51": return 120 // BMW 120d 5 Door
+            case "UH11": return 150 // BMW 123d 5 Door (LCI)
+            case "UH31": return 90  // BMW 116i 5 Door (LCI)
+            case "UH51": return 85  // BMW 116d 5 Door (LCI)
+                
+            // E88 BMW 1er Cabrio (2008)
+            case "UL51": return 115 // BMW 120i Cabrio
+            case "UL91": return 160 // BMW 125i Cabrio
+            case "UM11": return 105 // BMW 118i Cabrio
+            case "UM31": return 100 // BMW 118i Cabrio
+            case "UM51": return 125 // BMW 120i Cabrio
+            case "UM71": return 130 // BMW 120d Cabrio
+            case "UM91": return 105 // BMW 118d Cabrio
+            case "UN71": return 225 // BMW 135i Cabrio
+            case "UN91": return 225 // BMW 135i Cabrio
+            case "UP11": return 150 // BMW 123d Cabrio
+                
+            // F20 BMW 1er 5 Door (2011)
+            case "1A11": return 100 // BMW 116i 5 Door
+            case "1A31": return 125 // BMW 118i 5 Door
+            case "1A51": return 160 // BMW 125i 5 Door
+            case "1B51": return 135 // BMW 120d 5 Door xDrive
+            case "1B71": return 235 // BMW M135i 5 Door
+            case "1B91": return 235 // BMW M135i 5 Door xDrive
+            case "1C11": return 105 // BMW 118d 5 Door
+            case "1C31": return 135 // BMW 120d 5 Door
+            case "1C51": return 160 // BMW 125d 5 Door
+            case "1C71": return 85  // BMW 116d 5 Door
+            case "1C91": return 85  // BMW 116d 5 Door EfficientDynamics Edition
+            case "1R11": return 75  // BMW 114i 5 Door
+            case "1R51": return 100 // BMW 118i 5 Door
+            case "1S51": return 110 // BMW 118d 5 Door
+            case "1S71": return 140 // BMW 120d 5 Door
+            case "1T11": return 140 // BMW 120d 5 Door xDrive
+            case "1T31": return 165 // BMW 125d 5 Door
+            case "1T51": return 105 // BMW 118d 5 Door xDrive
+            case "1T91": return 70  // BMW 114d 5 Door
+            case "1U51": return 110 // BMW 118d 5 Door xDrive
+            case "1U71": return 130 // BMW 120i 5 Door
+            case "1U91": return 160 // BMW 125i 5 Door
+            case "1V11": return 240 // BMW M135i 5 Door
+            case "1V31": return 240 // BMW M135i 5 Door xDrive
+            case "1V51": return 70  // BMW 114d 5 Door
+            case "1V71": return 85  // BMW 116d 5 Door
+            case "1V91": return 85  // BMW 114d 5 Door EfficientDynamics Edition
+            case "2R11": return 80  // BMW 116i 5 Door
+            case "2R31": return 100 // BMW 118i 5 Door
+            case "2R51": return 70  // BMW 114d 5 Door
+                
+            // F21 BMW 1er 3 Door (2012)
+            case "1D11": return 100 // BMW 116i 3 Door
+            case "1D31": return 125 // BMW 118i 3 Door
+            case "1D51": return 160 // BMW 125i 3 Door
+            case "1E11": return 105 // BMW 118d 3 Door
+            case "1E31": return 135 // BMW 120d 3 Door
+            case "1E51": return 135 // BMW 120d xDrive 3 Door
+            case "1E71": return 160 // BMW 125d 3 Door
+            case "1N11": return 85  // BMW 116d 3 Door
+            case "1N31": return 85  // BMW 116d EfficientDynamics Edition 3 Door
+            case "1N51": return 70  // BMW 114d 3 Door
+            case "1N71": return 235 // BMW M135i 3 Door
+            case "1N91": return 235 // BMW M135i xDrive 3 Door
+            case "1P11": return 75  // BMW 114i 3 Door
+            case "1P51": return 100 // BMW 118i 3 Door
+            case "1W51": return 110 // BMW 118d 3 Door
+            case "1W71": return 140 // BMW 120d 3 Door
+            case "1X11": return 140 // BMW 120d xDrive 3 Door
+            case "1X31": return 165 // BMW 125d 3 Door
+            case "1X51": return 105 // BMW 118d xDrive 3 Door
+            case "1Y11": return 130 // BMW 120i 3 Door
+            case "1Y31": return 160 // BMW 125i 3 Door
+            case "1Y51": return 110 // BMW 118d xDrive 3 Door
+            case "1Y71": return 240 // BMW M135i 3 Door
+            case "1Y91": return 240 // BMW M135i xDrive 3 Door
+            case "2P11": return 70  // BMW 114d 3 Door
+            case "2P31": return 85  // BMW 116d 3 Door
+            case "2P51": return 85  // BMW 116d EfficientDynamics Edition 3 Door
+            case "2P71": return 80  // BMW 116i 3 Door
+            case "2P91": return 100 // BMW 118i 3 Door
+            case "2S11": return 70  // BMW 114d 3 Door
+                
+            // F22 BMW 2er Coupé (2014)
+            case "1F51": return 180 // BMW 228i Coupé
+            case "1H11": return 135 // BMW 220d Coupé
+            case "1H31": return 105 // BMW 218d Coupé
+            case "1H71": return 160 // BMW 225d Coupé
+            case "1J11": return 135 // BMW 220i Coupé
+            case "1J71": return 240 // BMW M235i Coupé
+            case "1J91": return 240 // BMW M235i xDrive Coupé
+            case "2F11": return 100 // BMW 218i Coupé
+            case "2G51": return 110 // BMW 218d Coupé
+            case "2G71": return 140 // BMW 220d Coupé
+            case "2G91": return 140 // BMW 220d xDrive Coupé
+            case "2H11": return 165 // BMW 225d Coupé
+                
+            // F23 BMW 2er Cabrio (2014)
+            case "1K51": return 180 // BMW 228i Cabrio
+            case "1L71": return 135 // BMW 220i Cabrio
+            case "1M11": return 240 // BMW M235i Cabrio
+            case "1M31": return 100 // BMW 218i Cabrio
+            case "1M51": return 240 // BMW M235i xDrive Cabrio
+            case "2L51": return 110 // BMW 218d Cabrio
+            case "2L71": return 140 // BMW 220d Cabrio
+            case "2L91": return 165 // BMW 225d Cabrio
+                
+            // F45 BMW 2er Active Tourer (2014)
+            case "2A31": return 100 // BMW 218i Active Tourer
+            case "2A51": return 141 // BMW 220i Active Tourer
+            case "2A71": return 170 // BMW 225i Active Tourer
+            case "2A91": return 170 // BMW 225i xDrive Active Tourer
+            case "2B11": return 70  // BMW 214d Active Tourer
+            case "2B31": return 85  // BMW 216d Active Tourer
+            case "2B91": return 110 // BMW 218d xDrive Active Tourer
+            case "2C11": return 110 // BMW 218d Active Tourer
+            case "2C31": return 140 // BMW 220d Active Tourer
+            case "2C51": return 140 // BMW 220d xDrive Active Tourer
+            case "2C71": return 165 // BMW 225xe Active Tourer
+            case "2X71": return 75  // BMW 216i Active Tourer
+                
+            // F46 BMW 2er Grand Tourer (2015)
+            case "2D31": return 100 // BMW 218i Grand Tourer
+            case "2D51": return 141 // BMW 220i Grand Tourer
+            case "2D71": return 140 // BMW 220d xDrive Grand Tourer
+            case "2D91": return 75  // BMW 216i Grand Tourer
+            case "2E31": return 85  // BMW 216d Grand Tourer
+            case "2E51": return 110 // BMW 218d Grand Tourer
+            case "2E71": return 140 // BMW 220d Grand Tourer
+                
+            // F48 BMW X1 (2015)
+            case "HS11": return 100 // BMW X1 sDrive18i
+            case "HS71": return 141 // BMW X1 sDrive20i
+            case "HS91": return 141 // BMW X1 xDrive20i
+            case "HT11": return 170 // BMW X1 xDrive25i
+            case "HT51": return 85  // BMW X1 sDrive16d
+            case "HT71": return 110 // BMW X1 sDrive18d
+            case "HT91": return 110 // BMW X1 xDrive18d
+            case "HU11": return 140 // BMW X1 sDrive20d
+            case "HU31": return 140 // BMW X1 xDrive20d
+            case "HU51": return 170 // BMW X1 xDrive25d
                 
             // F54 MINI Clubman (2015)
             case "LN31": return 100 // MINI Cooper Clubman
@@ -181,7 +381,7 @@ extension String {
             case "WH51": return 125 // MINI Cooper SD Cabrio
             case "WH91": return 170 // MINI John Cooper Works Cabrio
                 
-                // F60 MINI Countryman (2017)
+            // F60 MINI Countryman (2017)
                 
             // I01 BMW i3 (2013)
             case "1Z21": return 125 // BMW i3
@@ -342,24 +542,24 @@ extension String {
              "WBY1Z21090V309164",
              "WBY1Z210X0V309271",
              "WMWXN310103A75532", // M-DX7837
-        "WMWXN310103A75773", // M-DX5217
-        "WMWXN310203A75636", // M-DX7992
-        "WMWXN310703A75759", // M-DX7812
-        "WMWXN310803A75771", // M-DX7868
-        "WMWXN31030T912195", // M-DX7867
-        "WMWXM710002B89893", // M-DX7948
-        "WMWXM710102B90390", // M-DX5137
-        "WMWXM710102B90440", // M-DX5214
-        "WMWXM710103B23606", // M-DX8802
-        "WMWXM710202B89894", // M-DX7949
-        "WMWXM710302B90438", // M-DX5215
-        "WMWXM710502B90991", // M-DX8666
-        "WMWXM710602B91020", // M-DX8840
-        "WMWXM710702B89941", // M-DX8708
-        "WMWXM710703B20578", // M-DX7866
-        "WMWXM710803B20184", // M-DX7951
-        "WMWXM710803B20234", // M-DX9723
-        "WMWXM710902B89892": // M-DX7952
+             "WMWXN310103A75773", // M-DX5217
+             "WMWXN310203A75636", // M-DX7992
+             "WMWXN310703A75759", // M-DX7812
+             "WMWXN310803A75771", // M-DX7868
+             "WMWXN31030T912195", // M-DX7867
+             "WMWXM710002B89893", // M-DX7948
+             "WMWXM710102B90390", // M-DX5137
+             "WMWXM710102B90440", // M-DX5214
+             "WMWXM710103B23606", // M-DX8802
+             "WMWXM710202B89894", // M-DX7949
+             "WMWXM710302B90438", // M-DX5215
+             "WMWXM710502B90991", // M-DX8666
+             "WMWXM710602B91020", // M-DX8840
+             "WMWXM710702B89941", // M-DX8708
+             "WMWXM710703B20578", // M-DX7866
+             "WMWXM710803B20184", // M-DX7951
+             "WMWXM710803B20234", // M-DX9723
+             "WMWXM710902B89892": // M-DX7952
             return true
         default:
             return false
@@ -374,6 +574,8 @@ extension String {
             
             switch self.modelID {
                 
+            case "UL51", "UL91", "UM11", "UM31", "UM51", "UM71", "UM91", "UN71", "UN91", "UP11": return true            // E88 BMW 1er Cabrio (2008)
+            case "1K51", "1L71", "1M11", "1M31", "1M51", "2L51", "2L71", "2L91": return true                            // F23 BMW 2er Cabrio (2014)
             case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return true                                    // F57 MINI Cabrio (2016)
             case "RD31", "RF31", "RH31": return true                                                                    // R52 MINI Cabrio (2004)
             case "MR31", "MR91", "MS31", "XF31", "MS91", "ZM31", "ZN31", "ZP31", "ZP91", "ZR31", "ZR71": return true    // R57 MINI Cabrio (2009)
