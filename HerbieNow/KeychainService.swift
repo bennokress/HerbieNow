@@ -30,5 +30,14 @@ class KeychainService {
             return nil
         }
     }
+    
+    /// Remove the saved value for the specified key from Keychain.
+    func removeValue(forKey key: String) {
+        do {
+            try keychain.remove(key)
+        } catch let error {
+            print("Keychain remove value error: \(error)")
+        }
+    }
 
 }

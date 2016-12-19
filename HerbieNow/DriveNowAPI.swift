@@ -121,7 +121,7 @@ extension DriveNowAPI: API {
                     return
                 }
 
-                self.keychain.add(value: xAuthToken, forKey: "DriveNow X-Auth-Token")
+                self.keychain.add(value: xAuthToken, forKey: "\(Provider.driveNow.rawValue) X-Auth-Token")
                 response = .success(contents: nil)
 
             } else {
@@ -137,7 +137,12 @@ extension DriveNowAPI: API {
     
     func logout() {
         
-        // TODO: Delete username, password, X-Auth-Token and Open-Car-Token from UserDefaults and Keychain
+        userDefaults.removeValue(forKey: "\(Provider.driveNow.rawValue) Username")
+        keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) Password")
+        keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) X-Auth-Token")
+        keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) Open-Car-Token")
+        
+        // TODO: Add completion?
         
     }
 
@@ -172,7 +177,7 @@ extension DriveNowAPI: API {
                     return
                 }
 
-                self.keychain.add(value: openCarToken, forKey: "DriveNow Open-Car-Token")
+                self.keychain.add(value: openCarToken, forKey: "\(Provider.driveNow.rawValue) Open-Car-Token")
                 response = .success(contents: nil)
 
             } else {
