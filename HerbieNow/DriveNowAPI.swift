@@ -14,6 +14,7 @@ class DriveNowAPI {
 
     let keychain = KeychainService.shared
     let userDefaults = UserDefaultsService.shared
+    let provider = Provider.driveNow
 
     let apiKey: String
     let language: String
@@ -48,19 +49,19 @@ class DriveNowAPI {
     }
 
     fileprivate func getSavedUsername() -> String? {
-        return userDefaults.findValue(forKey: "DriveNow Username")
+        return userDefaults.findValue(forKey: "\(provider.rawValue) Username")
     }
 
     fileprivate func getSavedPassword() -> String? {
-        return keychain.findValue(forKey: "DriveNow Password")
+        return keychain.findValue(forKey: "\(provider.rawValue) Password")
     }
 
     fileprivate func getSavedXAuthToken() -> String? {
-        return keychain.findValue(forKey: "DriveNow X-Auth-Token")
+        return keychain.findValue(forKey: "\(provider.rawValue) X-Auth-Token")
     }
 
     fileprivate func getSavedOpenCarToken() -> String? {
-        return keychain.findValue(forKey: "DriveNow Open-Car-Token")
+        return keychain.findValue(forKey: "\(provider.rawValue) Open-Car-Token")
     }
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle {
@@ -129,7 +130,8 @@ extension DriveNowAPI: API {
                 }
 
                 self.keychain.add(value: xAuthToken, forKey: "\(Provider.driveNow.rawValue) X-Auth-Token")
-                response = .success(contents: nil)
+                let success = true
+                response = .success(contents: success)
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
@@ -149,7 +151,11 @@ extension DriveNowAPI: API {
         keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) X-Auth-Token")
         keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) Open-Car-Token")
 
-        // TODO: Add completion?
+        let success = true
+        let response = APICallResult.success(contents: success)
+        
+        // TODO: Completion Handling
+        print(response.description)
 
     }
 
@@ -185,7 +191,8 @@ extension DriveNowAPI: API {
                 }
 
                 self.keychain.add(value: openCarToken, forKey: "\(Provider.driveNow.rawValue) Open-Car-Token")
-                response = .success(contents: nil)
+                let success = true
+                response = .success(contents: success)
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
@@ -418,8 +425,9 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
-                print(json)
-                response = .success(contents: nil)
+                // TODO: Test, if this is correct
+                let success = (json["success"].stringValue == "success") ? true : false
+                response = .success(contents: success)
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
@@ -456,8 +464,9 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
-                print(json)
-                response = .success(contents: nil)
+                // TODO: Test, if this is correct
+                let success = (json["success"].stringValue == "success") ? true : false
+                response = .success(contents: success)
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
@@ -495,6 +504,7 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
+                // TODO: What do we want from this?
                 print(json)
                 response = .success(contents: nil)
 
@@ -544,7 +554,8 @@ extension DriveNowAPI: API {
                 }
 
                 self.keychain.add(value: openCarToken, forKey: "DriveNow Open-Car-Token")
-                response = .success(contents: nil)
+                let success = true
+                response = .success(contents: success)
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)

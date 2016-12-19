@@ -46,7 +46,7 @@ struct Vehicle {
         self.hasHiFiSystem = vin.hasHiFiSystem
         self.isConvertible = vin.isConvertible
 
-        self.description = "\(provider.rawValue): \(licensePlate) - \(make.rawValue) \(model) - \(hp)hp - Convertible: \(isConvertible) - HiFi: \(hasHiFiSystem)"
+        self.description = "\(provider.rawValue): \(licensePlate) - \(make.rawValue) \(model) - \(hp)hp - Convertible: \(isConvertible) - HiFi: \(hasHiFiSystem) - \(location.coordinateDescription)"
 
     }
 
