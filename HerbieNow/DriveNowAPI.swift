@@ -62,6 +62,11 @@ class DriveNowAPI {
     fileprivate func getSavedOpenCarToken() -> String? {
         return keychain.findValue(forKey: "DriveNow Open-Car-Token")
     }
+    
+    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle {
+        // TODO: parse vehicles from provided JSON
+        return Vehicle(provider: .driveNow, vin: "", fuelLevel: 0, fuelType: "A", transmissionType: "A", licensePlate: "", address: Location())
+    }
 
     fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
 
@@ -216,7 +221,7 @@ extension DriveNowAPI: API {
                     // TODO: Get End Time of Reservation as Date
                     // TODO: Get Vehicle Object
                     let endTime = Date()
-                    let vehicle = Vehicle()
+                    let vehicle = self.getVehicleFromJSON(json)
                     reservation = Reservation(provider: .driveNow, endTime: endTime, vehicle: vehicle)
                 } else {
                     reservation = nil
