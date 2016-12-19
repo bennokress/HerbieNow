@@ -10,6 +10,8 @@ import Foundation
 
 protocol LogicProtocol {
 
+    typealias callback = (APICallResult) -> ()
+
     // This protocol contains every function, every […]ViewInterpreter can call.
 
     func getConfiguredAccounts() -> [Account]
@@ -22,19 +24,21 @@ protocol LogicProtocol {
 
     // MARK: - API Methods
 
-    func login(with provider: Provider, as username: String, withPassword password: String)
-    func getUserData(from provider: Provider)
-    func getReservationStatus(from provider: Provider)
-    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double)
-    func reserveVehicle(withVIN vin: String, of provider: Provider)
-    func cancelReservation(with provider: Provider)
-    func openVehicle(withVIN vin: String, of provider: Provider)
-    func closeVehicle(withVIN vin: String, of provider: Provider)
+    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback)
+    func getUserData(from provider: Provider, completion: @escaping callback)
+    func getReservationStatus(from provider: Provider, completion: @escaping callback)
+    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double, completion: @escaping callback)
+    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
+    func cancelReservation(with provider: Provider, completion: @escaping callback)
+    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
+    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
 
 }
 
 // Logic can do everything inside the Model-Part of the app, but never call anything inside View or Controller
 class Logic {
+
+    typealias callback = (APICallResult) -> ()
 
     let user = User.shared
     let userDefaults = UserDefaultsService.shared
@@ -68,91 +72,91 @@ extension Logic: LogicProtocol {
         return nil
 
     }
-    
+
     func logout(of provider:Provider) {
-        
+
         userDefaults.deleteUsername(for: provider)
         keychain.deletePassword(for: provider)
         keychain.deleteXAuthToken(for: provider)
         keychain.deleteOpenCarToken(for: provider)
-        
+
     }
 
     // MARK: - API Methods
 
     // TODO: Closures zu allen API Calls hinzufügen
 
-    func login(with provider: Provider, as username: String, withPassword password: String) {
+    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback) {
 
         userDefaults.addUsername(username, for: provider)
         keychain.addPassword(password, for: provider)
 
         let api = provider.api()
         api.login() { response in
-            
+            completion(response)
         }
 
     }
 
-    func getUserData(from provider: Provider) {
+    func getUserData(from provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
         api.getUserData() { response in
-            
+            completion(response)
         }
 
     }
 
-    func getReservationStatus(from provider: Provider) {
+    func getReservationStatus(from provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
         api.getReservationStatus() { response in
-            
+            completion(response)
         }
 
     }
 
-    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double) {
+    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double, completion: @escaping callback) {
 
         let api = provider.api()
         api.getAvailableVehicles(around: latitude, longitude) { response in
-            
+            completion(response)
         }
 
     }
 
-    func reserveVehicle(withVIN vin: String, of provider: Provider) {
+    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
         api.reserveVehicle(withVIN: vin) { response in
-            
+            completion(response)
         }
 
     }
 
-    func cancelReservation(with provider: Provider) {
+    func cancelReservation(with provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
         api.cancelReservation() { response in
-            
+            completion(response)
         }
 
     }
 
-    func openVehicle(withVIN vin: String, of provider: Provider) {
+    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
         api.openVehicle(withVIN: vin) { response in
-            
+            completion(response)
         }
 
     }
 
-    func closeVehicle(withVIN vin: String, of provider: Provider) {
+    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
         api.closeVehicle(withVIN: vin) { response in
-            
+            completion(response)
         }
 
     }

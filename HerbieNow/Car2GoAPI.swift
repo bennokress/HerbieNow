@@ -11,9 +11,9 @@ import Alamofire
 import JASON
 
 class Car2GoAPI {
-    
+
     typealias callback = (APICallResult) -> ()
-    
+
     let keychain = KeychainService.shared
     let userDefaults = UserDefaultsService.shared
     let provider = Provider.car2go
@@ -27,7 +27,7 @@ class Car2GoAPI {
 extension Car2GoAPI: API {
 
     func login(completion: @escaping callback) {
-        
+
     }
 
     func getUserData(completion: @escaping callback) {

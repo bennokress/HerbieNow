@@ -11,7 +11,7 @@ import Alamofire
 import JASON
 
 class DriveNowAPI {
-    
+
     typealias callback = (APICallResult) -> ()
 
     let keychain = KeychainService.shared
@@ -51,24 +51,28 @@ class DriveNowAPI {
     }
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
-        
-        guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let  longitude = json["longitude"].double else {
+
+        // swiftlint:disable:next line_length
+        guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let longitude = json["longitude"].double else {
             return nil
         }
-        
+
         let fuelLevelInPercent = fuelLevel.inPercent()
         let fuelType = FuelType(fromRawValue: fuelChar)
         let transmissionType = TransmissionType(fromRawValue: transmissionChar)
         let location = Location(latitude: latitude, longitude: longitude)
-        
+
         return Vehicle(provider: .driveNow, vin: vin, fuelLevel: fuelLevelInPercent, fuelType: fuelType, transmissionType: transmissionType, licensePlate: licensePlate, location: location)
     }
-    
+
     fileprivate func getReservationFromJSON(_ json: JSON) -> Reservation? {
-        guard let endTime = json["reserveduntil"].string?.toDate(), let vehicle = getVehicleFromJSON(json["car"]) else {
+
+        guard let endTime = json["reservedUntil"].string?.toDate(), let vehicle = getVehicleFromJSON(json["car"]) else {
             return nil
         }
+
         return Reservation(provider: driveNow, endTime: endTime, vehicle: vehicle)
+
     }
 
     fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
@@ -209,10 +213,10 @@ extension DriveNowAPI: API {
                     completion(response)
                     return
                 }
-                
+
                 let reservation = self.getReservationFromJSON(json["reservation"])
                 let userHasActiveReservation = (reservation != nil) ? true : false
-                
+
                 response = .reservation(active: userHasActiveReservation, reservation: reservation)
 
             } else {
@@ -245,23 +249,23 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
-                
+
                 var vehicles: [Vehicle] = []
-                
+
                 guard let jsonVehicles = json["items"][0]["cars"]["items"].jsonArray else {
                     response = self.errorDetails(for: json, in: functionName)
                     completion(response)
                     return
                 }
-                
+
                 for jsonVehicle in jsonVehicles {
                     if let vehicle = self.getVehicleFromJSON(jsonVehicle) {
                         vehicles.append(vehicle)
                     }
                 }
-                
+
                 response = .vehicles(vehicles)
-                
+
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
@@ -381,13 +385,13 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
-                
+
                 guard let success = json["success"].string else {
                     response = self.errorDetails(for: json, in: functionName)
                     completion(response)
                     return
                 }
-                
+
                 let successfullyOpened = (success == "success") ? true : false
                 response = .success(successfullyOpened)
 
@@ -420,24 +424,24 @@ extension DriveNowAPI: API {
         ]
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { callback in
-            
+
             let response: APICallResult
-            
+
             if let json = callback.result.value {
-                
+
                 guard let success = json["success"].string else {
                     response = self.errorDetails(for: json, in: functionName)
                     completion(response)
                     return
                 }
-                
+
                 let successfullyClosed = (success == "success") ? true : false
                 response = .success(successfullyClosed)
-                
+
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
-            
+
             completion(response)
 
         }

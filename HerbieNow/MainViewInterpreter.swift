@@ -43,6 +43,32 @@ class MainViewInterpreter {
 
     }
 
+    fileprivate func handleAPIresponse(_ response: APICallResult, presenterActionRequired: Bool) {
+
+        if presenterActionRequired {
+
+            switch response {
+            case .error(_, _, _, _):
+                print("Let presenter show an alert for: \(response.description)")
+            case .reservation(let activeReservation, _):
+                let information = activeReservation ? "Let presenter show reservation:" : "Let presenter take action for:"
+                print("\(information) \(response.description)")
+            case .success(_):
+                print("Let presenter show: \(response.description)")
+            case .vehicles(_):
+                print("Let the presenter display the following vehicles:")
+                print(response.description)
+            }
+
+        } else {
+
+            print("Take background action (without presenter) for the following API Call Result:")
+            print(response.description)
+
+        }
+
+    }
+
 }
 
 extension MainViewInterpreter: MainViewInterpreterProtocol {
@@ -87,8 +113,12 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     // Das da unten kann dann später mal weg ...
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        logic.getAvailableVehicles(from: .driveNow, around: 48.183402, 11.550423)
-        //        logic.getUserData(from: .driveNow)
+        //        logic.reserveVehicle(withVIN: "WMWWG310803C16019", of: .driveNow) { response in
+        //            self.handleAPIresponse(response, presenterActionRequired: true)
+        //        }
+        logic.getReservationStatus(from: .driveNow) { response in
+            self.handleAPIresponse(response, presenterActionRequired: true)
+        }
     }
 
 }

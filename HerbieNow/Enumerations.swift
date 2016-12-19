@@ -66,7 +66,7 @@ enum APICallResult {
             return "Error \(code) in \(parentFunction): \(message) (\(codeDetail))"
         }
     }
-    
+
     func getDetails() -> Bool? {
         switch self {
         case .success(let value):
@@ -77,7 +77,7 @@ enum APICallResult {
             return nil
         }
     }
-    
+
     func getDetails() -> [Vehicle]? {
         switch self {
         case .vehicles(let list):
@@ -86,7 +86,7 @@ enum APICallResult {
             return nil
         }
     }
-    
+
     func getDetails() -> Reservation? {
         switch self {
         case .reservation(_, let reservation):
