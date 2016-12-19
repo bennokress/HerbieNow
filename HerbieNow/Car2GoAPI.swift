@@ -38,7 +38,7 @@ extension Car2GoAPI: API {
 
     }
 
-    func getAvailableVehicles(around latitude: Double, _ longitude: Double, completion: @escaping callback) {
+    func getAvailableVehicles(around location: Location, completion: @escaping callback) {
 
     }
 

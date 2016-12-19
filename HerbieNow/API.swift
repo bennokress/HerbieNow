@@ -22,7 +22,7 @@ protocol API {
     func getReservationStatus( completion: @escaping callback )
 
     /// Gets a list of vehicles for the nearest city to current location -> returns [Vehicle]
-    func getAvailableVehicles(around latitude: Double, _ longitude: Double, completion: @escaping callback)
+    func getAvailableVehicles(around location: Location, completion: @escaping callback)
 
     /// Reserves the specified car -> returns Bool, if successful or not
     func reserveVehicle(withVIN vin: String, completion: @escaping callback)
