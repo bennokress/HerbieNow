@@ -64,16 +64,25 @@ class DriveNowAPI {
         return keychain.findValue(forKey: "\(provider.rawValue) Open-Car-Token")
     }
 
-    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle {
-        let vin = json["id"].stringValue
-        let fuelLevel = json["fuelLevelInPercent"].intValue
-        let fuelType = FuelType(fromRawValue: json["fuelType"].characterValue)
-        let transmissionType = TransmissionType(fromRawValue: json["transmission"].characterValue)
-        let licensePlate = json["licensePlate"].stringValue
-        let latitude = json["latitude"].doubleValue
-        let longitude = json["longitude"].doubleValue
+    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
+        
+        guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let  longitude = json["longitude"].double else {
+            return nil
+        }
+        
+        let fuelLevelInPercent = fuelLevel.inPercent()
+        let fuelType = FuelType(fromRawValue: fuelChar)
+        let transmissionType = TransmissionType(fromRawValue: transmissionChar)
         let location = Location(latitude: latitude, longitude: longitude)
-        return Vehicle(provider: .driveNow, vin: vin, fuelLevel: fuelLevel, fuelType: fuelType, transmissionType: transmissionType, licensePlate: licensePlate, location: location)
+        
+        return Vehicle(provider: .driveNow, vin: vin, fuelLevel: fuelLevelInPercent, fuelType: fuelType, transmissionType: transmissionType, licensePlate: licensePlate, location: location)
+    }
+    
+    fileprivate func getReservationFromJSON(_ json: JSON) -> Reservation? {
+        guard let endTime = json["reserveduntil"].string?.toDate(), let vehicle = getVehicleFromJSON(json["car"]) else {
+            return nil
+        }
+        return Reservation(provider: provider, endTime: endTime, vehicle: vehicle)
     }
 
     fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
@@ -231,28 +240,15 @@ extension DriveNowAPI: API {
 
             if let json = callback.result.value {
 
-                let reservation: Reservation?
-
-                guard let reservationStatus = json["reservation"]["status"].string else {
+                guard json["reservation"]["status"].string != nil else {
                     response = self.errorDetails(for: json, in: functionName)
                     // TODO: Completion Handling
                     print(response.description)
                     return
                 }
-
-                print(reservationStatus)
-
-                if reservationStatus == "reservation_active" {
-                    // TODO: Get End Time of Reservation as Date
-                    // TODO: Get Vehicle Object
-                    let endTime = Date()
-                    let vehicle = self.getVehicleFromJSON(json)
-                    reservation = Reservation(provider: .driveNow, endTime: endTime, vehicle: vehicle)
-                } else {
-                    reservation = nil
-                }
-
-                response = .success(contents: reservation)
+                
+                let reservation = self.getReservationFromJSON(json["reservation"])
+                response = .success(contents: reservation) // reservation can be nil: this just means no active reservation!
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
@@ -285,14 +281,25 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
+                
                 var cars: [Vehicle] = []
-                let jsonCars = json["items"][0]["cars"]["items"].jsonArrayValue
-                for jsonCar in jsonCars {
-                    let car = self.getVehicleFromJSON(jsonCar)
-                    cars.append(car)
-                    print(car.description)
+                
+                guard let jsonCars = json["items"][0]["cars"]["items"].jsonArray else {
+                    response = self.errorDetails(for: json, in: functionName)
+                    // TODO: Completion Handling
+                    print(response.description)
+                    return
                 }
+                
+                for jsonCar in jsonCars {
+                    if let car = self.getVehicleFromJSON(jsonCar) {
+                        cars.append(car)
+                        print(car.description)
+                    }
+                }
+                
                 response = .success(contents: cars)
+                
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
@@ -329,8 +336,6 @@ extension DriveNowAPI: API {
 
             if let json = callback.result.value {
 
-                let success: Bool
-
                 guard let reservationStatus = json["status"].string else {
                     response = self.errorDetails(for: json, in: functionName)
                     // TODO: Completion Handling
@@ -338,7 +343,7 @@ extension DriveNowAPI: API {
                     return
                 }
 
-                success = (reservationStatus == "reservation_sent") ? true : false
+                let success = (reservationStatus == "reservation_sent" || reservationStatus == "reserved") ? true : false
                 response = .success(contents: success)
 
             } else {
@@ -377,10 +382,7 @@ extension DriveNowAPI: API {
 
             if let json = callback.result.value {
 
-                let optionalReservedUntil = json["reserveduntil"].string?.toDate()
-                let optionalSystemTime = json["systemTime"].string?.toDate()
-
-                guard let reservedUntil = optionalReservedUntil, let systemTime = optionalSystemTime else {
+                guard let reservedUntil = json["reserveduntil"].string?.toDate(), let systemTime = json["systemTime"].string?.toDate() else {
                     response = self.errorDetails(for: json, in: functionName)
                     // TODO: Completion Handling
                     print(response.description)
@@ -425,9 +427,16 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
-                // TODO: Test, if this is correct
-                let success = (json["success"].stringValue == "success") ? true : false
-                response = .success(contents: success)
+                
+                guard let success = json["success"].string else {
+                    response = self.errorDetails(for: json, in: functionName)
+                    // TODO: Completion Handling
+                    print(response.description)
+                    return
+                }
+                
+                let successfullyOpened = (success == "success") ? true : false
+                response = .success(contents: successfullyOpened)
 
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
@@ -460,18 +469,25 @@ extension DriveNowAPI: API {
         ]
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { callback in
-
+            
             let response: APICallResult
-
+            
             if let json = callback.result.value {
-                // TODO: Test, if this is correct
-                let success = (json["success"].stringValue == "success") ? true : false
-                response = .success(contents: success)
-
+                
+                guard let success = json["success"].string else {
+                    response = self.errorDetails(for: json, in: functionName)
+                    // TODO: Completion Handling
+                    print(response.description)
+                    return
+                }
+                
+                let successfullyClosed = (success == "success") ? true : false
+                response = .success(contents: successfullyClosed)
+                
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
-
+            
             // TODO: Completion Handling
             print(response.description)
 

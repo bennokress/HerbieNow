@@ -52,6 +52,14 @@ extension Dictionary {
 
 }
 
+extension Double {
+    
+    func inPercent() -> Int {
+        return Int(self * 100)
+    }
+    
+}
+
 extension JSON {
 
     /// The value as a Character or nil if not present/convertible
