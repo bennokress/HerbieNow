@@ -65,7 +65,7 @@ class DriveNowAPI {
     
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle {
         // TODO: parse vehicles from provided JSON
-        return Vehicle(provider: .driveNow, vin: "", fuelLevel: 0, fuelType: "A", transmissionType: "A", licensePlate: "", address: Location())
+        return Vehicle(provider: .driveNow, vin: "", fuelLevel: 0, fuelType: "A", transmissionType: "A", licensePlate: "", address: Location(latitude: 0.0, longitude: 0.0))
     }
 
     fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
@@ -133,6 +133,12 @@ extension DriveNowAPI: API {
 
         }
 
+    }
+    
+    func logout() {
+        
+        // TODO: Delete username, password, X-Auth-Token and Open-Car-Token from UserDefaults and Keychain
+        
     }
 
     func getUserData() {

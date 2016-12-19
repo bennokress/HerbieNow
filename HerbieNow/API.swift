@@ -11,6 +11,7 @@ import Foundation
 protocol API {
 
     func login()
+    func logout() // not really an API call, but it makes sense to delete saved credentials for the API here
     func getUserData()
     func getReservationStatus()
     func getAvailableVehicles(around latitude: Double, _ longitude: Double)

@@ -21,6 +21,10 @@ extension Car2GoAPI: API {
     func login() {
 
     }
+    
+    func logout() {
+        
+    }
 
     func getUserData() {
 
