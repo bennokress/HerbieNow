@@ -29,7 +29,7 @@ class UserDefaultsService {
             return nil
         }
     }
-    
+
     /// Remove the saved value for the specified key from UserDefaults.
     func removeValue(forKey key: String) {
         userDefaults.removeObject(forKey: key)

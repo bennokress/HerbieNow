@@ -52,14 +52,23 @@ extension Dictionary {
 
 }
 
+extension JSON {
+
+    /// The value as a Character or nil if not present/convertible
+    public var character: Character? { return object as? Character }
+    /// The value as a string or "U" if not present/convertible (= "Unknown")
+    public var characterValue: Character { return character ?? "U" }
+
+}
+
 extension String {
-    
+
     func toDate(format: String = "yyyy-MM-dd'T'HH:mm:ssZ") -> Date? {
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self) ?? nil
-        
+
     }
-    
+
 }
