@@ -82,12 +82,12 @@ extension Logic: LogicProtocol {
         api.login()
 
     }
-    
+
     func logout(of provider:Provider) {
-        
+
         let api = provider.api()
         api.logout()
-        
+
     }
 
     func getUserData(from provider: Provider) {

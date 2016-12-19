@@ -40,7 +40,7 @@ extension String {
         return self[3...6] // The characters 4-7 of the vehicle identification number are its model
     }
     
-    private var makeID: String {
+    var makeID: String {
         return self[0...2] // The first 3 characters of the vehicle identification number are its manufacturer
     }
     
@@ -48,26 +48,15 @@ extension String {
         return self[7...8] // Smart have their engine information at character 8 and 9 of the vehicle identification number
     }
     
-    var make: String {
+    var make: Make {
         
-        switch self.makeID {
-        case "WBA": return "BMW"
-        case "WBS": return "BMW"
-        case "WBY": return "BMW"
-        case "WDB": return "Mercedes-Benz"
-        case "WDC": return "Mercedes-Benz"
-        case "WDD": return "Mercedes-Benz"
-        case "WME": return "smart"
-        case "WMW": return "MINI"
-        default:
-            return "Unknown"
-        }
+        return Make(fromVIN: self)
         
     }
     
     var model: String {
         
-        if self.makeID == "BMW" || self.makeID == "MINI" {
+        if self.make == .bmw || self.make == .mini {
             
             switch self.modelID {
                 
@@ -104,7 +93,7 @@ extension String {
                 
             }
             
-        } else if self.makeID == "smart" {
+        } else if self.make == .smart {
             
             switch self.modelID {
                 
@@ -115,7 +104,7 @@ extension String {
                 
             }
             
-        } else if self.makeID == "Mercedes-Benz" {
+        } else if self.make == .mercedes {
             
             // TODO: Add Mercedes-Benz Models
             return "Model" // Unknown Mercedes-Benz
@@ -130,7 +119,7 @@ extension String {
     
     var kW: Int {
         
-        if self.makeID == "BMW" || self.makeID == "MINI" {
+        if self.make == .bmw || self.make == .mini {
             
             switch self.modelID {
                 
@@ -500,7 +489,7 @@ extension String {
                 
             }
             
-        } else if self.makeID == "smart" {
+        } else if self.make == .smart {
             
             switch self.smartEngineID {
             case "00": return 30 // Diesel
@@ -515,7 +504,7 @@ extension String {
                 
             }
             
-        } else if self.makeID == "Mercedes-Benz" {
+        } else if self.make == .mercedes {
             
             // TODO: Add kW informations for Mercedes-Benz vehicles
             return 0
@@ -570,7 +559,7 @@ extension String {
     
     var isConvertible: Bool {
         
-        if self.makeID == "BMW" || self.makeID == "MINI" {
+        if self.make == .bmw || self.make == .mini {
             
             switch self.modelID {
                 
@@ -584,11 +573,11 @@ extension String {
                 
             }
             
-        } else if self.makeID == "smart" {
+        } else if self.make == .smart {
             
             return self.modelID[3] == "4" ? true : false // a smart is only a convertible or roadster, if the 4th digit of its model ID is a 4
             
-        } else if self.makeID == "Mercedes-Benz" {
+        } else if self.make == .mercedes {
             
             // TODO: Add convertible informations for Mercedes-Benz vehicles
             return false

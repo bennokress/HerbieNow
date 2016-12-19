@@ -62,10 +62,17 @@ class DriveNowAPI {
     fileprivate func getSavedOpenCarToken() -> String? {
         return keychain.findValue(forKey: "DriveNow Open-Car-Token")
     }
-    
+
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle {
-        // TODO: parse vehicles from provided JSON
-        return Vehicle(provider: .driveNow, vin: "", fuelLevel: 0, fuelType: "A", transmissionType: "A", licensePlate: "", address: Location(latitude: 0.0, longitude: 0.0))
+        let vin = json["id"].stringValue
+        let fuelLevel = json["fuelLevelInPercent"].intValue
+        let fuelType = FuelType(fromRawValue: json["fuelType"].characterValue)
+        let transmissionType = TransmissionType(fromRawValue: json["transmission"].characterValue)
+        let licensePlate = json["licensePlate"].stringValue
+        let latitude = json["latitude"].doubleValue
+        let longitude = json["longitude"].doubleValue
+        let location = Location(latitude: latitude, longitude: longitude)
+        return Vehicle(provider: .driveNow, vin: vin, fuelLevel: fuelLevel, fuelType: fuelType, transmissionType: transmissionType, licensePlate: licensePlate, location: location)
     }
 
     fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
@@ -134,16 +141,16 @@ extension DriveNowAPI: API {
         }
 
     }
-    
+
     func logout() {
-        
+
         userDefaults.removeValue(forKey: "\(Provider.driveNow.rawValue) Username")
         keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) Password")
         keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) X-Auth-Token")
         keychain.removeValue(forKey: "\(Provider.driveNow.rawValue) Open-Car-Token")
-        
+
         // TODO: Add completion?
-        
+
     }
 
     func getUserData() {
@@ -271,8 +278,14 @@ extension DriveNowAPI: API {
             let response: APICallResult
 
             if let json = callback.result.value {
-                print("JSON:\n\(json)")
-                response = .success(contents: nil)
+                var cars: [Vehicle] = []
+                let jsonCars = json["items"][0]["cars"]["items"].jsonArrayValue
+                for jsonCar in jsonCars {
+                    let car = self.getVehicleFromJSON(jsonCar)
+                    cars.append(car)
+                    print(car.description)
+                }
+                response = .success(contents: cars)
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
