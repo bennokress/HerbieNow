@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import Alamofire
+import JASON
 
 class Car2GoAPI {
+    
+    let keychain = KeychainService.shared
+    let userDefaults = UserDefaultsService.shared
+    let provider = Provider.car2go
 
     // Singleton - call via Car2GoAPI.shared
     static var shared = Car2GoAPI()
@@ -19,10 +25,6 @@ class Car2GoAPI {
 extension Car2GoAPI: API {
 
     func login() {
-
-    }
-
-    func logout() {
 
     }
 

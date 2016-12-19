@@ -68,6 +68,15 @@ extension Logic: LogicProtocol {
         return nil
 
     }
+    
+    func logout(of provider:Provider) {
+        
+        userDefaults.deleteUsername(for: provider)
+        keychain.deletePassword(for: provider)
+        keychain.deleteXAuthToken(for: provider)
+        keychain.deleteOpenCarToken(for: provider)
+        
+    }
 
     // MARK: - API Methods
 
@@ -75,18 +84,11 @@ extension Logic: LogicProtocol {
 
     func login(with provider: Provider, as username: String, withPassword password: String) {
 
-        userDefaults.add(value: username, forKey: "\(provider.rawValue) Username")
-        keychain.add(value: password, forKey: "\(provider.rawValue) Password")
+        userDefaults.addUsername(username, for: provider)
+        keychain.addPassword(password, for: provider)
 
         let api = provider.api()
         api.login()
-
-    }
-
-    func logout(of provider:Provider) {
-
-        let api = provider.api()
-        api.logout()
 
     }
 

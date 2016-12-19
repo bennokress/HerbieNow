@@ -17,12 +17,12 @@ class UserDefaultsService {
     private init() {}
 
     /// Add a value to the UserDefaults.
-    func add(value: String, forKey key: String) {
+    private func add(value: String, forKey key: String) {
         userDefaults.setValue(value, forKey: key)
     }
 
     /// Find a value for the specified key in UserDefaults. Returns nil, if none found.
-    func findValue(forKey key: String) -> String? {
+    private func findValue(forKey key: String) -> String? {
         if let value = userDefaults.string(forKey: key) {
             return value
         } else {
@@ -31,8 +31,23 @@ class UserDefaultsService {
     }
 
     /// Remove the saved value for the specified key from UserDefaults.
-    func removeValue(forKey key: String) {
+    private func removeValue(forKey key: String) {
         userDefaults.removeObject(forKey: key)
+    }
+    
+    /// Add username for the specified provider to UserDefaults
+    func addUsername(_ username: String, for provider: Provider) {
+        add(value: username, forKey: "\(provider.rawValue) Username")
+    }
+    
+    /// Get username for the specified provider from UserDefaults
+    func getUsername(for provider: Provider) -> String? {
+        return findValue(forKey: "\(provider.rawValue) Username")
+    }
+    
+    /// Delete username for the specified provider from UserDefaults
+    func deleteUsername(for provider: Provider) {
+        removeValue(forKey: "\(provider.rawValue) Username")
     }
 
 }

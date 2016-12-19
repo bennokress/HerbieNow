@@ -39,16 +39,60 @@ enum APIRequestMethod: String {
 
 enum APICallResult {
 
-    // TODO: handle response type better
-    case success(contents: Any?)
+    case success(_: Bool)
+    case vehicles(_: [Vehicle])
+    case reservation(active: Bool, reservation: Reservation?)
     case error(code: Int, codeDetail: String, message: String, parentFunction: String)
 
     var description: String {
         switch self {
-        case .success:
-            return "API Call was successful."
+        case .success(let success):
+            return "API Call was \(success ? "successful" : "unsuccessful")."
+        case .vehicles(let vehicles):
+            var description = "Retrieved vehicles:\n"
+            for vehicle in vehicles {
+                description.append("\n\(vehicle.description)")
+            }
+            return description
+        case .reservation(_, let optionalReservation):
+            let description: String
+            if let reservation = optionalReservation {
+                description = reservation.description
+            } else {
+                description = "No reservation active."
+            }
+            return description
         case .error(let code, let codeDetail, let message, let parentFunction):
             return "Error \(code) in \(parentFunction): \(message) (\(codeDetail))"
+        }
+    }
+    
+    func getDetails() -> Bool? {
+        switch self {
+        case .success(let value):
+            return value
+        case .reservation(let hasActiveReservation, _):
+            return hasActiveReservation
+        default:
+            return nil
+        }
+    }
+    
+    func getDetails() -> [Vehicle]? {
+        switch self {
+        case .vehicles(let list):
+            return list
+        default:
+            return nil
+        }
+    }
+    
+    func getDetails() -> Reservation? {
+        switch self {
+        case .reservation(_, let reservation):
+            return reservation
+        default:
+            return nil
         }
     }
 
