@@ -1,7 +1,7 @@
 github "Alamofire/Alamofire" "4.2.0"
-github "duemunk/Async" "2.0.1"
 github "hackiftekhar/IQKeyboardManager" "v4.0.7"
 github "delba/JASON" "v3.1"
 github "bennokress/KeychainAccess" "v3.0.1"
+github "OAuthSwift/OAuthSwift" "1.1.1"
 github "icanzilb/SwiftSpinner" "1.1.0"
 github "hyperoslo/Whisper" "4.0.0"
