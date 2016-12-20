@@ -52,11 +52,6 @@ custom_rules:
     regex: "([a-zA-Z0-9=?.\(\),><!'\"][ ]{2,}[a-zA-Z0-9?.\(\),><!'\"])"
     message: "Remove extra whitespaces"
     severity: warning
-  empty_commented_line:
-    name: "Empty Commented Out Line"
-    regex: "(\t+| +)//\n"
-    message: "Remove useless comment lines or use /* format */"
-    severity: warning
   comments_space:
     name: "Space After Comment"
     regex: "(^ *//\w+)"
