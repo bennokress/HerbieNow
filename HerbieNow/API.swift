@@ -12,7 +12,7 @@ protocol API {
 
     typealias callback = (APICallResult) -> ()
 
-    /// Login with credentials from UserDefaults (username) and Keychain (password) -> returns Bool, if successful or not
+    /// Login with credentials from Keychain -> returns Bool, if successful or not
     func login( completion: @escaping callback )
 
     /// Get User Data retrieves the Open-Car-Token for DriveNow -> returns Bool, if successful or not

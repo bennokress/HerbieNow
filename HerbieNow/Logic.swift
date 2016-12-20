@@ -14,7 +14,7 @@ protocol LogicProtocol {
 
     // This protocol contains every function, every […]ViewInterpreter can call.
 
-    func getConfiguredAccounts() -> [Account]
+    //    func getConfiguredAccounts() -> [Account]
 
     func getConfiguredFiltersets() -> [Int : Filterset]
 
@@ -41,19 +41,18 @@ class Logic {
     typealias callback = (APICallResult) -> ()
 
     let user = User.shared
-    let userDefaults = UserDefaultsService.shared
-    let keychain = KeychainService.shared
+    let appData: AppDataProtocol = AppData.shared
 
 }
 
 extension Logic: LogicProtocol {
 
-    func getConfiguredAccounts() -> [Account] {
+    //    func getConfiguredAccounts() -> [Account] {
 
-        // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
-        return []
+    //        // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
+    //        return []
 
-    }
+    //    }
 
     func getConfiguredFiltersets() -> [Int : Filterset] {
 
@@ -74,12 +73,7 @@ extension Logic: LogicProtocol {
     }
 
     func logout(of provider:Provider) {
-
-        userDefaults.deleteUsername(for: provider)
-        keychain.deletePassword(for: provider)
-        keychain.deleteXAuthToken(for: provider)
-        keychain.deleteOpenCarToken(for: provider)
-
+        appData.deleteCredentials(for: provider)
     }
 
     // MARK: - API Methods
@@ -88,8 +82,10 @@ extension Logic: LogicProtocol {
 
     func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback) {
 
-        userDefaults.addUsername(username, for: provider)
-        keychain.addPassword(password, for: provider)
+        logout(of: .driveNow) // Deletes all stored keys for the provider
+
+        appData.addUsername(username, for: provider)
+        appData.addPassword(password, for: provider)
 
         let api = provider.api()
         api.login() { response in

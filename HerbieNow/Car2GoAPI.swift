@@ -14,8 +14,7 @@ class Car2GoAPI {
 
     typealias callback = (APICallResult) -> ()
 
-    let keychain = KeychainService.shared
-    let userDefaults = UserDefaultsService.shared
+    let appData: AppDataProtocol = AppData.shared
     let provider = Provider.car2go
 
     // Singleton - call via Car2GoAPI.shared

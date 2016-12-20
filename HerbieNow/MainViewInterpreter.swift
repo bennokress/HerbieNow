@@ -87,8 +87,8 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
 
     func viewDidAppear() {
 
-        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
-        presenter.configureAccountButtons(with: configuredAccounts)
+        //        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
+        //        presenter.configureAccountButtons(with: configuredAccounts)
 
         let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
         presenter.configureFiltersetButtons(with: configuredFiltersets)
@@ -128,9 +128,9 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         //        logic.getUserData(from: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: false)
         //        }
-        logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
-            self.handleAPIresponse(response, presenterActionRequired: true)
-        }
+                logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
+                    self.handleAPIresponse(response, presenterActionRequired: true)
+                }
         //        logic.reserveVehicle(withVIN: "WMWWG310803C16019", of: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
         //        }

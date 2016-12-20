@@ -14,7 +14,7 @@ protocol MainViewPresenterProtocol {
 
     func goToMapView(with filterset: Filterset?)
 
-    func configureAccountButtons(with accounts: [Account])
+    //    func configureAccountButtons(with accounts: [Account])
 
     func configureFiltersetButtons(with filtersets: [Int : Filterset])
 
@@ -51,11 +51,11 @@ extension MainViewPresenter: MainViewPresenterProtocol {
         }
     }
 
-    func configureAccountButtons(with accounts: [Account]) {
+    //    func configureAccountButtons(with accounts: [Account]) {
 
-        // TODO: activate or deactivate account buttons
+    //        // TODO: activate or deactivate account buttons
 
-    }
+    //    }
 
     func configureFiltersetButtons(with filtersets: [Int : Filterset]) {
 

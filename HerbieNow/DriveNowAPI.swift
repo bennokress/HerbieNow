@@ -14,8 +14,7 @@ class DriveNowAPI {
 
     typealias callback = (APICallResult) -> ()
 
-    let keychain = KeychainService.shared
-    let userDefaults = UserDefaultsService.shared
+    let appData: AppDataProtocol = AppData.shared
     let driveNow = Provider.driveNow
 
     let apiKey: String
@@ -99,8 +98,8 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.cancelReservation"
 
-        guard let username = userDefaults.getUsername(for: driveNow), let password = keychain.getPassword(for: driveNow) else {
-            let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow Username in UserDefaults and / or the password in Keychain are missing!", parentFunction: functionName)
+        guard let username = appData.getUsername(for: driveNow), let password = appData.getPassword(for: driveNow) else {
+            let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow Username and / or the password are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
         }
@@ -126,7 +125,7 @@ extension DriveNowAPI: API {
                     return
                 }
 
-                self.keychain.addXAuthToken(xAuthToken, for: self.driveNow)
+                self.appData.addXAuthToken(xAuthToken, for: self.driveNow)
                 let success = true
                 response = .success(success)
 
@@ -144,7 +143,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.getUserData"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token is missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -169,7 +168,7 @@ extension DriveNowAPI: API {
                     return
                 }
 
-                self.keychain.addOpenCarToken(openCarToken, for: self.driveNow)
+                self.appData.addOpenCarToken(openCarToken, for: self.driveNow)
                 let success = true
                 response = .success(success)
 
@@ -187,7 +186,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.getReservationStatus"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -279,7 +278,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.reserveVehicles"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -323,7 +322,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.cancelReservation"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -366,7 +365,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.openVehicle"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -409,7 +408,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.closeVehicle"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -453,7 +452,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.getUserDataNewVersion"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow), let openCarToken = keychain.getOpenCarToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -492,7 +491,7 @@ extension DriveNowAPI: API {
 
         let functionName = "DriveNowAPI.getReservationStatus"
 
-        guard let xAuthToken = keychain.getXAuthToken(for: driveNow) else {
+        guard let xAuthToken = appData.getXAuthToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token is missing in Keychain!", parentFunction: functionName)
             completion(error)
             return
@@ -519,7 +518,7 @@ extension DriveNowAPI: API {
                     return
                 }
 
-                self.keychain.addOpenCarToken(openCarToken, for: self.driveNow)
+                self.appData.addOpenCarToken(openCarToken, for: self.driveNow)
                 let successfullyRegisteredDevice = true
                 response = .success(successfullyRegisteredDevice)
 
