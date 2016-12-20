@@ -37,6 +37,9 @@ protocol AppDataProtocol {
 
     /// Delete all saved credentials for the specified provider from Keychain
     func deleteCredentials(for provider: Provider)
+    
+    
+    
 }
 
 class AppData {

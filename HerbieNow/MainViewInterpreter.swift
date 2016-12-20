@@ -120,6 +120,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
 
         // TODO: richtiges filterset herausfinden und übergeben
         // presenter.showDeleteFiltersetAlert(for: filterset)
+        
     }
 
     // Das da unten kann dann später mal weg ...
@@ -128,9 +129,9 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         //        logic.getUserData(from: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: false)
         //        }
-                logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
-                    self.handleAPIresponse(response, presenterActionRequired: true)
-                }
+        logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
+            self.handleAPIresponse(response, presenterActionRequired: true)
+        }
         //        logic.reserveVehicle(withVIN: "WMWWG310803C16019", of: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
         //        }
