@@ -11,6 +11,8 @@ import Foundation
 protocol MainViewInterpreterProtocol {
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
+    
+    func testLocation()
 
     // This protocol contains every function, the MainViewController can call.
 
@@ -31,6 +33,8 @@ class MainViewInterpreter {
 
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
+    
+    var location: Location = Location()
 
     init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
 
@@ -137,6 +141,9 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         //        logic.getReservationStatus(from: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
         //        }
+    }
+    func testLocation() {
+        location.findMyLocation()
     }
 
 }

@@ -44,6 +44,8 @@ class MainViewController: UIViewController {
         setExclusiveTouchForAllButtons()
 
         interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
+        
+        interpreter.testLocation()
 
     }
 
