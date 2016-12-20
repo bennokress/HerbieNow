@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0338BF5E1DD9F5880061EC48 /* Async.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF571DD9F5880061EC48 /* Async.framework */; };
 		0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */; };
 		0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */; };
 		0338BF611DD9F5880061EC48 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */; };
 		0338BF621DD9F5880061EC48 /* SwiftSpinner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */; };
-		0338BF631DD9F5880061EC48 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5C1DD9F5880061EC48 /* Unbox.framework */; };
 		0338BF641DD9F5880061EC48 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5D1DD9F5880061EC48 /* Whisper.framework */; };
 		034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */; };
 		034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */; };
@@ -33,6 +31,9 @@
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
+		D39160BB1E0969A2000DBE17 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */; };
+		D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BC1E0969AD000DBE17 /* JASON.framework */; };
+		D39160BF1E0969BA000DBE17 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -88,6 +89,9 @@
 		D33132491E07D92100645858 /* VIN-related Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VIN-related Extensions.swift"; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
 		D39160B81E0954A1000DBE17 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
+		D39160BC1E0969AD000DBE17 /* JASON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JASON.framework; path = Carthage/Build/iOS/JASON.framework; sourceTree = "<group>"; };
+		D39160BE1E0969BA000DBE17 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -98,12 +102,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0338BF5E1DD9F5880061EC48 /* Async.framework in Frameworks */,
+				D39160BF1E0969BA000DBE17 /* Alamofire.framework in Frameworks */,
+				D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */,
+				D39160BB1E0969A2000DBE17 /* OAuthSwift.framework in Frameworks */,
 				0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */,
 				0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				0338BF611DD9F5880061EC48 /* KeychainAccess.framework in Frameworks */,
 				0338BF621DD9F5880061EC48 /* SwiftSpinner.framework in Frameworks */,
-				0338BF631DD9F5880061EC48 /* Unbox.framework in Frameworks */,
 				0338BF641DD9F5880061EC48 /* Whisper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +133,9 @@
 		0338BF561DD9F5870061EC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D39160BE1E0969BA000DBE17 /* Alamofire.framework */,
+				D39160BC1E0969AD000DBE17 /* JASON.framework */,
+				D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */,
 				0338BF571DD9F5880061EC48 /* Async.framework */,
 				0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */,
 				0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */,
@@ -387,15 +395,14 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Async.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManager.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftSpinner.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Whisper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JASON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
 			);
 			name = Carthage;
 			outputPaths = (
