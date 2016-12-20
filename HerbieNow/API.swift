@@ -10,14 +10,30 @@ import Foundation
 
 protocol API {
 
-    func login()
-    func logout() // not really an API call, but it makes sense to delete saved credentials for the API here
-    func getUserData()
-    func getReservationStatus()
-    func getAvailableVehicles(around latitude: Double, _ longitude: Double)
-    func reserveVehicle(withVIN vin: String)
-    func cancelReservation()
-    func openVehicle(withVIN vin: String)
-    func closeVehicle(withVIN vin: String)
+    typealias callback = (APICallResult) -> ()
+
+    /// Login with credentials from Keychain -> returns Bool, if successful or not
+    func login( completion: @escaping callback )
+
+    /// Get User Data retrieves the Open-Car-Token for DriveNow -> returns Bool, if successful or not
+    func getUserData( completion: @escaping callback )
+
+    /// Gets current reservation status for the User -> returns Reservation? (nil if no reservation is active)
+    func getReservationStatus( completion: @escaping callback )
+
+    /// Gets a list of vehicles for the nearest city to current location -> returns [Vehicle]
+    func getAvailableVehicles(around location: Location, completion: @escaping callback)
+
+    /// Reserves the specified car -> returns Bool, if successful or not
+    func reserveVehicle(withVIN vin: String, completion: @escaping callback)
+
+    /// Cancels the current reservation -> returns Bool, if successful or not
+    func cancelReservation( completion: @escaping callback )
+
+    /// Opens the specified car -> returns Bool, if successful or not
+    func openVehicle(withVIN vin: String, completion: @escaping callback)
+
+    /// Closes the specified car -> returns Bool, if successful or not
+    func closeVehicle(withVIN vin: String, completion: @escaping callback)
 
 }

@@ -42,6 +42,19 @@ extension DataRequest {
 
 }
 
+extension Date {
+
+    var timeDescription: String {
+        let calendar = Calendar.current
+
+        let hour = calendar.component(.hour, from: self)
+        let minutes = calendar.component(.minute, from: self)
+
+        return "\(hour):\(minutes)"
+    }
+
+}
+
 extension Dictionary {
 
     func appending(_ value: Value, forKey key: Key) -> [Key: Value] {
@@ -52,12 +65,19 @@ extension Dictionary {
 
 }
 
+extension Double {
+
+    func inPercent() -> Int {
+        // TODO: Rounds wrong!?!? -> 0.58 is 57
+        return Int(self * 100)
+    }
+
+}
+
 extension JSON {
 
     /// The value as a Character or nil if not present/convertible
-    public var character: Character? { return object as? Character }
-    /// The value as a string or "U" if not present/convertible (= "Unknown")
-    public var characterValue: Character { return character ?? "U" }
+    public var character: Character? { return stringValue.characters.first }
 
 }
 

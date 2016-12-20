@@ -10,9 +10,11 @@ import Foundation
 
 protocol LogicProtocol {
 
+    typealias callback = (APICallResult) -> ()
+
     // This protocol contains every function, every […]ViewInterpreter can call.
 
-    func getConfiguredAccounts() -> [Account]
+    //    func getConfiguredAccounts() -> [Account]
 
     func getConfiguredFiltersets() -> [Int : Filterset]
 
@@ -22,34 +24,35 @@ protocol LogicProtocol {
 
     // MARK: - API Methods
 
-    func login(with provider: Provider, as username: String, withPassword password: String)
-    func getUserData(from provider: Provider)
-    func getReservationStatus(from provider: Provider)
-    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double)
-    func reserveVehicle(withVIN vin: String, of provider: Provider)
-    func cancelReservation(with provider: Provider)
-    func openVehicle(withVIN vin: String, of provider: Provider)
-    func closeVehicle(withVIN vin: String, of provider: Provider)
+    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback)
+    func getUserData(from provider: Provider, completion: @escaping callback)
+    func getReservationStatus(from provider: Provider, completion: @escaping callback)
+    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping callback)
+    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
+    func cancelReservation(with provider: Provider, completion: @escaping callback)
+    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
+    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
 
 }
 
 // Logic can do everything inside the Model-Part of the app, but never call anything inside View or Controller
 class Logic {
 
+    typealias callback = (APICallResult) -> ()
+
     let user = User.shared
-    let userDefaults = UserDefaultsService.shared
-    let keychain = KeychainService.shared
+    let appData: AppDataProtocol = AppData.shared
 
 }
 
 extension Logic: LogicProtocol {
 
-    func getConfiguredAccounts() -> [Account] {
+    //    func getConfiguredAccounts() -> [Account] {
 
-        // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
-        return []
+    //        // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
+    //        return []
 
-    }
+    //    }
 
     func getConfiguredFiltersets() -> [Int : Filterset] {
 
@@ -69,73 +72,88 @@ extension Logic: LogicProtocol {
 
     }
 
+    func logout(of provider:Provider) {
+        appData.deleteCredentials(for: provider)
+    }
+
     // MARK: - API Methods
 
     // TODO: Closures zu allen API Calls hinzufügen
 
-    func login(with provider: Provider, as username: String, withPassword password: String) {
+    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback) {
 
-        userDefaults.add(value: username, forKey: "\(provider.rawValue) Username")
-        keychain.add(value: password, forKey: "\(provider.rawValue) Password")
+        logout(of: .driveNow) // Deletes all stored keys for the provider
+
+        appData.addUsername(username, for: provider)
+        appData.addPassword(password, for: provider)
 
         let api = provider.api()
-        api.login()
+        api.login() { response in
+            completion(response)
+        }
 
     }
 
-    func logout(of provider:Provider) {
+    func getUserData(from provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
-        api.logout()
+        api.getUserData() { response in
+            completion(response)
+        }
 
     }
 
-    func getUserData(from provider: Provider) {
+    func getReservationStatus(from provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
-        api.getUserData()
+        api.getReservationStatus() { response in
+            completion(response)
+        }
 
     }
 
-    func getReservationStatus(from provider: Provider) {
+    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping callback) {
 
         let api = provider.api()
-        api.getReservationStatus()
+        api.getAvailableVehicles(around: location) { response in
+            completion(response)
+        }
 
     }
 
-    func getAvailableVehicles(from provider: Provider, around latitude: Double, _ longitude: Double) {
+    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
-        api.getAvailableVehicles(around: latitude, longitude)
+        api.reserveVehicle(withVIN: vin) { response in
+            completion(response)
+        }
 
     }
 
-    func reserveVehicle(withVIN vin: String, of provider: Provider) {
+    func cancelReservation(with provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
-        api.reserveVehicle(withVIN: vin)
+        api.cancelReservation() { response in
+            completion(response)
+        }
 
     }
 
-    func cancelReservation(with provider: Provider) {
+    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
-        api.cancelReservation()
+        api.openVehicle(withVIN: vin) { response in
+            completion(response)
+        }
 
     }
 
-    func openVehicle(withVIN vin: String, of provider: Provider) {
+    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
 
         let api = provider.api()
-        api.openVehicle(withVIN: vin)
-
-    }
-
-    func closeVehicle(withVIN vin: String, of provider: Provider) {
-
-        let api = provider.api()
-        api.closeVehicle(withVIN: vin)
+        api.closeVehicle(withVIN: vin) { response in
+            completion(response)
+        }
 
     }
 

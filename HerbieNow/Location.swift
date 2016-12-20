@@ -26,6 +26,8 @@ class Location: CLLocationManagerDelegate {
     let latitude: Double
     let longitude: Double
 
+    let coordinateDescription: String
+
     //    init(street: String, areaCode: String, city: String) {
     //        self.street = street
     //        self.areaCode = areaCode
@@ -35,6 +37,8 @@ class Location: CLLocationManagerDelegate {
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
+
+        coordinateDescription = "lat: \(latitude), long: \(longitude)"
     }
 
     

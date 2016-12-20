@@ -7,8 +7,15 @@
 //
 
 import Foundation
+import Alamofire
+import JASON
 
 class Car2GoAPI {
+
+    typealias callback = (APICallResult) -> ()
+
+    let appData: AppDataProtocol = AppData.shared
+    let provider = Provider.car2go
 
     // Singleton - call via Car2GoAPI.shared
     static var shared = Car2GoAPI()
@@ -18,39 +25,35 @@ class Car2GoAPI {
 
 extension Car2GoAPI: API {
 
-    func login() {
+    func login(completion: @escaping callback) {
 
     }
 
-    func logout() {
+    func getUserData(completion: @escaping callback) {
 
     }
 
-    func getUserData() {
+    func getReservationStatus(completion: @escaping callback) {
 
     }
 
-    func getReservationStatus() {
+    func getAvailableVehicles(around location: Location, completion: @escaping callback) {
 
     }
 
-    func getAvailableVehicles(around latitude: Double, _ longitude: Double) {
+    func reserveVehicle(withVIN vin: String, completion: @escaping callback) {
 
     }
 
-    func reserveVehicle(withVIN vin: String) {
+    func cancelReservation(completion: @escaping callback) {
 
     }
 
-    func cancelReservation() {
+    func openVehicle(withVIN vin: String, completion: @escaping callback) {
 
     }
 
-    func openVehicle(withVIN vin: String) {
-
-    }
-
-    func closeVehicle(withVIN vin: String) {
+    func closeVehicle(withVIN vin: String, completion: @escaping callback) {
 
     }
 
