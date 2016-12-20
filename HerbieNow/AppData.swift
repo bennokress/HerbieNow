@@ -10,6 +10,8 @@ import Foundation
 import KeychainAccess
 
 protocol AppDataProtocol {
+    
+    var userLocation: Location? { get set }
 
     /// Add username for the specified provider to Keychain
     func addUsername(_ username: String, for provider: Provider)
@@ -44,6 +46,8 @@ class AppData {
 
     let userDefaults = UserDefaults.standard
     let keychain = Keychain(service: "de.lmu.HerbieNow").synchronizable(true)
+    
+    var userLocation: Location?
 
     // Singleton - call via AppData
     static var shared = AppData()
@@ -72,12 +76,12 @@ class AppData {
         }
     }
 
-    /// Add a value to the Keychain.
+    /// Add a value to the UserDefaults.
     fileprivate func addToUserDefaults(value: String, forKey key: String) {
         userDefaults.setValue(value, forKey: key)
     }
 
-    /// Find a value for the specified key in Keychain. Returns nil, if none found.
+    /// Find a value for the specified key in UserDefaults. Returns nil, if none found.
     fileprivate func findValueInUserDefaults(forKey key: String) -> String? {
         if let value = userDefaults.string(forKey: key) {
             return value
@@ -86,7 +90,7 @@ class AppData {
         }
     }
 
-    /// Remove the saved value for the specified key from Keychain.
+    /// Remove the saved value for the specified key from UserDefaults.
     fileprivate func removeValueFromUserDefaults(forKey key: String) {
         userDefaults.removeObject(forKey: key)
     }

@@ -55,7 +55,7 @@ class Location {
 
     //    //we have to override this function (to get notified when locationManager retrieves current location)
     //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    //        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
+    //        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) in
     //
     //            if (error != nil){
     //                print("Reverse Geocoder failed with error" + error.localizedDesciption)
