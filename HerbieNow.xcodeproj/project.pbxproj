@@ -27,6 +27,7 @@
 		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
 		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
+		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
@@ -87,6 +88,7 @@
 		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInterpreterProtocol.swift; sourceTree = "<group>"; };
 		D3297A391E06B3D000831923 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		D33132491E07D92100645858 /* VIN-related Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VIN-related Extensions.swift"; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		0375789D1DD0B43E00AA8FC0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */,
 				037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */,
 				037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */,
 			);
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */,
 				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
 				D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */,
 				D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */,
