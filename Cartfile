@@ -6,3 +6,4 @@ github "hackiftekhar/IQKeyboardManager"						# adjust view automatically when ke
 github "icanzilb/SwiftSpinner"								# loading animation
 github "bennokress/KeychainAccess"							# temporary fix for 'github "kishikawakatsumi/KeychainAccess"' - switch back when the original is operational
 github "OAuthSwift/OAuthSwift"								# OAuth Framework for the car2go API
+github "malcommac/SwiftLocation"							# Reverse Geocoding Capabilities
