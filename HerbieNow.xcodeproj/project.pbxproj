@@ -28,11 +28,11 @@
 		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
 		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
+		D32089A21E0C299600C17BD7 /* SwiftyOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
-		D39160BB1E0969A2000DBE17 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */; };
 		D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BC1E0969AD000DBE17 /* JASON.framework */; };
 		D39160BF1E0969BA000DBE17 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
 		D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160C01E0982B7000DBE17 /* MapKit.framework */; };
@@ -89,6 +89,7 @@
 		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInterpreterProtocol.swift; sourceTree = "<group>"; };
+		D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
 		D3297A391E06B3D000831923 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		D33132491E07D92100645858 /* VIN-related Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VIN-related Extensions.swift"; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
@@ -109,10 +110,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32089A21E0C299600C17BD7 /* SwiftyOAuth.framework in Frameworks */,
 				D3FF5CDC1E0AC53C0018EDF6 /* SwiftLocation.framework in Frameworks */,
 				D39160BF1E0969BA000DBE17 /* Alamofire.framework in Frameworks */,
 				D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */,
-				D39160BB1E0969A2000DBE17 /* OAuthSwift.framework in Frameworks */,
 				0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */,
 				D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */,
 				0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */,
@@ -142,6 +143,7 @@
 		0338BF561DD9F5870061EC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */,
 				D3FF5CDB1E0AC53C0018EDF6 /* SwiftLocation.framework */,
 				D39160C01E0982B7000DBE17 /* MapKit.framework */,
 				D39160BE1E0969BA000DBE17 /* Alamofire.framework */,
@@ -182,8 +184,6 @@
 		034EC1691DD0B34D00E32EC6 /* HerbieNow */ = {
 			isa = PBXGroup;
 			children = (
-				D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */,
-				034EC1741DD0B34D00E32EC6 /* Assets.xcassets */,
 				0375789F1DD0B47F00AA8FC0 /* Helper Files */,
 				037578A61DD0B7B000AA8FC0 /* Services */,
 				0375789C1DD0B43000AA8FC0 /* Model */,
@@ -247,7 +247,9 @@
 		0375789F1DD0B47F00AA8FC0 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				034EC1741DD0B34D00E32EC6 /* Assets.xcassets */,
 				034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */,
+				D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */,
 				034EC1791DD0B34D00E32EC6 /* Info.plist */,
 				034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */,
 				D340A2DE1E01FD60001D5153 /* Type Extensions.swift */,
@@ -426,7 +428,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Whisper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JASON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyOAuth.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftLocation.framework",
 			);
 			name = Carthage;
