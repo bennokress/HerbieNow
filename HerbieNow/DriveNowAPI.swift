@@ -12,7 +12,7 @@ import JASON
 
 class DriveNowAPI {
 
-    typealias callback = (APICallResult) -> ()
+    typealias Callback = (APICallResult) -> Void
 
     let appData: AppDataProtocol = AppData.shared
     let driveNow = Provider.driveNow
@@ -94,7 +94,7 @@ class DriveNowAPI {
 
 extension DriveNowAPI: API {
 
-    func login(completion: @escaping callback) {
+    func login(completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.cancelReservation"
 
@@ -139,7 +139,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func getUserData(completion: @escaping callback) {
+    func getUserData(completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.getUserData"
 
@@ -182,7 +182,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func getReservationStatus(completion: @escaping callback) {
+    func getReservationStatus(completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.getReservationStatus"
 
@@ -228,7 +228,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func getAvailableVehicles(around location: Location, completion: @escaping callback) {
+    func getAvailableVehicles(around location: Location, completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.getAvailableVehicles"
 
@@ -274,7 +274,7 @@ extension DriveNowAPI: API {
         }
     }
 
-    func reserveVehicle(withVIN vin: String, completion: @escaping callback) {
+    func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.reserveVehicles"
 
@@ -318,7 +318,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func cancelReservation(completion: @escaping callback) {
+    func cancelReservation(completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.cancelReservation"
 
@@ -361,7 +361,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func openVehicle(withVIN vin: String, completion: @escaping callback) {
+    func openVehicle(withVIN vin: String, completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.openVehicle"
 
@@ -404,7 +404,7 @@ extension DriveNowAPI: API {
 
     }
 
-    func closeVehicle(withVIN vin: String, completion: @escaping callback) {
+    func closeVehicle(withVIN vin: String, completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.closeVehicle"
 
@@ -448,7 +448,7 @@ extension DriveNowAPI: API {
     }
 
     // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
-    private func getUserDataNewVersion(completion: @escaping callback) {
+    private func getUserDataNewVersion(completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.getUserDataNewVersion"
 
@@ -487,7 +487,7 @@ extension DriveNowAPI: API {
     }
 
     // This is just in case DriveNow decides to remove the legacy version of getUserData(), which returns the present openCarToken and makes this call unnecessary
-    private func getOpenCarToken(for cardNumber: String, completion: @escaping callback) {
+    private func getOpenCarToken(for cardNumber: String, completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.getReservationStatus"
 

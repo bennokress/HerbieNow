@@ -10,30 +10,30 @@ import Foundation
 
 protocol API {
 
-    typealias callback = (APICallResult) -> ()
+    typealias Callback = (APICallResult) -> Void
 
     /// Login with credentials from Keychain -> returns Bool, if successful or not
-    func login( completion: @escaping callback )
+    func login( completion: @escaping Callback )
 
     /// Get User Data retrieves the Open-Car-Token for DriveNow -> returns Bool, if successful or not
-    func getUserData( completion: @escaping callback )
+    func getUserData( completion: @escaping Callback )
 
     /// Gets current reservation status for the User -> returns Reservation? (nil if no reservation is active)
-    func getReservationStatus( completion: @escaping callback )
+    func getReservationStatus( completion: @escaping Callback )
 
     /// Gets a list of vehicles for the nearest city to current location -> returns [Vehicle]
-    func getAvailableVehicles(around location: Location, completion: @escaping callback)
+    func getAvailableVehicles(around location: Location, completion: @escaping Callback)
 
     /// Reserves the specified car -> returns Bool, if successful or not
-    func reserveVehicle(withVIN vin: String, completion: @escaping callback)
+    func reserveVehicle(withVIN vin: String, completion: @escaping Callback)
 
     /// Cancels the current reservation -> returns Bool, if successful or not
-    func cancelReservation( completion: @escaping callback )
+    func cancelReservation( completion: @escaping Callback )
 
     /// Opens the specified car -> returns Bool, if successful or not
-    func openVehicle(withVIN vin: String, completion: @escaping callback)
+    func openVehicle(withVIN vin: String, completion: @escaping Callback)
 
     /// Closes the specified car -> returns Bool, if successful or not
-    func closeVehicle(withVIN vin: String, completion: @escaping callback)
+    func closeVehicle(withVIN vin: String, completion: @escaping Callback)
 
 }

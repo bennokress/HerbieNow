@@ -12,7 +12,7 @@ import JASON
 
 class Car2GoAPI {
 
-    typealias callback = (APICallResult) -> ()
+    typealias Callback = (APICallResult) -> Void
 
     let appData: AppDataProtocol = AppData.shared
     let provider = Provider.car2go
@@ -25,35 +25,35 @@ class Car2GoAPI {
 
 extension Car2GoAPI: API {
 
-    func login(completion: @escaping callback) {
+    func login(completion: @escaping Callback) {
 
     }
 
-    func getUserData(completion: @escaping callback) {
+    func getUserData(completion: @escaping Callback) {
 
     }
 
-    func getReservationStatus(completion: @escaping callback) {
+    func getReservationStatus(completion: @escaping Callback) {
 
     }
 
-    func getAvailableVehicles(around location: Location, completion: @escaping callback) {
+    func getAvailableVehicles(around location: Location, completion: @escaping Callback) {
 
     }
 
-    func reserveVehicle(withVIN vin: String, completion: @escaping callback) {
+    func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
 
     }
 
-    func cancelReservation(completion: @escaping callback) {
+    func cancelReservation(completion: @escaping Callback) {
 
     }
 
-    func openVehicle(withVIN vin: String, completion: @escaping callback) {
+    func openVehicle(withVIN vin: String, completion: @escaping Callback) {
 
     }
 
-    func closeVehicle(withVIN vin: String, completion: @escaping callback) {
+    func closeVehicle(withVIN vin: String, completion: @escaping Callback) {
 
     }
 

@@ -10,7 +10,7 @@ import Foundation
 import KeychainAccess
 
 protocol AppDataProtocol {
-    
+
     var userLocation: Location? { get set }
 
     /// Add username for the specified provider to Keychain
@@ -46,7 +46,7 @@ class AppData {
 
     let userDefaults = UserDefaults.standard
     let keychain = Keychain(service: "de.lmu.HerbieNow").synchronizable(true)
-    
+
     var userLocation: Location?
 
     // Singleton - call via AppData

@@ -10,7 +10,7 @@ import Foundation
 
 protocol LogicProtocol {
 
-    typealias callback = (APICallResult) -> ()
+    typealias Callback = (APICallResult) -> Void
 
     // This protocol contains every function, every […]ViewInterpreter can call.
 
@@ -24,21 +24,21 @@ protocol LogicProtocol {
 
     // MARK: - API Methods
 
-    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback)
-    func getUserData(from provider: Provider, completion: @escaping callback)
-    func getReservationStatus(from provider: Provider, completion: @escaping callback)
-    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping callback)
-    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
-    func cancelReservation(with provider: Provider, completion: @escaping callback)
-    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
-    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback)
+    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping Callback)
+    func getUserData(from provider: Provider, completion: @escaping Callback)
+    func getReservationStatus(from provider: Provider, completion: @escaping Callback)
+    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback)
+    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
+    func cancelReservation(with provider: Provider, completion: @escaping Callback)
+    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
+    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
 
 }
 
 // Logic can do everything inside the Model-Part of the app, but never call anything inside View or Controller
 class Logic {
 
-    typealias callback = (APICallResult) -> ()
+    typealias Callback = (APICallResult) -> Void
 
     let user = User.shared
     let appData: AppDataProtocol = AppData.shared
@@ -80,7 +80,7 @@ extension Logic: LogicProtocol {
 
     // TODO: Closures zu allen API Calls hinzufügen
 
-    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping callback) {
+    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping Callback) {
 
         logout(of: .driveNow) // Deletes all stored keys for the provider
 
@@ -94,7 +94,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func getUserData(from provider: Provider, completion: @escaping callback) {
+    func getUserData(from provider: Provider, completion: @escaping Callback) {
 
         let api = provider.api()
         api.getUserData() { response in
@@ -103,7 +103,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func getReservationStatus(from provider: Provider, completion: @escaping callback) {
+    func getReservationStatus(from provider: Provider, completion: @escaping Callback) {
 
         let api = provider.api()
         api.getReservationStatus() { response in
@@ -112,7 +112,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping callback) {
+    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback) {
 
         let api = provider.api()
         api.getAvailableVehicles(around: location) { response in
@@ -121,7 +121,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
+    func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
         let api = provider.api()
         api.reserveVehicle(withVIN: vin) { response in
@@ -130,7 +130,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func cancelReservation(with provider: Provider, completion: @escaping callback) {
+    func cancelReservation(with provider: Provider, completion: @escaping Callback) {
 
         let api = provider.api()
         api.cancelReservation() { response in
@@ -139,7 +139,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
+    func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
         let api = provider.api()
         api.openVehicle(withVIN: vin) { response in
@@ -148,7 +148,7 @@ extension Logic: LogicProtocol {
 
     }
 
-    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping callback) {
+    func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
         let api = provider.api()
         api.closeVehicle(withVIN: vin) { response in
