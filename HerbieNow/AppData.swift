@@ -12,6 +12,12 @@ import KeychainAccess
 protocol AppDataProtocol {
 
     var userLocation: Location? { get set }
+    
+    /// Update the user location
+    func updateUserLocation(to location: Location)
+    
+    /// Get the user location
+    func getUserLocation() -> Location?
 
     /// Add username for the specified provider to Keychain
     func addUsername(_ username: String, for provider: Provider)
@@ -142,6 +148,18 @@ extension AppData: AppDataProtocol {
         removeValueFromKeychain(forKey: "\(provider.rawValue) Password")
         removeValueFromKeychain(forKey: "\(provider.rawValue) X-Auth-Token")
         removeValueFromKeychain(forKey: "\(provider.rawValue) Open-Car-Token")
+    }
+    
+    // MARK: - User Location
+        
+    func updateUserLocation(to location: Location) {
+        userLocation = location
+        print("\nNew Location:")
+        print(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")
+    }
+    
+    func getUserLocation() -> Location? {
+        return userLocation
     }
 
 }

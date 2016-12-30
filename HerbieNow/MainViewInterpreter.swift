@@ -29,14 +29,28 @@ protocol MainViewInterpreterProtocol {
 /// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
 class MainViewInterpreter {
 
+    let appDelegate: AppDelegate
+    
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
 
-    init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
+    init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
 
+        self.appDelegate = appDelegate
         self.presenter = MainViewPresenter(to: mainVC)
         self.logic = Logic()
 
+    }
+    
+    func locationUpdated(_ location: Location) {
+        logic.saveUpdatedLocation(location)
+        let labelText = "New Location\n\nLatitude:\n\(location.latitude)\nLongitude:\n\(location.longitude)"
+        presenter.display(message: labelText)
+    }
+    
+    func requestRegularLocationUpdates() {
+        appDelegate.registerCurrentInterpreterForLocationUpdates(self as! GeneralInterpretProtocol)
+        appDelegate.locationManager.requestAlwaysAuthorization()
     }
 
     fileprivate func createFilterset() {

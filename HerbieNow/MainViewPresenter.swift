@@ -19,6 +19,8 @@ protocol MainViewPresenterProtocol {
     func configureFiltersetButtons(with filtersets: [Int : Filterset])
 
     func showDeleteFiltersetAlert(for filterset: Filterset)
+    
+    func display(message: String)
 
 }
 
@@ -67,6 +69,11 @@ extension MainViewPresenter: MainViewPresenterProtocol {
 
         // TODO: present alert
 
+    }
+    
+    func display(message: String) {
+        // mainVC . do something
+        print(message)
     }
 
 }
