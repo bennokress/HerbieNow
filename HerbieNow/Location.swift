@@ -7,16 +7,21 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Location {
 
-    let street: String
-    let areaCode: String
-    let city: String
+    typealias AddressDictFormat = [String: Any]
+
     let latitude: Double
     let longitude: Double
 
     let coordinateDescription: String
+
+    // Computed properties for location
+    var currentLocationAsObject: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
 
     init(latitude: Double, longitude: Double) {
 
@@ -25,24 +30,45 @@ struct Location {
 
         coordinateDescription = "lat: \(latitude), long: \(longitude)"
 
-        func getStreet(from lat: Double, _ long: Double) -> String {
-            // TODO: reverse Geocode
-            return ""
-        }
+        //        self.street = getStreet(from: latitude, longitude)
+        //        self.areaCode = getAreaCode(from: latitude, longitude)
+        //        self.city = getCity(from: latitude, longitude)
 
-        func getAreaCode(from lat: Double, _ long: Double) -> String {
-            // TODO: reverse Geocode
-            return ""
-        }
+        getAdress {result in
 
-        func getCity(from lat: Double, _ long: Double) -> String {
-            // TODO: reverse Geocode
-            return ""
-        }
-
-        self.street = getStreet(from: latitude, longitude)
-        self.areaCode = getAreaCode(from: latitude, longitude)
-        self.city = getCity(from: latitude, longitude)
-
+            guard let city = result?["City"] as? String else {
+                return
+            }
+            print("LOCATION ADRESS \(city)")}
     }
+
+    func getAdress(completion: @escaping (AddressDictFormat?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(currentLocationAsObject) { (placemarks, error) in
+            if error != nil {
+                print("error")
+                completion(nil)
+            } else {
+                let placeArray = placemarks as [CLPlacemark]!
+                var placeMark: CLPlacemark!
+                placeMark = placeArray?[0]
+                guard let dict = placeMark.addressDictionary as? (AddressDictFormat) else {
+                    return
+                }
+                completion(dict)
+            }
+
+        }
+    }
+
+    func getStreet(from lat: Double, _ long: Double) -> String {
+        // TODO: reverse Geocode
+        return ""
+    }
+
+    func getAreaCode(from lat: Double, _ long: Double) -> String {
+        // TODO: reverse Geocode
+        return ""
+    }
+
 }
