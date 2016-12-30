@@ -78,7 +78,7 @@ class AppData {
         do {
             try keychain.remove(key)
         } catch let error {
-            print("Keychain remove value error: \(error)")
+            print(Debug.error(source: (name(of: self), #function), message: "Keychain remove value error: \(error)"))
         }
     }
 
@@ -154,8 +154,7 @@ extension AppData: AppDataProtocol {
 
     func updateUserLocation(to location: Location) {
         userLocation = location
-        print("\nNew Location:")
-        print(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")
+        print(Debug.info(source: (name(of: self), #function), message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
     }
 
     func getUserLocation() -> Location? {
