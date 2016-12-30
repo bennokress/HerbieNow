@@ -20,12 +20,12 @@ enum ConsoleFormat {
 }
 
 extension ConsoleFormat: CustomStringConvertible {
-    
+
     /// Adjust this width by 1 to get the whole width on the console adjusted by 3.
     var leftColumnWidth: Int {
         return 66
     }
-    
+
     var description: String {
         switch self {
         case .success(let source, let message):
@@ -62,26 +62,26 @@ extension ConsoleFormat: CustomStringConvertible {
             return ""
         }
     }
-    
+
     var rightColumnWidth: Int {
         return 2 * leftColumnWidth
     }
-    
+
     var middleColumnWidth: Int {
         return 4
     }
-    
+
     var fullWidth: Int {
         return leftColumnWidth + middleColumnWidth + rightColumnWidth
     }
-    
+
     func rightAligned(_ message: String) -> String {
         let fullMessage = "↓ \(message)"
         let whitespaceLength = rightColumnWidth - fullMessage.characters.count
         let spaces = whitespaceLength > 0 ? String(repeating: " ", count: whitespaceLength) : ""
         return fullMessage.prefixed(with: spaces)
     }
-    
+
     func getSourceTag(for className: String, _ functionName: String) -> String {
         let source = "\(className).\(functionName.until("("))"
         let sourceLength = source.characters.count
@@ -89,9 +89,9 @@ extension ConsoleFormat: CustomStringConvertible {
         let spaces = whitespaceLength > 0 ? String(repeating: " ", count: whitespaceLength) : ""
         return "[\(source)]".prefixed(with: spaces)
     }
-    
+
     func emptyLeftAndMiddleColumn() -> String {
         return String(repeating: " ", count: leftColumnWidth + middleColumnWidth)
     }
-    
+
 }
