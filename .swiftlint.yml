@@ -43,7 +43,6 @@ opt_in_rules:
  # - missing_docs
   - force_unwrapping
   - control_statement
-  - conditional_returns_on_newline
   - private_outlet
   - vertical_whitespace
 

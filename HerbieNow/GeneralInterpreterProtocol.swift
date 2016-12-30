@@ -11,12 +11,6 @@ import Foundation
 // General interpreter is used by AppDelegate to send Location Updates to the interpreter of the currently active view
 protocol GeneralInterpretProtocol {
 
-    //var appDelegate: AppDelegate { get }
-    
-
     func locationUpdated(_ location: Location)
 
-    //func requestRegularLocationUpdates()
-
 }
-

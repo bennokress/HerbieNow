@@ -27,10 +27,10 @@ protocol MainViewInterpreterProtocol {
 }
 
 /// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
-class MainViewInterpreter {
+class MainViewInterpreter: GeneralInterpretProtocol {
 
     let appDelegate: AppDelegate
-    
+
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
 
@@ -41,15 +41,15 @@ class MainViewInterpreter {
         self.logic = Logic()
 
     }
-    
+
     func locationUpdated(_ location: Location) {
         logic.saveUpdatedLocation(location)
         let labelText = "New Location\n\nLatitude:\n\(location.latitude)\nLongitude:\n\(location.longitude)"
         presenter.display(message: labelText)
     }
-    
+
     func requestRegularLocationUpdates() {
-        appDelegate.registerCurrentInterpreterForLocationUpdates(self as! GeneralInterpretProtocol)
+        appDelegate.registerCurrentInterpreterForLocationUpdates(self)
         appDelegate.locationManager.requestAlwaysAuthorization()
     }
 

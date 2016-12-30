@@ -32,7 +32,7 @@ protocol LogicProtocol {
     func cancelReservation(with provider: Provider, completion: @escaping Callback)
     func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
-    
+
     func saveUpdatedLocation(_ location: Location)
 
 }
@@ -55,7 +55,7 @@ extension Logic: LogicProtocol {
     //        return []
 
     //    }
-    
+
     func saveUpdatedLocation(_ location: Location) {
         appData.updateUserLocation(to: location)
     }

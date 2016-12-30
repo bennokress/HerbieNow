@@ -15,10 +15,10 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-    
+
     var appData = AppData.shared
     var currentInterpreter : GeneralInterpretProtocol? = nil
-    
+
     lazy var locationManager: CLLocationManager = {
         let m = CLLocationManager()
         m.delegate = self
@@ -107,34 +107,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
     }
-    
+
     // MARK: - Location Manager
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+
         guard let location = locations.last else { return }
-        
+
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let locationObject = Location(latitude: latitude, longitude: longitude)
-        
+
         guard let interpreter = currentInterpreter else { return }
+
         interpreter.locationUpdated(locationObject)
-        
+
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location Manager could not retrieve location data.")
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+
         if case CLAuthorizationStatus.authorizedAlways = status {
             manager.startUpdatingLocation()
         }
-        
+
     }
-    
+
     func registerCurrentInterpreterForLocationUpdates(_ interpreter: GeneralInterpretProtocol) {
         self.currentInterpreter = interpreter
     }

@@ -35,6 +35,7 @@ protocol MainViewControllerProtocol: class {
 /// ViewControllers have no logic other than what to display
 class MainViewController: UIViewController {
 
+    // swiftlint:disable:next force_cast
     lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
     override func viewDidLoad() {
