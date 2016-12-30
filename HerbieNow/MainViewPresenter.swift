@@ -73,7 +73,6 @@ extension MainViewPresenter: MainViewPresenterProtocol {
 
     func display(message: String) {
         // mainVC . do something
-        print("(MainViewPresenter -> display())" + message)
     }
 
 }
