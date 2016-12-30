@@ -16,9 +16,10 @@ class Car2GoAPI {
 
     let appData: AppDataProtocol = AppData.shared
     let car2go = Provider.car2go
-    
+
     let consumerKey: String
     let consumerKeySecret: String
+    let format: String
     let language: String
     var apiHeader: HTTPHeaders
 
@@ -40,25 +41,25 @@ class Car2GoAPI {
             "connection": "keep-alive"
         ]
     }
-    
-    fileprivate func getVehicleFromJSON(_ json: JSON)->Vehicle?{
+
+    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
         guard let vin = json["vin"].string,
-              let fuelLevelInPercent = json["fuel"].int,
-              let transmissionChar = json["engineType"].character,
-              let licensePlate = json["name"].string,
-              let latitude = json["coordinates"][0].double,
-              let longitude = json["coordinates"][1].double
-            else{
+            let fuelLevelInPercent = json["fuel"].int,
+            let transmissionChar = json["engineType"].character,
+            let licensePlate = json["name"].string,
+            let latitude = json["coordinates"][0].double,
+            let longitude = json["coordinates"][1].double
+            else {
                 return nil
         }
-        
-        //TODO Hier noch nicht fertig
-        //Hier muss über die VIN eine abfrage gemacht werden
+
+        // TODO Hier noch nicht fertig
+        // Hier muss über die VIN eine abfrage gemacht werden
         let fuelType = FuelType(fromRawValue: "P")
         let transmissionType = TransmissionType(fromRawValue: transmissionChar)
-        
+
         let location = Location(latitude: latitude, longitude: longitude)
-        
+
         return Vehicle(provider: car2go,
                        vin: vin,
                        fuelLevel: fuelLevelInPercent,
@@ -68,19 +69,19 @@ class Car2GoAPI {
                        location: location
         )
     }
-    fileprivate func getReservationFromJSON(_ json:JSON)-> Reservation?{
+    fileprivate func getReservationFromJSON(_ json:JSON) -> Reservation? {
         guard let startTime = json["reservationTime"]["timeInMillis"].double,
-            let vehicle = getVehicleFromJSON(json["vehicle"]) else{
+            let vehicle = getVehicleFromJSON(json["vehicle"]) else {
                 return nil
         }
-        
-        let endTime = (startTime + 1800*1000) //add 30  min Reservation Time
-        let endDate = Date(unixTimestamp: endTime);
-        
+
+        let endTime = (startTime + 1800*1000) // add 30 min Reservation Time
+        let endDate = Date(unixTimestamp: endTime)
+
         return Reservation(provider: car2go, endTime: endDate, vehicle: vehicle)
     }
-    
-    fileprivate func errorDetails(for message:String, with code:Int, and status:String, in function: String) ->APICallResult{
+
+    fileprivate func errorDetails(for message: String, with code: Int, and status: String, in function: String) -> APICallResult {
         let error: APICallResult
         error = .error(code: code, codeDetail: status, message: message, parentFunction: function)
         return error
@@ -91,12 +92,12 @@ extension Car2GoAPI: API {
 
     func login(completion: @escaping Callback) {
         let functionName = name(of: self)+"."+#function
-        guard let username = appData.getUsername(for: car2go), let password = appData.getPassword(for: car2go) else{
+        guard let _ = appData.getUsername(for: car2go), let _ = appData.getPassword(for: car2go) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The Car2Go Username and / or the password are missing in Keychain!", parentFunction: functionName)
             completion(error)
-        return
+            return
         }
-        
+
     }
 
     func getUserData(completion: @escaping Callback) {
@@ -109,35 +110,34 @@ extension Car2GoAPI: API {
 
     func getAvailableVehicles(around location: Location, completion: @escaping Callback) {
         let functionName = funcID(class: self, func:#function)
-        
-        //TODO: Loc from Location
+
+        // TODO: Loc from Location
         let url = "http://www.car2go.com/api/v2.1/vehicles?loc=münchen&oauth_consumer_key=\(consumerKey)&format=\(format)"
-        
-        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeaders).responseJASON{callback in
-            
+
+        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON {callback in
+
             let response: APICallResult
-            
-            if let json = callback.result.value{
+
+            if let json = callback.result.value {
                 var vehicles: [Vehicle] = []
-                
-                guard let jsonVehicles = json["placemarks"][0].jsonArray else{
-                    response = self.errorDetails(for: 0, with: "getVIList", and: "", in: functionName)
+
+                guard let jsonVehicles = json["placemarks"][0].jsonArray else {
+                    response = self.errorDetails(for: "getVIList", with: 0, and: "", in: functionName)
                     return
                 }
-                
-                for jsonVehicle in jsonVehicles{
-                    if let vehicle = self.getVehicleFromJSON(jsonVehicle){
+
+                for jsonVehicle in jsonVehicles {
+                    if let vehicle = self.getVehicleFromJSON(jsonVehicle) {
                         vehicles.append(vehicle)
                     }
                 }
-                response = .vehicles(vehicles);
+                response = .vehicles(vehicles)
             } else {
                 response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
             }
             completion(response)
         }
     }
-    
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
 

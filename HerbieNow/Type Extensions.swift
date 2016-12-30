@@ -130,8 +130,7 @@ extension Int {
             return false
         }
     }
-    
-    
+
 }
 
 extension JSON {
@@ -140,8 +139,6 @@ extension JSON {
     public var character: Character? { return stringValue.characters.first }
 
 }
-
-
 
 extension String {
 
