@@ -117,7 +117,6 @@ extension Double {
         // TODO: Rounds wrong!?!? -> 0.58 is 57
         return Int(self * 100)
     }
-
 }
 
 extension Int {
