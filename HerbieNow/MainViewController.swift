@@ -39,36 +39,37 @@ class MainViewController: UIViewController {
     lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
 
+        print(Debug.event(message: "View Did Load"))
         setExclusiveTouchForAllButtons()
-
         interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
         super.viewDidAppear(animated)
 
+        print(Debug.event(message: "View Did Appear"))
         interpreter.viewDidAppear()
-
     }
 
     private func filtersetButtonPressed() {
+        print(Debug.event(message: "Filterset Button Pressed"))
         interpreter.filtersetButtonPressed()
     }
 
     private func filtersetButtonLongPressed() {
+        print(Debug.event(message: "Filterset Button Long Pressed"))
         interpreter.filtersetButtonLongPressed()
     }
 
     private func accountButtonPressed() {
+        print(Debug.event(message: "Account Button Pressed"))
         interpreter.accountButtonPressed()
     }
 
     private func mapButtonPressed() {
+        print(Debug.event(message: "Map Button Pressed"))
         interpreter.mapButtonPressed()
     }
 

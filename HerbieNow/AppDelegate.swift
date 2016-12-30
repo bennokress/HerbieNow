@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location Manager could not retrieve location data.")
+        print(Debug.error(class: self, func: #function, message: "Location Manager could not retrieve location data."))
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

@@ -16,7 +16,6 @@
 		034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */; };
 		034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC16E1DD0B34D00E32EC6 /* Main.storyboard */; };
 		034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */; };
-		034EC1751DD0B34D00E32EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034EC1741DD0B34D00E32EC6 /* Assets.xcassets */; };
 		034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */; };
 		034EC1831DD0B34D00E32EC6 /* HerbieNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC1821DD0B34D00E32EC6 /* HerbieNowTests.swift */; };
 		034EC18E1DD0B34D00E32EC6 /* HerbieNowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC18D1DD0B34D00E32EC6 /* HerbieNowUITests.swift */; };
@@ -27,6 +26,9 @@
 		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
 		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
+		9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969311E16B0D100E70773 /* CaviarDreams.ttf */; };
+		9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */; };
+		9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6871481E16B7CA00994011 /* Assets.xcassets */; };
 		D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */; };
 		D306D1BA1E1694BE00D5CD64 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */; };
 		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
@@ -76,7 +78,6 @@
 		034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		034EC16F1DD0B34D00E32EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		034EC1721DD0B34D00E32EC6 /* HerbieNow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HerbieNow.xcdatamodel; sourceTree = "<group>"; };
-		034EC1741DD0B34D00E32EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		034EC1771DD0B34D00E32EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		034EC1791DD0B34D00E32EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		034EC17E1DD0B34D00E32EC6 /* HerbieNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HerbieNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +93,9 @@
 		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		9E6871481E16B7CA00994011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E6969311E16B0D100E70773 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleFormat.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		0375789E1DD0B46400AA8FC0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9E6969301E16B09900E70773 /* Fonts */,
 				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
 				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
@@ -259,7 +264,7 @@
 		0375789F1DD0B47F00AA8FC0 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
-				034EC1741DD0B34D00E32EC6 /* Assets.xcassets */,
+				9E6871481E16B7CA00994011 /* Assets.xcassets */,
 				034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */,
 				D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */,
 				034EC1791DD0B34D00E32EC6 /* Info.plist */,
@@ -281,6 +286,15 @@
 				D39160B81E0954A1000DBE17 /* AppData.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		9E6969301E16B09900E70773 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */,
+				9E6969311E16B0D100E70773 /* CaviarDreams.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,9 +420,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */,
+				9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */,
 				034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */,
-				034EC1751DD0B34D00E32EC6 /* Assets.xcassets in Resources */,
 				034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */,
+				9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

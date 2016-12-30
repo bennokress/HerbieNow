@@ -19,3 +19,8 @@ let today = Date()
 func name(of object: Any) -> String {
     return (object is Any.Type) ? "\(object)" : "\(type(of: object))"
 }
+
+func funcID(class classObject: Any, func functionName: String) -> String {
+    let className = name(of: classObject)
+    return "\(className).\(functionName.until("("))"
+}
