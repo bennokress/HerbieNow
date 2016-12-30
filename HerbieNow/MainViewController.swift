@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         print(Debug.event(message: "View Did Load"))
         setExclusiveTouchForAllButtons()
         interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         print(Debug.event(message: "View Did Appear"))
         interpreter.viewDidAppear()
     }

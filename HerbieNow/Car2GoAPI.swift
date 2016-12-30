@@ -16,7 +16,7 @@ class Car2GoAPI {
 
     let appData: AppDataProtocol = AppData.shared
     let provider = Provider.car2go
-    
+
     let consumerKey: String
     let consumerKeySecret: String
     let language: String
@@ -39,28 +39,28 @@ class Car2GoAPI {
             "connection": "keep-alive"
         ]
     }
-    
-    fileprivate func getVehicleFromJSON(_ json: JSON)->Vehicle?{
+
+    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
         guard let vin = json["vin"].string,
-              let fuelLevel = json["fuel"].int,
-              let transmissionChar = json["engineType"].character,
-              let licensePlate = json["name"].string,
-              let latitude = json["coordinates"][0].double,
-              let longitude = json["coordinates"][1].double
-            else{
+            let fuelLevel = json["fuel"].int,
+            let transmissionChar = json["engineType"].character,
+            let licensePlate = json["name"].string,
+            let latitude = json["coordinates"][0].double,
+            let longitude = json["coordinates"][1].double
+            else {
                 return nil
         }
-        
-        //TODO Hier noch nicht fertig
+
+        // TODO Hier noch nicht fertig
         let fuelType = FuelType(fromRawValue: "G")
         let transmissionType = TransmissionType(fromRawValue: transmissionChar)
         let location = Location(latitude: latitude, longitude: longitude)
-        
+
         return Vehicle(provider: .car2go,
                        vin: vin,
                        fuelLevel: fuelLevel,
                        fuelType: fuelType,
-                       transmissionType: transmissionChar,
+                       transmissionType: transmissionType,
                        licensePlate: licensePlate,
                        location: location
         )
