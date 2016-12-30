@@ -8,3 +8,4 @@ github "bennokress/KeychainAccess"							# temporary fix for 'github "kishikawak
 github "OAuthSwift/OAuthSwiftAlamofire"						# OAuth Integration for Alamofire
 github "OAuthSwift/OAuthSwift"								# OAuth Framework for the car2go API
 github "malcommac/SwiftLocation"							# Reverse Geocoding Capabilities
+github "omaralbeik/SwifterSwift"							# useful type extensions

@@ -6,7 +6,7 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import JASON
 import Alamofire
 
@@ -44,13 +44,59 @@ extension DataRequest {
 
 extension Date {
 
+    func toString(withWords: Bool = true) -> String {
+        if withWords && self.isInToday {
+            return "Today"
+        } else if withWords && self.isInYesterday {
+            return "Yesterday"
+        } else {
+            return self.customDateString
+        }
+    }
+
+    func subtracting(_ component: Calendar.Component, value: Int) -> Date {
+        return self.adding(component, value: -1*value)
+    }
+
     var timeDescription: String {
         let calendar = Calendar.current
-
         let hour = calendar.component(.hour, from: self)
         let minutes = calendar.component(.minute, from: self)
-
         return "\(hour):\(minutes)"
+    }
+
+    // MARK: - Private Date Helpers
+
+    private func isInSameDay(as dateToCompare: Date) -> Bool {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df.string(from: self) == df.string(from: dateToCompare)
+    }
+
+    private var isInYesterday: Bool {
+        return self.adding(.day, value: 1).isInToday
+    }
+
+    private var customDateString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en-US")
+        dateFormatter.dateFormat = "MMMM d"
+        return "\(dateFormatter.string(from: self))\(self.daySuffix)"
+    }
+
+    private var daySuffix: String {
+        let calendar = Calendar.current
+        let dayOfMonth = calendar.component(.day, from: self)
+        switch dayOfMonth {
+        case 1, 21, 31:
+            return "st"
+        case 2, 22:
+            return "nd"
+        case 3, 23:
+            return "rd"
+        default:
+            return "th"
+        }
     }
 
 }
@@ -74,6 +120,20 @@ extension Double {
 
 }
 
+extension Int {
+
+    /// Converts 1 to true and 0 to false. Defaults to false.
+    func toBool() -> Bool {
+        switch self {
+        case 1:
+            return true
+        default:
+            return false
+        }
+    }
+
+}
+
 extension JSON {
 
     /// The value as a Character or nil if not present/convertible
@@ -89,6 +149,70 @@ extension String {
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self) ?? nil
 
+    }
+
+    func prefixed(with prefix: String) -> String {
+        return "\(prefix)\(self)"
+    }
+
+    func indent(tabs: Int) -> String {
+        let spaces = String(repeating: " ", count: 4*tabs)
+        return self.prefixed(with: spaces)
+    }
+
+    private func replacing(_ string: String, with replacement: String) -> String {
+        return self.replacingOccurrences(of: string, with: replacement)
+    }
+
+    mutating func removeWhitespace() {
+        self = self.replacing(" ", with: "")
+    }
+
+    func until(_ string: String) -> String {
+        var components = self.components(separatedBy: string)
+        return components[0]
+    }
+
+    struct Numbers { static let characterSet = CharacterSet(charactersIn: "0123456789") }
+
+    var numbers: String { return components(separatedBy: Numbers.characterSet.inverted).joined() }
+    var integer: Int { return Int(numbers) ?? 0 }
+
+}
+
+extension UITextField {
+
+    func clear() {
+        DispatchQueue.main.async {
+            self.text = ""
+        }
+    }
+
+}
+
+extension UIColor {
+
+    convenience init(html htmlString: String) {
+        let htmlString: String = htmlString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let scanner = Scanner(string: htmlString)
+
+        if htmlString.hasPrefix("#") {
+            scanner.scanLocation = 1
+        }
+
+        var color: UInt32 = 0
+        scanner.scanHexInt32(&color)
+
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+
+        self.init(red:red, green:green, blue:blue, alpha:1)
     }
 
 }
