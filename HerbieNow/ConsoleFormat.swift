@@ -9,10 +9,10 @@
 import Foundation
 
 enum ConsoleFormat {
-    case success(source: (class: String, func: String), message: String)
-    case warning(source: (class: String, func: String), message: String)
-    case error(source: (class: String, func: String), message: String)
-    case info(source: (class: String, func: String), message: String)
+    case success(class: Any, func: String, message: String)
+    case warning(class: Any, func: String, message: String)
+    case error(class: Any, func: String, message: String)
+    case info(class: Any, func: String, message: String)
     case event(message: String)
     case list(message: String, indent: Int)
     case line
@@ -28,14 +28,14 @@ extension ConsoleFormat: CustomStringConvertible {
 
     var description: String {
         switch self {
-        case .success(let source, let message):
-            return "\(getSourceTag(for: source.class, source.func)) ✅ \(message)"
-        case .warning(let source, let message):
-            return "\(getSourceTag(for: source.class, source.func)) ⚠️ \(message)"
-        case .error(let source, let message):
-            return "\(getSourceTag(for: source.class, source.func)) 🆘 \(message)"
-        case .info(let source, let message):
-            return "\(getSourceTag(for: source.class, source.func)) ℹ️ \(message)"
+        case .success(let classObject, let funcName, let message):
+            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) ✅ \(message)"
+        case .warning(let classObject, let funcName, let message):
+            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) ⚠️ \(message)"
+        case .error(let classObject, let funcName, let message):
+            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) 🆘 \(message)"
+        case .info(let classObject, let funcName, let message):
+            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) ℹ️ \(message)"
         case .event(let message):
             let headline = "Event detected"
             let headlineWidth = headline.characters.count
@@ -82,8 +82,7 @@ extension ConsoleFormat: CustomStringConvertible {
         return fullMessage.prefixed(with: spaces)
     }
 
-    func getSourceTag(for className: String, _ functionName: String) -> String {
-        let source = "\(className).\(functionName.until("("))"
+    func getSourceTag(for source: String) -> String {
         let sourceLength = source.characters.count
         let whitespaceLength = leftColumnWidth - sourceLength
         let spaces = whitespaceLength > 0 ? String(repeating: " ", count: whitespaceLength) : ""

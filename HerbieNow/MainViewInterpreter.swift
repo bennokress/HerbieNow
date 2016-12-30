@@ -66,21 +66,21 @@ class MainViewInterpreter: GeneralInterpretProtocol {
             switch response {
             case .error(_, _, _, _):
                 //                presenter.displayAlert(with: response)
-                print(Debug.info(source: (name(of: self), #function), message: "Let presenter show an alert for: \(response.description)"))
+                print(Debug.info(class: self, func: #function, message: "Let presenter show an alert for: \(response.description)"))
             case .reservation(let userHasActiveReservation, let optionalReservation):
                 //                userHasActiveReservation ? displayReservation(optionalReservation) : displayNoReservation()
                 if userHasActiveReservation {
                     guard let reservation = optionalReservation else { fatalError("Bad format: Active Reservation was nil.") }
-                    print(Debug.info(source: (name(of: self), #function), message: "Let presenter show reservation: \(reservation.description)"))
+                    print(Debug.info(class: self, func: #function, message: "Let presenter show reservation: \(reservation.description)"))
                 } else {
-                    print(Debug.info(source: (name(of: self), #function), message: "Let presenter show that no reservation is active."))
+                    print(Debug.info(class: self, func: #function, message: "Let presenter show that no reservation is active."))
                 }
             case .success(let successful):
                 //                successful ? presenter.letUserKnowOfSuccessfulAPIcall() : presenter.letUserKnowOfUnsuccessfulAPIcall()
-                print(Debug.info(source: (name(of: self), #function), message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
+                print(Debug.info(class: self, func: #function, message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
             case .vehicles(let vehicles):
                 //                presenter.showVehiclesOnMap(vehicles)
-                print(Debug.info(source: (name(of: self), #function), message: "Let the presenter display the following vehicles:"))
+                print(Debug.info(class: self, func: #function, message: "Let the presenter display the following vehicles:"))
                 for vehicle in vehicles {
                     print(Debug.list(message: vehicle.description, indent: 1))
                 }
@@ -88,7 +88,7 @@ class MainViewInterpreter: GeneralInterpretProtocol {
 
         } else {
 
-            print(Debug.info(source: (name(of: self), #function), message: "Background action for API Call Result: \(response.description)"))
+            print(Debug.info(class: self, func: #function, message: "Background action for API Call Result: \(response.description)"))
 
         }
 
