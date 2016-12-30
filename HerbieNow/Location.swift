@@ -9,12 +9,16 @@
 import Foundation
 import CoreLocation
 
-struct Location {
+class Location {
 
     typealias AddressDictFormat = [String: Any]
 
     let latitude: Double
     let longitude: Double
+    
+    var city: String = ""
+    var street: String = ""
+    var areaCode: String = ""
 
     let coordinateDescription: String
 
@@ -29,7 +33,7 @@ struct Location {
         self.longitude = longitude
 
         //        coordinateDescription = "lat: \(latitude), long: \(longitude)"
-        coordinateDescription = ""
+        coordinateDescription = street + ", " + areaCode + ", " + city
 
         //        self.street = getStreet(from: latitude, longitude)
         //        self.areaCode = getAreaCode(from: latitude, longitude)
@@ -37,16 +41,17 @@ struct Location {
 
         getAdress { result in
 
-            guard let city = result?["City"] as? String, let street = result?["Street"] as? String, let areaCode = result?["ZIP"] as? String else {
+            guard let city = result?.city, let street = result?.street, let areaCode = result?.areaCode else {
                 return
             }
-
-            print(street + ", " + areaCode + ", " + city)
+            self.city = city
+            self.street = street
+            self.areaCode = areaCode
 
         }
     }
 
-    func getAdress(completion: @escaping (AddressDictFormat?) -> Void) {
+    func getAdress(completion: @escaping ((street:String, areaCode:String, city:String)?) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(currentLocationAsObject) { (placemarks, error) in
             if error != nil {
@@ -59,7 +64,15 @@ struct Location {
                 guard let dict = placeMark.addressDictionary as? (AddressDictFormat) else {
                     return
                 }
-                completion(dict)
+                
+                guard let city = dict["City"] as? String, let street = dict["Street"] as? String, let areaCode = dict["ZIP"] as? String else {
+                    return
+                }
+                
+                self.city = city
+                self.areaCode = areaCode
+                self.street = street
+                completion((street, areaCode, city))
             }
 
         }
