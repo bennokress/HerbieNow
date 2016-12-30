@@ -28,18 +28,22 @@ struct Location {
         self.latitude = latitude
         self.longitude = longitude
 
-        coordinateDescription = "lat: \(latitude), long: \(longitude)"
+        //        coordinateDescription = "lat: \(latitude), long: \(longitude)"
+        coordinateDescription = ""
 
         //        self.street = getStreet(from: latitude, longitude)
         //        self.areaCode = getAreaCode(from: latitude, longitude)
         //        self.city = getCity(from: latitude, longitude)
 
-        getAdress {result in
+        getAdress { result in
 
-            guard let city = result?["City"] as? String else {
+            guard let city = result?["City"] as? String, let street = result?["Street"] as? String, let areaCode = result?["ZIP"] as? String else {
                 return
             }
-            print("LOCATION ADRESS \(city)")}
+
+            print(street + ", " + areaCode + ", " + city)
+
+        }
     }
 
     func getAdress(completion: @escaping (AddressDictFormat?) -> Void) {
