@@ -66,30 +66,29 @@ class MainViewInterpreter: GeneralInterpretProtocol {
             switch response {
             case .error(_, _, _, _):
                 //                presenter.displayAlert(with: response)
-                print("Let presenter show an alert for: \(response.description)")
+                print(Debug.info(source: (name(of: self), #function), message: "Let presenter show an alert for: \(response.description)"))
             case .reservation(let userHasActiveReservation, let optionalReservation):
                 //                userHasActiveReservation ? displayReservation(optionalReservation) : displayNoReservation()
                 if userHasActiveReservation {
                     guard let reservation = optionalReservation else { fatalError("Bad format: Active Reservation was nil.") }
-                    print("Let presenter show reservation: \(reservation.description)")
+                    print(Debug.info(source: (name(of: self), #function), message: "Let presenter show reservation: \(reservation.description)"))
                 } else {
-                    print("Let presenter show that no reservation is active.")
+                    print(Debug.info(source: (name(of: self), #function), message: "Let presenter show that no reservation is active."))
                 }
             case .success(let successful):
                 //                successful ? presenter.letUserKnowOfSuccessfulAPIcall() : presenter.letUserKnowOfUnsuccessfulAPIcall()
-                print("Let presenter show: API Call was \(successful ? "successful" : "unsuccessful").")
+                print(Debug.info(source: (name(of: self), #function), message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
             case .vehicles(let vehicles):
                 //                presenter.showVehiclesOnMap(vehicles)
-                print("Let the presenter display the following vehicles:")
+                print(Debug.info(source: (name(of: self), #function), message: "Let the presenter display the following vehicles:"))
                 for vehicle in vehicles {
-                    print(vehicle.description)
+                    print(Debug.list(message: vehicle.description, indent: 1))
                 }
             }
 
         } else {
 
-            print("Take background action (without presenter) for the following API Call Result:")
-            print(response.description)
+            print(Debug.info(source: (name(of: self), #function), message: "Background action for API Call Result: \(response.description)"))
 
         }
 
