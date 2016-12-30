@@ -107,6 +107,10 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
         presenter.configureFiltersetButtons(with: configuredFiltersets)
 
+        // Allow Location Updates
+        // Triggers Pop-up window for location service authorization
+        requestRegularLocationUpdates()
+
     }
 
     func accountButtonPressed() {
