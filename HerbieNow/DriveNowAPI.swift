@@ -96,7 +96,7 @@ extension DriveNowAPI: API {
 
     func login(completion: @escaping Callback) {
 
-        let functionName = "DriveNowAPI.cancelReservation"
+        let functionName = "DriveNowAPI.login"
 
         guard let username = appData.getUsername(for: driveNow), let password = appData.getPassword(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow Username and / or the password are missing in Keychain!", parentFunction: functionName)

@@ -117,7 +117,6 @@ extension Double {
         // TODO: Rounds wrong!?!? -> 0.58 is 57
         return Int(self * 100)
     }
-
 }
 
 extension Int {
@@ -131,7 +130,8 @@ extension Int {
             return false
         }
     }
-
+    
+    
 }
 
 extension JSON {
@@ -140,6 +140,8 @@ extension JSON {
     public var character: Character? { return stringValue.characters.first }
 
 }
+
+
 
 extension String {
 
