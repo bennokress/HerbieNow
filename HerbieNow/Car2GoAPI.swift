@@ -16,10 +16,55 @@ class Car2GoAPI {
 
     let appData: AppDataProtocol = AppData.shared
     let provider = Provider.car2go
+    
+    let consumerKey: String
+    let consumerKeySecret: String
+    let language: String
+    var apiHeader: HTTPHeaders
 
     // Singleton - call via Car2GoAPI.shared
     static var shared = Car2GoAPI()
-    private init() {}
+    private init() {
+        consumerKeySecret = "e1t9zimQmxmGrJ9eoMaq"
+        consumerKey = "HerbyNow"
+        language = "de"
+        let version: Float
+        version = 0.1
+        apiHeader = [
+            "accept": "application/json;v=1.9",
+            "accept-language": language,
+            "x-api-key": "adf51226795afbc4e7575ccc124face7",
+            "User-Agent" : "HerbyNow \(version) @ LMU",
+            "accept-encoding": "gzip, deflate",
+            "connection": "keep-alive"
+        ]
+    }
+    
+    fileprivate func getVehicleFromJSON(_ json: JSON)->Vehicle?{
+        guard let vin = json["vin"].string,
+              let fuelLevel = json["fuel"].int,
+              let transmissionChar = json["engineType"].character,
+              let licensePlate = json["name"].string,
+              let latitude = json["coordinates"][0].double,
+              let longitude = json["coordinates"][1].double
+            else{
+                return nil
+        }
+        
+        //TODO Hier noch nicht fertig
+        let fuelType = FuelType(fromRawValue: "G")
+        let transmissionType = TransmissionType(fromRawValue: transmissionChar)
+        let location = Location(latitude: latitude, longitude: longitude)
+        
+        return Vehicle(provider: .car2go,
+                       vin: vin,
+                       fuelLevel: fuelLevel,
+                       fuelType: fuelType,
+                       transmissionType: transmissionChar,
+                       licensePlate: licensePlate,
+                       location: location
+        )
+    }
 
 }
 
