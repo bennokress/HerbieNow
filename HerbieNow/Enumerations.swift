@@ -122,8 +122,43 @@ enum Filter {
     }
     
     func vehicles(_ fullList: [Vehicle]) -> [Vehicle] {
-        // TODO: switch self -> return filtered vehicles
-        return fullList
+        switch self {
+        case .provider(let driveNow, let car2go):
+            var filteredVehicles: [Vehicle] = []
+            if driveNow {
+                for vehicle in fullList {
+                    if vehicle.provider == .driveNow {
+                        filteredVehicles.append(vehicle)
+                    }
+                }
+            }
+            if car2go {
+                for vehicle in fullList {
+                    if vehicle.provider == .car2go {
+                        filteredVehicles.append(vehicle)
+                    }
+                }
+            }
+            return filteredVehicles
+        case .make(let bmw, let mini, let mercedes, let smart):
+            return fullList
+        case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smart, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
+            return fullList
+        case .fuelType(let petrol, let diesel, let electric):
+            return fullList
+        case .transmission(let automatic, let manual):
+            return fullList
+        case .hp(let min, let max):
+            return fullList
+        case .fuelLevel(let min, let max):
+            return fullList
+        case .doors(let three, let five):
+            return fullList
+        case .seats(let two, let four, let five):
+            return fullList
+        case .hifiSystem(let only):
+            return fullList
+        }
     }
     
 }
