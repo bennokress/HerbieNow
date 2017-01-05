@@ -113,7 +113,7 @@ struct Filterset {
         }
 
  
-        return fullList // ->filtered
+        return filteredVehicles
     }
 
     fileprivate func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
@@ -206,7 +206,7 @@ struct Filterset {
         }
 
         
-        return fullList // ->filtered
+        return filteredVehicles
     }
 
     fileprivate func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
@@ -228,7 +228,7 @@ struct Filterset {
             }
         }
 
-        return fullList // ->filtered
+        return filteredVehicles
     }
 
     fileprivate func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
