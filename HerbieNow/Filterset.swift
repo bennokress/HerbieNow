@@ -31,7 +31,7 @@ extension Filterset: FiltersetProtocol {
         var filteredVehicles: [Vehicle] = []
         
         for filter in filters {
-//            filteredVehicles.append(filter.vehicles(vehicles))
+            filteredVehicles.append(contentsOf: filter.vehicles(vehicles))
         }
         
         return vehicles
