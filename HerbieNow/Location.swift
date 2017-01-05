@@ -21,7 +21,7 @@ struct Location {
     let coordinateDescription: String
 
     // Computed properties for location
-    var currentLocationAsObject: CLLocation {
+    var asObject: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
 
@@ -36,7 +36,7 @@ struct Location {
 
     func getAddress(completion: @escaping ((street: String, areaCode: String, city: String)?) -> Void) {
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(currentLocationAsObject) { (placemarks, error) in
+        geocoder.reverseGeocodeLocation(self.asObject) { (placemarks, error) in
             if error != nil {
                 print(Debug.error(class: self, func: #function, message: "Reverse Geocoding failed"))
                 completion(nil)
@@ -61,10 +61,6 @@ struct Location {
     }
     
     func getDistance(from me:CLLocation) -> Double{
-        return me.distance(from: currentLocationAsObject);
-    }
-    
-    func getAsCCLObject() -> CLLocation{
-        return currentLocationAsObject
+        return me.distance(from: self.asObject)
     }
 }

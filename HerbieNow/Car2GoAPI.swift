@@ -183,7 +183,7 @@ extension Car2GoAPI: API {
                     var nearestCity:Location = cities[0]
                     
                     for city in cities{
-                        if(nearestCity.getDistance(from: location.getAsCCLObject()) > city.getDistance(from: location.getAsCCLObject())){
+                        if nearestCity.getDistance(from: location.asObject) > city.getDistance(from: location.asObject) {
                             nearestCity = city
                         }
                     }

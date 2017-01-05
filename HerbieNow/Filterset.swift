@@ -84,7 +84,9 @@ struct Filterset {
                     if miniCountrymanFilterActivated { filteredVehicles.append(vehicle) }
                 case .bmwI3:
                     if bmwI3FilterActivated { filteredVehicles.append(vehicle) }
-                case .bmw1er:
+                case .bmw1er3Door:
+                    if bmw1erFilterActivated { filteredVehicles.append(vehicle) }
+                case .bmw1er5Door:
                     if bmw1erFilterActivated { filteredVehicles.append(vehicle) }
                 case .bmwX1:
                     if bmwX1FilterActivated { filteredVehicles.append(vehicle) }
