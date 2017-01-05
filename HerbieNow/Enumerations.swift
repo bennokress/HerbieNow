@@ -90,10 +90,44 @@ enum Coordinates {
 }
 
 enum Filter {
-
+    
     case provider(driveNow: Bool, car2go: Bool)
     case make(bmw: Bool, mini:Bool, mercedes: Bool, smart: Bool)
-
+    case model(mini3door: Bool, mini5door: Bool, miniConvertible: Bool, miniClubman: Bool, miniCountryman: Bool, bmwI3: Bool, bmw1er: Bool, bmwX1: Bool, bmw2erAT: Bool, bmw2erConvertible: Bool, smartForTwo: Bool, smartRoadster: Bool, smartForFour: Bool, mercedesGLA: Bool, mercedesCLA: Bool, mercedesA: Bool, mercedesB: Bool)
+    case fuelType(petrol: Bool, diesel: Bool, electric: Bool)
+    case transmission(automatic: Bool, manual: Bool)
+    case hp(min: Int, max: Int)
+    case fuelLevel(min: Int, max: Int)
+    case doors(three: Bool, five: Bool)
+    case seats(two: Bool, four: Bool, five: Bool)
+    case hifiSystem(only: Bool)
+    
+    func toString() -> String {
+        switch self {
+        case .provider(let driveNow, let car2go):
+            return "A\(driveNow.toInt())\(car2go.toInt())"
+        case .make(let bmw, let mini, let mercedes, let smart):
+            return "B\(bmw.toInt())\(mini.toInt())\(mercedes.toInt())\(smart.toInt())"
+        case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, let smartRoadster, let smartForFour,  let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
+            // swiftlint:disable:next line_length
+            return "C\(mini3door.toInt())\(mini5door.toInt())\(miniConvertible.toInt())\(miniClubman.toInt())\(miniCountryman.toInt())\(bmwI3.toInt())\(bmw1er.toInt())\(bmwX1.toInt())\(bmw2erAT.toInt())\(bmw2erConvertible.toInt())\(smartForTwo.toInt())\(smartRoadster.toInt())\(smartForFour.toInt())\(mercedesGLA.toInt())\(mercedesCLA.toInt())\(mercedesA.toInt())\(mercedesB.toInt())"
+        case .fuelType(let petrol, let diesel, let electric):
+            return "D\(petrol.toInt())\(diesel.toInt())\(electric.toInt())"
+        case .transmission(let automatic, let manual):
+            return "E\(automatic.toInt())\(manual.toInt())"
+        case .hp(let min, let max):
+            return "F\(min.to3DigitString())\(max.to3DigitString())"
+        case .fuelLevel(let min, let max):
+            return "G\(min.to3DigitString())\(max.to3DigitString())"
+        case .doors(let three, let five):
+            return "H\(three.toInt())\(five.toInt())"
+        case .seats(let two, let four, let five):
+            return "I\(two.toInt())\(four.toInt())\(five.toInt())"
+        case .hifiSystem(let only):
+            return "J\(only.toInt())"
+        }
+    }
+    
 }
 
 enum FuelType: Character {
