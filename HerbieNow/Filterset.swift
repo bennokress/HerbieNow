@@ -214,7 +214,7 @@ struct Filterset {
         if case let .hifiSystem(onlyFilterActivated) = filter {
             for vehicle in fullList {
                 // Type HiFiSystem ist noch nicht als Enum erstellt, aber ein einfacher bool reicht ja hier aus
-                if(vehicle.hasHiFiSystem && onlyFilterActivated){
+                if(vehicle.hasHiFiSystem || (!vehicle.hasHiFiSystem && !onlyFilterActivated)){
                     filteredVehicles.append(vehicle)
                 }
             }
