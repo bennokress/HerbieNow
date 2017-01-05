@@ -98,11 +98,17 @@ enum APICallResult {
 
 }
 
+enum Coordinates {
+    case latitude
+    case longitude
+    case altitude
+}
+
 enum Filter {
-    
+
     case provider(driveNow: Bool, car2go: Bool)
     case make(bmw: Bool, mini:Bool, mercedes: Bool, smart: Bool)
-    
+
 }
 
 enum FuelType: Character {

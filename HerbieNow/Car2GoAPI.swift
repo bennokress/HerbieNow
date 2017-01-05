@@ -69,6 +69,7 @@ class Car2GoAPI {
                        location: location
         )
     }
+
     fileprivate func getReservationFromJSON(_ json:JSON) -> Reservation? {
         guard let startTime = json["reservationTime"]["timeInMillis"].double,
             let vehicle = getVehicleFromJSON(json["vehicle"]) else {
@@ -85,6 +86,17 @@ class Car2GoAPI {
         let error: APICallResult
         error = .error(code: code, codeDetail: status, message: message, parentFunction: function)
         return error
+    }
+    
+    fileprivate func getCityFromJSON(_ json: JSON) -> Location? {
+        guard let name = json["locationName"].string,
+            let longitude = json["mapSection"]["center"]["longitude"].double,
+            let latitude = json["mapSection"]["center"]["latitude"].double
+            else {
+                return nil
+            
+        }
+        return Location(latitude: latitude, longitude: longitude, car2goCityName: name)
     }
 }
 
@@ -109,20 +121,23 @@ extension Car2GoAPI: API {
     }
 
     func getAvailableVehicles(around location: Location, completion: @escaping Callback) {
+
         let functionName = funcID(class: self, func:#function)
 
-        // TODO: Loc from Location
-        let url = "http://www.car2go.com/api/v2.1/vehicles?loc=münchen&oauth_consumer_key=\(consumerKey)&format=\(format)"
+        // TODO: get nearest Loc from GPS
+        let url = "https://www.car2go.com/api/v2.1/vehicles?loc=muenchen&oauth_consumer_key=\(consumerKey)&format=\(format)"
 
         Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON {callback in
 
             let response: APICallResult
 
             if let json = callback.result.value {
+
                 var vehicles: [Vehicle] = []
 
-                guard let jsonVehicles = json["placemarks"][0].jsonArray else {
+                guard let jsonVehicles = json["placemarks"].jsonArray else {
                     response = self.errorDetails(for: "getVIList", with: 0, and: "", in: functionName)
+                    completion(response)
                     return
                 }
 
@@ -137,6 +152,54 @@ extension Car2GoAPI: API {
             }
             completion(response)
         }
+    }
+    
+    func getNearestCity (actualLocation location: Location , completion: @escaping Callback){
+        
+        let functionName = funcID(class: self, func:#function)
+        
+        let url = "http://www.car2go.com/api/v2.1/locations?oauth_consumer_key=\(consumerKey)&format=\(format)"
+        
+        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON{callback in
+            
+            let response: APICallResult
+            
+            if let json = callback.result.value{
+                var cities: [Location] = []
+                
+                guard let jsonCities = json["location"].jsonArray else{
+                    response = self.errorDetails(for: "getLocationList", with: 0, and: "", in : functionName)
+                    completion(response)
+                    return
+                }
+                
+                for jsonCity in jsonCities{
+                    if let city = self.getCityFromJSON(jsonCity){
+                        cities.append(city)
+                    }
+                }
+                
+                if !cities.isEmpty{
+                    var nearestCity:Location = cities[0]
+                    
+                    for city in cities{
+                        if(nearestCity.getDistance(from: location.getAsCCLObject()) > city.getDistance(from: location.getAsCCLObject())){
+                            nearestCity = city
+                        }
+                    }
+                    self.appData.setNearestCar2GoCity(nearestCity.car2goCityName!)
+                    response = .error(code: 0, codeDetail: "city_is_set", message: "Nearest City is: " + nearestCity.car2goCityName!, parentFunction: functionName)
+                }
+                else{
+                    response = .error(code: 0, codeDetail: "array_empty_error", message: "The Cityarray is empty!", parentFunction: functionName)
+                }
+                
+            } else{
+                response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+            }
+            completion(response)
+        }
+        
     }
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {

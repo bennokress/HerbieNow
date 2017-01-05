@@ -15,6 +15,8 @@ struct Location {
 
     let latitude: Double
     let longitude: Double
+    
+    let car2goCityName: String?
 
     let coordinateDescription: String
 
@@ -23,10 +25,11 @@ struct Location {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
 
-    init(latitude: Double, longitude: Double) {
+    init(latitude: Double, longitude: Double, car2goCityName: String? = nil) {
 
         self.latitude = latitude
         self.longitude = longitude
+        self.car2goCityName = car2goCityName
 
         coordinateDescription = "lat: \(latitude), long: \(longitude)"
     }
@@ -56,5 +59,12 @@ struct Location {
 
         }
     }
-
+    
+    func getDistance(from me:CLLocation) -> Double{
+        return me.distance(from: currentLocationAsObject);
+    }
+    
+    func getAsCCLObject() -> CLLocation{
+        return currentLocationAsObject
+    }
 }
