@@ -7,16 +7,21 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Location {
 
-    let street: String
-    let areaCode: String
-    let city: String
+    typealias AddressDictFormat = [String: Any]
+
     let latitude: Double
     let longitude: Double
 
     let coordinateDescription: String
+
+    // Computed properties for location
+    var currentLocationAsObject: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
 
     init(latitude: Double, longitude: Double) {
 
@@ -24,25 +29,32 @@ struct Location {
         self.longitude = longitude
 
         coordinateDescription = "lat: \(latitude), long: \(longitude)"
-
-        func getStreet(from lat: Double, _ long: Double) -> String {
-            // TODO: reverse Geocode
-            return ""
-        }
-
-        func getAreaCode(from lat: Double, _ long: Double) -> String {
-            // TODO: reverse Geocode
-            return ""
-        }
-
-        func getCity(from lat: Double, _ long: Double) -> String {
-            // TODO: reverse Geocode
-            return ""
-        }
-
-        self.street = getStreet(from: latitude, longitude)
-        self.areaCode = getAreaCode(from: latitude, longitude)
-        self.city = getCity(from: latitude, longitude)
-
     }
+
+    func getAddress(completion: @escaping ((street: String, areaCode: String, city: String)?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(currentLocationAsObject) { (placemarks, error) in
+            if error != nil {
+                print(Debug.error(class: self, func: #function, message: "Reverse Geocoding failed"))
+                completion(nil)
+            } else {
+                let placeArray = placemarks as [CLPlacemark]!
+                var placeMark: CLPlacemark!
+                placeMark = placeArray?[0]
+
+                guard let dict = placeMark.addressDictionary as? (AddressDictFormat) else {
+                    return
+                }
+
+                guard let city = dict["City"] as? String, let street = dict["Street"] as? String, let areaCode = dict["ZIP"] as? String else {
+                    return
+                }
+
+                print(Debug.success(class: self, func: #function, message: "Reverse Geocoding: (\(self.latitude), \(self.longitude)) is \(street) in \(areaCode) \(city)"))
+                completion((street, areaCode, city))
+            }
+
+        }
+    }
+
 }

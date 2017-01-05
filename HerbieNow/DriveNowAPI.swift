@@ -96,7 +96,7 @@ extension DriveNowAPI: API {
 
     func login(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.login"
 
         guard let username = appData.getUsername(for: driveNow), let password = appData.getPassword(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow Username and / or the password are missing in Keychain!", parentFunction: functionName)
@@ -141,7 +141,7 @@ extension DriveNowAPI: API {
 
     func getUserData(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.getUserData"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token is missing in Keychain!", parentFunction: functionName)
@@ -184,7 +184,7 @@ extension DriveNowAPI: API {
 
     func getReservationStatus(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.getReservationStatus"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
@@ -230,7 +230,7 @@ extension DriveNowAPI: API {
 
     func getAvailableVehicles(around location: Location, completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.getAvailableVehicles"
 
         let url = "https://api2.drive-now.com/cities"
 
@@ -276,7 +276,7 @@ extension DriveNowAPI: API {
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.reserveVehicles"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
@@ -320,7 +320,7 @@ extension DriveNowAPI: API {
 
     func cancelReservation(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.cancelReservation"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
@@ -363,7 +363,7 @@ extension DriveNowAPI: API {
 
     func openVehicle(withVIN vin: String, completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.openVehicle"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
@@ -406,7 +406,7 @@ extension DriveNowAPI: API {
 
     func closeVehicle(withVIN vin: String, completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.closeVehicle"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
@@ -450,7 +450,7 @@ extension DriveNowAPI: API {
     // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
     private func getUserDataNewVersion(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.getUserDataNewVersion"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
@@ -489,7 +489,7 @@ extension DriveNowAPI: API {
     // This is just in case DriveNow decides to remove the legacy version of getUserData(), which returns the present openCarToken and makes this call unnecessary
     private func getOpenCarToken(for cardNumber: String, completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func: #function)
+        let functionName = "DriveNowAPI.getReservationStatus"
 
         guard let xAuthToken = appData.getXAuthToken(for: driveNow) else {
             let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token is missing in Keychain!", parentFunction: functionName)
