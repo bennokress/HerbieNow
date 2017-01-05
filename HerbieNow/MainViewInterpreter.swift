@@ -152,7 +152,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         //        logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
         //        }
-        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
+        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
             self.handleAPIresponse(response, presenterActionRequired: true)
         }
 

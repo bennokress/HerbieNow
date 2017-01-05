@@ -47,8 +47,8 @@ class Car2GoAPI {
             let fuelLevelInPercent = json["fuel"].int,
             let transmissionChar = json["engineType"].character,
             let licensePlate = json["name"].string,
-            let latitude = json["coordinates"][0].double,
-            let longitude = json["coordinates"][1].double
+            let latitude = json["coordinates"][1].double,
+            let longitude = json["coordinates"][0].double
             else {
                 return nil
         }
@@ -87,14 +87,14 @@ class Car2GoAPI {
         error = .error(code: code, codeDetail: status, message: message, parentFunction: function)
         return error
     }
-    
+
     fileprivate func getCityFromJSON(_ json: JSON) -> Location? {
         guard let name = json["locationName"].string,
             let longitude = json["mapSection"]["center"]["longitude"].double,
             let latitude = json["mapSection"]["center"]["latitude"].double
             else {
                 return nil
-            
+
         }
         return Location(latitude: latitude, longitude: longitude, car2goCityName: name)
     }
@@ -124,82 +124,87 @@ extension Car2GoAPI: API {
 
         let functionName = funcID(class: self, func:#function)
 
-        // TODO: get nearest Loc from GPS
-        let url = "https://www.car2go.com/api/v2.1/vehicles?loc=muenchen&oauth_consumer_key=\(consumerKey)&format=\(format)"
+        getNearestCity(actualLocation: location) { cityString in
 
-        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON {callback in
+            let url = "https://www.car2go.com/api/v2.1/vehicles?loc=\(cityString.replaceGermanCharacters())&oauth_consumer_key=\(self.consumerKey)&format=\(self.format)"
 
-            let response: APICallResult
+            Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: self.apiHeader).responseJASON { callback in
+
+                let response: APICallResult
+
+                if let json = callback.result.value {
+
+                    var vehicles: [Vehicle] = []
+
+                    guard let jsonVehicles = json["placemarks"].jsonArray else {
+                        response = self.errorDetails(for: "getVIList", with: 0, and: "", in: functionName)
+                        completion(response)
+                        return
+                    }
+
+                    for jsonVehicle in jsonVehicles {
+                        if let vehicle = self.getVehicleFromJSON(jsonVehicle) {
+                            vehicles.append(vehicle)
+                        }
+                    }
+                    response = .vehicles(vehicles)
+
+                } else {
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                }
+
+                completion(response)
+
+            }
+
+        }
+
+    }
+
+    func getNearestCity (actualLocation location: Location, completion: @escaping (_ city: String) -> Void) {
+
+        let url = "https://www.car2go.com/api/v2.1/locations?oauth_consumer_key=\(consumerKey)&format=\(format)"
+
+        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON { callback in
+
+            let fallbackCityName = "München"
 
             if let json = callback.result.value {
 
-                var vehicles: [Vehicle] = []
-
-                guard let jsonVehicles = json["placemarks"].jsonArray else {
-                    response = self.errorDetails(for: "getVIList", with: 0, and: "", in: functionName)
-                    completion(response)
-                    return
-                }
-
-                for jsonVehicle in jsonVehicles {
-                    if let vehicle = self.getVehicleFromJSON(jsonVehicle) {
-                        vehicles.append(vehicle)
-                    }
-                }
-                response = .vehicles(vehicles)
-            } else {
-                response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
-            }
-            completion(response)
-        }
-    }
-    
-    func getNearestCity (actualLocation location: Location , completion: @escaping Callback){
-        
-        let functionName = funcID(class: self, func:#function)
-        
-        let url = "http://www.car2go.com/api/v2.1/locations?oauth_consumer_key=\(consumerKey)&format=\(format)"
-        
-        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON{callback in
-            
-            let response: APICallResult
-            
-            if let json = callback.result.value{
                 var cities: [Location] = []
-                
-                guard let jsonCities = json["location"].jsonArray else{
-                    response = self.errorDetails(for: "getLocationList", with: 0, and: "", in : functionName)
-                    completion(response)
+
+                guard let jsonCities = json["location"].jsonArray else {
+                    completion(fallbackCityName)
                     return
                 }
-                
-                for jsonCity in jsonCities{
-                    if let city = self.getCityFromJSON(jsonCity){
+
+                for jsonCity in jsonCities {
+                    if let city = self.getCityFromJSON(jsonCity) {
                         cities.append(city)
                     }
                 }
-                
-                if !cities.isEmpty{
-                    var nearestCity:Location = cities[0]
-                    
-                    for city in cities{
+
+                if cities.count > 0 {
+
+                    var nearestCity: Location = cities[0]
+
+                    for city in cities {
                         if nearestCity.getDistance(from: location.asObject) > city.getDistance(from: location.asObject) {
                             nearestCity = city
                         }
                     }
-                    self.appData.setNearestCar2GoCity(nearestCity.car2goCityName!)
-                    response = .error(code: 0, codeDetail: "city_is_set", message: "Nearest City is: " + nearestCity.car2goCityName!, parentFunction: functionName)
+
+                    completion(nearestCity.car2goCityName ?? fallbackCityName)
+
+                } else {
+                    completion(fallbackCityName)
                 }
-                else{
-                    response = .error(code: 0, codeDetail: "array_empty_error", message: "The Cityarray is empty!", parentFunction: functionName)
-                }
-                
-            } else{
-                response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+
+            } else {
+                completion(fallbackCityName)
             }
-            completion(response)
         }
-        
+
     }
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
