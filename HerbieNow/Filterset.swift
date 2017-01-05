@@ -155,11 +155,33 @@ struct Filterset {
     }
     
     fileprivate func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        return fullList
+        
+        var filteredVehicles: [Vehicle] = []
+        
+        if case let .hp(minHP, maxHP) = filter {
+            for vehicle in fullList {
+                if (vehicle.hp >= minHP && vehicle.hp <= maxHP){
+                    filteredVehicles.append(vehicle)
+                }
+            }
+        }
+        
+        return filteredVehicles
     }
     
     fileprivate func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        return fullList
+        
+        var filteredVehicles: [Vehicle] = []
+        
+        if case let .fuelLevel(minFuelLevel, maxFuelLevel) = filter {
+            for vehicle in fullList {
+                if (vehicle.fuelLevel >= minFuelLevel && vehicle.fuelLevel <= maxFuelLevel){
+                    filteredVehicles.append(vehicle)
+                }
+            }
+        }
+        
+        return filteredVehicles
     }
     
     fileprivate func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
