@@ -10,6 +10,14 @@ import UIKit
 import JASON
 import Alamofire
 
+extension Bool {
+    
+    func toInt() -> Int {
+        return self ? 1 : 0
+    }
+    
+}
+
 extension DataRequest {
 
     /**

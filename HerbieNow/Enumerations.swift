@@ -102,6 +102,23 @@ enum Filter {
     
     case provider(driveNow: Bool, car2go: Bool)
     case make(bmw: Bool, mini:Bool, mercedes: Bool, smart: Bool)
+    case model(mini3door: Bool, mini5door: Bool, miniConvertible: Bool, miniClubman: Bool, miniCountryman: Bool, bmwI3: Bool, bmw1er: Bool, bmwX1: Bool, bmw2erAT: Bool, bmw2erConvertible: Bool, smart: Bool, mercedesGLA: Bool, mercedesCLA: Bool, mercedesA: Bool, mercedesB: Bool)
+    case fuelType(petrol: Bool, diesel: Bool, electric: Bool)
+    case transmission(automatic: Bool, manual: Bool)
+    case hp(min: Int, max: Int)
+    case fuelLevel(min: Int, max: Int)
+    case doors(three: Bool, five: Bool)
+    case seats(two: Bool, four: Bool, five: Bool)
+    case hifiSystem(only: Bool)
+    
+    func toString() -> String {
+        switch self {
+        case .provider(let driveNow, let car2go):
+            return "A\(driveNow.toInt())\(car2go.toInt())"
+        default:
+            return ""
+        }
+    }
     
 }
 
