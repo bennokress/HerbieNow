@@ -28,13 +28,13 @@ extension Filterset: FiltersetProtocol {
     
     func filter(vehicles: [Vehicle]) -> [Vehicle] {
         
-        var filteredVehicles: [Vehicle] = []
+        var filteredVehicles: [Vehicle] = vehicles
         
         for filter in filters {
-            filteredVehicles.append(contentsOf: filter.vehicles(vehicles))
+            filteredVehicles = filter.vehicles(filteredVehicles)
         }
         
-        return vehicles
+        return filteredVehicles
         
     }
     
