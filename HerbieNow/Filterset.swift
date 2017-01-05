@@ -66,15 +66,15 @@ struct Filterset {
 
     fileprivate func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
-/*
+
         var filteredVehicles: [Vehicle] = []
         
-        if case let .model(mini3doorFilterActivated, mini5doorFilterActivated, miniConvertibleFilterActivated, miniClubmanFilterActivated, miniCountrymanFilterActivated, bmwI3FilterActivated, bmw1erFilterActivated, bmwX1FilterActivated, bmw2erATFilterActivated, bmw2erConvertibleFilterActivated, smartFilterActivated, mercedesGLAFilterActivated, mercedesCLAFilterActivated, mercedesAFilterActivated, mercedesBFilterActivated) = filter {
+        if case let .model(mini3doorFilterActivated, mini5doorFilterActivated, miniConvertibleFilterActivated, miniClubmanFilterActivated, miniCountrymanFilterActivated, bmwI3FilterActivated, bmw1erFilterActivated, bmwX1FilterActivated, bmw2erATFilterActivated, bmw2erConvertibleFilterActivated, smartForTwoFilterActivated, smartRoadsterFilterActivated, smartForFourFilterActivated, mercedesGLAFilterActivated, mercedesCLAFilterActivated, mercedesAFilterActivated, mercedesBFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.model {
-                case .mini3door:
+                case .mini3Door:
                     if mini3doorFilterActivated { filteredVehicles.append(vehicle) }
-                case .mini5door:
+                case .mini5Door:
                     if mini5doorFilterActivated { filteredVehicles.append(vehicle) }
                 case .miniConvertible:
                     if miniConvertibleFilterActivated { filteredVehicles.append(vehicle) }
@@ -92,22 +92,26 @@ struct Filterset {
                     if bmw2erATFilterActivated { filteredVehicles.append(vehicle) }
                 case .bmw2erConvertible:
                     if bmw2erConvertibleFilterActivated { filteredVehicles.append(vehicle) }
-                case .smart:
-                    if smartFilterActivated { filteredVehicles.append(vehicle) }
+                case .smartForTwo:
+                    if smartForTwoFilterActivated { filteredVehicles.append(vehicle) }
+                case .smartRoadster:
+                    if smartRoadsterFilterActivated { filteredVehicles.append(vehicle) }
+                case .smartForFour:
+                    if smartForFourFilterActivated { filteredVehicles.append(vehicle) }
                 case .mercedesGLA:
                     if mercedesGLAFilterActivated { filteredVehicles.append(vehicle) }
                 case .mercedesCLA:
                     if mercedesCLAFilterActivated { filteredVehicles.append(vehicle) }
-                case .mercedesA:
+                case .mercedesAseries:
                     if mercedesAFilterActivated { filteredVehicles.append(vehicle) }
-                case .mercedesB:
+                case .mercedesBseries:
                     if mercedesBFilterActivated { filteredVehicles.append(vehicle) }
                 default:
                     break
                 }
             }
         }
-*/
+
  
         return fullList // ->filtered
     }
@@ -185,47 +189,45 @@ struct Filterset {
     }
 
     fileprivate func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        // TODO: Vehicle.doors as enum
-        
-/*
+
         var filteredVehicles: [Vehicle] = []
         
         if case let .doors(threeFilterActivated, fiveFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.doors {
-                case .three:
+                case 3:
                     if threeFilterActivated { filteredVehicles.append(vehicle) }
-                case .five:
+                case 5:
                     if fiveFilterActivated { filteredVehicles.append(vehicle) }
                 default:
                     break
                 }
             }
         }
-*/
+
         
         return fullList // ->filtered
     }
 
     fileprivate func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        // TODO: Vehicle.seats as enum
-
-/*
+       
         var filteredVehicles: [Vehicle] = []
         
-        if case let .doors(threeFilterActivated, fiveFilterActivated) = filter {
+        if case let .seats(twoFilterActivated, fourFilterActivated, fiveFilterActivated) = filter {
             for vehicle in fullList {
-                switch vehicle.doors {
-                case .three:
-                    if threeFilterActivated { filteredVehicles.append(vehicle) }
-                case .five:
+                switch vehicle.seats {
+                case 2:
+                    if twoFilterActivated { filteredVehicles.append(vehicle) }
+                case 4:
+                    if fourFilterActivated { filteredVehicles.append(vehicle) }
+                case 5:
                     if fiveFilterActivated { filteredVehicles.append(vehicle) }
                 default:
                     break
                 }
             }
         }
-*/
+
         return fullList // ->filtered
     }
 
