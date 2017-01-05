@@ -192,6 +192,19 @@ extension String {
         var components = self.components(separatedBy: string)
         return components[0]
     }
+    
+    func toBoolArray() -> [Bool] {
+        var boolArray:[Bool] = []
+        for char in self.characters{
+            if(char == "0"){
+                boolArray.append(false)
+            }else{
+                boolArray.append(true)
+            }
+        }
+        return boolArray
+        
+    }
 
     struct Numbers { static let characterSet = CharacterSet(charactersIn: "0123456789") }
 

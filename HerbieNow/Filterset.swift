@@ -11,6 +11,8 @@ import Foundation
 protocol FiltersetProtocol {
 
     func filter(vehicles: [Vehicle]) -> [Vehicle]
+    
+    func filterStringToArray(string: String) -> [Filter]
 
 }
 
@@ -284,6 +286,15 @@ extension Filterset: FiltersetProtocol {
 
         return filteredVehicles
 
+    }
+    
+    func filterStringToArray(string: String) -> [Filter] {
+        // String has the form: A00B0000C00000000000000000D000E00F000000G000000H00I000J0
+        let seperators = CharacterSet(charactersIn: "ABCDEFGHIJ")
+        var filterArray = string.components(separatedBy: seperators)
+        let provider:Filter = .provider(driveNow: filterArray[0].toBoolArray()[0], car2go: filterArray[0].toBoolArray()[1])
+        let make:Filter = .make(bmw: filterArray[1].toBoolArray()[0], mini: filterArray[1].toBoolArray()[1], mercedes: filterArray[1].toBoolArray()[2], smart: filterArray[1].toBoolArray()[3])
+        return [provider, make]
     }
 
 }
