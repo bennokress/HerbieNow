@@ -11,18 +11,36 @@ import Foundation
 protocol FiltersetProtocol {
 
     func filter(vehicles: [Vehicle]) -> [Vehicle]
-    
-    func filterStringToArray(string: String) -> [Filter]
 
 }
 
-struct Filterset {
+class Filterset {
 
-    let filters: [Filter]
+    var filters: [Filter] = []
 
     init(from initString: String) {
-        filters = []
+        filters = getFilters(from: initString)
     }
+    
+    func getFilters(from string: String) -> [Filter] {
+        // String has the form: A00B0000C00000000000000000D000E00F000000G000000H00I000J0
+        let seperators = CharacterSet(charactersIn: "ABCDEFGHIJ")
+        var filterArray = string.components(separatedBy: seperators)
+        
+        let providerBoolArray = filterArray[1].toBoolArray()
+        let providerFilter: Filter = getProviderFilter(from: providerBoolArray)
+        
+        let makeBoolArray = filterArray[2].toBoolArray()
+        let make:Filter = .make(bmw: makeBoolArray[0], mini: makeBoolArray[1], mercedes: makeBoolArray[2], smart: makeBoolArray[3])
+        
+        return [providerFilter, make]
+    }
+    
+    func getProviderFilter(from boolArray: [Bool]) -> Filter {
+        return .provider(driveNow: boolArray[0], car2go: boolArray[1])
+    }
+
+    // MARK: - used by filter(vehicles:)
 
     fileprivate func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
@@ -285,15 +303,6 @@ extension Filterset: FiltersetProtocol {
 
         return filteredVehicles
 
-    }
-    
-    func filterStringToArray(string: String) -> [Filter] {
-        // String has the form: A00B0000C00000000000000000D000E00F000000G000000H00I000J0
-        let seperators = CharacterSet(charactersIn: "ABCDEFGHIJ")
-        var filterArray = string.components(separatedBy: seperators)
-        let provider:Filter = .provider(driveNow: filterArray[0].toBoolArray()[0], car2go: filterArray[0].toBoolArray()[1])
-        let make:Filter = .make(bmw: filterArray[1].toBoolArray()[0], mini: filterArray[1].toBoolArray()[1], mercedes: filterArray[1].toBoolArray()[2], smart: filterArray[1].toBoolArray()[3])
-        return [provider, make]
     }
 
 }
