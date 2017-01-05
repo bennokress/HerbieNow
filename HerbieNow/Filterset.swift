@@ -41,9 +41,9 @@ struct Filterset {
     }
 
     fileprivate func filterByMake(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .make(bmwFilterActivated, miniFilterActivated, mercedesFilterActivated, smartFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.make {
@@ -60,15 +60,16 @@ struct Filterset {
                 }
             }
         }
-        
+
         return filteredVehicles
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     fileprivate func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
-
         var filteredVehicles: [Vehicle] = []
-        
+
+        // swiftlint:disable:next line_length
         if case let .model(mini3doorFilterActivated, mini5doorFilterActivated, miniConvertibleFilterActivated, miniClubmanFilterActivated, miniCountrymanFilterActivated, bmwI3FilterActivated, bmw1erFilterActivated, bmwX1FilterActivated, bmw2erATFilterActivated, bmw2erConvertibleFilterActivated, smartForTwoFilterActivated, smartRoadsterFilterActivated, smartForFourFilterActivated, mercedesGLAFilterActivated, mercedesCLAFilterActivated, mercedesAFilterActivated, mercedesBFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.model {
@@ -114,14 +115,13 @@ struct Filterset {
             }
         }
 
- 
         return filteredVehicles
     }
 
     fileprivate func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .fuelType(petrolFilterActivated, dieselFilterActivated, electricFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.fuelType {
@@ -136,14 +136,14 @@ struct Filterset {
                 }
             }
         }
-        
+
         return filteredVehicles
     }
 
     fileprivate func filterByTransmission(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .transmission(automaticFilterActivated, manualFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.transmissionType {
@@ -156,44 +156,44 @@ struct Filterset {
                 }
             }
         }
-        
+
         return filteredVehicles
     }
 
     fileprivate func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .hp(minHP, maxHP) = filter {
             for vehicle in fullList {
-                if (vehicle.hp >= minHP && vehicle.hp <= maxHP){
+                if (vehicle.hp >= minHP && vehicle.hp <= maxHP) {
                     filteredVehicles.append(vehicle)
                 }
             }
         }
-        
+
         return filteredVehicles
     }
 
     fileprivate func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .fuelLevel(minFuelLevel, maxFuelLevel) = filter {
             for vehicle in fullList {
-                if (vehicle.fuelLevel >= minFuelLevel && vehicle.fuelLevel <= maxFuelLevel){
+                if (vehicle.fuelLevel >= minFuelLevel && vehicle.fuelLevel <= maxFuelLevel) {
                     filteredVehicles.append(vehicle)
                 }
             }
         }
-        
+
         return filteredVehicles
     }
 
     fileprivate func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .doors(threeFilterActivated, fiveFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.doors {
@@ -207,14 +207,13 @@ struct Filterset {
             }
         }
 
-        
         return filteredVehicles
     }
 
     fileprivate func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-       
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .seats(twoFilterActivated, fourFilterActivated, fiveFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.seats {
@@ -234,18 +233,18 @@ struct Filterset {
     }
 
     fileprivate func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .hifiSystem(onlyFilterActivated) = filter {
             for vehicle in fullList {
                 // Type HiFiSystem ist noch nicht als Enum erstellt, aber ein einfacher bool reicht ja hier aus
-                if(vehicle.hasHiFiSystem || (!vehicle.hasHiFiSystem && !onlyFilterActivated)){
+                if(vehicle.hasHiFiSystem || (!vehicle.hasHiFiSystem && !onlyFilterActivated)) {
                     filteredVehicles.append(vehicle)
                 }
             }
         }
-        
+
         return filteredVehicles
     }
 

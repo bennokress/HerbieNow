@@ -90,9 +90,10 @@ enum Coordinates {
 }
 
 enum Filter {
-    
+
     case provider(driveNow: Bool, car2go: Bool)
     case make(bmw: Bool, mini:Bool, mercedes: Bool, smart: Bool)
+    // swiftlint:disable:next line_length
     case model(mini3door: Bool, mini5door: Bool, miniConvertible: Bool, miniClubman: Bool, miniCountryman: Bool, bmwI3: Bool, bmw1er: Bool, bmwX1: Bool, bmw2erAT: Bool, bmw2erConvertible: Bool, smartForTwo: Bool, smartRoadster: Bool, smartForFour: Bool, mercedesGLA: Bool, mercedesCLA: Bool, mercedesA: Bool, mercedesB: Bool)
     case fuelType(petrol: Bool, diesel: Bool, electric: Bool)
     case transmission(automatic: Bool, manual: Bool)
@@ -101,14 +102,14 @@ enum Filter {
     case doors(three: Bool, five: Bool)
     case seats(two: Bool, four: Bool, five: Bool)
     case hifiSystem(only: Bool)
-    
+
     func toString() -> String {
         switch self {
         case .provider(let driveNow, let car2go):
             return "A\(driveNow.toInt())\(car2go.toInt())"
         case .make(let bmw, let mini, let mercedes, let smart):
             return "B\(bmw.toInt())\(mini.toInt())\(mercedes.toInt())\(smart.toInt())"
-        case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, let smartRoadster, let smartForFour,  let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
+        case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, let smartRoadster, let smartForFour, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
             // swiftlint:disable:next line_length
             return "C\(mini3door.toInt())\(mini5door.toInt())\(miniConvertible.toInt())\(miniClubman.toInt())\(miniCountryman.toInt())\(bmwI3.toInt())\(bmw1er.toInt())\(bmwX1.toInt())\(bmw2erAT.toInt())\(bmw2erConvertible.toInt())\(smartForTwo.toInt())\(smartRoadster.toInt())\(smartForFour.toInt())\(mercedesGLA.toInt())\(mercedesCLA.toInt())\(mercedesA.toInt())\(mercedesB.toInt())"
         case .fuelType(let petrol, let diesel, let electric):
@@ -127,7 +128,7 @@ enum Filter {
             return "J\(only.toInt())"
         }
     }
-    
+
 }
 
 enum FuelType: Character {
@@ -215,9 +216,9 @@ enum Model {
     case mercedesCLA
 
     case unknown
-    
+
     func getString() -> String {
-        
+
         switch self {
         case .mini3Door: return "3 Door"
         case .mini5Door: return "5 Door"
@@ -226,7 +227,7 @@ enum Model {
         case .miniClubman: return "Clubman"
         case .miniPaceman: return "Paceman"
         case .miniCoupe: return "Coupé"
-            
+
         case .bmwI3: return "i3"
         case .bmwActiveE: return "ActiveE"
         case .bmw1er3Door: return "1er"
@@ -238,55 +239,55 @@ enum Model {
         case .bmw2erConvertible: return "2er Convertible"
         case .bmw2erCoupe: return "2er Coupé"
         case .bmwX1: return "X1"
-            
+
         case .smartForTwo: return "fortwo"
         case .smartRoadster: return "roadster"
         case .smartForFour: return "forfour"
-            
+
         case .mercedesAseries: return "A series"
         case .mercedesBseries: return "B series"
         case .mercedesGLA: return "GLA"
         case .mercedesCLA: return "CLA"
-            
+
         case .unknown: return "Model"
         }
-        
+
     }
-    
+
     var doors: Int {
-        
+
         switch self {
         case .mini3Door, .miniConvertible, .miniCoupe: return 3
         case .mini5Door, .miniCountryman, .miniClubman, .miniPaceman: return 5
-            
+
         case .bmwI3, .bmwActiveE, .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe: return 3
         case .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmw2erConvertible, .bmw2erCoupe, .bmwX1: return 5
-            
+
         case .smartForTwo, .smartRoadster, .smartForFour: return 3
-            
+
         case .mercedesAseries, .mercedesBseries, .mercedesGLA, .mercedesCLA: return 5
-            
+
         case .unknown: return 0
         }
-        
+
     }
-    
+
     var seats: Int {
-        
+
         switch self {
         case .mini3Door, .miniConvertible, .miniCoupe, .mini5Door, .miniCountryman, .miniClubman, .miniPaceman: return 4
-            
+
         case .bmwI3, .bmwActiveE: return 2
         case .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe, .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmw2erConvertible, .bmw2erCoupe, .bmwX1: return 5
-            
+
         case .smartForTwo, .smartRoadster: return 2
         case .smartForFour: return 4
-            
+
         case .mercedesAseries, .mercedesBseries, .mercedesGLA, .mercedesCLA: return 5
-            
+
         case .unknown: return 0
         }
-        
+
     }
 
 }

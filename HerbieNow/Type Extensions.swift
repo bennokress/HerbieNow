@@ -188,6 +188,19 @@ extension String {
         self = self.replacing(" ", with: "")
     }
 
+    func replaceGermanCharacters() -> String {
+
+        return self
+            .replacing("ä", with: "ae")
+            .replacing("ö", with: "oe")
+            .replacing("ü", with: "ue")
+            .replacing("Ä", with: "Ae")
+            .replacing("Ö", with: "Oe")
+            .replacing("Ü", with: "Ue")
+            .replacing("ß", with: "ss")
+
+    }
+
     func until(_ string: String) -> String {
         var components = self.components(separatedBy: string)
         return components[0]
