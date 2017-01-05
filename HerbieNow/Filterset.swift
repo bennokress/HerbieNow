@@ -23,21 +23,20 @@ struct Filterset {
     }
     
     fileprivate func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+        
         var filteredVehicles: [Vehicle] = []
-//        if filter.driveNow {
-//            for vehicle in fullList {
-//                if vehicle.provider == .driveNow {
-//                    filteredVehicles.append(vehicle)
-//                }
-//            }
-//        }
-//        if filter.car2go {
-//            for vehicle in fullList {
-//                if vehicle.provider == .car2go {
-//                    filteredVehicles.append(vehicle)
-//                }
-//            }
-//        }
+        
+        if case let .provider(driveNowFilterActivated, car2goFilterActivated) = filter {
+            for vehicle in fullList {
+                switch vehicle.provider {
+                case .driveNow:
+                    if driveNowFilterActivated { filteredVehicles.append(vehicle) }
+                case .car2go:
+                    if car2goFilterActivated { filteredVehicles.append(vehicle) }
+                }
+            }
+        }
+        
         return filteredVehicles
     }
     
