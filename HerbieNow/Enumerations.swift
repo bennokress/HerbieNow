@@ -115,8 +115,24 @@ enum Filter {
         switch self {
         case .provider(let driveNow, let car2go):
             return "A\(driveNow.toInt())\(car2go.toInt())"
-        default:
-            return ""
+        case .make(let bmw, let mini, let mercedes, let smart):
+            return "B\(bmw.toInt())\(mini.toInt())\(mercedes.toInt())\(smart.toInt())"
+        case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smart, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
+            return "C\(mini3door.toInt())\(mini5door.toInt())\(miniConvertible.toInt())\(miniClubman.toInt())\(miniCountryman.toInt())\(bmwI3.toInt())\(bmw1er.toInt())\(bmwX1.toInt())\(bmw2erAT.toInt())\(bmw2erConvertible.toInt())\(smart.toInt())\(mercedesGLA.toInt())\(mercedesCLA.toInt())\(mercedesA.toInt())\(mercedesB.toInt())"
+        case .fuelType(let petrol, let diesel, let electric):
+            return "D\(petrol.toInt())\(diesel.toInt())\(electric.toInt())"
+        case .transmission(let automatic, let manual):
+            return "E\(automatic.toInt())\(manual.toInt())"
+        case .hp(let min, let max):
+            return "F\(min)\(max)" //Extension bauen, 3 Ziffern jeweils
+        case .fuelLevel(let min, let max):
+            return "G\(min)\(max)" //Extension bauen, 3 Ziffern jeweils
+        case .doors(let three, let five):
+            return "H\(three.toInt())\(five.toInt())"
+        case .seats(let two, let four, let five):
+            return "I\(two.toInt())\(four.toInt())\(five.toInt())"
+        case .hifiSystem(let only):
+            return "J\(only.toInt())"
         }
     }
     
