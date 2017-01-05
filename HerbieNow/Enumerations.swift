@@ -121,6 +121,11 @@ enum Filter {
         }
     }
     
+    func vehicles(_ fullList: [Vehicle]) -> [Vehicle] {
+        // TODO: switch self -> return filtered vehicles
+        return fullList
+    }
+    
 }
 
 enum FuelType: Character {
