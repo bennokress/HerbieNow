@@ -84,7 +84,7 @@ enum APICallResult {
 }
 
 enum Filter {
-    
+
     case provider(driveNow: Bool, car2go: Bool)
     case make(bmw: Bool, mini:Bool, mercedes: Bool, smart: Bool)
     case model(mini3door: Bool, mini5door: Bool, miniConvertible: Bool, miniClubman: Bool, miniCountryman: Bool, bmwI3: Bool, bmw1er: Bool, bmwX1: Bool, bmw2erAT: Bool, bmw2erConvertible: Bool, smart: Bool, mercedesGLA: Bool, mercedesCLA: Bool, mercedesA: Bool, mercedesB: Bool)
@@ -95,7 +95,7 @@ enum Filter {
     case doors(three: Bool, five: Bool)
     case seats(two: Bool, four: Bool, five: Bool)
     case hifiSystem(only: Bool)
-    
+
     func toString() -> String {
         switch self {
         case .provider(let driveNow, let car2go):
@@ -103,6 +103,7 @@ enum Filter {
         case .make(let bmw, let mini, let mercedes, let smart):
             return "B\(bmw.toInt())\(mini.toInt())\(mercedes.toInt())\(smart.toInt())"
         case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smart, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
+            // swiftlint:disable:next line_length
             return "C\(mini3door.toInt())\(mini5door.toInt())\(miniConvertible.toInt())\(miniClubman.toInt())\(miniCountryman.toInt())\(bmwI3.toInt())\(bmw1er.toInt())\(bmwX1.toInt())\(bmw2erAT.toInt())\(bmw2erConvertible.toInt())\(smart.toInt())\(mercedesGLA.toInt())\(mercedesCLA.toInt())\(mercedesA.toInt())\(mercedesB.toInt())"
         case .fuelType(let petrol, let diesel, let electric):
             return "D\(petrol.toInt())\(diesel.toInt())\(electric.toInt())"
@@ -120,7 +121,7 @@ enum Filter {
             return "J\(only.toInt())"
         }
     }
-    
+
 }
 
 enum FuelType: Character {
@@ -173,6 +174,40 @@ enum Make: String {
         }
 
     }
+
+}
+
+enum Model: String {
+
+    case mini3Door = "3 Door"
+    case mini5Door = "5 Door"
+    case miniConvertible = "Convertible"
+    case miniCountryman = "Countryman"
+    case miniClubman = "Clubman"
+    case miniPaceman = "Paceman"
+    case miniCoupe = "Coupé"
+
+    case bmwI3 = "i3"
+    case bmwActiveE = "ActiveE"
+    case bmw1er = "1er"
+    case bmw1erConvertible = "1er Convertible"
+    case bmw1erCoupe = "1er Coupé"
+    case bmw2erGT = "2er Grand Tourer"
+    case bmw2erAT = "2er Active Tourer"
+    case bmw2erConvertible = "2er Convertible"
+    case bmw2erCoupe = "2er Coupé"
+    case bmwX1 = "X1"
+
+    case smartForTwo = "fortwo"
+    case smartRoadster = "roadster"
+    case smartForFour = "forfour"
+
+    case mercedesAseries = "A series"
+    case mercedesBseries = "B series"
+    case mercedesGLA = "GLA"
+    case mercedesCLA = "CLA"
+
+    case unknown = "Model"
 
 }
 

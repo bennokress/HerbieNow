@@ -9,23 +9,23 @@
 import Foundation
 
 protocol FiltersetProtocol {
-    
+
     func filter(vehicles: [Vehicle]) -> [Vehicle]
-    
+
 }
 
 struct Filterset {
-    
+
     let filters: [Filter]
-    
+
     init(from initString: String) {
         filters = []
     }
-    
+
     fileprivate func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = []
-        
+
         if case let .provider(driveNowFilterActivated, car2goFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.provider {
@@ -36,55 +36,54 @@ struct Filterset {
                 }
             }
         }
-        
+
         return filteredVehicles
     }
-    
+
     fileprivate func filterByMake(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByTransmission(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
+
     fileprivate func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
         return fullList
     }
-    
-    
+
 }
 
 extension Filterset: FiltersetProtocol {
-    
+
     func filter(vehicles: [Vehicle]) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = vehicles
-        
+
         for filter in filters {
             switch filter {
             case .provider:
@@ -109,9 +108,9 @@ extension Filterset: FiltersetProtocol {
                 filteredVehicles = filterByHiFiSystem(filteredVehicles, with: filter)
             }
         }
-        
+
         return filteredVehicles
-        
+
     }
-    
+
 }

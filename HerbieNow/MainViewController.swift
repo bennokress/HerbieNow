@@ -13,10 +13,7 @@ protocol MainViewControllerProtocol: class {
     // This protocol contains every function, the MainViewPresenter can call.
 
     /// Performs the segue to Map View. Typically after the search button is pressed.
-    func goToMapView(with filterset: Filterset)
-
-    // TODO: Add documentation comment
-    func goToMapViewWithoutFilter()
+    func goToMapView(with vehicles: [Vehicle])
 
     // TODO: Add arguments and documentation comment
     func displayFiltersetButtons()
@@ -81,7 +78,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewControllerProtocol {
 
-    func goToMapView(with filterset: Filterset) {
+    func goToMapView(with vehicles: [Vehicle]) {
         // TODO: implement function
     }
 

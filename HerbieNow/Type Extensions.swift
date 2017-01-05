@@ -11,11 +11,11 @@ import JASON
 import Alamofire
 
 extension Bool {
-    
+
     func toInt() -> Int {
         return self ? 1 : 0
     }
-    
+
 }
 
 extension DataRequest {
@@ -138,19 +138,16 @@ extension Int {
             return false
         }
     }
-    
+
     /// Converts Integer to 3-digit-String
     func to3DigitString() -> String {
-        if(self >= 0 && self < 10){
+        if self >= 0 && self < 10 {
             return "00\(self)"
-        }
-        else if(self >= 10 && self < 100){
+        } else if self >= 10 && self < 100 {
             return "0\(self)"
-        }
-        else if(self >= 100 && self < 1000){
+        } else if self >= 100 && self < 1000 {
             return "\(self)"
-        }
-        else {
+        } else {
             return "999"
         }
     }
