@@ -1,0 +1,54 @@
+{
+  "booking": [
+    {
+      "account": {
+        "accountId": 100,
+        "description": "Test Account 1"
+      },
+      "bookingId": 321,
+      "bookingposition": {
+        "address": "SomeStreet",
+        "latitude": 48.35196,
+        "longitude": 11.78808
+      },
+      "reservationTime": {
+        "firstDayOfWeek": 1,
+        "gregorianChange": "1582-10-15",
+        "lenient": true,
+        "minimalDaysInFirstWeek": 1,
+        "time": "2016-12-30",
+        "timeInMillis": 1483107263168,
+        "timeZone": {
+          "DSTSavings": 3600000,
+          "ID": "Europe/Berlin",
+          "dirty": false,
+          "displayName": "Central European Time",
+          "lastRuleInstance": {
+            "DSTSavings": 3600000,
+            "ID": "Europe/Berlin",
+            "displayName": "Central European Time",
+            "rawOffset": 3600000
+          },
+          "rawOffset": 3600000
+        }
+      },
+      "vehicle": {
+        "engineType": "CE",
+        "exterior": "BAD",
+        "fuel": 95,
+        "interior": "GOOD",
+        "numberPlate": "TEST PLATE 01",
+        "position": {
+          "address": "SomeStreet",
+          "latitude": 48.35196,
+          "longitude": 11.78808
+        },
+        "vin": "WME4533421K072024"
+      }
+    }
+  ],
+  "returnValue": {
+    "code": 0,
+    "description": "Operation successful."
+  }
+}

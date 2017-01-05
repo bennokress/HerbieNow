@@ -1,0 +1,5989 @@
+{
+  "placemarks": [
+    {
+      "address": "Ohlmüllerstraße 12, 81541 München",
+      "coordinates": [
+        11.57915,
+        48.1256,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 12,
+      "interior": "GOOD",
+      "name": "B-GO8622",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J514705"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO4633",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072024"
+    },
+    {
+      "address": "Prannerstraße 5, 80333 München",
+      "coordinates": [
+        11.57364,
+        48.14103,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3642",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037711"
+    },
+    {
+      "address": "Bad-Wiessee-Straße 12, 81547 München",
+      "coordinates": [
+        11.57841,
+        48.10639,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 84,
+      "interior": "GOOD",
+      "name": "B-GO8625",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513870"
+    },
+    {
+      "address": "Graf-Konrad-Straße 1, 80809 München",
+      "coordinates": [
+        11.56646,
+        48.18243,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 60,
+      "interior": "GOOD",
+      "name": "B-GO5423",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J295270"
+    },
+    {
+      "address": "Ohmstraße 5, 85609 Aschheim",
+      "coordinates": [
+        11.68292,
+        48.15284,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO4739",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070748"
+    },
+    {
+      "address": "Prannerstraße 10, 80333 München",
+      "coordinates": [
+        11.57298,
+        48.14127,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3652",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036937"
+    },
+    {
+      "address": "Tomannweg 3, 81673 München",
+      "coordinates": [
+        11.62075,
+        48.13091,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO3514",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036846"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 84,
+      "interior": "GOOD",
+      "name": "B-GO4709",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070517"
+    },
+    {
+      "address": "Claudiuspl. 9-10, 80992 München",
+      "coordinates": [
+        11.52566,
+        48.18115,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO4662",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071551"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO3613",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036677"
+    },
+    {
+      "address": "Leopoldstraße 100, 80802 München",
+      "coordinates": [
+        11.58666,
+        48.16486,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3720",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037930"
+    },
+    {
+      "address": "Klausener Str. 11, 81547 München",
+      "coordinates": [
+        11.57592,
+        48.1025,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO3699",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038872"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78757,
+        48.35143,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO3146",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035371"
+    },
+    {
+      "address": "Hansjakobstraße 40, 81673 München",
+      "coordinates": [
+        11.6357,
+        48.13025,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3611",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036465"
+    },
+    {
+      "address": "Rosenheimer Str. 145G, 81671 München",
+      "coordinates": [
+        11.6055,
+        48.12148,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO3569",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036636"
+    },
+    {
+      "address": "Schornstraße 2, 81669 München",
+      "coordinates": [
+        11.5906,
+        48.12528,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3558",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037715"
+    },
+    {
+      "address": "Gneisenaustraße 23, 80992 München",
+      "coordinates": [
+        11.53564,
+        48.17919,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO4798",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K074651"
+    },
+    {
+      "address": "Mörikestraße 43, 81543 München",
+      "coordinates": [
+        11.55985,
+        48.10003,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO4251",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063242"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3653",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035763"
+    },
+    {
+      "address": "Anni-Albers-Straße 11, 80807 München",
+      "coordinates": [
+        11.59235,
+        48.17769,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO3657",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037029"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 65,
+      "interior": "GOOD",
+      "name": "B-GO4264",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064647"
+    },
+    {
+      "address": "Schleißheimer Str. 142, 80797 München",
+      "coordinates": [
+        11.56335,
+        48.16029,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 68,
+      "interior": "GOOD",
+      "name": "B-GO4723",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071809"
+    },
+    {
+      "address": "Fraunhoferstraße 1, 85737 Ismaning",
+      "coordinates": [
+        11.68055,
+        48.23187,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO4745",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070141"
+    },
+    {
+      "address": "Gottfried-Keller-Straße 21, 81245 München",
+      "coordinates": [
+        11.46557,
+        48.15063,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO4670",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072124"
+    },
+    {
+      "address": "Am Bahnhof 2, 85774 Unterföhring",
+      "coordinates": [
+        11.64714,
+        48.19115,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 64,
+      "interior": "GOOD",
+      "name": "B-GO8546",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J511432"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3461",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037260"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.7891,
+        48.35174,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4727",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072703"
+    },
+    {
+      "address": "Regerpl. 3, 81541 München",
+      "coordinates": [
+        11.58774,
+        48.1243,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4253",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063377"
+    },
+    {
+      "address": "Hans-Böckler-Straße 19, 80995 München",
+      "coordinates": [
+        11.53631,
+        48.20132,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3472",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035568"
+    },
+    {
+      "address": "Maximilianspl. 8-9, 80333 München",
+      "coordinates": [
+        11.57223,
+        48.14264,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3698",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K039370"
+    },
+    {
+      "address": "Tal 25, 80331 München",
+      "coordinates": [
+        11.58016,
+        48.13585,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO4699",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069661"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4789",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071864"
+    },
+    {
+      "address": "Elisabethstraße 7, 80796 München",
+      "coordinates": [
+        11.57219,
+        48.1581,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3584",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036737"
+    },
+    {
+      "address": "Am Bahnhof 2, 85774 Unterföhring",
+      "coordinates": [
+        11.64719,
+        48.19119,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO4696",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069961"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8641",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J515386"
+    },
+    {
+      "address": "Treffauerstraße 48, 81373 München",
+      "coordinates": [
+        11.51889,
+        48.11758,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 54,
+      "interior": "GOOD",
+      "name": "B-GO8560",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J512338"
+    },
+    {
+      "address": "Leopoldstraße 261, 80807 München",
+      "coordinates": [
+        11.58463,
+        48.18318,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 21,
+      "interior": "GOOD",
+      "name": "B-GO4681",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070243"
+    },
+    {
+      "address": "Hohenzollernstraße 58, 80801 München",
+      "coordinates": [
+        11.57842,
+        48.16013,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4714",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071047"
+    },
+    {
+      "address": "St.-Michael-Straße 91, 81671 München",
+      "coordinates": [
+        11.63175,
+        48.1213,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 18,
+      "interior": "GOOD",
+      "name": "B-GO4636",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072007"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3702",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036418"
+    },
+    {
+      "address": "Georgenschwaigstraße 34, 80807 München",
+      "coordinates": [
+        11.57204,
+        48.18082,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8663",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294019"
+    },
+    {
+      "address": "Hohenwarter Str. 17, 80686 München",
+      "coordinates": [
+        11.50314,
+        48.13226,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO4676",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069510"
+    },
+    {
+      "address": "Boschetsrieder Str. 121, 81379 München",
+      "coordinates": [
+        11.52181,
+        48.09888,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO8563",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J512387"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4749",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071176"
+    },
+    {
+      "address": "Endelhauserstraße 22, 80686 München",
+      "coordinates": [
+        11.50948,
+        48.12969,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3605",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036534"
+    },
+    {
+      "address": "Balanstraße 94, 81541 München",
+      "coordinates": [
+        11.60167,
+        48.11653,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 68,
+      "interior": "GOOD",
+      "name": "B-GO4697",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069926"
+    },
+    {
+      "address": "Promenadepl. 13, 80333 München",
+      "coordinates": [
+        11.57232,
+        48.14013,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3678",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037512"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO8672",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J293393"
+    },
+    {
+      "address": "Ingolstädter Straße 40a, 80807 München",
+      "coordinates": [
+        11.58719,
+        48.19013,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO3120",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037451"
+    },
+    {
+      "address": "Theresienstraße 35, 80333 München",
+      "coordinates": [
+        11.57466,
+        48.1482,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 21,
+      "interior": "GOOD",
+      "name": "B-GO3513",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037325"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 12,
+      "interior": "GOOD",
+      "name": "B-GO4694",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071704"
+    },
+    {
+      "address": "Zamilastraße 9, 81677 München",
+      "coordinates": [
+        11.6357,
+        48.13633,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4642",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069621"
+    },
+    {
+      "address": "Gustav-Heinemann-Ring 109, 81739 München",
+      "coordinates": [
+        11.64355,
+        48.08659,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3618",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036108"
+    },
+    {
+      "address": "Zamilastraße 9, 81677 München",
+      "coordinates": [
+        11.63566,
+        48.13635,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4270",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064089"
+    },
+    {
+      "address": "Scharfreiterpl. 2, 81549 München",
+      "coordinates": [
+        11.5931,
+        48.10563,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8584",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J513750"
+    },
+    {
+      "address": "Lagerhausstraße 5, 81371 München",
+      "coordinates": [
+        11.55708,
+        48.11961,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO4715",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070948"
+    },
+    {
+      "address": "Wensauerpl. 3, 81245 München",
+      "coordinates": [
+        11.46151,
+        48.15155,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO4262",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064632"
+    },
+    {
+      "address": "Pelkovenstraße 135, 80992 München",
+      "coordinates": [
+        11.52665,
+        48.18206,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8668",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J292918"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO4295",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065425"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO3705",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K039231"
+    },
+    {
+      "address": "Flößergasse 6, 81369 München",
+      "coordinates": [
+        11.53762,
+        48.10593,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 52,
+      "interior": "GOOD",
+      "name": "B-GO8577",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J515150"
+    },
+    {
+      "address": "Alemannenstraße 14, 81543 München",
+      "coordinates": [
+        11.55735,
+        48.10098,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO4703",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069991"
+    },
+    {
+      "address": "Seydlitzpl. 17, 80992 München",
+      "coordinates": [
+        11.52401,
+        48.1793,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO4254",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063709"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3676",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037745"
+    },
+    {
+      "address": "Riesstraße 49, 80992 München",
+      "coordinates": [
+        11.53655,
+        48.18164,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 68,
+      "interior": "GOOD",
+      "name": "B-GO3545",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037199"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 15,
+      "interior": "GOOD",
+      "name": "B-GO3683",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037189"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3616",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035759"
+    },
+    {
+      "address": "Rudliebstraße 15, 81925 München",
+      "coordinates": [
+        11.61552,
+        48.15658,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO4807",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072879"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO3680",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038447"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3560",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036234"
+    },
+    {
+      "address": "Pelkovenstraße 156, 80992 München",
+      "coordinates": [
+        11.53534,
+        48.18184,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3126",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036482"
+    },
+    {
+      "address": "Gräfstraße 111-113, 81241 München",
+      "coordinates": [
+        11.46129,
+        48.14259,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO8671",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294848"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO3684",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036811"
+    },
+    {
+      "address": "Bodenseestraße 23, 81241 München",
+      "coordinates": [
+        11.45461,
+        48.14699,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 60,
+      "interior": "GOOD",
+      "name": "B-GO8593",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513553"
+    },
+    {
+      "address": "Klagenfurter Str. 1, 81669 München",
+      "coordinates": [
+        11.60337,
+        48.11249,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3488",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036967"
+    },
+    {
+      "address": "Josef-Lang-Straße 12, 81245 München",
+      "coordinates": [
+        11.4718,
+        48.15115,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 58,
+      "interior": "GOOD",
+      "name": "B-GO8574",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J514647"
+    },
+    {
+      "address": "Stauffenbergstraße 31, 80797 München",
+      "coordinates": [
+        11.56377,
+        48.1695,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO4653",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070249"
+    },
+    {
+      "address": "Höhenstadter Str. 28, 81671 München",
+      "coordinates": [
+        11.62767,
+        48.12165,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO5427",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J296393"
+    },
+    {
+      "address": "Domagkstraße 48, 80805 München",
+      "coordinates": [
+        11.60075,
+        48.18113,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3586",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036311"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3555",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036706"
+    },
+    {
+      "address": "Maximilianspl. 20, 80333 München",
+      "coordinates": [
+        11.57079,
+        48.14143,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 60,
+      "interior": "GOOD",
+      "name": "B-GO5452",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J292218"
+    },
+    {
+      "address": "Mörikestraße 43, 81543 München",
+      "coordinates": [
+        11.56102,
+        48.10048,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO3474",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036732"
+    },
+    {
+      "address": "Isareckstraße 36, 81673 München",
+      "coordinates": [
+        11.61866,
+        48.12835,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 62,
+      "interior": "GOOD",
+      "name": "B-GO3701",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K039747"
+    },
+    {
+      "address": "Grünwalder Str. 111, 81547 München",
+      "coordinates": [
+        11.5665,
+        48.10078,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 30,
+      "interior": "GOOD",
+      "name": "B-GO5442",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J300648"
+    },
+    {
+      "address": "Robert-Bürkle-Straße 1, 85737 Ismaning",
+      "coordinates": [
+        11.68655,
+        48.22872,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4742",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070741"
+    },
+    {
+      "address": "Gneisenaustraße 23, 80992 München",
+      "coordinates": [
+        11.53567,
+        48.1792,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO4268",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065147"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4801",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K075929"
+    },
+    {
+      "address": "Bad-Schachener-Straße 33, 81671 München",
+      "coordinates": [
+        11.61668,
+        48.12066,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO3523",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036105"
+    },
+    {
+      "address": "Leopoldstraße 227, 80807 München",
+      "coordinates": [
+        11.585,
+        48.17963,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4271",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064103"
+    },
+    {
+      "address": "Grafinger Str. 40, 81671 München",
+      "coordinates": [
+        11.61213,
+        48.1247,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO3122",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035889"
+    },
+    {
+      "address": "Riedgaustraße 14, 81673 München",
+      "coordinates": [
+        11.61734,
+        48.1316,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO8645",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513845"
+    },
+    {
+      "address": "Kronstadter Str. 6-8, 81677 München",
+      "coordinates": [
+        11.64747,
+        48.13718,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3131",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037439"
+    },
+    {
+      "address": "Riesstraße 49, 80992 München",
+      "coordinates": [
+        11.5366,
+        48.18117,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3671",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037544"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3497",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036946"
+    },
+    {
+      "address": "Hansjakobstraße 85, 81673 München",
+      "coordinates": [
+        11.64265,
+        48.12911,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 44,
+      "interior": "GOOD",
+      "name": "B-GO8660",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294914"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 93,
+      "interior": "GOOD",
+      "name": "B-GO3493",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036264"
+    },
+    {
+      "address": "Else-Lasker-Schüler-Straße 15, 81925 Unterföhring",
+      "coordinates": [
+        11.62852,
+        48.17005,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8559",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J511763"
+    },
+    {
+      "address": "Gellertstraße 10, 81925 München",
+      "coordinates": [
+        11.61569,
+        48.16239,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 72,
+      "interior": "GOOD",
+      "name": "B-GO8657",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294682"
+    },
+    {
+      "address": "Schwedenstraße 68, 80805 München",
+      "coordinates": [
+        11.6036,
+        48.16865,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8653",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J294297"
+    },
+    {
+      "address": "Edmund-Rumpler-Straße 7, 80939 München",
+      "coordinates": [
+        11.60987,
+        48.19478,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8652",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J294414"
+    },
+    {
+      "address": "Kreillerstraße 66, 81673 München",
+      "coordinates": [
+        11.64177,
+        48.12636,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 76,
+      "interior": "GOOD",
+      "name": "B-GO8651",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J294387"
+    },
+    {
+      "address": "Ursberger Str. 14, 81673 München",
+      "coordinates": [
+        11.64389,
+        48.12947,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO5424",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J296082"
+    },
+    {
+      "address": "Berliner Str. 78-80, 80805 München",
+      "coordinates": [
+        11.59117,
+        48.17437,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 66,
+      "interior": "GOOD",
+      "name": "B-GO8644",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513743"
+    },
+    {
+      "address": "ZDF-Straße 1, 85774 Unterföhring",
+      "coordinates": [
+        11.65675,
+        48.19262,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8636",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513010"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3149",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035688"
+    },
+    {
+      "address": "Riesenfeldstraße 67, 80809 München",
+      "coordinates": [
+        11.56243,
+        48.18533,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 93,
+      "interior": "GOOD",
+      "name": "B-GO3509",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036923"
+    },
+    {
+      "address": "Albrecht-Dürer-Straße 4, 81543 München",
+      "coordinates": [
+        11.5679,
+        48.10913,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO3135",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035339"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3547",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037254"
+    },
+    {
+      "address": "Lilienthalallee 34, 80939 München",
+      "coordinates": [
+        11.60903,
+        48.19519,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 88,
+      "interior": "GOOD",
+      "name": "B-GO8633",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J514896"
+    },
+    {
+      "address": "Zamdorfer Str. 120, 81677 München",
+      "coordinates": [
+        11.64716,
+        48.13874,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO5421",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294128"
+    },
+    {
+      "address": "St.-Veit-Straße 15, 81673 München",
+      "coordinates": [
+        11.64529,
+        48.12679,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO4668",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071783"
+    },
+    {
+      "address": "Drachenseestraße 13, 81373 München",
+      "coordinates": [
+        11.53174,
+        48.1188,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3617",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036567"
+    },
+    {
+      "address": "Balanstraße 50, 81541 München",
+      "coordinates": [
+        11.59784,
+        48.12072,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO3147",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037409"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO8609",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513648"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 88,
+      "interior": "GOOD",
+      "name": "B-GO8602",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512666"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 82,
+      "interior": "GOOD",
+      "name": "B-GO8592",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512325"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4741",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070434"
+    },
+    {
+      "address": "St.-Pauls-Platz 11, 80336 München",
+      "coordinates": [
+        11.55299,
+        48.13644,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 30,
+      "interior": "GOOD",
+      "name": "B-GO8589",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512520"
+    },
+    {
+      "address": "Bad-Schachener-Straße 137, 81671 München",
+      "coordinates": [
+        11.62974,
+        48.11911,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8575",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J514486"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 16,
+      "interior": "GOOD",
+      "name": "B-GO8572",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J512079"
+    },
+    {
+      "address": "Elisabethstraße 3, 80796 München",
+      "coordinates": [
+        11.57297,
+        48.15787,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO3649",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035681"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3591",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035821"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3137",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037072"
+    },
+    {
+      "address": "Maikammerer Str. 10, 81539 München",
+      "coordinates": [
+        11.60077,
+        48.11089,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO8550",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510768"
+    },
+    {
+      "address": "Schleißheimer Str. 388, 80809 München",
+      "coordinates": [
+        11.56614,
+        48.18812,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3529",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037384"
+    },
+    {
+      "address": "Staffelseestraße 3, 81477 München",
+      "coordinates": [
+        11.50707,
+        48.09223,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3667",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037302"
+    },
+    {
+      "address": "Drygalski-Allee 15, 81477 München",
+      "coordinates": [
+        11.50675,
+        48.09651,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3524",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035489"
+    },
+    {
+      "address": "Dingolfinger Str. 13, 81673 München",
+      "coordinates": [
+        11.61548,
+        48.1324,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO4707",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070427"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3694",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037024"
+    },
+    {
+      "address": "Blumenstraße 28B, 80331 München",
+      "coordinates": [
+        11.57135,
+        48.13232,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4794",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072684"
+    },
+    {
+      "address": "Brienner Str. 8, 80333 München",
+      "coordinates": [
+        11.5755,
+        48.1431,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3481",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036526"
+    },
+    {
+      "address": "Oberföhringer Str. 204, 81925 München",
+      "coordinates": [
+        11.62489,
+        48.17035,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8581",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J515019"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3637",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035715"
+    },
+    {
+      "address": "Dreimühlenstraße 17, 80469 München",
+      "coordinates": [
+        11.56046,
+        48.12142,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4650",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070261"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4716",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071195"
+    },
+    {
+      "address": "Max-Joseph-Straße 4-6, 80333 München",
+      "coordinates": [
+        11.57013,
+        48.14333,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO4256",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063670"
+    },
+    {
+      "address": "Berg-am-Laim-Straße 78, 81673 München",
+      "coordinates": [
+        11.62006,
+        48.13017,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3484",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036854"
+    },
+    {
+      "address": "Domagkstraße 26, 80807 München",
+      "coordinates": [
+        11.59462,
+        48.18351,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3607",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036756"
+    },
+    {
+      "address": "Pacellistraße 1, 80333 München",
+      "coordinates": [
+        11.57093,
+        48.14052,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO8582",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J513469"
+    },
+    {
+      "address": "Pelkovenstraße 73, 80992 München",
+      "coordinates": [
+        11.51963,
+        48.1819,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3619",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035666"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3687",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036018"
+    },
+    {
+      "address": "Saumweberstraße 4, 81241 München",
+      "coordinates": [
+        11.46117,
+        48.14159,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3415",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036683"
+    },
+    {
+      "address": "Therese-Giehse-Allee 106, 81739 München",
+      "coordinates": [
+        11.64441,
+        48.08617,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 76,
+      "interior": "GOOD",
+      "name": "B-GO5435",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J296631"
+    },
+    {
+      "address": "Heiterwanger Str. 62-64, 81373 München",
+      "coordinates": [
+        11.52109,
+        48.12146,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO6928",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K085670"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3634",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035883"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 21,
+      "interior": "GOOD",
+      "name": "B-GO3136",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037406"
+    },
+    {
+      "address": "Beta-Straße 6, 85774 Unterföhring",
+      "coordinates": [
+        11.65609,
+        48.19025,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO3606",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036141"
+    },
+    {
+      "address": "Burgkmairstraße 40, 80686 München",
+      "coordinates": [
+        11.51145,
+        48.13195,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO3548",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037007"
+    },
+    {
+      "address": "Taunusstraße 36, 80807 München",
+      "coordinates": [
+        11.57801,
+        48.18892,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3681",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037332"
+    },
+    {
+      "address": "Baldurstraße 35, 80637 München",
+      "coordinates": [
+        11.52626,
+        48.16928,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO4730",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072285"
+    },
+    {
+      "address": "Stielerstraße 9, 80336 München",
+      "coordinates": [
+        11.55119,
+        48.12763,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 75,
+      "interior": "GOOD",
+      "name": "B-GO4678",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069850"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 68,
+      "interior": "GOOD",
+      "name": "B-GO3512",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036909"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3690",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037606"
+    },
+    {
+      "address": "Vinzenz-von-Paul-Straße 5, 81671 München",
+      "coordinates": [
+        11.63094,
+        48.12185,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3517",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035507"
+    },
+    {
+      "address": "Hansjakobstraße 85, 81673 München",
+      "coordinates": [
+        11.64221,
+        48.1291,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO4775",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070173"
+    },
+    {
+      "address": "Gärtnerstraße 86, 80992 München",
+      "coordinates": [
+        11.5346,
+        48.17809,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3121",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036028"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 16,
+      "interior": "GOOD",
+      "name": "B-GO8570",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J511823"
+    },
+    {
+      "address": "Mühldorfstraße 5, 81671 München",
+      "coordinates": [
+        11.60997,
+        48.12894,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO4277",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063272"
+    },
+    {
+      "address": "Zamdorfer Str. 120, 81677 München",
+      "coordinates": [
+        11.64712,
+        48.13869,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 94,
+      "interior": "GOOD",
+      "name": "B-GO8658",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294044"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3486",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035931"
+    },
+    {
+      "address": "Spitzwegstraße 4, 81373 München",
+      "coordinates": [
+        11.54251,
+        48.12298,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 94,
+      "interior": "GOOD",
+      "name": "B-GO8591",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J511919"
+    },
+    {
+      "address": "Gabelsbergerstraße 35, 80333 München",
+      "coordinates": [
+        11.56992,
+        48.14715,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3570",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035410"
+    },
+    {
+      "address": "Amortstraße 4, 80639 München",
+      "coordinates": [
+        11.5289,
+        48.15661,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 68,
+      "interior": "GOOD",
+      "name": "B-GO8541",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510968"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4757",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072092"
+    },
+    {
+      "address": "Ludwigsfelder Straße, 80997 München",
+      "coordinates": [
+        11.48055,
+        48.19892,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 94,
+      "interior": "GOOD",
+      "name": "B-GO8634",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J514438"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3662",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036768"
+    },
+    {
+      "address": "Alpenpl. 5, 81541 München",
+      "coordinates": [
+        11.58111,
+        48.1183,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO5428",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J293993"
+    },
+    {
+      "address": "Zamilastraße 27, 81677 München",
+      "coordinates": [
+        11.64234,
+        48.13637,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3476",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036590"
+    },
+    {
+      "address": "Grasmeierstraße 4, 80805 München",
+      "coordinates": [
+        11.60851,
+        48.18299,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3711",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038390"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO8632",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513203"
+    },
+    {
+      "address": "Nadistraße 35, 80809 München",
+      "coordinates": [
+        11.54997,
+        48.1818,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO4640",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072382"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3627",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035854"
+    },
+    {
+      "address": "Fritz-Berne-Straße 41, 81241 München",
+      "coordinates": [
+        11.4756,
+        48.14405,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3609",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035706"
+    },
+    {
+      "address": "Theodor-Dombart-Straße 23, 80805 München",
+      "coordinates": [
+        11.5945,
+        48.17341,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO3125",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037219"
+    },
+    {
+      "address": "Ohmstraße 5, 85609 Aschheim",
+      "coordinates": [
+        11.68293,
+        48.15285,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3633",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036017"
+    },
+    {
+      "address": "Nusselstraße 11, 81245 München",
+      "coordinates": [
+        11.47215,
+        48.15007,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 80,
+      "interior": "GOOD",
+      "name": "B-GO8629",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512880"
+    },
+    {
+      "address": "Therese-Giehse-Allee 106, 81739 München",
+      "coordinates": [
+        11.64459,
+        48.0863,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO4637",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072690"
+    },
+    {
+      "address": "Tegernseer Landstraße 241, 81549 München",
+      "coordinates": [
+        11.58559,
+        48.10089,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO4291",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063878"
+    },
+    {
+      "address": "Marktstraße 1, 80802 München",
+      "coordinates": [
+        11.58825,
+        48.16154,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3504",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036487"
+    },
+    {
+      "address": "Isabellastraße 26, 80796 München",
+      "coordinates": [
+        11.57212,
+        48.15856,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3494",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036220"
+    },
+    {
+      "address": "Untersbergstraße 72, 81539 München",
+      "coordinates": [
+        11.5841,
+        48.1084,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO4787",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071451"
+    },
+    {
+      "address": "Pelkovenstraße 72, 80992 München",
+      "coordinates": [
+        11.51901,
+        48.18181,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO5430",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J295450"
+    },
+    {
+      "address": "Lilienthalallee 40, 80939 München",
+      "coordinates": [
+        11.6106,
+        48.19824,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO5438",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J508476"
+    },
+    {
+      "address": "Murnauer Str. 120, 81379 München",
+      "coordinates": [
+        11.52171,
+        48.10743,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3578",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035993"
+    },
+    {
+      "address": "Westenriederstraße 14, 80331 München",
+      "coordinates": [
+        11.57833,
+        48.13496,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4767",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069759"
+    },
+    {
+      "address": "St.-Michael-Straße 120, 81671 München",
+      "coordinates": [
+        11.63106,
+        48.12003,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO5445",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J300337"
+    },
+    {
+      "address": "Naupliastraße 24, 81547 München",
+      "coordinates": [
+        11.57855,
+        48.09691,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO4641",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072613"
+    },
+    {
+      "address": "Thalkirchner Str. 62, 80337 München",
+      "coordinates": [
+        11.56304,
+        48.12688,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3467",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037206"
+    },
+    {
+      "address": "Ingolstädter Str. 12-14, 80807 München",
+      "coordinates": [
+        11.58468,
+        48.18568,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO3717",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037924"
+    },
+    {
+      "address": "Wugg-Retzer-Straße 4, 80339 München",
+      "coordinates": [
+        11.54253,
+        48.12876,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 21,
+      "interior": "GOOD",
+      "name": "B-GO3530",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037321"
+    },
+    {
+      "address": "Firstalmstraße 13, 81539 München",
+      "coordinates": [
+        11.58325,
+        48.10977,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3469",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035721"
+    },
+    {
+      "address": "Hildachstraße 7, 81245 München",
+      "coordinates": [
+        11.47177,
+        48.14812,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3697",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K039501"
+    },
+    {
+      "address": "Otl-Aicher-Straße 23, 80807 München",
+      "coordinates": [
+        11.58836,
+        48.18362,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO4649",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070148"
+    },
+    {
+      "address": "Aichacher Pl. 3, 81379 München",
+      "coordinates": [
+        11.51841,
+        48.10718,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 12,
+      "interior": "GOOD",
+      "name": "B-GO3623",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035719"
+    },
+    {
+      "address": "Bad-Schachener-Straße 137, 81671 München",
+      "coordinates": [
+        11.6303,
+        48.11901,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3508",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035439"
+    },
+    {
+      "address": "Promenadepl. 11, 80333 München",
+      "coordinates": [
+        11.57249,
+        48.14003,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 60,
+      "interior": "GOOD",
+      "name": "B-GO8624",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513819"
+    },
+    {
+      "address": "Gotthardstraße 37, 80686 München",
+      "coordinates": [
+        11.5054,
+        48.13531,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3639",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036156"
+    },
+    {
+      "address": "Beta-Straße 13, 85774 Unterföhring",
+      "coordinates": [
+        11.654,
+        48.18553,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO3714",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037720"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO4290",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064622"
+    },
+    {
+      "address": "Ohmstraße 5, 85609 Aschheim",
+      "coordinates": [
+        11.68383,
+        48.15282,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 75,
+      "interior": "GOOD",
+      "name": "B-GO4648",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070300"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO4275",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063054"
+    },
+    {
+      "address": "Schlierseestraße 5, 81541 München",
+      "coordinates": [
+        11.59305,
+        48.11733,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO4666",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071330"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO8621",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513963"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO4261",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065297"
+    },
+    {
+      "address": "Leopoldstraße 77-79, 80802 München",
+      "coordinates": [
+        11.58651,
+        48.16298,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3538",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035583"
+    },
+    {
+      "address": "Balanstraße 88, 81541 München",
+      "coordinates": [
+        11.60148,
+        48.11692,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO4252",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063215"
+    },
+    {
+      "address": "Taunusstraße 23, 80807 München",
+      "coordinates": [
+        11.57747,
+        48.18897,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3608",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036298"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3706",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036403"
+    },
+    {
+      "address": "Truderinger Str. 115, 81673 München",
+      "coordinates": [
+        11.63908,
+        48.13319,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8561",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510409"
+    },
+    {
+      "address": "Bechsteinstraße 5-7, 80804 München",
+      "coordinates": [
+        11.56573,
+        48.16865,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4638",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072624"
+    },
+    {
+      "address": "Ungererstraße 186, 80805 München",
+      "coordinates": [
+        11.60599,
+        48.18155,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO3462",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036822"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4685",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070355"
+    },
+    {
+      "address": "Weilerstraße 1, 81541 München",
+      "coordinates": [
+        11.58713,
+        48.12294,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3491",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037496"
+    },
+    {
+      "address": "Prinzenstraße 6-8, 80639 München",
+      "coordinates": [
+        11.52486,
+        48.15745,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 66,
+      "interior": "GOOD",
+      "name": "B-GO8587",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J515489"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO4735",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069670"
+    },
+    {
+      "address": "Oskar-Schlemmer-Straße 11, 80807 München",
+      "coordinates": [
+        11.59458,
+        48.17947,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4657",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071135"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 84,
+      "interior": "GOOD",
+      "name": "B-GO4249",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065116"
+    },
+    {
+      "address": "Jahnstraße 2, 85774 Unterföhring",
+      "coordinates": [
+        11.64973,
+        48.19284,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 36,
+      "interior": "GOOD",
+      "name": "B-GO8549",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J512523"
+    },
+    {
+      "address": "Claude-Lorrain-Straße 19, 81543 München",
+      "coordinates": [
+        11.57015,
+        48.12012,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO5446",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J300145"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4688",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071286"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4661",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071003"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO3628",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036041"
+    },
+    {
+      "address": "Wugg-Retzer-Straße 4, 80339 München",
+      "coordinates": [
+        11.54256,
+        48.12874,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3594",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037371"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3599",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036073"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3589",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037518"
+    },
+    {
+      "address": "Zasingerstraße 11, 81547 München",
+      "coordinates": [
+        11.57711,
+        48.11024,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 24,
+      "interior": "GOOD",
+      "name": "B-GO8662",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294718"
+    },
+    {
+      "address": "Rupert-Mayer-Straße 3, 81379 München",
+      "coordinates": [
+        11.54053,
+        48.09637,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3490",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035589"
+    },
+    {
+      "address": "Aidenbachstraße 80, 81379 München",
+      "coordinates": [
+        11.52322,
+        48.09495,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 16,
+      "interior": "GOOD",
+      "name": "B-GO8626",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J514246"
+    },
+    {
+      "address": "Josef-Lang-Straße 23, 81245 München",
+      "coordinates": [
+        11.47161,
+        48.15079,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO4701",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069542"
+    },
+    {
+      "address": "Oberföhringer Str. 216, 81925 München",
+      "coordinates": [
+        11.62539,
+        48.17118,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 38,
+      "interior": "GOOD",
+      "name": "B-GO8669",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294695"
+    },
+    {
+      "address": "Westenriederstraße 47, 80331 München",
+      "coordinates": [
+        11.58053,
+        48.13494,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4734",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069920"
+    },
+    {
+      "address": "Regerstraße 17, 81541 München",
+      "coordinates": [
+        11.58653,
+        48.12235,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO8661",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294018"
+    },
+    {
+      "address": "Ohmstraße 5, 85609 Aschheim",
+      "coordinates": [
+        11.68308,
+        48.15275,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO4760",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072145"
+    },
+    {
+      "address": "Medienallee 26, 85774 Unterföhring",
+      "coordinates": [
+        11.65742,
+        48.19049,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4388",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063090"
+    },
+    {
+      "address": "Gotthardstraße 4, 80686 München",
+      "coordinates": [
+        11.50895,
+        48.13532,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3473",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037117"
+    },
+    {
+      "address": "Akazienstraße 7, 81547 München",
+      "coordinates": [
+        11.57937,
+        48.10087,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 65,
+      "interior": "GOOD",
+      "name": "B-GO4782",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071055"
+    },
+    {
+      "address": "Am Oberwiesenfeld 51, 80809 München",
+      "coordinates": [
+        11.54613,
+        48.18775,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4687",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070574"
+    },
+    {
+      "address": "Waidbrucker Str. 16, 81547 München",
+      "coordinates": [
+        11.57627,
+        48.10266,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO4274",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064100"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO4677",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069651"
+    },
+    {
+      "address": "Moosacher Str. 99, 80809 München",
+      "coordinates": [
+        11.54373,
+        48.18596,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 62,
+      "interior": "GOOD",
+      "name": "B-GO4765",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072465"
+    },
+    {
+      "address": "Zennerstraße 28, 81379 München",
+      "coordinates": [
+        11.54644,
+        48.10401,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3150",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035547"
+    },
+    {
+      "address": "Nibelungenstraße 20A, 80639 München",
+      "coordinates": [
+        11.5255,
+        48.15294,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 21,
+      "interior": "GOOD",
+      "name": "B-GO3145",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037014"
+    },
+    {
+      "address": "Hardenbergstraße 28, 80992 München",
+      "coordinates": [
+        11.52644,
+        48.17921,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3597",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036504"
+    },
+    {
+      "address": "Bad-Dürkheimer-Straße 7, 81539 München",
+      "coordinates": [
+        11.59832,
+        48.11259,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO4282",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063589"
+    },
+    {
+      "address": "Aidenbachstraße 56, 81379 München",
+      "coordinates": [
+        11.52353,
+        48.09654,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3459",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036878"
+    },
+    {
+      "address": "Gertrud-Grunow-Straße 20, 80807 München",
+      "coordinates": [
+        11.59715,
+        48.18398,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3668",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037677"
+    },
+    {
+      "address": "Lerchenauer Str. 57, 80809 München",
+      "coordinates": [
+        11.55583,
+        48.17809,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO8667",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J292789"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 22,
+      "interior": "GOOD",
+      "name": "B-GO8605",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J515082"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO8542",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510663"
+    },
+    {
+      "address": "Gustav-Heinemann-Ring 111, 81739 München",
+      "coordinates": [
+        11.64381,
+        48.08716,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 26,
+      "interior": "GOOD",
+      "name": "B-GO8564",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J511879"
+    },
+    {
+      "address": "Perlacher Str. 63, 81539 München",
+      "coordinates": [
+        11.58549,
+        48.11059,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO3540",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037298"
+    },
+    {
+      "address": "Oberländerstraße 40, 81371 München",
+      "coordinates": [
+        11.54221,
+        48.11989,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO3489",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037365"
+    },
+    {
+      "address": "Siemensallee 61, 81379 München",
+      "coordinates": [
+        11.52798,
+        48.09056,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4768",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069971"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8615",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512747"
+    },
+    {
+      "address": "Bodenstedtstraße 11C, 81241 München",
+      "coordinates": [
+        11.47123,
+        48.14444,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO4762",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072277"
+    },
+    {
+      "address": "Welfenstraße 29, 81541 München",
+      "coordinates": [
+        11.5907,
+        48.12246,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 81,
+      "interior": "GOOD",
+      "name": "B-GO4770",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069629"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 84,
+      "interior": "GOOD",
+      "name": "B-GO8664",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J293638"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3553",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037361"
+    },
+    {
+      "address": "Darmstädter Str. 8, 80992 München",
+      "coordinates": [
+        11.52621,
+        48.17509,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO4286",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065152"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3700",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K039397"
+    },
+    {
+      "address": "Wolfratshauser Str. 78, 81379 München",
+      "coordinates": [
+        11.54086,
+        48.0939,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO8562",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J512377"
+    },
+    {
+      "address": "Max-von-Eyth-Straße 2, 85737 Ismaning",
+      "coordinates": [
+        11.6785,
+        48.23317,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3604",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036804"
+    },
+    {
+      "address": "Aumeisterweg 10, 80805 München",
+      "coordinates": [
+        11.61552,
+        48.18538,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO3471",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035837"
+    },
+    {
+      "address": "Gotthardstraße 94, 80689 München",
+      "coordinates": [
+        11.49618,
+        48.1359,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3588",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036216"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 18,
+      "interior": "GOOD",
+      "name": "B-GO3511",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037699"
+    },
+    {
+      "address": "Thomas-Dehler-Straße 12, 81737 München",
+      "coordinates": [
+        11.64569,
+        48.09981,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3118",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036525"
+    },
+    {
+      "address": "Bozener Str. 5-7, 81547 München",
+      "coordinates": [
+        11.56673,
+        48.09792,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 36,
+      "interior": "GOOD",
+      "name": "B-GO5444",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J300244"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO4634",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071940"
+    },
+    {
+      "address": "Atterseestraße 6, 81241 München",
+      "coordinates": [
+        11.47511,
+        48.14313,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3686",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037847"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3539",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037099"
+    },
+    {
+      "address": "Berliner Str. 95, 80805 München",
+      "coordinates": [
+        11.59371,
+        48.17364,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO4281",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063562"
+    },
+    {
+      "address": "Seydlitzpl. 17, 80992 München",
+      "coordinates": [
+        11.52407,
+        48.17942,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 75,
+      "interior": "GOOD",
+      "name": "B-GO4289",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065496"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO3561",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035595"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8646",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512619"
+    },
+    {
+      "address": "Harlachinger Str. 51, 81547 München",
+      "coordinates": [
+        11.5677,
+        48.1054,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO3587",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036570"
+    },
+    {
+      "address": "Goldbergstraße 5, 81479 München",
+      "coordinates": [
+        11.52519,
+        48.08027,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 86,
+      "interior": "GOOD",
+      "name": "B-GO8648",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J295587"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 30,
+      "interior": "GOOD",
+      "name": "B-GO5433",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J296159"
+    },
+    {
+      "address": "Herzogspitalstraße 24, 80331 München",
+      "coordinates": [
+        11.56587,
+        48.13797,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 81,
+      "interior": "GOOD",
+      "name": "B-GO4273",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065410"
+    },
+    {
+      "address": "Breitbrunner Str. 23, 81379 München",
+      "coordinates": [
+        11.51469,
+        48.10661,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 16,
+      "interior": "GOOD",
+      "name": "B-GO8655",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294701"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 26,
+      "interior": "GOOD",
+      "name": "B-GO8656",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294529"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 62,
+      "interior": "GOOD",
+      "name": "B-GO4269",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064202"
+    },
+    {
+      "address": "Boschetsrieder Str. 4, 81379 München",
+      "coordinates": [
+        11.54045,
+        48.10066,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO3629",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037672"
+    },
+    {
+      "address": "Konstanzer Str. 48, 80809 München",
+      "coordinates": [
+        11.55991,
+        48.18651,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO4764",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072397"
+    },
+    {
+      "address": "Hansastraße 78, 81373 München",
+      "coordinates": [
+        11.53395,
+        48.12835,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4660",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071072"
+    },
+    {
+      "address": "Anni-Albers-Straße 11, 80807 München",
+      "coordinates": [
+        11.59312,
+        48.17742,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 93,
+      "interior": "GOOD",
+      "name": "B-GO4255",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K063608"
+    },
+    {
+      "address": "Ohmstraße 5, 85609 Aschheim",
+      "coordinates": [
+        11.68316,
+        48.15274,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3327",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036992"
+    },
+    {
+      "address": "Kistlerhofstraße 243-251, 81379 München",
+      "coordinates": [
+        11.50708,
+        48.09433,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4797",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072458"
+    },
+    {
+      "address": "Balanstraße 94, 81541 München",
+      "coordinates": [
+        11.60185,
+        48.11655,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 86,
+      "interior": "GOOD",
+      "name": "B-GO8627",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512804"
+    },
+    {
+      "address": "Schlüsselbergstraße 4, 81673 München",
+      "coordinates": [
+        11.62265,
+        48.1293,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3663",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037315"
+    },
+    {
+      "address": "Hansjakobstraße 49, 81673 München",
+      "coordinates": [
+        11.63639,
+        48.13024,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3460",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037434"
+    },
+    {
+      "address": "Johann-Fichte-Straße 7, 80805 München",
+      "coordinates": [
+        11.58864,
+        48.16956,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3503",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036886"
+    },
+    {
+      "address": "Boschetsrieder Str. 139, 81379 München",
+      "coordinates": [
+        11.51268,
+        48.09793,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4671",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072673"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3566",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036393"
+    },
+    {
+      "address": "Pienzenauerstraße 56-58, 81925 München",
+      "coordinates": [
+        11.60788,
+        48.15638,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4698",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069784"
+    },
+    {
+      "address": "Wagmüllerstraße 14, 80538 München",
+      "coordinates": [
+        11.58881,
+        48.14139,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3565",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036701"
+    },
+    {
+      "address": "Drygalski-Allee 25, 81477 München",
+      "coordinates": [
+        11.50497,
+        48.0951,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO3573",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037328"
+    },
+    {
+      "address": "Am Knie 33A, 81241 München",
+      "coordinates": [
+        11.47171,
+        48.14471,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO4758",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072197"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3502",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037431"
+    },
+    {
+      "address": "Max-von-Eyth-Straße 2, 85737 Ismaning",
+      "coordinates": [
+        11.67867,
+        48.23317,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3546",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036753"
+    },
+    {
+      "address": "Max-von-Eyth-Straße 2-4, 85737 Ismaning",
+      "coordinates": [
+        11.67817,
+        48.23323,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO3718",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038407"
+    },
+    {
+      "address": "Therese-Studer-Straße 25, 80797 München",
+      "coordinates": [
+        11.55867,
+        48.16619,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3479",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035866"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO3712",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038155"
+    },
+    {
+      "address": "Max-Bill-Straße 67, 80807 München",
+      "coordinates": [
+        11.59874,
+        48.18662,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 54,
+      "interior": "GOOD",
+      "name": "B-GO8580",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J515314"
+    },
+    {
+      "address": "Franziskanerstraße 32-34, 81669 München",
+      "coordinates": [
+        11.58959,
+        48.12516,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3571",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036413"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 81,
+      "interior": "GOOD",
+      "name": "B-GO4643",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K069794"
+    },
+    {
+      "address": "Anzinger Str. 21, 81671 München",
+      "coordinates": [
+        11.60988,
+        48.12115,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4774",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070561"
+    },
+    {
+      "address": "Maxburgstraße 1, 80333 München",
+      "coordinates": [
+        11.57083,
+        48.13973,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 62,
+      "interior": "GOOD",
+      "name": "B-GO4802",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K073093"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3641",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036070"
+    },
+    {
+      "address": "Robert-Bürkle-Straße 1, 85737 Ismaning",
+      "coordinates": [
+        11.68663,
+        48.22867,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 50,
+      "interior": "GOOD",
+      "name": "B-GO3715",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038852"
+    },
+    {
+      "address": "Peter-Vischer-Straße 20, 81245 München",
+      "coordinates": [
+        11.4642,
+        48.15143,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 92,
+      "interior": "GOOD",
+      "name": "B-GO8604",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J515524"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 30,
+      "interior": "GOOD",
+      "name": "B-GO8613",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513687"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 81,
+      "interior": "GOOD",
+      "name": "B-GO3470",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035683"
+    },
+    {
+      "address": "Vinzenz-von-Paul-Straße 11, 81671 München",
+      "coordinates": [
+        11.62909,
+        48.12218,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 20,
+      "interior": "GOOD",
+      "name": "B-GO8556",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510415"
+    },
+    {
+      "address": "Humboldtstraße 8, 85609 Aschheim",
+      "coordinates": [
+        11.68367,
+        48.1509,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO3632",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037584"
+    },
+    {
+      "address": "Passauerstraße 183, 81369 München",
+      "coordinates": [
+        11.53055,
+        48.10367,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3223",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036388"
+    },
+    {
+      "address": "Bad-Schachener-Straße 137, 81671 München",
+      "coordinates": [
+        11.63011,
+        48.11904,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3480",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036996"
+    },
+    {
+      "address": "Grünwalder Str. 114, 81547 München",
+      "coordinates": [
+        11.56687,
+        48.10118,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3520",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035332"
+    },
+    {
+      "address": "Marcel-Breuer-Straße 22, 80807 München",
+      "coordinates": [
+        11.59512,
+        48.18206,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 98,
+      "interior": "GOOD",
+      "name": "B-GO8585",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J514441"
+    },
+    {
+      "address": "Schwanthalerstraße 106, 80339 München",
+      "coordinates": [
+        11.54938,
+        48.13756,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO4721",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071620"
+    },
+    {
+      "address": "Leopoldstraße 77-79, 80802 München",
+      "coordinates": [
+        11.58653,
+        48.163,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3487",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035844"
+    },
+    {
+      "address": "Barmseestraße 8-11, 81477 München",
+      "coordinates": [
+        11.50468,
+        48.09182,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4267",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064505"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4777",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070483"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 71,
+      "interior": "GOOD",
+      "name": "B-GO3693",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038007"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 66,
+      "interior": "GOOD",
+      "name": "B-GO8628",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512874"
+    },
+    {
+      "address": "Pelkovenstraße 117, 80992 München",
+      "coordinates": [
+        11.52459,
+        48.18204,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO8670",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J293303"
+    },
+    {
+      "address": "Kistlerhofstraße 237, 81379 München",
+      "coordinates": [
+        11.50978,
+        48.09443,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 26,
+      "interior": "GOOD",
+      "name": "B-GO8642",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513671"
+    },
+    {
+      "address": "Föhringer Allee 3, 85774 Unterföhring",
+      "coordinates": [
+        11.64701,
+        48.19082,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 66,
+      "interior": "GOOD",
+      "name": "B-GO8568",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510999"
+    },
+    {
+      "address": "Oberföhringer Str. 151, 81925 München",
+      "coordinates": [
+        11.62529,
+        48.17131,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO8635",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512949"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8588",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J513026"
+    },
+    {
+      "address": "Georgenstraße 132, 80798 München",
+      "coordinates": [
+        11.56337,
+        48.15703,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 32,
+      "interior": "GOOD",
+      "name": "B-GO8616",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513410"
+    },
+    {
+      "address": "Aribonenstraße 12, 81669 München",
+      "coordinates": [
+        11.61488,
+        48.11384,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 14,
+      "interior": "GOOD",
+      "name": "B-GO8665",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J292580"
+    },
+    {
+      "address": "St.-Veit-Straße 8, 81673 München",
+      "coordinates": [
+        11.64603,
+        48.12858,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4706",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070061"
+    },
+    {
+      "address": "ZDF-Straße 1, 85774 Unterföhring",
+      "coordinates": [
+        11.6563,
+        48.1909,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3577",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036707"
+    },
+    {
+      "address": "Echardinger Str. 63, 81671 München",
+      "coordinates": [
+        11.62335,
+        48.12119,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 65,
+      "interior": "GOOD",
+      "name": "B-GO3645",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036833"
+    },
+    {
+      "address": "Hermann-Vogel-Straße 9, 80805 München",
+      "coordinates": [
+        11.60598,
+        48.17994,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4800",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K076213"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3692",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038306"
+    },
+    {
+      "address": "Pertisaustraße 24, 81671 München",
+      "coordinates": [
+        11.61928,
+        48.1212,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO4786",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071598"
+    },
+    {
+      "address": "Hefner Alteneck Straße 2, 81371 München",
+      "coordinates": [
+        11.55907,
+        48.11847,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 68,
+      "interior": "GOOD",
+      "name": "B-GO5441",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J299318"
+    },
+    {
+      "address": "Dieselstraße 18, 80993 München",
+      "coordinates": [
+        11.53591,
+        48.18644,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 34,
+      "interior": "GOOD",
+      "name": "B-GO3458",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036373"
+    },
+    {
+      "address": "Englschalkinger Str. 136, 81925 München",
+      "coordinates": [
+        11.62707,
+        48.1535,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 93,
+      "interior": "GOOD",
+      "name": "B-GO4652",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070092"
+    },
+    {
+      "address": "Maikammerer Str. 10, 81539 München",
+      "coordinates": [
+        11.60075,
+        48.11075,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 42,
+      "interior": "GOOD",
+      "name": "B-GO8579",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J515352"
+    },
+    {
+      "address": "Spixstraße 59, 81539 München",
+      "coordinates": [
+        11.57888,
+        48.11054,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 72,
+      "interior": "GOOD",
+      "name": "B-GO5447",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J299729"
+    },
+    {
+      "address": "Baierbrunner Str. 15, 81379 München",
+      "coordinates": [
+        11.53325,
+        48.09847,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 28,
+      "interior": "GOOD",
+      "name": "B-GO3626",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036128"
+    },
+    {
+      "address": "Hanauer Str. 105, 80993 München",
+      "coordinates": [
+        11.53318,
+        48.18619,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 92,
+      "interior": "GOOD",
+      "name": "B-GO8578",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J515593"
+    },
+    {
+      "address": "Hanauer Str. 50, 80992 München",
+      "coordinates": [
+        11.52908,
+        48.18022,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 84,
+      "interior": "GOOD",
+      "name": "B-GO3556",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036051"
+    },
+    {
+      "address": "Birnauer Str. 15, 80809 München",
+      "coordinates": [
+        11.56163,
+        48.17454,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 72,
+      "interior": "GOOD",
+      "name": "B-GO8618",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J511414"
+    },
+    {
+      "address": "Therese-Giehse-Allee 102, 81739 München",
+      "coordinates": [
+        11.64387,
+        48.08635,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3585",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036976"
+    },
+    {
+      "address": "Feldmochinger Str. 4, 80992 München",
+      "coordinates": [
+        11.52091,
+        48.17727,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3563",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037420"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 18,
+      "interior": "GOOD",
+      "name": "B-GO3600",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037789"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 58,
+      "interior": "GOOD",
+      "name": "B-GO8647",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J294067"
+    },
+    {
+      "address": "Hohenwaldeckstraße 4, 81541 München",
+      "coordinates": [
+        11.5944,
+        48.11776,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4695",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072225"
+    },
+    {
+      "address": "Isarring, 80805 München",
+      "coordinates": [
+        11.60026,
+        48.17172,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3496",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037089"
+    },
+    {
+      "address": "Ulrichsbergstraße 7, 81673 München",
+      "coordinates": [
+        11.61685,
+        48.12777,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 32,
+      "interior": "GOOD",
+      "name": "B-GO8547",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J510938"
+    },
+    {
+      "address": "Eduard-Schenk-Straße 31, 80807 München",
+      "coordinates": [
+        11.58343,
+        48.17859,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 46,
+      "interior": "GOOD",
+      "name": "B-GO3544",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037634"
+    },
+    {
+      "address": "Gustav-Heinemann-Ring 115, 81739 München",
+      "coordinates": [
+        11.64366,
+        48.08776,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO4265",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065391"
+    },
+    {
+      "address": "Fallmerayerstraße 29, 80796 München",
+      "coordinates": [
+        11.57128,
+        48.16477,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3498",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036819"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO3505",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036479"
+    },
+    {
+      "address": "Jahnstraße 2, 85774 Unterföhring",
+      "coordinates": [
+        11.64968,
+        48.19289,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 53,
+      "interior": "GOOD",
+      "name": "B-GO3603",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037547"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 65,
+      "interior": "GOOD",
+      "name": "B-GO3143",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037378"
+    },
+    {
+      "address": "Hohenwaldeckstraße 4, 81541 München",
+      "coordinates": [
+        11.5944,
+        48.11763,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 87,
+      "interior": "GOOD",
+      "name": "B-GO3552",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035495"
+    },
+    {
+      "address": "Ilmmünsterstraße 54, 80686 München",
+      "coordinates": [
+        11.50685,
+        48.13114,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO3695",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K038933"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4647",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070549"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 18,
+      "interior": "GOOD",
+      "name": "B-GO8565",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J511359"
+    },
+    {
+      "address": "Thalkirchner Str. 52, 80337 München",
+      "coordinates": [
+        11.56366,
+        48.12747,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3635",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036557"
+    },
+    {
+      "address": "Leopoldstraße 246, 80807 München",
+      "coordinates": [
+        11.58508,
+        48.18119,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 15,
+      "interior": "GOOD",
+      "name": "B-GO4287",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065471"
+    },
+    {
+      "address": "Boschetsrieder Str. 63A, 81379 München",
+      "coordinates": [
+        11.53048,
+        48.0998,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 56,
+      "interior": "GOOD",
+      "name": "B-GO3133",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036079"
+    },
+    {
+      "address": "Dreimühlenstraße 40, 81371 München",
+      "coordinates": [
+        11.5578,
+        48.11969,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 36,
+      "interior": "GOOD",
+      "name": "B-GO8659",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569431J294081"
+    },
+    {
+      "address": "Thomas-Dehler-Straße 14, 81737 München",
+      "coordinates": [
+        11.64598,
+        48.10048,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 76,
+      "interior": "GOOD",
+      "name": "B-GO8573",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760121J512476"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO3595",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036782"
+    },
+    {
+      "address": "Jahnstraße 7, 85774 Unterföhring",
+      "coordinates": [
+        11.65518,
+        48.19253,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 65,
+      "interior": "GOOD",
+      "name": "B-GO4720",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K071416"
+    },
+    {
+      "address": "Ottostraße 5, 80333 München",
+      "coordinates": [
+        11.5684,
+        48.14222,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3117",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K035859"
+    },
+    {
+      "address": "Osterfeldstraße 86, 85737 Ismaning",
+      "coordinates": [
+        11.68285,
+        48.2302,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3582",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036662"
+    },
+    {
+      "address": "Campeon Neubiberg",
+      "coordinates": [
+        11.61288,
+        48.08081,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3716",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K039478"
+    },
+    {
+      "address": "St.-Martin-Straße 42, 81541 München",
+      "coordinates": [
+        11.5912,
+        48.11746,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 90,
+      "interior": "GOOD",
+      "name": "B-GO5439",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J509963"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 96,
+      "interior": "GOOD",
+      "name": "B-GO3640",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037695"
+    },
+    {
+      "address": "Anzinger Str. 13, 81671 München",
+      "coordinates": [
+        11.60794,
+        48.12105,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 31,
+      "interior": "GOOD",
+      "name": "B-GO3624",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036837"
+    },
+    {
+      "address": "Preußenstraße 27, 80809 München",
+      "coordinates": [
+        11.55518,
+        48.18372,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 75,
+      "interior": "GOOD",
+      "name": "B-GO4272",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064825"
+    },
+    {
+      "address": "Lilienthalallee 40, 80939 München",
+      "coordinates": [
+        11.61049,
+        48.19836,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 74,
+      "interior": "GOOD",
+      "name": "B-GO8640",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J512296"
+    },
+    {
+      "address": "Gallmayerstraße 2, 81669 München",
+      "coordinates": [
+        11.5906,
+        48.1279,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4690",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070953"
+    },
+    {
+      "address": "Fritz-Berne-Straße 54, 81241 München",
+      "coordinates": [
+        11.47378,
+        48.14436,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 93,
+      "interior": "GOOD",
+      "name": "B-GO4293",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064073"
+    },
+    {
+      "address": "Drygalski-Allee 15, 81477 München",
+      "coordinates": [
+        11.50633,
+        48.09617,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 80,
+      "interior": "GOOD",
+      "name": "B-GO8594",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513166"
+    },
+    {
+      "address": "Griegstraße 58, 80807 München",
+      "coordinates": [
+        11.57757,
+        48.18297,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 48,
+      "interior": "GOOD",
+      "name": "B-GO8614",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J511803"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO8649",
+      "smartPhoneRequired": true,
+      "vin": "WDC1569121J295786"
+    },
+    {
+      "address": "Zamilastraße 9, 81677 München",
+      "coordinates": [
+        11.63643,
+        48.1363,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 62,
+      "interior": "GOOD",
+      "name": "B-GO4259",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K064029"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO4704",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K070041"
+    },
+    {
+      "address": "Heisenbergbogen 3, 85609 Aschheim",
+      "coordinates": [
+        11.68379,
+        48.15226,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3596",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037776"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 40,
+      "interior": "GOOD",
+      "name": "B-GO8623",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J514858"
+    },
+    {
+      "address": "Hubertusstraße 24-26, 80639 München",
+      "coordinates": [
+        11.51987,
+        48.15702,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 43,
+      "interior": "GOOD",
+      "name": "B-GO3132",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037227"
+    },
+    {
+      "address": "Terminalstraße Ost 4, 85356 München",
+      "coordinates": [
+        11.7879,
+        48.36048,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO4803",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K072852"
+    },
+    {
+      "address": "Kleinhesselohe 2a, 80802 München",
+      "coordinates": [
+        11.59917,
+        48.16046,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 25,
+      "interior": "GOOD",
+      "name": "B-GO3583",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036434"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 58,
+      "interior": "GOOD",
+      "name": "B-GO8630",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J513607"
+    },
+    {
+      "address": "Franziskanerstraße 43, 81669 München",
+      "coordinates": [
+        11.59014,
+        48.12533,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 62,
+      "interior": "GOOD",
+      "name": "B-GO3670",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036215"
+    },
+    {
+      "address": "Preußenstraße 45, 80809 München",
+      "coordinates": [
+        11.55738,
+        48.18582,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 37,
+      "interior": "GOOD",
+      "name": "B-GO3475",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036916"
+    },
+    {
+      "address": "P20 Ebene 01 - Flughafen MUC, 85445 Oberding",
+      "coordinates": [
+        11.78808,
+        48.35196,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 59,
+      "interior": "GOOD",
+      "name": "B-GO4292",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K065280"
+    },
+    {
+      "address": "Truderinger Str. 115, 81673 München",
+      "coordinates": [
+        11.63917,
+        48.1331,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 84,
+      "interior": "GOOD",
+      "name": "B-GO4806",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K073133"
+    },
+    {
+      "address": "ZDF-Straße 1, 85774 Unterföhring",
+      "coordinates": [
+        11.65685,
+        48.19259,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 78,
+      "interior": "GOOD",
+      "name": "B-GO8643",
+      "smartPhoneRequired": true,
+      "vin": "WDD1760431J514224"
+    },
+    {
+      "address": "Pelkovenstraße 135, 80992 München",
+      "coordinates": [
+        11.52625,
+        48.18205,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3709",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K037603"
+    },
+    {
+      "address": "Donnersbergerstraße 32-34, 80634 München",
+      "coordinates": [
+        11.53419,
+        48.14855,
+        0
+      ],
+      "engineType": "CE",
+      "exterior": "GOOD",
+      "fuel": 100,
+      "interior": "GOOD",
+      "name": "B-GO3541",
+      "smartPhoneRequired": true,
+      "vin": "WME4533421K036857"
+    }
+  ]
+}

@@ -1,0 +1,507 @@
+{
+    "result": "ok",
+    "data": {
+        "api": {
+            "version": "1.4.01pg",
+            "api_type": "Api Professional",
+            "api_cache": "24h",
+            "data_precision": 1,
+            "data_matching": "55%"
+        },
+        "analyze": {
+            "vin_orginal": {
+                "desc": "Entered VIN",
+                "value": "WMWXN310103A75532"
+            },
+            "vin_corrected": {
+                "desc": "Corrected VIN",
+                "value": "WMWXN310103A75532"
+            },
+            "vin_wmi": {
+                "desc": "WMI",
+                "value": "WMW"
+            },
+            "vin_man_ident": {
+                "desc": "VIS Identifier",
+                "value": "not applicable"
+            },
+            "vin_vds": {
+                "desc": "VDS",
+                "value": "XN310103"
+            },
+            "vin_year": {
+                "desc": "Year Identifier",
+                "value": ""
+            },
+            "vin_serial": {
+                "desc": "Serial number",
+                "value": "A75532"
+            },
+            "vin_type": {
+                "desc": "VIN type",
+                "value": "normal"
+            },
+            "make": {
+                "desc": "Make",
+                "value": "Mini"
+            },
+            "year": {
+                "desc": "Year",
+                "value": ""
+            },
+            "checkdigit": {
+                "desc": "Check Digit",
+                "value": "valid"
+            }
+        },
+        "manufacturer": {
+            "name": {
+                "desc": "Manufacturer",
+                "value": "Bayerische Motoren Werke AG"
+            },
+            "adress_1": {
+                "desc": "Adress #1",
+                "value": "80788 Munchen"
+            },
+            "adress_2": {
+                "desc": "Adress #2",
+                "value": "Munchen"
+            },
+            "region": {
+                "desc": "Region",
+                "value": "Europe"
+            },
+            "country": {
+                "desc": "Country",
+                "value": "Germany"
+            },
+            "note": {
+                "desc": "Note",
+                "value": "Manufacturer builds more than 500 vehicles per year"
+            }
+        },
+        "decoder": {
+            "general": {
+                "make": {
+                    "desc": "Make",
+                    "value": "Mini"
+                },
+                "model": {
+                    "desc": "Model",
+                    "value": "COOPER D"
+                },
+                "version": {
+                    "desc": "Version",
+                    "value": ""
+                },
+                "series": {
+                    "desc": "Series",
+                    "value": ""
+                },
+                "body": {
+                    "desc": "Body Style",
+                    "value": ""
+                },
+                "doors": {
+                    "desc": "Doors number",
+                    "value": "3/5"
+                },
+                "seats": {
+                    "desc": "Seats number",
+                    "value": "4"
+                },
+                "vehicle_class": {
+                    "desc": "Vehicle class",
+                    "value": "Subcompact car"
+                },
+                "vehicle_type": {
+                    "desc": "Vehicle type",
+                    "value": "Mini cars"
+                },
+                "model_year": {
+                    "desc": "Model year/s",
+                    "value": ""
+                },
+                "build_year": {
+                    "desc": "Build year",
+                    "value": ""
+                },
+                "plant": {
+                    "desc": "Plant",
+                    "value": " (Germany)"
+                }
+            },
+            "technical": {
+                "engine_code": {
+                    "desc": "Engine code/s",
+                    "value": "B37U"
+                },
+                "engine_conf": {
+                    "desc": "Engine configuration",
+                    "value": ""
+                },
+                "engine_type": {
+                    "desc": "Engine type",
+                    "value": ""
+                },
+                "engine_version": {
+                    "desc": "Engine version",
+                    "value": ""
+                },
+                "engine_head": {
+                    "desc": "Valve operation",
+                    "value": ""
+                },
+                "engine_valves": {
+                    "desc": "Valves",
+                    "value": ""
+                },
+                "engine_cylinders": {
+                    "desc": "Cylinders",
+                    "value": ""
+                },
+                "engine_displ_cm3": {
+                    "desc": "Displacement SI",
+                    "value": "",
+                    "unit": "cm3",
+                    "unit_long": "cubic centimeters"
+                },
+                "engine_displ_cid": {
+                    "desc": "Displacement CID",
+                    "value": "",
+                    "unit": "cid",
+                    "unit_long": "cubic inch"
+                },
+                "engine_displ_l": {
+                    "desc": "Displacement Nominal",
+                    "value": "",
+                    "unit": "l",
+                    "unit_long": "liter/s"
+                },
+                "engine_power_hp": {
+                    "desc": "Horsepower",
+                    "value": "116",
+                    "unit": "hp"
+                },
+                "engine_power_kw": {
+                    "desc": "Kilowatts",
+                    "value": "85",
+                    "unit": "kW"
+                },
+                "engine_turbo": {
+                    "desc": "Charger (turbo/super/diesel)",
+                    "value": ""
+                },
+                "fuel_type": {
+                    "desc": "Fuel type",
+                    "value": ""
+                },
+                "emission_std": {
+                    "desc": "Emission Standard",
+                    "value": ""
+                },
+                "drive_type": {
+                    "desc": "Driveline",
+                    "value": ""
+                },
+                "steering": {
+                    "desc": "Steering",
+                    "value": ""
+                },
+                "gearbox_type": {
+                    "desc": "Transmission type",
+                    "value": "Manual"
+                },
+                "gearbox_speed": {
+                    "desc": "Gears",
+                    "value": ""
+                }
+            },
+            "extended": {
+                "general": {
+                    "desc": "General information",
+                    "values": [
+ 
+                    ]
+                },
+                "standard": {
+                    "desc": "Standard equipment",
+                    "values": [
+                        {
+                            "code": "S1CAA",
+                            "desc": "",
+                            "value": "SELECTION OF COP RELEVANT VEHICLES"
+                        },
+                        {
+                            "code": "S1CBA",
+                            "desc": "",
+                            "value": "CO2 PACKAGE"
+                        },
+                        {
+                            "code": "S230A",
+                            "desc": "",
+                            "value": "EXTRA PACKAGE, EU-SPECIFIC"
+                        },
+                        {
+                            "code": "S249A",
+                            "desc": "",
+                            "value": "MULTIFUNCTION F STEERING WHEEL"
+                        },
+                        {
+                            "code": "S255A",
+                            "desc": "",
+                            "value": "SPORTS LEATHER STEERING WHEEL"
+                        },
+                        {
+                            "code": "S258A",
+                            "desc": "",
+                            "value": "TIRE WITH RUN-FLAT FUNCTIONALITY"
+                        },
+                        {
+                            "code": "S2F1A",
+                            "desc": "",
+                            "value": "MINI LA WHEEL COSMOS SPOKE SILVER"
+                        },
+                        {
+                            "code": "S2VBA",
+                            "desc": "",
+                            "value": "TIRE PRESSURE DISPLAY"
+                        },
+                        {
+                            "code": "S302A",
+                            "desc": "",
+                            "value": "ALARM SYSTEM"
+                        },
+                        {
+                            "code": "S322A",
+                            "desc": "",
+                            "value": "COMFORT ACCESS"
+                        },
+                        {
+                            "code": "S346A",
+                            "desc": "",
+                            "value": "CHROME LINE EXTERIEUR"
+                        },
+                        {
+                            "code": "S402A",
+                            "desc": "",
+                            "value": "ELECTRIC PANORAMIC ROOF"
+                        },
+                        {
+                            "code": "S423A",
+                            "desc": "",
+                            "value": "FLOOR MATS, VELOURS"
+                        },
+                        {
+                            "code": "S428A",
+                            "desc": "",
+                            "value": "WARNING TRIANGLE AND FIRST AID KIT"
+                        },
+                        {
+                            "code": "S431A",
+                            "desc": "",
+                            "value": "INTERIOR MIRROR WITH AUTOMATIC-DIP"
+                        },
+                        {
+                            "code": "S450A",
+                            "desc": "",
+                            "value": "HEIGHT ADJUSTMENT, PASSENGER SEAT"
+                        },
+                        {
+                            "code": "S470A",
+                            "desc": "",
+                            "value": "ISOFIX-SYSTEM"
+                        },
+                        {
+                            "code": "S473A",
+                            "desc": "",
+                            "value": "ARMREST FRONT"
+                        },
+                        {
+                            "code": "S481A",
+                            "desc": "",
+                            "value": "SPORTS SEAT"
+                        },
+                        {
+                            "code": "S493A",
+                            "desc": "",
+                            "value": "STORAGE COMPARTMENT PACKAGE"
+                        },
+                        {
+                            "code": "S494A",
+                            "desc": "",
+                            "value": "SEAT HEATING DRIVERPASSENGER"
+                        },
+                        {
+                            "code": "S4AAA",
+                            "desc": "",
+                            "value": "HEADLINING ANTHRACITE"
+                        },
+                        {
+                            "code": "S4BDA",
+                            "desc": "",
+                            "value": "INTERIOR SURFACE PIANO BLACK"
+                        },
+                        {
+                            "code": "S4V9A",
+                            "desc": "",
+                            "value": "MINI EXCITEMENT PACKAGE"
+                        },
+                        {
+                            "code": "S4VAA",
+                            "desc": "",
+                            "value": "MINI DRIVING MODES"
+                        },
+                        {
+                            "code": "S507A",
+                            "desc": "",
+                            "value": "PARK DISTANCE CONTROL (PDC), REAR"
+                        },
+                        {
+                            "code": "S520A",
+                            "desc": "",
+                            "value": "FOG LIGHTS"
+                        },
+                        {
+                            "code": "S521A",
+                            "desc": "",
+                            "value": "RAIN SENSOR"
+                        },
+                        {
+                            "code": "S534A",
+                            "desc": "",
+                            "value": "AUTOMATIC AIR CONDITIONING"
+                        },
+                        {
+                            "code": "S544A",
+                            "desc": "",
+                            "value": "CRUISE CONTROL WITH BRAKE FUNCTION"
+                        },
+                        {
+                            "code": "S550A",
+                            "desc": "",
+                            "value": "ON-BOARD COMPUTER"
+                        },
+                        {
+                            "code": "S563A",
+                            "desc": "",
+                            "value": "LIGHT PACKAGE"
+                        },
+                        {
+                            "code": "S5GCA",
+                            "desc": "",
+                            "value": "FACTORY PREP. FOR FLEXIBLE CAR USE"
+                        },
+                        {
+                            "code": "S674A",
+                            "desc": "",
+                            "value": "HI-FI SYSTEM HARMAN KARDON"
+                        },
+                        {
+                            "code": "S698A",
+                            "desc": "",
+                            "value": "AREA-CODE 2 FOR DVD"
+                        },
+                        {
+                            "code": "S6ACA",
+                            "desc": "",
+                            "value": "INTELLIGENT EMERGENCY SOS CALL"
+                        },
+                        {
+                            "code": "S6AEA",
+                            "desc": "",
+                            "value": "TELESERVICES"
+                        },
+                        {
+                            "code": "S6FPA",
+                            "desc": "",
+                            "value": "RADIO MINI VISUAL BOOST"
+                        },
+                        {
+                            "code": "S6NEA",
+                            "desc": "",
+                            "value": "EXTENDED MOBILE PHONE PREP. WBLUETOOTH"
+                        },
+                        {
+                            "code": "S6NMA",
+                            "desc": "",
+                            "value": "MINI CONNECTED"
+                        },
+                        {
+                            "code": "S6UMA",
+                            "desc": "",
+                            "value": "MINI NAVIGATION SYSTEM"
+                        },
+                        {
+                            "code": "S785A",
+                            "desc": "",
+                            "value": "WHITE DIRECTION INDICATOR LIGHTS"
+                        },
+                        {
+                            "code": "P7Y2A",
+                            "desc": "",
+                            "value": "CHILI II"
+                        },
+                        {
+                            "code": "L801A",
+                            "desc": "",
+                            "value": "NATIONAL VERSION GERMANY"
+                        },
+                        {
+                            "code": "S879A",
+                            "desc": "",
+                            "value": "ON-BOARD VEHICLE LITERATURE GERMAN"
+                        },
+                        {
+                            "code": "S8KAA",
+                            "desc": "",
+                            "value": "DUMMY-SALAPA"
+                        },
+                        {
+                            "code": "S8TFA",
+                            "desc": "",
+                            "value": "ACTIVE PEDESTRIAN PROTECTION"
+                        },
+                        {
+                            "code": "S3ABA",
+                            "desc": "",
+                            "value": "MIRROR CAP IN VEHICLE COLOR"
+                        },
+                        {
+                            "code": "S4C1A",
+                            "desc": "",
+                            "value": "COLOUR LINE CARBON BLACK"
+                        },
+                        {
+                            "code": "S548A",
+                            "desc": "",
+                            "value": "KILOMETER-CALIBRATED SPEEDOMETER"
+                        },
+                        {
+                            "code": "S5AAA",
+                            "desc": "",
+                            "value": "REAR FOG LIGHT"
+                        },
+                        {
+                            "code": "S851A",
+                            "desc": "",
+                            "value": "LANGUAGE VERSION GERMAN"
+                        }
+                    ]
+                },
+                "optional": {
+                    "desc": "Optional Equipment",
+                    "values": [
+ 
+                    ]
+                },
+                "features": {
+                    "desc": "Additional features",
+                    "values": [
+ 
+                    ]
+                }
+            }
+        }
+    }
+}
