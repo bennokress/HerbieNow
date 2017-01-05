@@ -393,7 +393,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncN-2M-zqK" userLabel="Cell 1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="119.33333333333334" height="172"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drivenow" translatesAutoresizingMaskIntoConstraints="NO" id="FV6-Rh-YFc">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="driveNow" translatesAutoresizingMaskIntoConstraints="NO" id="FV6-Rh-YFc">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333334" height="172"/>
                                                                             </imageView>
                                                                         </subviews>
@@ -1302,7 +1302,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcG-Hp-sQ2" userLabel="Cell 1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="119.33333333333334" height="172"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drivenow" translatesAutoresizingMaskIntoConstraints="NO" id="YHE-od-xet">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="driveNow" translatesAutoresizingMaskIntoConstraints="NO" id="YHE-od-xet">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333334" height="172"/>
                                                                             </imageView>
                                                                         </subviews>
@@ -1524,7 +1524,7 @@
         <image name="camera" width="67" height="67"/>
         <image name="car2go" width="67" height="67"/>
         <image name="continue" width="67" height="67"/>
-        <image name="drivenow" width="67" height="67"/>
+        <image name="driveNow" width="67" height="67"/>
         <image name="filterSetHome" width="67" height="67"/>
         <image name="filterSetRed" width="67" height="67"/>
         <image name="filterSetWork" width="67" height="67"/>
