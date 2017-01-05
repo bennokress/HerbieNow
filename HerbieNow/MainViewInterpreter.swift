@@ -128,8 +128,11 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         // TODO: id durch filtersetButton ID ersetzen
         let id = 1
 
-        let filterset = logic.getFilterset(for: id)
-        presenter.goToMapView(with: filterset)
+        //        let filterset = logic.getFilterset(for: id)
+        // TODO: logic.getVehicles (for all accounts of filterset)
+        // TODO: filter vehicles according to filterset and save as filteredVehicles
+        let filteredVehicles: [Vehicle] = []
+        presenter.goToMapView(with: filteredVehicles)
 
     }
 

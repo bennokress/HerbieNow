@@ -9,21 +9,6 @@
 import Foundation
 import CoreLocation
 
-enum Filterset {
-
-    // MARK: - Providers
-    case driveNow
-    case car2go
-
-    // MARK: - Characteristics
-    case sportscar
-    case hifiUpgrade
-    case convertible
-    case electric
-    // TODO: Implement more filteroptions
-
-}
-
 enum APIRequestMethod: String {
 
     case get = "GET"
@@ -160,6 +145,114 @@ enum Make: String {
             self = .unknown
         }
 
+    }
+
+}
+
+enum Model {
+
+    case mini3Door
+    case mini5Door
+    case miniConvertible
+    case miniCountryman
+    case miniClubman
+    case miniPaceman
+    case miniCoupe
+
+    case bmwI3
+    case bmwActiveE
+    case bmw1er3Door
+    case bmw1er5Door
+    case bmw1erConvertible
+    case bmw1erCoupe
+    case bmw2erGT
+    case bmw2erAT
+    case bmw2erConvertible
+    case bmw2erCoupe
+    case bmwX1
+
+    case smartForTwo
+    case smartRoadster
+    case smartForFour
+
+    case mercedesAseries
+    case mercedesBseries
+    case mercedesGLA
+    case mercedesCLA
+
+    case unknown
+    
+    func getString() -> String {
+        
+        switch self {
+        case .mini3Door: return "3 Door"
+        case .mini5Door: return "5 Door"
+        case .miniConvertible: return "Convertible"
+        case .miniCountryman: return "Countryman"
+        case .miniClubman: return "Clubman"
+        case .miniPaceman: return "Paceman"
+        case .miniCoupe: return "Coupé"
+            
+        case .bmwI3: return "i3"
+        case .bmwActiveE: return "ActiveE"
+        case .bmw1er3Door: return "1er"
+        case .bmw1er5Door: return "1er"
+        case .bmw1erConvertible: return "1er Convertible"
+        case .bmw1erCoupe: return "1er Coupé"
+        case .bmw2erGT: return "2er Grand Tourer"
+        case .bmw2erAT: return "2er Active Tourer"
+        case .bmw2erConvertible: return "2er Convertible"
+        case .bmw2erCoupe: return "2er Coupé"
+        case .bmwX1: return "X1"
+            
+        case .smartForTwo: return "fortwo"
+        case .smartRoadster: return "roadster"
+        case .smartForFour: return "forfour"
+            
+        case .mercedesAseries: return "A series"
+        case .mercedesBseries: return "B series"
+        case .mercedesGLA: return "GLA"
+        case .mercedesCLA: return "CLA"
+            
+        case .unknown: return "Model"
+        }
+        
+    }
+    
+    var doors: Int {
+        
+        switch self {
+        case .mini3Door, .miniConvertible, .miniCoupe: return 3
+        case .mini5Door, .miniCountryman, .miniClubman, .miniPaceman: return 5
+            
+        case .bmwI3, .bmwActiveE, .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe: return 3
+        case .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmw2erConvertible, .bmw2erCoupe, .bmwX1: return 5
+            
+        case .smartForTwo, .smartRoadster, .smartForFour: return 3
+            
+        case .mercedesAseries, .mercedesBseries, .mercedesGLA, .mercedesCLA: return 5
+            
+        case .unknown: return 0
+        }
+        
+    }
+    
+    var seats: Int {
+        
+        switch self {
+        case .mini3Door, .miniConvertible, .miniCoupe, .mini5Door, .miniCountryman, .miniClubman, .miniPaceman: return 4
+            
+        case .bmwI3, .bmwActiveE: return 2
+        case .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe, .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmw2erConvertible, .bmw2erCoupe, .bmwX1: return 5
+            
+        case .smartForTwo, .smartRoadster: return 2
+        case .smartForFour: return 4
+            
+        case .mercedesAseries, .mercedesBseries, .mercedesGLA, .mercedesCLA: return 5
+            
+        case .unknown: return 0
+        }
+        
     }
 
 }
