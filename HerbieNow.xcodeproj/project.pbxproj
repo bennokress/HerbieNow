@@ -37,6 +37,7 @@
 		D32089A51E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
+		D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
 		D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BC1E0969AD000DBE17 /* JASON.framework */; };
@@ -104,6 +105,7 @@
 		D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwiftAlamofire.framework; path = Carthage/Build/iOS/OAuthSwiftAlamofire.framework; sourceTree = "<group>"; };
 		D3297A391E06B3D000831923 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		D33132491E07D92100645858 /* VIN-related Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VIN-related Extensions.swift"; sourceTree = "<group>"; };
+		D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filterset.swift; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
 		D39160B81E0954A1000DBE17 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				039F0B711DD8D6A000AB56C0 /* Enumerations.swift */,
+				D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */,
 				037578A41DD0B68200AA8FC0 /* Location.swift */,
 				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
 				039F0B731DD8DBC500AB56C0 /* User.swift */,
@@ -510,6 +513,7 @@
 				039F0B741DD8DBC500AB56C0 /* User.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
 				D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */,
+				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

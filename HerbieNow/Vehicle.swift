@@ -53,3 +53,11 @@ struct Vehicle {
     }
 
 }
+
+extension Vehicle: Equatable {
+    
+    static func ==(lhs: Vehicle, rhs: Vehicle) -> Bool {
+        return lhs.vin == rhs.vin
+    }
+    
+}

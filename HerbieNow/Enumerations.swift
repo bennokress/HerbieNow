@@ -109,9 +109,9 @@ enum Filter {
         case .transmission(let automatic, let manual):
             return "E\(automatic.toInt())\(manual.toInt())"
         case .hp(let min, let max):
-            return "F\(min)\(max)" //Extension bauen, 3 Ziffern jeweils
+            return "F\(min.to3DigitString())\(max.to3DigitString())"
         case .fuelLevel(let min, let max):
-            return "G\(min)\(max)" //Extension bauen, 3 Ziffern jeweils
+            return "G\(min.to3DigitString())\(max.to3DigitString())"
         case .doors(let three, let five):
             return "H\(three.toInt())\(five.toInt())"
         case .seats(let two, let four, let five):
