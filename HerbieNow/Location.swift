@@ -60,7 +60,7 @@ struct Location {
         }
     }
 
-    func getDistance(from me:CLLocation) -> Double {
-        return me.distance(from: self.asObject)
+    func getDistance(from otherLocation:CLLocation) -> Double {
+        return otherLocation.distance(from: self.asObject)
     }
 }

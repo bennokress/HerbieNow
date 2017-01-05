@@ -45,17 +45,12 @@ protocol AppDataProtocol {
 
     /// Delete all saved credentials for the specified provider from Keychain
     func deleteCredentials(for provider: Provider)
-
-    func setNearestCar2GoCity(_ cityName:String)
-
-    func getNearestCar2GoCity() -> String?
 }
 
 class AppData {
 
     let userDefaults = UserDefaults.standard
     let keychain = Keychain(service: "de.lmu.HerbieNow").synchronizable(true)
-    var nearestCar2GoCity : String?
 
     var userLocation: Location?
 
@@ -163,14 +158,6 @@ extension AppData: AppDataProtocol {
 
     func getUserLocation() -> Location? {
         return userLocation
-    }
-
-    func setNearestCar2GoCity(_ cityName:String) {
-        self.nearestCar2GoCity = cityName
-    }
-
-    func getNearestCar2GoCity() -> String? {
-        return self.nearestCar2GoCity
     }
 
 }

@@ -47,8 +47,8 @@ class Car2GoAPI {
             let fuelLevelInPercent = json["fuel"].int,
             let transmissionChar = json["engineType"].character,
             let licensePlate = json["name"].string,
-            let latitude = json["coordinates"][0].double,
-            let longitude = json["coordinates"][1].double
+            let latitude = json["coordinates"][1].double,
+            let longitude = json["coordinates"][0].double
             else {
                 return nil
         }
@@ -126,8 +126,6 @@ extension Car2GoAPI: API {
 
         getNearestCity(actualLocation: location) { cityString in
 
-            print("City String: \(cityString)")
-
             let url = "https://www.car2go.com/api/v2.1/vehicles?loc=\(cityString.replaceGermanCharacters())&oauth_consumer_key=\(self.consumerKey)&format=\(self.format)"
 
             Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: self.apiHeader).responseJASON { callback in
@@ -169,11 +167,14 @@ extension Car2GoAPI: API {
 
         Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON { callback in
 
+            let fallbackCityName = "München"
+
             if let json = callback.result.value {
+
                 var cities: [Location] = []
 
                 guard let jsonCities = json["location"].jsonArray else {
-                    completion("Muenchen")
+                    completion(fallbackCityName)
                     return
                 }
 
@@ -183,22 +184,24 @@ extension Car2GoAPI: API {
                     }
                 }
 
-                if !cities.isEmpty {
-                    var nearestCity:Location = cities[0]
+                if cities.count > 0 {
+
+                    var nearestCity: Location = cities[0]
 
                     for city in cities {
                         if nearestCity.getDistance(from: location.asObject) > city.getDistance(from: location.asObject) {
                             nearestCity = city
                         }
                     }
-                    self.appData.setNearestCar2GoCity(nearestCity.car2goCityName!)
-                    completion(nearestCity.car2goCityName ?? "Muenchen")
+
+                    completion(nearestCity.car2goCityName ?? fallbackCityName)
+
                 } else {
-                    completion("Muenchen")
+                    completion(fallbackCityName)
                 }
 
             } else {
-                completion("Muenchen")
+                completion(fallbackCityName)
             }
         }
 
