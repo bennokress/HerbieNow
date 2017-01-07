@@ -30,7 +30,6 @@ struct Vehicle {
 
     let description: String
 
-    // swiftlint:disable:next function_parameter_count
     init(provider: Provider, vin: String, fuelLevel: Int, fuelType: FuelType, transmissionType: TransmissionType, licensePlate: String, location: Location) {
 
         // from API

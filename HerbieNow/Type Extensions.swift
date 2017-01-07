@@ -27,12 +27,11 @@ extension DataRequest {
      */
     static public func JASONReponseSerializer() -> DataResponseSerializer<JASON.JSON> {
         return DataResponseSerializer { _, _, data, error in
-            guard error == nil else {
-                // swiftlint:disable:next force_unwrapping
-                return .failure(error!)
+            if let error = error {
+                return .failure(error)
+            } else {
+                return .success(JASON.JSON(data))
             }
-
-            return .success(JASON.JSON(data))
         }
     }
 
@@ -205,18 +204,18 @@ extension String {
         var components = self.components(separatedBy: string)
         return components[0]
     }
-    
+
     func toBoolArray() -> [Bool] {
         var boolArray:[Bool] = []
-        for char in self.characters{
-            if(char == "0"){
+        for char in self.characters {
+            if char == "0" {
                 boolArray.append(false)
-            }else{
+            } else {
                 boolArray.append(true)
             }
         }
         return boolArray
-        
+
     }
 
     struct Numbers { static let characterSet = CharacterSet(charactersIn: "0123456789") }

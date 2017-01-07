@@ -21,21 +21,21 @@ class Filterset {
     init(from initString: String) {
         filters = getFilters(from: initString)
     }
-    
+
     func getFilters(from string: String) -> [Filter] {
         // String has the form: A00B0000C00000000000000000D000E00F000000G000000H00I000J0
         let seperators = CharacterSet(charactersIn: "ABCDEFGHIJ")
         var filterArray = string.components(separatedBy: seperators)
-        
+
         let providerBoolArray = filterArray[1].toBoolArray()
         let providerFilter: Filter = getProviderFilter(from: providerBoolArray)
-        
+
         let makeBoolArray = filterArray[2].toBoolArray()
         let make:Filter = .make(bmw: makeBoolArray[0], mini: makeBoolArray[1], mercedes: makeBoolArray[2], smart: makeBoolArray[3])
-        
+
         return [providerFilter, make]
     }
-    
+
     func getProviderFilter(from boolArray: [Bool]) -> Filter {
         return .provider(driveNow: boolArray[0], car2go: boolArray[1])
     }
@@ -84,12 +84,10 @@ class Filterset {
         return filteredVehicles
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
     fileprivate func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
-        // swiftlint:disable:next line_length
         if case let .model(mini3doorFilterActivated, mini5doorFilterActivated, miniConvertibleFilterActivated, miniClubmanFilterActivated, miniCountrymanFilterActivated, bmwI3FilterActivated, bmw1erFilterActivated, bmwX1FilterActivated, bmw2erATFilterActivated, bmw2erConvertibleFilterActivated, smartForTwoFilterActivated, smartRoadsterFilterActivated, smartForFourFilterActivated, mercedesGLAFilterActivated, mercedesCLAFilterActivated, mercedesAFilterActivated, mercedesBFilterActivated) = filter {
             for vehicle in fullList {
                 switch vehicle.model {
@@ -186,7 +184,7 @@ class Filterset {
 
         if case let .hp(minHP, maxHP) = filter {
             for vehicle in fullList {
-                if (vehicle.hp >= minHP && vehicle.hp <= maxHP) {
+                if vehicle.hp >= minHP && vehicle.hp <= maxHP {
                     filteredVehicles.append(vehicle)
                 }
             }
@@ -201,7 +199,7 @@ class Filterset {
 
         if case let .fuelLevel(minFuelLevel, maxFuelLevel) = filter {
             for vehicle in fullList {
-                if (vehicle.fuelLevel >= minFuelLevel && vehicle.fuelLevel <= maxFuelLevel) {
+                if vehicle.fuelLevel >= minFuelLevel && vehicle.fuelLevel <= maxFuelLevel {
                     filteredVehicles.append(vehicle)
                 }
             }
@@ -259,7 +257,7 @@ class Filterset {
         if case let .hifiSystem(onlyFilterActivated) = filter {
             for vehicle in fullList {
                 // Type HiFiSystem ist noch nicht als Enum erstellt, aber ein einfacher bool reicht ja hier aus
-                if(vehicle.hasHiFiSystem || (!vehicle.hasHiFiSystem && !onlyFilterActivated)) {
+                if vehicle.hasHiFiSystem || (!vehicle.hasHiFiSystem && !onlyFilterActivated) {
                     filteredVehicles.append(vehicle)
                 }
             }

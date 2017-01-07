@@ -51,7 +51,6 @@ class DriveNowAPI {
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
 
-        // swiftlint:disable:next line_length
         guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let longitude = json["longitude"].double else {
             return nil
         }
