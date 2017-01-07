@@ -217,6 +217,16 @@ extension String {
         return boolArray
 
     }
+    
+    func toIntArray() -> [Int] {
+        // converting a 6-digit string of the form 065090 into an Int-array of the form [65, 90]
+        var intArray:[Int] = []
+        let index = self.index(self.startIndex, offsetBy: 3)
+        intArray[0] = Int(self.substring(to: index))!
+        intArray[1] = Int(self.substring(from: index))!
+            
+        return intArray
+    }
 
     struct Numbers { static let characterSet = CharacterSet(charactersIn: "0123456789") }
 
