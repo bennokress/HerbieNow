@@ -31,11 +31,13 @@ class MainViewInterpreter: GeneralInterpretProtocol {
 
     let appDelegate: AppDelegate
 
+    var mainVC: MainViewControllerProtocol?
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
 
     init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
 
+        self.mainVC = mainVC
         self.appDelegate = appDelegate
         self.presenter = MainViewPresenter(to: mainVC)
         self.logic = Logic()
@@ -161,6 +163,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
             self.handleAPIresponse(response, presenterActionRequired: true)
         }
+
         //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
         //        }

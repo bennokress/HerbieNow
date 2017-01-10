@@ -6,7 +6,7 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol LogicProtocol {
 
@@ -24,7 +24,7 @@ protocol LogicProtocol {
 
     // MARK: - API Methods
 
-    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping Callback)
+    func login(with provider: Provider, as username: String?, withPassword password: String?, in viewController: MainViewControllerProtocol?, completion: @escaping Callback)
     func getUserData(from provider: Provider, completion: @escaping Callback)
     func getReservationStatus(from provider: Provider, completion: @escaping Callback)
     func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback)
@@ -34,6 +34,14 @@ protocol LogicProtocol {
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
 
     func saveUpdatedLocation(_ location: Location)
+
+}
+
+extension LogicProtocol {
+
+    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, in viewController: MainViewControllerProtocol? = nil, completion: @escaping Callback) {
+        login(with: provider, as: username, withPassword: password, in: viewController, completion: completion)
+    }
 
 }
 
@@ -86,16 +94,34 @@ extension Logic: LogicProtocol {
 
     // TODO: Closures zu allen API Calls hinzufügen
 
-    func login(with provider: Provider, as username: String, withPassword password: String, completion: @escaping Callback) {
+    func login(with provider: Provider, as username: String?, withPassword password: String?, in viewController: MainViewControllerProtocol?, completion: @escaping Callback) {
 
-        logout(of: .driveNow) // Deletes all stored keys for the provider
+        switch provider {
+        case .driveNow:
+            guard let dnUsername = username, let dnPassword = password else {
+                let error = APICallResult.error(code: 0, codeDetail: "no_credentials_provided", message: "No Credentials passed with login call for DriveNow!", parentFunction: #function)
+                completion(error)
+                return
+            }
 
-        appData.addUsername(username, for: provider)
-        appData.addPassword(password, for: provider)
+            appData.addUsername(dnUsername, for: .driveNow)
+            appData.addPassword(dnPassword, for: .driveNow)
 
-        let api = provider.api()
-        api.login() { response in
-            completion(response)
+            let api = provider.api()
+            api.login() { response in
+                completion(response)
+            }
+        case .car2go:
+            guard let viewController = viewController as? UIViewController else {
+                let error = APICallResult.error(code: 0, codeDetail: "no_viewController", message: "No valid view controller passed with login call for Car2Go!", parentFunction: #function)
+                completion(error)
+                return
+            }
+
+            let api = provider.api()
+            api.login(in: viewController) { response in
+                completion(response)
+            }
         }
 
     }

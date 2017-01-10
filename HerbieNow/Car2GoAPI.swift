@@ -6,8 +6,10 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
+import OAuthSwift
+import OAuthSwiftAlamofire
 import JASON
 
 class Car2GoAPI {
@@ -102,13 +104,15 @@ class Car2GoAPI {
 
 extension Car2GoAPI: API {
 
-    func login(completion: @escaping Callback) {
-        let functionName = name(of: self)+"."+#function
-        guard let _ = appData.getUsername(for: car2go), let _ = appData.getPassword(for: car2go) else {
-            let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The Car2Go Username and / or the password are missing in Keychain!", parentFunction: functionName)
+    func login(in viewController: UIViewController?, completion: @escaping Callback) {
+        
+        guard let view = viewController else {
+            let error = APICallResult.error(code: 0, codeDetail: "no_viewController", message: "No valid view controller passed with login call for Car2Go!", parentFunction: #function)
             completion(error)
             return
         }
+        
+        
 
     }
 
