@@ -84,7 +84,7 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 for vehicle in vehicles {
                     print(Debug.list(message: vehicle.description, indent: 1))
                 }
-                
+
                 // TODO: Test-Filter entfernen
                 let filterString = "A11B1111C11111111111111111D111E11F000200G000100H11I111J0"
                 let testFilterset = Filterset(from: filterString)
