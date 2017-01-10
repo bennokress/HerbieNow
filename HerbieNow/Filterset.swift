@@ -12,19 +12,31 @@ protocol FiltersetProtocol {
 
     func filter(vehicles: [Vehicle]) -> [Vehicle]
 
+    func getName() -> String
+
+    func getPosition() -> Int
+
+    func getImageCode() -> String
+
 }
 
 class Filterset {
 
     var filters: [Filter] = []
+    var position: Int = 0
+    var name: String = "defaultName"
+    var imageCode: String = ""
 
     init(from initString: String) {
         filters = getFilters(from: initString)
+        position = setPosition(from: initString)
+        name = setName(from: initString)
+        imageCode = setImageCode(from: initString)
     }
 
     func getFilters(from string: String) -> [Filter] {
-        // String has the form: A00B0000C00000000000000000D000E00F000000G000000H00I000J0
-        let seperators = CharacterSet(charactersIn: "ABCDEFGHIJ")
+        // String has the form: :00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded
+        let seperators = CharacterSet(charactersIn: ":")
         var stringArray = string.components(separatedBy: seperators)
         var filterArray: [Filter] = []
 
@@ -69,6 +81,27 @@ class Filterset {
         filterArray.append(hiFiSystemFilter)
 
         return filterArray
+    }
+
+    func setPosition(from string: String) -> Int {
+        let seperators = CharacterSet(charactersIn: ":")
+        var stringArray = string.components(separatedBy: seperators)
+        guard let pos = Int(stringArray[11]) else {
+            return 0
+        }
+        return pos
+    }
+
+    func setName(from string: String) -> String {
+        let seperators = CharacterSet(charactersIn: ":")
+        var stringArray = string.components(separatedBy: seperators)
+        return stringArray[12]
+    }
+
+    func setImageCode(from string: String) -> String {
+        let seperators = CharacterSet(charactersIn: ":")
+        var stringArray = string.components(separatedBy: seperators)
+        return stringArray[13]
     }
 
     // MARK: - Getter for Filters
@@ -374,6 +407,19 @@ extension Filterset: FiltersetProtocol {
 
         return filteredVehicles
 
+    }
+
+    func getName() -> String {
+        return self.name
+    }
+
+    func getPosition() -> Int {
+        return self.position
+    }
+
+    func getImageCode() -> String {
+        // TODO: base64 encoding ?
+        return self.imageCode
     }
 
 }
