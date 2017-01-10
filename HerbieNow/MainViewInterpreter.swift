@@ -160,8 +160,13 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         //        logic.getUserData(from: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: false)
         //        }
-        logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
-            self.handleAPIresponse(response, presenterActionRequired: true)
+
+        /*logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
+         self.handleAPIresponse(response, presenterActionRequired: true)
+         }*/
+
+        logic.login(with: .car2go, in: mainVC) { (_) in
+
         }
 
         //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
