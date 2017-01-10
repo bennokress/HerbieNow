@@ -158,6 +158,9 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     // Das da unten kann dann später mal weg ...
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
+        logic.login(with: .driveNow, as: "account@bennokress.de", withPassword: "t2B7P+9/{7Hhavd") { response in
+            self.handleAPIresponse(response, presenterActionRequired: true)
+        }
         //        logic.getUserData(from: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: false)
         //        }
@@ -165,10 +168,6 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         /*logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
          self.handleAPIresponse(response, presenterActionRequired: true)
          }*/
-
-        logic.login(with: .car2go, in: mainVC) { (_) in
-
-        }
 
         //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
