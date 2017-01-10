@@ -28,80 +28,54 @@ class Filterset {
     var imageCode: String = ""
 
     init(from initString: String) {
-        filters = getFilters(from: initString)
-        position = setPosition(from: initString)
-        name = setName(from: initString)
-        imageCode = setImageCode(from: initString)
-    }
+        // String has the form: 00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded
+        let stringArray = initString.splited(by: ":")
 
-    func getFilters(from string: String) -> [Filter] {
-        // String has the form: :00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded
-        let seperators = CharacterSet(charactersIn: ":")
-        var stringArray = string.components(separatedBy: seperators)
-        var filterArray: [Filter] = []
-
-        let providerBoolArray = stringArray[1].toBoolArray()
+        let providerBoolArray = stringArray[0].toBoolArray()
         let providerFilter: Filter = getProviderFilter(from: providerBoolArray)
-        filterArray.append(providerFilter)
+        filters.append(providerFilter)
 
-        let makeBoolArray = stringArray[2].toBoolArray()
+        let makeBoolArray = stringArray[1].toBoolArray()
         let makeFilter: Filter = getMakeFilter(from: makeBoolArray)
-        filterArray.append(makeFilter)
+        filters.append(makeFilter)
 
-        let modelBoolArray = stringArray[3].toBoolArray()
+        let modelBoolArray = stringArray[2].toBoolArray()
         let modelFilter: Filter = getModelFilter(from: modelBoolArray)
-        filterArray.append(modelFilter)
+        filters.append(modelFilter)
 
-        let fuelTypeBoolArray = stringArray[4].toBoolArray()
+        let fuelTypeBoolArray = stringArray[3].toBoolArray()
         let fuelTypeFilter: Filter = getFuelTypeFilter(from: fuelTypeBoolArray)
-        filterArray.append(fuelTypeFilter)
+        filters.append(fuelTypeFilter)
 
-        let transmissionBoolArray = stringArray[5].toBoolArray()
+        let transmissionBoolArray = stringArray[4].toBoolArray()
         let transmissionFilter: Filter = getTransmissionFilter(from: transmissionBoolArray)
-        filterArray.append(transmissionFilter)
+        filters.append(transmissionFilter)
 
-        let hpIntArray = stringArray[6].toIntArray()
+        let hpIntArray = stringArray[5].toIntArray()
         let hpFilter: Filter = getHPFilter(from: hpIntArray)
-        filterArray.append(hpFilter)
+        filters.append(hpFilter)
 
-        let fuelLevelIntArray = stringArray[7].toIntArray()
+        let fuelLevelIntArray = stringArray[6].toIntArray()
         let fuelLevelFilter: Filter = getFuelLevelFilter(from: fuelLevelIntArray)
-        filterArray.append(fuelLevelFilter)
+        filters.append(fuelLevelFilter)
 
-        let doorsBoolArray = stringArray[8].toBoolArray()
+        let doorsBoolArray = stringArray[7].toBoolArray()
         let doorsFilter: Filter = getDoorsFilter(from: doorsBoolArray)
-        filterArray.append(doorsFilter)
+        filters.append(doorsFilter)
 
-        let seatsArray = stringArray[9].toBoolArray()
+        let seatsArray = stringArray[8].toBoolArray()
         let seatsFilter: Filter = getSeatsFilter(from: seatsArray)
-        filterArray.append(seatsFilter)
+        filters.append(seatsFilter)
 
-        let hiFiSystemArray = stringArray[10].toBoolArray()
+        let hiFiSystemArray = stringArray[9].toBoolArray()
         let hiFiSystemFilter: Filter = getHiFiSystemFilter(from: hiFiSystemArray)
-        filterArray.append(hiFiSystemFilter)
+        filters.append(hiFiSystemFilter)
 
-        return filterArray
-    }
+        position = stringArray[10].integer
 
-    func setPosition(from string: String) -> Int {
-        let seperators = CharacterSet(charactersIn: ":")
-        var stringArray = string.components(separatedBy: seperators)
-        guard let pos = Int(stringArray[11]) else {
-            return 0
-        }
-        return pos
-    }
+        name = stringArray[11]
 
-    func setName(from string: String) -> String {
-        let seperators = CharacterSet(charactersIn: ":")
-        var stringArray = string.components(separatedBy: seperators)
-        return stringArray[12]
-    }
-
-    func setImageCode(from string: String) -> String {
-        let seperators = CharacterSet(charactersIn: ":")
-        var stringArray = string.components(separatedBy: seperators)
-        return stringArray[13]
+        imageCode = stringArray[12]
     }
 
     // MARK: - Getter for Filters
