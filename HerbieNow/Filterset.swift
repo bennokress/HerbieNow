@@ -6,26 +6,29 @@
 //  Copyright © 2017 LMU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol FiltersetProtocol {
+struct Filterset {
 
-    func filter(vehicles: [Vehicle]) -> [Vehicle]
+    private var filters: [Filter] = []
+    private var position: Int = 0
+    private var name: String = "defaultName"
+    private var image = UIImage()
 
-    func getName() -> String
-
-    func getPosition() -> Int
-
-    func getImageCode() -> String
-
-}
-
-class Filterset {
-
-    var filters: [Filter] = []
-    var position: Int = 0
-    var name: String = "defaultName"
-    var imageCode: String = ""
+    var asString: String {
+        var imageString = "invalid image"
+        if let imageData: Data = UIImagePNGRepresentation(image) {
+            imageString = imageData.base64EncodedString(options: .lineLength64Characters)
+        }
+        var stringArray: [String] = []
+        for filter in filters {
+            stringArray.append(filter.toString())
+        }
+        stringArray.append(String(position))
+        stringArray.append(name)
+        stringArray.append(imageString)
+        return stringArray.joined(separator: ":")
+    }
 
     init(from initString: String) {
         // String has the form: 00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded
@@ -75,54 +78,123 @@ class Filterset {
 
         name = stringArray[11]
 
-        imageCode = stringArray[12]
+        if let imageData = Data(base64Encoded: stringArray[12], options: Data.Base64DecodingOptions(rawValue: 0)), let image = UIImage(data: imageData) {
+            self.image = image
+        }
+    }
+    
+    // MARK: - Public Functions
+    
+    func filter(vehicles: [Vehicle]) -> [Vehicle] {
+        
+        var filteredVehicles: [Vehicle] = vehicles
+        
+        for filter in filters {
+            switch filter {
+            case .provider:
+                filteredVehicles = filterByProvider(filteredVehicles, with: filter)
+            case .make:
+                filteredVehicles = filterByMake(filteredVehicles, with: filter)
+            case .model:
+                filteredVehicles = filterByModel(filteredVehicles, with: filter)
+            case .fuelType:
+                filteredVehicles = filterByFueltype(filteredVehicles, with: filter)
+            case .transmission:
+                filteredVehicles = filterByTransmission(filteredVehicles, with: filter)
+            case .hp:
+                filteredVehicles = filterByHP(filteredVehicles, with: filter)
+            case .fuelLevel:
+                filteredVehicles = filterByFuellevel(filteredVehicles, with: filter)
+            case .doors:
+                filteredVehicles = filterByDoors(filteredVehicles, with: filter)
+            case .seats:
+                filteredVehicles = filterBySeats(filteredVehicles, with: filter)
+            case .hifiSystem:
+                filteredVehicles = filterByHiFiSystem(filteredVehicles, with: filter)
+            }
+        }
+        
+        return filteredVehicles
+        
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getPosition() -> Int {
+        return position
+    }
+    
+    func getImage() -> UIImage {
+        return image
+    }
+    
+    mutating func update(with newFilter: Filter) {
+        for (index, filter) in filters.enumerated() {
+            if filter == newFilter {
+                filters[index] = newFilter
+            }
+        }
+    }
+    
+    mutating func update(with newName: String) {
+        name = newName
+    }
+    
+    mutating func update(with newPosition: Int) {
+        position = newPosition
+    }
+    
+    mutating func update(with newImage: UIImage) {
+        image = newImage
     }
 
-    // MARK: - Getter for Filters
+    // MARK: - Private functions
 
-    func getProviderFilter(from boolArray: [Bool]) -> Filter {
+    private func getProviderFilter(from boolArray: [Bool]) -> Filter {
         return .provider(driveNow: boolArray[0], car2go: boolArray[1])
     }
 
-    func getMakeFilter(from boolArray: [Bool]) -> Filter {
+    private func getMakeFilter(from boolArray: [Bool]) -> Filter {
         return .make(bmw: boolArray[0], mini: boolArray[1], mercedes: boolArray[2], smart: boolArray[3])
     }
 
-    func getModelFilter(from boolArray: [Bool]) -> Filter {
+    private func getModelFilter(from boolArray: [Bool]) -> Filter {
         return .model(mini3door: boolArray[0], mini5door: boolArray[1], miniConvertible: boolArray[2], miniClubman: boolArray[3], miniCountryman: boolArray[4], bmwI3: boolArray[5], bmw1er: boolArray[6], bmwX1: boolArray[7], bmw2erAT: boolArray[8], bmw2erConvertible: boolArray[9], smartForTwo: boolArray[10], smartRoadster: boolArray[11], smartForFour: boolArray[12], mercedesGLA: boolArray[13], mercedesCLA: boolArray[14], mercedesA: boolArray[15], mercedesB: boolArray[16])
     }
 
-    func getFuelTypeFilter(from boolArray: [Bool]) -> Filter {
+    private func getFuelTypeFilter(from boolArray: [Bool]) -> Filter {
         return .fuelType(petrol: boolArray[0], diesel: boolArray[1], electric: boolArray[2])
     }
 
-    func getTransmissionFilter(from boolArray: [Bool]) -> Filter {
+    private func getTransmissionFilter(from boolArray: [Bool]) -> Filter {
         return .transmission(automatic: boolArray[0], manual: boolArray[1])
     }
 
-    func getHPFilter(from intArray: [Int]) -> Filter {
+    private func getHPFilter(from intArray: [Int]) -> Filter {
         return .hp(min: intArray[0], max: intArray[1])
     }
 
-    func getFuelLevelFilter(from intArray: [Int]) -> Filter {
+    private func getFuelLevelFilter(from intArray: [Int]) -> Filter {
         return .fuelLevel(min: intArray[0], max: intArray[1])
     }
 
-    func getDoorsFilter(from boolArray: [Bool]) -> Filter {
+    private func getDoorsFilter(from boolArray: [Bool]) -> Filter {
         return .doors(three: boolArray[0], five: boolArray[1])
     }
 
-    func getSeatsFilter(from boolArray: [Bool]) -> Filter {
+    private func getSeatsFilter(from boolArray: [Bool]) -> Filter {
         return .seats(two: boolArray[0], four: boolArray[1], five: boolArray[2])
     }
 
-    func getHiFiSystemFilter(from boolArray: [Bool]) -> Filter {
+    private func getHiFiSystemFilter(from boolArray: [Bool]) -> Filter {
         return .hifiSystem(only: boolArray[0])
     }
 
     // MARK: - used by filter(vehicles:)
 
-    fileprivate func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -140,7 +212,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByMake(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByMake(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -164,7 +236,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -216,7 +288,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -238,7 +310,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByTransmission(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByTransmission(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -258,7 +330,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -273,7 +345,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -288,7 +360,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -308,7 +380,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -330,7 +402,7 @@ class Filterset {
         return filteredVehicles
     }
 
-    fileprivate func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    private func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -344,56 +416,6 @@ class Filterset {
         }
 
         return filteredVehicles
-    }
-
-}
-
-extension Filterset: FiltersetProtocol {
-
-    func filter(vehicles: [Vehicle]) -> [Vehicle] {
-
-        var filteredVehicles: [Vehicle] = vehicles
-
-        for filter in filters {
-            switch filter {
-            case .provider:
-                filteredVehicles = filterByProvider(filteredVehicles, with: filter)
-            case .make:
-                filteredVehicles = filterByMake(filteredVehicles, with: filter)
-            case .model:
-                filteredVehicles = filterByModel(filteredVehicles, with: filter)
-            case .fuelType:
-                filteredVehicles = filterByFueltype(filteredVehicles, with: filter)
-            case .transmission:
-                filteredVehicles = filterByTransmission(filteredVehicles, with: filter)
-            case .hp:
-                filteredVehicles = filterByHP(filteredVehicles, with: filter)
-            case .fuelLevel:
-                filteredVehicles = filterByFuellevel(filteredVehicles, with: filter)
-            case .doors:
-                filteredVehicles = filterByDoors(filteredVehicles, with: filter)
-            case .seats:
-                filteredVehicles = filterBySeats(filteredVehicles, with: filter)
-            case .hifiSystem:
-                filteredVehicles = filterByHiFiSystem(filteredVehicles, with: filter)
-            }
-        }
-
-        return filteredVehicles
-
-    }
-
-    func getName() -> String {
-        return self.name
-    }
-
-    func getPosition() -> Int {
-        return self.position
-    }
-
-    func getImageCode() -> String {
-        // TODO: base64 encoding ?
-        return self.imageCode
     }
 
 }

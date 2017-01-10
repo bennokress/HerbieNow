@@ -89,7 +89,7 @@ enum Coordinates {
     case altitude
 }
 
-enum Filter {
+enum Filter: Equatable {
 
     case provider(driveNow: Bool, car2go: Bool)
     case make(bmw: Bool, mini:Bool, mercedes: Bool, smart: Bool)
@@ -124,6 +124,23 @@ enum Filter {
             return "\(two.toInt())\(four.toInt())\(five.toInt())"
         case .hifiSystem(let only):
             return "\(only.toInt())"
+        }
+    }
+
+    // MARK: - Conformance to Equatable
+    static public func == (lhs: Filter, rhs: Filter) -> Bool {
+        switch (lhs, rhs) {
+        case (.provider, .provider): return true
+        case (.make, .make): return true
+        case (.model, .model): return true
+        case (.fuelType, .fuelType): return true
+        case (.transmission, .transmission): return true
+        case (.hp, .hp): return true
+        case (.fuelLevel, .fuelLevel): return true
+        case (.doors, .doors): return true
+        case (.seats, .seats): return true
+        case (.hifiSystem, .hifiSystem): return true
+        default: return false
         }
     }
 

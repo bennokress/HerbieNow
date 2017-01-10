@@ -89,12 +89,14 @@ class MainViewInterpreter: GeneralInterpretProtocol {
 
                 // TODO: Test-Filter entfernen
                 let filterString = "11:0111:11111111111111111:111:11:000200:000100:11:111:0:1:myFilterName:imageCodedIn64"
-                let testFilterset = Filterset(from: filterString)
-                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
-                print(Debug.event(message: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
-                for vehicle in filteredVehicles {
-                    print(Debug.list(message: vehicle.description, indent: 1))
-                }
+                var testFilterset = Filterset(from: filterString)
+                testFilterset.update(with: .provider(driveNow: true, car2go: false))
+                print(testFilterset.asString)
+                //                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
+                //                print(Debug.event(message: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
+                //                for vehicle in filteredVehicles {
+                //                    print(Debug.list(message: vehicle.description, indent: 1))
+                //                }
             }
 
         } else {
