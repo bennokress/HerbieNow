@@ -105,25 +105,25 @@ enum Filter {
     func toString() -> String {
         switch self {
         case .provider(let driveNow, let car2go):
-            return "A\(driveNow.toInt())\(car2go.toInt())"
+            return ":\(driveNow.toInt())\(car2go.toInt())"
         case .make(let bmw, let mini, let mercedes, let smart):
-            return "B\(bmw.toInt())\(mini.toInt())\(mercedes.toInt())\(smart.toInt())"
+            return ":\(bmw.toInt())\(mini.toInt())\(mercedes.toInt())\(smart.toInt())"
         case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, let smartRoadster, let smartForFour, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB):
-            return "C\(mini3door.toInt())\(mini5door.toInt())\(miniConvertible.toInt())\(miniClubman.toInt())\(miniCountryman.toInt())\(bmwI3.toInt())\(bmw1er.toInt())\(bmwX1.toInt())\(bmw2erAT.toInt())\(bmw2erConvertible.toInt())\(smartForTwo.toInt())\(smartRoadster.toInt())\(smartForFour.toInt())\(mercedesGLA.toInt())\(mercedesCLA.toInt())\(mercedesA.toInt())\(mercedesB.toInt())"
+            return ":\(mini3door.toInt())\(mini5door.toInt())\(miniConvertible.toInt())\(miniClubman.toInt())\(miniCountryman.toInt())\(bmwI3.toInt())\(bmw1er.toInt())\(bmwX1.toInt())\(bmw2erAT.toInt())\(bmw2erConvertible.toInt())\(smartForTwo.toInt())\(smartRoadster.toInt())\(smartForFour.toInt())\(mercedesGLA.toInt())\(mercedesCLA.toInt())\(mercedesA.toInt())\(mercedesB.toInt())"
         case .fuelType(let petrol, let diesel, let electric):
-            return "D\(petrol.toInt())\(diesel.toInt())\(electric.toInt())"
+            return ":\(petrol.toInt())\(diesel.toInt())\(electric.toInt())"
         case .transmission(let automatic, let manual):
-            return "E\(automatic.toInt())\(manual.toInt())"
+            return ":\(automatic.toInt())\(manual.toInt())"
         case .hp(let min, let max):
-            return "F\(min.to3DigitString())\(max.to3DigitString())"
+            return ":\(min.to3DigitString())\(max.to3DigitString())"
         case .fuelLevel(let min, let max):
-            return "G\(min.to3DigitString())\(max.to3DigitString())"
+            return ":\(min.to3DigitString())\(max.to3DigitString())"
         case .doors(let three, let five):
-            return "H\(three.toInt())\(five.toInt())"
+            return ":\(three.toInt())\(five.toInt())"
         case .seats(let two, let four, let five):
-            return "I\(two.toInt())\(four.toInt())\(five.toInt())"
+            return ":\(two.toInt())\(four.toInt())\(five.toInt())"
         case .hifiSystem(let only):
-            return "J\(only.toInt())"
+            return ":\(only.toInt())"
         }
     }
 

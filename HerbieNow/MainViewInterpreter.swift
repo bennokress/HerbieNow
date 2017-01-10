@@ -88,10 +88,11 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 }
 
                 // TODO: Test-Filter entfernen
-                let filterString = "A11B1111C11111111111111111D111E11F000200G000100H11I111J0"
+                let filterString = ":11:1111:11111111111111111:111:11:000200:000100:11:111:0:1:myFilterName:imageCodedIn64"
                 let testFilterset = Filterset(from: filterString)
                 let filteredVehicles = testFilterset.filter(vehicles: vehicles)
                 print(Debug.event(message: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
+                print(Debug.event(message: "Name: \(testFilterset.getName()) Position: \(testFilterset.getPosition()) Image: \(testFilterset.getImageCode())"))
                 for vehicle in filteredVehicles {
                     print(Debug.list(message: vehicle.description, indent: 1))
                 }
