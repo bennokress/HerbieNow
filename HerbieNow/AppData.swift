@@ -153,7 +153,7 @@ extension AppData: AppDataProtocol {
 
     func updateUserLocation(to location: Location) {
         userLocation = location
-        print(Debug.info(class: self, func: #function, message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
+        //        print(Debug.info(class: self, func: #function, message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
     }
 
     func getUserLocation() -> Location? {

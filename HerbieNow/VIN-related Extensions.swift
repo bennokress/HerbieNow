@@ -73,6 +73,7 @@ extension String {
         case "1K51", "1L71", "1M11", "1M31", "1M51", "2L51", "2L71", "2L91": return .bmw2erConvertible                                                                               // F23
         case "2A31", "2A51", "2A71", "2A91", "2B11", "2B31", "2B91", "2C11", "2C31", "2C51", "2C71", "2X71": return .bmw2erAT                                                        // F45
         case "2D31", "2D51", "2D71", "2D91", "2E31", "2E51", "2E71": return .bmw2erGT                                                                                                // F46
+        case "HS11", "HS71", "HS91", "HT11", "HT51", "HT71", "HT91", "HU11", "HU31", "HU51": return .bmwX1                                                                           // F48
         case "LN31", "LN51", "LN71", "LN91", "LR51", "LR71", "LR91", "LU31", "LU71", "LU91": return .miniClubman                                                                     // F54
         case "XS11", "XS51", "XS71", "XS91", "XT11", "XT31", "XT71", "XT91", "XU11", "XU31": return .mini5Door                                                                       // F55
         case "XM51", "XM71", "XM91", "XN11", "XN31", "XN71", "XN91", "XP11", "XP51", "XP51": return .mini3Door                                                                       // F56
@@ -86,6 +87,7 @@ extension String {
         case "ME31", "MF31", "MF71", "MF91", "MG31", "MG51", "SR11", "SR31", "SR51", "SR81", "SU31", "SU91", "SV31", "SV91", "SW11", "SW31", "SW51", "SW71": return .mini3Door       // R56
         case "MR31", "MR91", "MS31", "XF31", "MS91", "ZM31", "ZN31", "ZP31", "ZP91", "ZR31", "ZR71": return .miniConvertible                                                         // R57
         case "SX11", "SX31", "SX51", "SX71", "SX91": return .miniCoupe                                                                                                               // R58
+        case "SY11", "SY31", "SY51", "SY71", "SY91": return .miniRoadster                                                                                                            // R59
         case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return .miniCountryman                                  // R60
         case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return .miniPaceman                                                     // R61
             

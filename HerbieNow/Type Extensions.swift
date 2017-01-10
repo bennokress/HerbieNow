@@ -228,8 +228,8 @@ extension String {
         // converting a 6-digit string of the form 065090 into an Int-array of the form [65, 90]
         var intArray:[Int] = []
 
-        intArray[0] = min
-        intArray[1] = max
+        intArray.append(min)
+        intArray.append(max)
 
         return intArray
     }

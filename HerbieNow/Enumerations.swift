@@ -191,6 +191,7 @@ enum Model {
     case miniClubman
     case miniPaceman
     case miniCoupe
+    case miniRoadster
 
     case bmwI3
     case bmwActiveE
@@ -225,6 +226,7 @@ enum Model {
         case .miniClubman: return "Clubman"
         case .miniPaceman: return "Paceman"
         case .miniCoupe: return "Coupé"
+        case .miniRoadster: return "Roadster"
 
         case .bmwI3: return "i3"
         case .bmwActiveE: return "ActiveE"
@@ -255,7 +257,7 @@ enum Model {
     var doors: Int {
 
         switch self {
-        case .mini3Door, .miniConvertible, .miniCoupe, .miniPaceman: return 3
+        case .mini3Door, .miniConvertible, .miniCoupe, .miniPaceman, .miniRoadster: return 3
         case .mini5Door, .miniCountryman, .miniClubman: return 5
 
         case .bmwI3, .bmwActiveE, .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe, .bmw2erConvertible, .bmw2erCoupe: return 3
@@ -273,7 +275,8 @@ enum Model {
     var seats: Int {
 
         switch self {
-        case .mini3Door, .miniConvertible, .miniCoupe, .miniPaceman: return 4
+        case .miniCoupe, .miniRoadster: return 2
+        case .mini3Door, .miniConvertible, .miniPaceman: return 4
         case .mini5Door, .miniClubman, .miniCountryman: return 5
 
         case .bmwI3, .bmwActiveE: return 4

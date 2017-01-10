@@ -80,8 +80,17 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 print(Debug.info(class: self, func: #function, message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
             case .vehicles(let vehicles):
                 //                presenter.showVehiclesOnMap(vehicles)
-                print(Debug.info(class: self, func: #function, message: "Let the presenter display the following vehicles:"))
+                print(Debug.info(class: self, func: #function, message: "Let the presenter display the following \(vehicles.count) vehicles:"))
                 for vehicle in vehicles {
+                    print(Debug.list(message: vehicle.description, indent: 1))
+                }
+                
+                // TODO: Test-Filter entfernen
+                let filterString = "A11B1111C11111111111111111D111E11F000200G000100H11I111J0"
+                let testFilterset = Filterset(from: filterString)
+                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
+                print(Debug.event(message: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
+                for vehicle in filteredVehicles {
                     print(Debug.list(message: vehicle.description, indent: 1))
                 }
             }
@@ -149,12 +158,12 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         //        logic.getUserData(from: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: false)
         //        }
-        //        logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
+        logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
             self.handleAPIresponse(response, presenterActionRequired: true)
         }
+        //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
+        //            self.handleAPIresponse(response, presenterActionRequired: true)
+        //        }
 
         //        logic.reserveVehicle(withVIN: "WMWWG310803C16019", of: .driveNow) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
