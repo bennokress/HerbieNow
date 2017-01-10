@@ -35,31 +35,31 @@ class Filterset {
         let makeBoolArray = stringArray[2].toBoolArray()
         let makeFilter: Filter = getMakeFilter(from: makeBoolArray)
         filterArray.append(makeFilter)
-        
+
         let modelBoolArray = stringArray[3].toBoolArray()
         let modelFilter: Filter = getModelFilter(from: modelBoolArray)
         filterArray.append(modelFilter)
-        
+
         let fuelTypeBoolArray = stringArray[4].toBoolArray()
         let fuelTypeFilter: Filter = getFuelTypeFilter(from: fuelTypeBoolArray)
         filterArray.append(fuelTypeFilter)
-        
+
         let transmissionBoolArray = stringArray[5].toBoolArray()
         let transmissionFilter: Filter = getTransmissionFilter(from: transmissionBoolArray)
         filterArray.append(transmissionFilter)
-        
+
         let hpIntArray = stringArray[6].toIntArray()
         let hpFilter: Filter = getHPFilter(from: hpIntArray)
         filterArray.append(hpFilter)
-        
+
         let fuelLevelIntArray = stringArray[7].toIntArray()
         let fuelLevelFilter: Filter = getFuelLevelFilter(from: fuelLevelIntArray)
         filterArray.append(fuelLevelFilter)
-        
+
         let doorsBoolArray = stringArray[8].toBoolArray()
         let doorsFilter: Filter = getDoorsFilter(from: doorsBoolArray)
         filterArray.append(doorsFilter)
-        
+
         let seatsArray = stringArray[9].toBoolArray()
         let seatsFilter: Filter = getSeatsFilter(from: seatsArray)
         filterArray.append(seatsFilter)
@@ -72,43 +72,43 @@ class Filterset {
     }
 
     // MARK: - Getter for Filters
-    
+
     func getProviderFilter(from boolArray: [Bool]) -> Filter {
         return .provider(driveNow: boolArray[0], car2go: boolArray[1])
     }
-    
+
     func getMakeFilter(from boolArray: [Bool]) -> Filter {
         return .make(bmw: boolArray[0], mini: boolArray[1], mercedes: boolArray[2], smart: boolArray[3])
     }
-    
+
     func getModelFilter(from boolArray: [Bool]) -> Filter {
         return .model(mini3door: boolArray[0], mini5door: boolArray[1], miniConvertible: boolArray[2], miniClubman: boolArray[3], miniCountryman: boolArray[4], bmwI3: boolArray[5], bmw1er: boolArray[6], bmwX1: boolArray[7], bmw2erAT: boolArray[8], bmw2erConvertible: boolArray[9], smartForTwo: boolArray[10], smartRoadster: boolArray[11], smartForFour: boolArray[12], mercedesGLA: boolArray[13], mercedesCLA: boolArray[14], mercedesA: boolArray[15], mercedesB: boolArray[16])
     }
-    
+
     func getFuelTypeFilter(from boolArray: [Bool]) -> Filter {
         return .fuelType(petrol: boolArray[0], diesel: boolArray[1], electric: boolArray[2])
     }
-    
+
     func getTransmissionFilter(from boolArray: [Bool]) -> Filter {
         return .transmission(automatic: boolArray[0], manual: boolArray[1])
     }
-    
+
     func getHPFilter(from intArray: [Int]) -> Filter {
         return .hp(min: intArray[0], max: intArray[1])
     }
-    
+
     func getFuelLevelFilter(from intArray: [Int]) -> Filter {
         return .fuelLevel(min: intArray[0], max: intArray[1])
     }
-    
+
     func getDoorsFilter(from boolArray: [Bool]) -> Filter {
         return .doors(three: boolArray[0], five: boolArray[1])
     }
-    
+
     func getSeatsFilter(from boolArray: [Bool]) -> Filter {
         return .seats(two: boolArray[0], four: boolArray[1], five: boolArray[2])
     }
-    
+
     func getHiFiSystemFilter(from boolArray: [Bool]) -> Filter {
         return .hifiSystem(only: boolArray[0])
     }
@@ -196,9 +196,9 @@ class Filterset {
                     if mercedesGLAFilterActivated { filteredVehicles.append(vehicle) }
                 case .mercedesCLA:
                     if mercedesCLAFilterActivated { filteredVehicles.append(vehicle) }
-                case .mercedesAseries:
+                case .mercedesAclass:
                     if mercedesAFilterActivated { filteredVehicles.append(vehicle) }
-                case .mercedesBseries:
+                case .mercedesBclass:
                     if mercedesBFilterActivated { filteredVehicles.append(vehicle) }
                 default:
                     break

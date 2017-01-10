@@ -217,14 +217,20 @@ extension String {
         return boolArray
 
     }
-    
+
     func toIntArray() -> [Int] {
+
+        let index = self.index(self.startIndex, offsetBy: 3)
+        guard let min = Int(self.substring(to: index)), let max = Int(self.substring(from: index)) else {
+            return []
+        }
+
         // converting a 6-digit string of the form 065090 into an Int-array of the form [65, 90]
         var intArray:[Int] = []
-        let index = self.index(self.startIndex, offsetBy: 3)
-        intArray[0] = Int(self.substring(to: index))!
-        intArray[1] = Int(self.substring(from: index))!
-            
+
+        intArray[0] = min
+        intArray[1] = max
+
         return intArray
     }
 
