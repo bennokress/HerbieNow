@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import CoreLocation
 import IQKeyboardManagerSwift
+import OAuthSwift
+import OAuthSwiftAlamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -36,6 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         keyboardManager.enableAutoToolbar = false
         keyboardManager.keyboardDistanceFromTextField = 16.0
 
+        return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (url.host == "oauth-callback") {
+            OAuthSwift.handle(url: url)
+        }
         return true
     }
 

@@ -6,8 +6,10 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
+import OAuthSwift
+import OAuthSwiftAlamofire
 import JASON
 
 class Car2GoAPI {
@@ -102,13 +104,142 @@ class Car2GoAPI {
 
 extension Car2GoAPI: API {
 
-    func login(completion: @escaping Callback) {
-        let functionName = name(of: self)+"."+#function
-        guard let _ = appData.getUsername(for: car2go), let _ = appData.getPassword(for: car2go) else {
-            let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The Car2Go Username and / or the password are missing in Keychain!", parentFunction: functionName)
+    func login(in viewController: UIViewController?, completion: @escaping Callback) {
+
+        guard let view = viewController else {
+            let error = APICallResult.error(code: 0, codeDetail: "no_viewController", message: "No valid view controller passed with login call for Car2Go!", parentFunction: #function)
             completion(error)
             return
         }
+
+        var oauthswift: OAuth1Swift
+
+        oauthswift = OAuth1Swift(
+            consumerKey:    consumerKey,
+            consumerSecret: consumerKeySecret,
+            requestTokenUrl: "https://www.car2go.com/api/reqtoken",
+            authorizeUrl:    "https://www.car2go.com/api/authorize",
+            accessTokenUrl:  "https://www.car2go.com/api/accesstoken"
+        )
+
+        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: view, oauthSwift: oauthswift)
+
+        let handle = oauthswift.authorize(
+            withCallbackURL: URL(string: "oauth-swift://oauth-callback/car2go")!,
+            success: { credential, response, parameters in
+                print(credential.oauthToken)
+                print(credential.oauthTokenSecret)
+                print(parameters["user_id"])
+        },
+            failure: { error in
+                print(error.localizedDescription)
+        }
+        )
+
+        /*
+         let functionName = name(of: self)+"."+#function
+         guard let _ = appData.getUsername(for: car2go), let _ = appData.getPassword(for: car2go) else {
+         let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The Car2Go Username and / or the password are missing in Keychain!", parentFunction: functionName)
+         completion(error)
+         return
+         }
+
+
+         var oauth_token: String
+         var oauth_token_secret: String
+         var oauth_consumer_key: String
+         var verifier: String
+         var oauth_signature: String
+         let step1Header: HTTPHeaders
+         step1Header = apiHeader
+         .appending("https://www.car2go.com/api/reqtoken", forKey: "realm")
+         .appending(consumerKey, forKey: "oauth_consumer_key")
+         .appending(oauth_signature_method, forKey: "oauth_signature_method")
+         .appending( String(NSDate().timeIntervalSince1970), forKey: "oauth_timestamp")
+         .appending(oauth_version, forKey: "version")
+         .appending("", forKey: "oauth_signature")
+         .appending("oob", forKey: "oauth_callback")
+
+         https://www.car2go.com/api/reqtoken
+         ?oauth_consumer_key=HerbyNow
+         &oauth_signature_method=HMAC-SHA1
+         &oauth_timestamp=1484055579
+         &oauth_nonce=DLKOSa
+         &oauth_version=1.0
+         &oauth_signature=PjFZgPu6/oMCBLhdOv8nARXSiBs=
+         &oauth_callback=oob
+         Known:
+
+         consumer_key            :       HerbyNow
+         consumer_key_secret     :       e1t9zimQmxmGrJ9eoMaq
+         signature_method        :       HMAC-SHA1
+         timestamp               :       actualTime
+         oauth_nonce             :
+         oauth_signature         :       ändert sich bei jedem Request
+
+         To Store:
+
+         oauth_token
+         oauth_secret
+         oauth_consumer_key
+         oauth_verifier
+         oauth_signature
+
+         */
+
+        //Step 1 Request Token      url: https://www.car2go.com/api/reqtoken
+        /*
+
+
+
+         Request containts:
+         - oauth_consumer_key
+         - oauth_signature_method
+         - oauth_signature
+         - oauth_timestamp
+         - oauth_nonce
+         - oauth_version
+         - oauth_callback
+
+         Answer:
+         - oauth_token
+         - oauth_token_secret
+         - oauth_callback_confirmed
+         */
+
+        //Step 2                url: https://www.car2go.com/api/authorize
+        /*
+
+
+         Request needs optional
+         - oauth_token
+
+         Service Provider Directs User to Consumer
+         - oauth_token
+         - oauth_verifier
+
+         */
+
+        //Step 3 Access Token           url: https://www.car2go.com/api/accesstoken
+
+        /*
+
+
+
+         Service Provider Grants Access Token
+         - oauth_token
+         - oauth_token_secret
+
+         - oauth_consumer_key
+         - oauth_token
+         - oauth_signature_method
+         - oauth_signature
+         - oauth_timestamp
+         - oauth_nonce
+         - oauth_version
+
+
+         */
 
     }
 
