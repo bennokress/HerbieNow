@@ -168,9 +168,9 @@ enum Make: String {
         switch vin.makeID {
         case "WBA", "WBS", "WBY":
             self = .bmw
-        case "WDB", "WDC", "WDD":
+        case "WDB", "WDC", "WDD", "WMX":
             self = .mercedes
-        case "WME":
+        case "WME", "TTC":
             self = .smart
         case "WMW":
             self = .mini
@@ -208,8 +208,8 @@ enum Model {
     case smartRoadster
     case smartForFour
 
-    case mercedesAseries
-    case mercedesBseries
+    case mercedesAclass
+    case mercedesBclass
     case mercedesGLA
     case mercedesCLA
 
@@ -242,8 +242,8 @@ enum Model {
         case .smartRoadster: return "roadster"
         case .smartForFour: return "forfour"
 
-        case .mercedesAseries: return "A series"
-        case .mercedesBseries: return "B series"
+        case .mercedesAclass: return "A-Class"
+        case .mercedesBclass: return "B-Class"
         case .mercedesGLA: return "GLA"
         case .mercedesCLA: return "CLA"
 
@@ -255,15 +255,15 @@ enum Model {
     var doors: Int {
 
         switch self {
-        case .mini3Door, .miniConvertible, .miniCoupe: return 3
-        case .mini5Door, .miniCountryman, .miniClubman, .miniPaceman: return 5
+        case .mini3Door, .miniConvertible, .miniCoupe, .miniPaceman: return 3
+        case .mini5Door, .miniCountryman, .miniClubman: return 5
 
-        case .bmwI3, .bmwActiveE, .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe: return 3
-        case .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmw2erConvertible, .bmw2erCoupe, .bmwX1: return 5
+        case .bmwI3, .bmwActiveE, .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe, .bmw2erConvertible, .bmw2erCoupe: return 3
+        case .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmwX1: return 5
 
         case .smartForTwo, .smartRoadster, .smartForFour: return 3
 
-        case .mercedesAseries, .mercedesBseries, .mercedesGLA, .mercedesCLA: return 5
+        case .mercedesAclass, .mercedesBclass, .mercedesGLA, .mercedesCLA: return 5
 
         case .unknown: return 0
         }
@@ -273,15 +273,16 @@ enum Model {
     var seats: Int {
 
         switch self {
-        case .mini3Door, .miniConvertible, .miniCoupe, .mini5Door, .miniCountryman, .miniClubman, .miniPaceman: return 4
+        case .mini3Door, .miniConvertible, .miniCoupe, .miniPaceman: return 4
+        case .mini5Door, .miniClubman, .miniCountryman: return 5
 
-        case .bmwI3, .bmwActiveE: return 2
+        case .bmwI3, .bmwActiveE: return 4
         case .bmw1er3Door, .bmw1erConvertible, .bmw1erCoupe, .bmw1er5Door, .bmw2erGT, .bmw2erAT, .bmw2erConvertible, .bmw2erCoupe, .bmwX1: return 5
 
         case .smartForTwo, .smartRoadster: return 2
         case .smartForFour: return 4
 
-        case .mercedesAseries, .mercedesBseries, .mercedesGLA, .mercedesCLA: return 5
+        case .mercedesAclass, .mercedesBclass, .mercedesGLA, .mercedesCLA: return 5
 
         case .unknown: return 0
         }

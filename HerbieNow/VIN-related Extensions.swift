@@ -44,7 +44,7 @@ extension String {
         return self[0...2] // The first 3 characters of the vehicle identification number are its manufacturer
     }
     
-    private var smartEngineID: String {
+    private var engineID: String {
         return self[7...8] // Smart have their engine information at character 8 and 9 of the vehicle identification number
     }
     
@@ -56,63 +56,51 @@ extension String {
     
     var model: Model {
         
-        if self.make == .bmw || self.make == .mini {
+        switch self.modelID {
             
-            switch self.modelID {
-                
-            case "UA11", "UA31", "UA51", "UA71", "UB11", "UB31", "UB51", "UB71", "UB91", "UK11", "UK31", "UK51": return .bmw1er3Door                                                     // E81 - 3 Door
-            case "UC11", "UC31", "UC51", "UC71", "UC91", "UR11", "UR31", "UR51", "UR91": return .bmw1erCoupe                                                                             // E82
-            case "UP31": return .bmwActiveE                                                                                                                                              // E82 - ActiveE
-            case "VL31", "VL51", "VL91", "VM11", "VM31", "VM71", "VM91", "VN11", "VN31", "VN71", "VN91", "VP11", "VP31", "VP51", "VP71", "VP91", "VX11", "VY11", "VZ91": return .bmwX1   // E84
-            case "UD11", "UD31", "UD51", "UD71", "UD91", "UE11", "UE31", "UE51", "UE71", "UF11", "UF31", "UF51", "UF91", "UG31", "UG51", "UH11", "UH31", "UH51": return .bmw1er5Door     // E87 - 5 Door
-            case "UL51", "UL91", "UM11", "UM31", "UM51", "UM71", "UM91", "UN71", "UN91", "UP11": return .bmw1erConvertible                                                               // E88
-            case "1A11", "1A31", "1A51", "1B51", "1B71", "1B91", "1C11", "1C31", "1C51", "1C71", "1C91", "1R11", "1R51", "1S51", "1S71", "1T11", "1T31", "1T51", "1T91", "1U51",
-                 "1U71", "1U91", "1V11", "1V31", "1V51", "1V71", "1V91", "2R11", "2R31", "2R51": return .bmw1er5Door                                                                     // F20 - 5 Door
-            case "1D11", "1D31", "1D51", "1E11", "1E31", "1E51", "1E71", "1N11", "1N31", "1N51", "1N71", "1N91", "1P11", "1P51", "1W51", "1W71", "1X11", "1X31", "1X51", "1Y11",
-                 "1Y31", "1Y51", "1Y71", "1Y91", "2P11", "2P31", "2P51", "2P71", "2P91", "2S11": return .bmw1er3Door                                                                     // F21 - 3 Door
-            case "1F51", "1H11", "1H31", "1H71", "1J11", "1J71", "1J91", "2F11", "2G51", "2G71", "2G91", "2H11": return .bmw2erCoupe                                                     // F22
-            case "1K51", "1L71", "1M11", "1M31", "1M51", "2L51", "2L71", "2L91": return .bmw2erConvertible                                                                               // F23
-            case "2A31", "2A51", "2A71", "2A91", "2B11", "2B31", "2B91", "2C11", "2C31", "2C51", "2C71", "2X71": return .bmw2erAT                                                        // F45
-            case "2D31", "2D51", "2D71", "2D91", "2E31", "2E51", "2E71": return .bmw2erGT                                                                                                // F46
-            case "LN31", "LN51", "LN71", "LN91", "LR51", "LR71", "LR91", "LU31", "LU71", "LU91": return .miniClubman                                                                     // F54
-            case "XS11", "XS51", "XS71", "XS91", "XT11", "XT31", "XT71", "XT91", "XU11", "XU31": return .mini5Door                                                                       // F55
-            case "XM51", "XM71", "XM91", "XN11", "XN31", "XN71", "XN91", "XP11", "XP51", "XP51": return .mini3Door                                                                       // F56
-            case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return .miniConvertible                                                                                         // F57
-                                                                                                                                                                                         // F60
-            case "1Z21", "1Z41": return .bmwI3                                                                                                                                           // I01
-            case "RA11", "RA31", "RB11", "RC31": return .mini3Door                                                                                                                       // R50
-            case "RD31", "RF31", "RH31": return .miniConvertible                                                                                                                         // R52
-            case "RE31", "RE91": return .mini3Door                                                                                                                                       // R53
-            case "MH31", "MH91", "ML31", "MM31", "MM91", "MN51", "XE51", "ZE31", "ZF31", "ZG31", "ZG91", "ZH11", "ZH51", "ZH71": return .miniClubman                                     // R55
-            case "ME31", "MF31", "MF71", "MF91", "MG31", "MG51", "SR11", "SR31", "SR51", "SR81", "SU31", "SU91", "SV31", "SV91", "SW11", "SW31", "SW51", "SW71": return .mini3Door       // R56
-            case "MR31", "MR91", "MS31", "XF31", "MS91", "ZM31", "ZN31", "ZP31", "ZP91", "ZR31", "ZR71": return .miniConvertible                                                         // R57
-            case "SX11", "SX31", "SX51", "SX71", "SX91": return .miniCoupe                                                                                                               // R58
-            case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return .miniCountryman                                  // R60
-            case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return .miniPaceman                                                     // R61
-            default: return .unknown // Unknown BMW or MINI
-                
-            }
+        // DriveNow
+        case "UA11", "UA31", "UA51", "UA71", "UB11", "UB31", "UB51", "UB71", "UB91", "UK11", "UK31", "UK51": return .bmw1er3Door                                                     // E81 - 3 Door
+        case "UC11", "UC31", "UC51", "UC71", "UC91", "UR11", "UR31", "UR51", "UR91": return .bmw1erCoupe                                                                             // E82
+        case "UP31": return .bmwActiveE                                                                                                                                              // E82 - ActiveE
+        case "VL31", "VL51", "VL91", "VM11", "VM31", "VM71", "VM91", "VN11", "VN31", "VN71", "VN91", "VP11", "VP31", "VP51", "VP71", "VP91", "VX11", "VY11", "VZ91": return .bmwX1   // E84
+        case "UD11", "UD31", "UD51", "UD71", "UD91", "UE11", "UE31", "UE51", "UE71", "UF11", "UF31", "UF51", "UF91", "UG31", "UG51", "UH11", "UH31", "UH51": return .bmw1er5Door     // E87 - 5 Door
+        case "UL51", "UL91", "UM11", "UM31", "UM51", "UM71", "UM91", "UN71", "UN91", "UP11": return .bmw1erConvertible                                                               // E88
+        case "1A11", "1A31", "1A51", "1B51", "1B71", "1B91", "1C11", "1C31", "1C51", "1C71", "1C91", "1R11", "1R51", "1S51", "1S71", "1T11", "1T31", "1T51", "1T91", "1U51",
+             "1U71", "1U91", "1V11", "1V31", "1V51", "1V71", "1V91", "2R11", "2R31", "2R51": return .bmw1er5Door                                                                     // F20 - 5 Door
+        case "1D11", "1D31", "1D51", "1E11", "1E31", "1E51", "1E71", "1N11", "1N31", "1N51", "1N71", "1N91", "1P11", "1P51", "1W51", "1W71", "1X11", "1X31", "1X51", "1Y11",
+             "1Y31", "1Y51", "1Y71", "1Y91", "2P11", "2P31", "2P51", "2P71", "2P91", "2S11": return .bmw1er3Door                                                                     // F21 - 3 Door
+        case "1F51", "1H11", "1H31", "1H71", "1J11", "1J71", "1J91", "2F11", "2G51", "2G71", "2G91", "2H11": return .bmw2erCoupe                                                     // F22
+        case "1K51", "1L71", "1M11", "1M31", "1M51", "2L51", "2L71", "2L91": return .bmw2erConvertible                                                                               // F23
+        case "2A31", "2A51", "2A71", "2A91", "2B11", "2B31", "2B91", "2C11", "2C31", "2C51", "2C71", "2X71": return .bmw2erAT                                                        // F45
+        case "2D31", "2D51", "2D71", "2D91", "2E31", "2E51", "2E71": return .bmw2erGT                                                                                                // F46
+        case "LN31", "LN51", "LN71", "LN91", "LR51", "LR71", "LR91", "LU31", "LU71", "LU91": return .miniClubman                                                                     // F54
+        case "XS11", "XS51", "XS71", "XS91", "XT11", "XT31", "XT71", "XT91", "XU11", "XU31": return .mini5Door                                                                       // F55
+        case "XM51", "XM71", "XM91", "XN11", "XN31", "XN71", "XN91", "XP11", "XP51", "XP51": return .mini3Door                                                                       // F56
+        case "WG11", "WG31", "WG51", "WG71", "WH31", "WH51", "WH91": return .miniConvertible                                                                                         // F57
+        // F60
+        case "1Z21", "1Z41": return .bmwI3                                                                                                                                           // I01
+        case "RA11", "RA31", "RB11", "RC31": return .mini3Door                                                                                                                       // R50
+        case "RD31", "RF31", "RH31": return .miniConvertible                                                                                                                         // R52
+        case "RE31", "RE91": return .mini3Door                                                                                                                                       // R53
+        case "MH31", "MH91", "ML31", "MM31", "MM91", "MN51", "XE51", "ZE31", "ZF31", "ZG31", "ZG91", "ZH11", "ZH51", "ZH71": return .miniClubman                                     // R55
+        case "ME31", "MF31", "MF71", "MF91", "MG31", "MG51", "SR11", "SR31", "SR51", "SR81", "SU31", "SU91", "SV31", "SV91", "SW11", "SW31", "SW51", "SW71": return .mini3Door       // R56
+        case "MR31", "MR91", "MS31", "XF31", "MS91", "ZM31", "ZN31", "ZP31", "ZP91", "ZR31", "ZR71": return .miniConvertible                                                         // R57
+        case "SX11", "SX31", "SX51", "SX71", "SX91": return .miniCoupe                                                                                                               // R58
+        case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return .miniCountryman                                  // R60
+        case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return .miniPaceman                                                     // R61
             
-        } else if self.make == .smart {
+        // Car2Go
+        case "4503", "4504", "4513", "4514": return .smartForTwo
+        case "4523", "4524": return .smartRoadster
+        case "4533", "4534": return .smartForFour
+            // TODO: Fix decoding for smart
             
-            switch self.modelID {
-                
-            case "4503", "4504", "4513", "4514": return .smartForTwo
-            case "4523", "4524": return .smartRoadster
-            case "4533", "4534": return .smartForFour
-            default: return .unknown // Unknown Smart
-                
-            }
+        case "1760": return .mercedesAclass
+//            case "1569": return .mercedesBclass
+            // TODO: Complete decoding for Mercedes-Benz
             
-        } else if self.make == .mercedes {
-            
-            // TODO: Add Mercedes-Benz Models
-            return .unknown // Unknown Mercedes-Benz
-            
-        } else {
-            
-            return .unknown // Completely unknown vehicle
-            
+        default: return .unknown
+        
         }
         
     }
@@ -489,25 +477,28 @@ extension String {
                 
             }
             
-        } else if self.make == .smart {
+        } else if self.make == .smart || self.make == .mercedes {
             
-            switch self.smartEngineID {
-            case "00": return 30 // Diesel
-            case "30": return 37 // Petrol
-            case "32": return 45 // Petrol
-            case "33": return 35 // Petrol
-            case "34": return 60 // Petrol
-            case "35": return 40 // Petrol
+            switch self.engineID {
+                
+            // Smart
+            case "00": return 30  // Diesel
+            case "30": return 37  // Petrol
+            case "32": return 45  // Petrol
+            case "33": return 35  // Petrol
+            case "34": return 60  // Petrol
+            case "35": return 40  // Petrol
+                //            case "42": return  // TODO: Decoding for current smart models
+                
+            // Mercedes
+            case "12": return 80  // Diesel
+            case "43": return 115 // Petrol
+                // TODO: Decoding for more Mercedes-Benz models
                 
             // Unknown Engine Code in VIN
             default: return 0
-                
+            
             }
-            
-        } else if self.make == .mercedes {
-            
-            // TODO: Add kW informations for Mercedes-Benz vehicles
-            return 0
             
         } else {
             
