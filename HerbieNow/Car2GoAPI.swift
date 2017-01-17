@@ -38,7 +38,7 @@ class Car2GoAPI {
             "accept": "application/json;v=1.9",
             "accept-language": language,
             "x-api-key": "adf51226795afbc4e7575ccc124face7",
-            "User-Agent" : "HerbyNow \(version) @ LMU",
+            "User-Agent" : "HerbieNow \(version) @ LMU",
             "accept-encoding": "gzip, deflate",
             "connection": "keep-alive"
         ]
@@ -54,12 +54,13 @@ class Car2GoAPI {
         )
 
         let handler = SafariURLHandler(viewController: view, oauthSwift: oauthswift)
+
         handler.presentCompletion = { print("Safari presented") }
         handler.dismissCompletion = { print("Safari dismissed") }
         oauthswift.authorizeURLHandler = handler
 
         let _ = oauthswift.authorize(
-            withCallbackURL: "herbieNow://",
+            withCallbackURL: "oob",
             success: { credential, _, _ in
                 self.showTokenAlert(name: "Car2Go", credential: credential, in: view)
         },

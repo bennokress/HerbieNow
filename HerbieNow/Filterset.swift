@@ -82,13 +82,13 @@ struct Filterset {
             self.image = image
         }
     }
-    
+
     // MARK: - Public Functions
-    
+
     func filter(vehicles: [Vehicle]) -> [Vehicle] {
-        
+
         var filteredVehicles: [Vehicle] = vehicles
-        
+
         for filter in filters {
             switch filter {
             case .provider:
@@ -113,23 +113,23 @@ struct Filterset {
                 filteredVehicles = filterByHiFiSystem(filteredVehicles, with: filter)
             }
         }
-        
+
         return filteredVehicles
-        
+
     }
-    
+
     func getName() -> String {
         return name
     }
-    
+
     func getPosition() -> Int {
         return position
     }
-    
+
     func getImage() -> UIImage {
         return image
     }
-    
+
     mutating func update(with newFilter: Filter) {
         for (index, filter) in filters.enumerated() {
             if filter == newFilter {
@@ -137,15 +137,15 @@ struct Filterset {
             }
         }
     }
-    
+
     mutating func update(with newName: String) {
         name = newName
     }
-    
+
     mutating func update(with newPosition: Int) {
         position = newPosition
     }
-    
+
     mutating func update(with newImage: UIImage) {
         image = newImage
     }
