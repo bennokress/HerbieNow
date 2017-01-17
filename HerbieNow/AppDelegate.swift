@@ -42,9 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url.host == "oauth-callback" {
-            OAuthSwift.handle(url: url)
-        }
+        OAuthSwift.handle(url: url)
         return true
     }
 

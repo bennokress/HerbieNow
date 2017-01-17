@@ -19,69 +19,50 @@ class Car2GoAPI {
     let appData: AppDataProtocol = AppData.shared
     let car2go = Provider.car2go
 
-    let consumerKey: String
-    let consumerKeySecret: String
-    let format: String
-    let language: String
-    var apiHeader: HTTPHeaders
+    let consumerKey = "HerbyNow"
+    let consumerSecret = "e1t9zimQmxmGrJ9eoMaq"
+    let format = "json"
+    
+    let oauthswift: OAuth1Swift
+    
+    var credential: OAuthSwiftCredential? {
+        if let token = appData.getOAuthToken(for: car2go), let secret = appData.getOAuthTokenSecret(for: car2go) {
+            let oauthCredential = OAuthSwiftCredential(consumerKey: consumerKey, consumerSecret: consumerSecret)
+            oauthCredential.oauthToken = token
+            oauthCredential.oauthTokenSecret = secret
+            return oauthCredential
+        } else {
+            return nil
+        }
+    }
 
     // Singleton - call via Car2GoAPI.shared
     static var shared = Car2GoAPI()
     private init() {
-        consumerKeySecret = "e1t9zimQmxmGrJ9eoMaq"
-        consumerKey = "HerbyNow"
-        language = "de"
-        format = "json"
-        let version: Float
-        version = 0.1
-        apiHeader = [
-            "accept": "application/json;v=1.9",
-            "accept-language": language,
-            "x-api-key": "adf51226795afbc4e7575ccc124face7",
-            "User-Agent" : "HerbieNow \(version) @ LMU",
-            "accept-encoding": "gzip, deflate",
-            "connection": "keep-alive"
-        ]
-    }
-
-    fileprivate func doOAuthCar2Go(in view: UIViewController) {
-        let oauthswift = OAuth1Swift(
+        oauthswift = OAuth1Swift(
             consumerKey:    consumerKey,
-            consumerSecret: consumerKeySecret,
+            consumerSecret: consumerSecret,
             requestTokenUrl: "https://www.car2go.com/api/reqtoken",
             authorizeUrl:    "https://www.car2go.com/api/authorize",
             accessTokenUrl:  "https://www.car2go.com/api/accesstoken"
         )
+    }
 
-        let handler = SafariURLHandler(viewController: view, oauthSwift: oauthswift)
+    fileprivate func authorizeHerbieNowForCar2Go(in view: UIViewController) {
+        
+        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: view, oauthSwift: oauthswift)
 
-        handler.presentCompletion = { print("Safari presented") }
-        handler.dismissCompletion = { print("Safari dismissed") }
-        oauthswift.authorizeURLHandler = handler
-
-        let _ = oauthswift.authorize(
+        oauthswift.authorize(
             withCallbackURL: "oob",
             success: { credential, _, _ in
-                self.showTokenAlert(name: "Car2Go", credential: credential, in: view)
-        },
+                self.appData.addOAuthToken(credential.oauthToken, for: self.car2go)
+                self.appData.addOAuthTokenSecret(credential.oauthTokenSecret, for: self.car2go)
+            },
             failure: { error in
                 print(error.description)
-        }
+            }
         )
-    }
-
-    fileprivate func showTokenAlert(name: String?, credential: OAuthSwiftCredential, in view: UIViewController) {
-        var message = "oauth_token: \(credential.oauthToken)"
-        if !credential.oauthTokenSecret.isEmpty {
-            message += "\n\noauth_token_secret:\(credential.oauthTokenSecret)"
-        }
-        showAlertView(title: name ?? "Service", message: message, in: view)
-    }
-
-    fileprivate func showAlertView(title: String, message: String, in view: UIViewController) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
-        view.present(alert, animated: true, completion: nil)
+        
     }
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
@@ -152,7 +133,7 @@ extension Car2GoAPI: API {
             return
         }
 
-        doOAuthCar2Go(in: view)
+        authorizeHerbieNowForCar2Go(in: view)
 
     }
 
@@ -172,7 +153,7 @@ extension Car2GoAPI: API {
 
             let url = "https://www.car2go.com/api/v2.1/vehicles?loc=\(cityString.replaceGermanCharacters())&oauth_consumer_key=\(self.consumerKey)&format=\(self.format)"
 
-            Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: self.apiHeader).responseJASON { callback in
+            Alamofire.request(url, method: .get, encoding: URLEncoding.default  ).responseJASON { callback in
 
                 let response: APICallResult
 
@@ -209,7 +190,7 @@ extension Car2GoAPI: API {
 
         let url = "https://www.car2go.com/api/v2.1/locations?oauth_consumer_key=\(consumerKey)&format=\(format)"
 
-        Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: apiHeader).responseJASON { callback in
+        Alamofire.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
 
             let fallbackCityName = "München"
 

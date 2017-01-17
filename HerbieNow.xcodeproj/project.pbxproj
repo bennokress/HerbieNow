@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */; };
-		0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */; };
-		0338BF611DD9F5880061EC48 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */; };
-		0338BF621DD9F5880061EC48 /* SwiftSpinner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */; };
-		0338BF641DD9F5880061EC48 /* Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5D1DD9F5880061EC48 /* Whisper.framework */; };
 		034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */; };
 		034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */; };
 		034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034EC16E1DD0B34D00E32EC6 /* Main.storyboard */; };
@@ -30,23 +25,25 @@
 		9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */; };
 		9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6871481E16B7CA00994011 /* Assets.xcassets */; };
 		D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */; };
-		D306D1BA1E1694BE00D5CD64 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */; };
 		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
 		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
-		D32089A31E0C353900C17BD7 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */; };
-		D32089A51E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
 		D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
-		D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BC1E0969AD000DBE17 /* JASON.framework */; };
-		D39160BF1E0969BA000DBE17 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
 		D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160C01E0982B7000DBE17 /* MapKit.framework */; };
+		D39568481E2E5369003FC042 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
+		D39568491E2E5369003FC042 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */; };
+		D395684A1E2E5369003FC042 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */; };
+		D395684B1E2E5369003FC042 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BC1E0969AD000DBE17 /* JASON.framework */; };
+		D395684C1E2E5369003FC042 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */; };
+		D395684D1E2E5369003FC042 /* OAuthSwiftAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */; };
+		D395684E1E2E5369003FC042 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */; };
+		D39568501E2E536A003FC042 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D395684F1E2E536A003FC042 /* Locksmith.framework */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
-		D3FF5CDC1E0AC53C0018EDF6 /* SwiftLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FF5CDB1E0AC53C0018EDF6 /* SwiftLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +110,7 @@
 		D39160BE1E0969BA000DBE17 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D39160C01E0982B7000DBE17 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HerbieNow.entitlements; sourceTree = "<group>"; };
+		D395684F1E2E536A003FC042 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -124,18 +122,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39568501E2E536A003FC042 /* Locksmith.framework in Frameworks */,
+				D39568481E2E5369003FC042 /* Alamofire.framework in Frameworks */,
+				D39568491E2E5369003FC042 /* IQKeyboardManager.framework in Frameworks */,
+				D395684A1E2E5369003FC042 /* IQKeyboardManagerSwift.framework in Frameworks */,
+				D395684B1E2E5369003FC042 /* JASON.framework in Frameworks */,
+				D395684C1E2E5369003FC042 /* OAuthSwift.framework in Frameworks */,
+				D395684D1E2E5369003FC042 /* OAuthSwiftAlamofire.framework in Frameworks */,
+				D395684E1E2E5369003FC042 /* SwifterSwift.framework in Frameworks */,
 				D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */,
-				0338BF5F1DD9F5880061EC48 /* IQKeyboardManager.framework in Frameworks */,
-				0338BF601DD9F5880061EC48 /* IQKeyboardManagerSwift.framework in Frameworks */,
-				0338BF611DD9F5880061EC48 /* KeychainAccess.framework in Frameworks */,
-				0338BF621DD9F5880061EC48 /* SwiftSpinner.framework in Frameworks */,
-				0338BF641DD9F5880061EC48 /* Whisper.framework in Frameworks */,
-				D39160BF1E0969BA000DBE17 /* Alamofire.framework in Frameworks */,
-				D39160BD1E0969AD000DBE17 /* JASON.framework in Frameworks */,
-				D32089A31E0C353900C17BD7 /* OAuthSwift.framework in Frameworks */,
-				D3FF5CDC1E0AC53C0018EDF6 /* SwiftLocation.framework in Frameworks */,
-				D32089A51E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework in Frameworks */,
-				D306D1BA1E1694BE00D5CD64 /* SwifterSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +154,7 @@
 		0338BF561DD9F5870061EC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D395684F1E2E536A003FC042 /* Locksmith.framework */,
 				D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */,
 				D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */,
 				D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */,
@@ -454,15 +450,12 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Locksmith.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManager.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftSpinner.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Whisper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JASON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftLocation.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwiftAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwifterSwift.framework",
 			);
