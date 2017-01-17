@@ -6,14 +6,14 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol API {
 
     typealias Callback = (APICallResult) -> Void
 
     /// Login with credentials from Keychain -> returns Bool, if successful or not
-    func login(in viewController: UIViewController?, completion: @escaping Callback )
+    func login(completion: @escaping Callback )
 
     /// Get User Data retrieves the Open-Car-Token for DriveNow -> returns Bool, if successful or not
     func getUserData( completion: @escaping Callback )
@@ -35,13 +35,5 @@ protocol API {
 
     /// Closes the specified car -> returns Bool, if successful or not
     func closeVehicle(withVIN vin: String, completion: @escaping Callback)
-
-}
-
-extension API {
-
-    func login(in viewController: UIViewController? = nil, completion: @escaping Callback) {
-        login(in: viewController, completion: completion)
-    }
 
 }

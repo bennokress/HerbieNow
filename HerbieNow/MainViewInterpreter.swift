@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OAuthSwift
 
 protocol MainViewInterpreterProtocol {
 
@@ -31,13 +32,11 @@ class MainViewInterpreter: GeneralInterpretProtocol {
 
     let appDelegate: AppDelegate
 
-    var mainVC: MainViewControllerProtocol?
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
 
     init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
 
-        self.mainVC = mainVC
         self.appDelegate = appDelegate
         self.presenter = MainViewPresenter(to: mainVC)
         self.logic = Logic()
@@ -81,7 +80,8 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 //                successful ? presenter.letUserKnowOfSuccessfulAPIcall() : presenter.letUserKnowOfUnsuccessfulAPIcall()
                 print(Debug.info(class: self, func: #function, message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
             case .vehicles(let vehicles):
-                //                presenter.showVehiclesOnMap(vehicles)
+                print(Debug.info(class: self, func: #function, message: "Let map show \(vehicles.count) vehicles."))
+//                                presenter.showVehiclesOnMap(vehicles)
                 //                print(Debug.info(class: self, func: #function, message: "Let the presenter display the following \(vehicles.count) vehicles:"))
                 //                for vehicle in vehicles {
                 //                    print(Debug.list(message: vehicle.description, indent: 1))
@@ -96,7 +96,10 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 //                print(Debug.event(message: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
                 //                for vehicle in filteredVehicles {
                 //                    print(Debug.list(message: vehicle.description, indent: 1))
-                //                }
+            //                }
+            case .credential(let credential):
+                print(Debug.info(class: self, func: #function, message: "Token: \(credential.oauthToken)"))
+                print(Debug.info(class: self, func: #function, message: "Secret: \(credential.oauthTokenSecret)"))
             }
 
         } else {
@@ -139,7 +142,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     func filtersetButtonPressed() {
 
         // TODO: id durch filtersetButton ID ersetzen
-        let id = 1
+//        let id = 1
 
         //        let filterset = logic.getFilterset(for: id)
         // TODO: logic.getVehicles (for all accounts of filterset)
@@ -159,14 +162,14 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     // Das da unten kann dann später mal weg ...
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        //        logic.getUserData(from: .driveNow) { response in
+        //        logic.getUserData(from: .car2go) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: false)
         //        }
 
-        //logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
+        // logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
         //    self.handleAPIresponse(response, presenterActionRequired: true)
-        //}
-        logic.login(with: .car2go, in: mainVC) { (response) in
+        // }
+        logic.login(with: .car2go) { (response) in
             self.handleAPIresponse(response, presenterActionRequired: true)
         }
 

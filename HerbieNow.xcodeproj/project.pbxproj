@@ -41,6 +41,7 @@
 		D395684D1E2E5369003FC042 /* OAuthSwiftAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */; };
 		D395684E1E2E5369003FC042 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */; };
 		D39568501E2E536A003FC042 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D395684F1E2E536A003FC042 /* Locksmith.framework */; };
+		D39568521E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -111,6 +112,7 @@
 		D39160C01E0982B7000DBE17 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HerbieNow.entitlements; sourceTree = "<group>"; };
 		D395684F1E2E536A003FC042 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
+		D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireNetworkActivityIndicator.framework; path = Carthage/Build/iOS/AlamofireNetworkActivityIndicator.framework; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39568521E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework in Frameworks */,
 				D39568501E2E536A003FC042 /* Locksmith.framework in Frameworks */,
 				D39568481E2E5369003FC042 /* Alamofire.framework in Frameworks */,
 				D39568491E2E5369003FC042 /* IQKeyboardManager.framework in Frameworks */,
@@ -154,6 +157,7 @@
 		0338BF561DD9F5870061EC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */,
 				D395684F1E2E536A003FC042 /* Locksmith.framework */,
 				D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */,
 				D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */,
@@ -458,6 +462,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwiftAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwifterSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireNetworkActivityIndicator.framework",
 			);
 			name = Carthage;
 			outputPaths = (

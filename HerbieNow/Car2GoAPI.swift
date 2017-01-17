@@ -6,7 +6,7 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 import OAuthSwift
 import OAuthSwiftAlamofire
@@ -22,9 +22,9 @@ class Car2GoAPI {
     let consumerKey = "HerbyNow"
     let consumerSecret = "e1t9zimQmxmGrJ9eoMaq"
     let format = "json"
-    
+
     let oauthswift: OAuth1Swift
-    
+
     var credential: OAuthSwiftCredential? {
         if let token = appData.getOAuthToken(for: car2go), let secret = appData.getOAuthTokenSecret(for: car2go) {
             let oauthCredential = OAuthSwiftCredential(consumerKey: consumerKey, consumerSecret: consumerSecret)
@@ -48,21 +48,41 @@ class Car2GoAPI {
         )
     }
 
-    fileprivate func authorizeHerbieNowForCar2Go(in view: UIViewController) {
-        
-        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: view, oauthSwift: oauthswift)
+    fileprivate func authorizeHerbieNowForCar2Go(completion: @escaping Callback) {
 
         oauthswift.authorize(
             withCallbackURL: "oob",
             success: { credential, _, _ in
                 self.appData.addOAuthToken(credential.oauthToken, for: self.car2go)
                 self.appData.addOAuthTokenSecret(credential.oauthTokenSecret, for: self.car2go)
-            },
+                completion(.credential(credential))
+        },
             failure: { error in
-                print(error.description)
-            }
+                completion(.error(code: 0, codeDetail: "not_authorized", message: "The user has not authorized HerbieNow for his Car2Go Account.", parentFunction: #function))
+        }
         )
-        
+
+    }
+
+    fileprivate func getOAuthSessionManager(completion: @escaping (SessionManager?) -> Void) {
+        let oauthSessionManager = SessionManager.default
+        if let savedCredential = credential {
+            oauthswift.client.credential.oauthToken = savedCredential.oauthToken
+            oauthswift.client.credential.oauthTokenSecret = savedCredential.oauthTokenSecret
+            oauthSessionManager.adapter = oauthswift.requestAdapter
+            completion(oauthSessionManager)
+        } else {
+            authorizeHerbieNowForCar2Go() { response in
+                guard let newCredential: OAuthSwiftCredential = response.getDetails() else {
+                    completion(nil)
+                    return
+                }
+                self.oauthswift.client.credential.oauthToken = newCredential.oauthToken
+                self.oauthswift.client.credential.oauthTokenSecret = newCredential.oauthTokenSecret
+                oauthSessionManager.adapter = self.oauthswift.requestAdapter
+                completion(oauthSessionManager)
+            }
+        }
     }
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
@@ -105,7 +125,7 @@ class Car2GoAPI {
         return Reservation(provider: car2go, endTime: endDate, vehicle: vehicle)
     }
 
-    fileprivate func errorDetails(for message: String, with code: Int, and status: String, in function: String) -> APICallResult {
+    fileprivate func errorDetails(code: Int, status: String, message: String, in function: String) -> APICallResult {
         let error: APICallResult
         error = .error(code: code, codeDetail: status, message: message, parentFunction: function)
         return error
@@ -125,19 +145,59 @@ class Car2GoAPI {
 
 extension Car2GoAPI: API {
 
-    func login(in viewController: UIViewController?, completion: @escaping Callback) {
+    func login(completion: @escaping Callback) {
 
-        guard let view = viewController else {
-            let error = APICallResult.error(code: 0, codeDetail: "no_viewController", message: "No valid view controller passed with login call for Car2Go!", parentFunction: #function)
-            completion(error)
-            return
+        authorizeHerbieNowForCar2Go() { response in
+
+            if let credential: OAuthSwiftCredential = response.getDetails() {
+                print(Debug.success(class: name(of: self), func: #function, message: "User is logged in."))
+                completion(.credential(credential))
+            } else {
+                completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: #function))
+            }
+
         }
-
-        authorizeHerbieNowForCar2Go(in: view)
 
     }
 
     func getUserData(completion: @escaping Callback) {
+
+        let url = "https://www.car2go.com/api/v2.1/accounts?oauth_consumer_key=\(consumerKey)&format=\(format)"
+
+        getOAuthSessionManager() { _ in
+
+            //            guard let AlamofireWithOAuth = sessionManager else {
+            //                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: #function)
+            //                completion(error)
+            //                // TODO: Maybe start login call automatically and come back here afterwards?
+            //                return
+            //            }
+
+            let AlamofireWithOAuth = SessionManager.default
+            AlamofireWithOAuth.adapter = self.oauthswift.requestAdapter
+            AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).response { callback in
+
+                //                let response: APICallResult
+                print(callback)
+
+                //                if let json = callback.result.value {
+                //
+                //                    guard let accountID = json["account"][0]["accountId"].int else {
+                //                        response = self.errorDetails(code: 0, status: "accountID_not_found", message: "No AccountID in JSON Response found.", in: #function)
+                //                        completion(response)
+                //                        return
+                //                    }
+                //
+                //                    // TODO: save accountID to keychain
+                //                    print(accountID)
+                //
+                //                } else {
+                //                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: #function)
+                //                }
+
+            }
+
+        }
 
     }
 
@@ -153,7 +213,7 @@ extension Car2GoAPI: API {
 
             let url = "https://www.car2go.com/api/v2.1/vehicles?loc=\(cityString.replaceGermanCharacters())&oauth_consumer_key=\(self.consumerKey)&format=\(self.format)"
 
-            Alamofire.request(url, method: .get, encoding: URLEncoding.default  ).responseJASON { callback in
+            Alamofire.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
 
                 let response: APICallResult
 
@@ -162,7 +222,7 @@ extension Car2GoAPI: API {
                     var vehicles: [Vehicle] = []
 
                     guard let jsonVehicles = json["placemarks"].jsonArray else {
-                        response = self.errorDetails(for: "getVIList", with: 0, and: "", in: functionName)
+                        response = self.errorDetails(code: 0, status: "vehicles_not_found", message: "No Vehicles in JSON Response found.", in: #function)
                         completion(response)
                         return
                     }
@@ -228,6 +288,7 @@ extension Car2GoAPI: API {
             } else {
                 completion(fallbackCityName)
             }
+
         }
 
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import OAuthSwift
 
 enum APIRequestMethod: String {
 
@@ -27,6 +28,7 @@ enum APICallResult {
     case success(_: Bool)
     case vehicles(_: [Vehicle])
     case reservation(active: Bool, reservation: Reservation?)
+    case credential(_: OAuthSwiftCredential)
     case error(code: Int, codeDetail: String, message: String, parentFunction: String)
 
     var description: String {
@@ -47,6 +49,8 @@ enum APICallResult {
                 description = "No reservation active."
             }
             return description
+        case .credential:
+            return "Token & Secret received."
         case .error(let code, let codeDetail, let message, let parentFunction):
             return "Error \(code) in \(parentFunction): \(message) (\(codeDetail))"
         }
@@ -76,6 +80,15 @@ enum APICallResult {
         switch self {
         case .reservation(_, let reservation):
             return reservation
+        default:
+            return nil
+        }
+    }
+
+    func getDetails() -> OAuthSwiftCredential? {
+        switch self {
+        case .credential(let credential):
+            return credential
         default:
             return nil
         }

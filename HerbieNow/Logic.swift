@@ -6,7 +6,7 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol LogicProtocol {
 
@@ -24,7 +24,7 @@ protocol LogicProtocol {
 
     // MARK: - API Methods
 
-    func login(with provider: Provider, as username: String?, withPassword password: String?, in viewController: MainViewControllerProtocol?, completion: @escaping Callback)
+    func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback)
     func getUserData(from provider: Provider, completion: @escaping Callback)
     func getReservationStatus(from provider: Provider, completion: @escaping Callback)
     func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback)
@@ -39,8 +39,8 @@ protocol LogicProtocol {
 
 extension LogicProtocol {
 
-    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, in viewController: MainViewControllerProtocol? = nil, completion: @escaping Callback) {
-        login(with: provider, as: username, withPassword: password, in: viewController, completion: completion)
+    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, completion: @escaping Callback) {
+        login(with: provider, as: username, withPassword: password, completion: completion)
     }
 
 }
@@ -94,7 +94,7 @@ extension Logic: LogicProtocol {
 
     // TODO: Closures zu allen API Calls hinzufügen
 
-    func login(with provider: Provider, as username: String?, withPassword password: String?, in viewController: MainViewControllerProtocol?, completion: @escaping Callback) {
+    func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback) {
 
         switch provider {
         case .driveNow:
@@ -112,14 +112,8 @@ extension Logic: LogicProtocol {
                 completion(response)
             }
         case .car2go:
-            guard let viewController = viewController as? UIViewController else {
-                let error = APICallResult.error(code: 0, codeDetail: "no_viewController", message: "No valid view controller passed with login call for Car2Go!", parentFunction: #function)
-                completion(error)
-                return
-            }
-
             let api = provider.api()
-            api.login(in: viewController) { response in
+            api.login() { response in
                 completion(response)
             }
         }

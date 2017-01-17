@@ -6,7 +6,7 @@
 //  Copyright © 2016 LMU. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 import JASON
 
@@ -93,7 +93,7 @@ class DriveNowAPI {
 
 extension DriveNowAPI: API {
 
-    func login(in _: UIViewController?, completion: @escaping Callback) {
+    func login(completion: @escaping Callback) {
 
         let functionName = "DriveNowAPI.login"
 

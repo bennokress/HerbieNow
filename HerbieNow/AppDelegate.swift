@@ -12,6 +12,7 @@ import CoreLocation
 import IQKeyboardManagerSwift
 import OAuthSwift
 import OAuthSwiftAlamofire
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -37,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         keyboardManager.enable = true
         keyboardManager.enableAutoToolbar = false
         keyboardManager.keyboardDistanceFromTextField = 16.0
+
+        // MARK: - Alamofire Network Indicator
+        NetworkActivityIndicatorManager.shared.isEnabled = true
 
         return true
     }
