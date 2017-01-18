@@ -3,7 +3,7 @@
 //  TimeTrack
 //
 //  Created by Benno Kress on 23.08.16.
-//  Copyright © 2016 it-economics. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import Foundation

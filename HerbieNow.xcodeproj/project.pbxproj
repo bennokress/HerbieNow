@@ -42,6 +42,7 @@
 		D395684E1E2E5369003FC042 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */; };
 		D39568501E2E536A003FC042 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D395684F1E2E536A003FC042 /* Locksmith.framework */; };
 		D39568521E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */; };
+		D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568551E2F67A2003FC042 /* PopupViewController.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -113,6 +114,7 @@
 		D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HerbieNow.entitlements; sourceTree = "<group>"; };
 		D395684F1E2E536A003FC042 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireNetworkActivityIndicator.framework; path = Carthage/Build/iOS/AlamofireNetworkActivityIndicator.framework; sourceTree = "<group>"; };
+		D39568551E2F67A2003FC042 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		0375789E1DD0B46400AA8FC0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D39568541E2F676D003FC042 /* Popups */,
 				9E6969301E16B09900E70773 /* Fonts */,
 				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
@@ -298,6 +301,14 @@
 				9E6969311E16B0D100E70773 /* CaviarDreams.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		D39568541E2F676D003FC042 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				D39568551E2F67A2003FC042 /* PopupViewController.swift */,
+			);
+			name = Popups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,6 +514,7 @@
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
 				039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
+				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
 				D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */,
 				039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */,

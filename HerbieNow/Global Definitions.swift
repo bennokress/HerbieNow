@@ -3,7 +3,7 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 30.12.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import Foundation
