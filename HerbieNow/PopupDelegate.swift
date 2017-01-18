@@ -26,13 +26,13 @@ extension PopupDelegate {
         case .login:
             return "Login Popup dismissed"
         case .modelIntern:
-            return "Select Model Attributes (intern) Popup dismissed"
+            return "Select Internal Model Options Popup dismissed"
         case .modelExtern:
-            return "Select Model Attributes (extern) Popup dismissed"
+            return "Select External Model Options Popup dismissed"
         case .modelChoice:
-            return "Select Model Popup dismissed"
+            return "Select Models Popup dismissed"
         case .filtersetDescription:
-            return "Select Name & Icon Popup dismissed"
+            return "Select Filterset Name & Icon Popup dismissed"
         }
     }
 
