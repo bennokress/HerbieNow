@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PopupDelegate {
-    
+
     func dismissedLoginPopup(with username: String, and password: String)
 
     func dismissed(_ popupContent: PopupContent)

@@ -25,7 +25,7 @@ protocol MainViewControllerProtocol: class {
 
 /// ViewControllers have no logic other than what to display
 class MainViewController: UIViewController {
-    
+
     @IBOutlet fileprivate weak var filterset1Button: UIButton!
     @IBOutlet fileprivate weak var filterset2Button: UIButton!
     @IBOutlet fileprivate weak var filterset3Button: UIButton!
@@ -131,11 +131,11 @@ class MainViewController: UIViewController {
         print(Debug.event(message: "Map Button Pressed"))
         interpreter.mapButtonPressed()
     }
-    
+
     private func setExclusiveTouchForAllButtons() {
-        for button in self.view.subviews {
-            if button.isKind(of: UIButton.self) {
-                (button as! UIButton).isExclusiveTouch = true
+        for uiObject in self.view.subviews {
+            if let button = uiObject as? UIButton {
+                button.isExclusiveTouch = true
             }
         }
     }
@@ -159,21 +159,21 @@ extension MainViewController: MainViewControllerProtocol {
 }
 
 extension MainViewController: PopupDelegate {
-    
+
     func dismissedLoginPopup(with username: String, and password: String) {
         // TODO: Username and Password have to be saved for Drivenow
     }
-    
+
     func dismissed(_ popupContent: PopupContent) {
         // TODO: Call Interpreter
     }
-    
+
     func reverted(_ popupContent: PopupContent) {
         // TODO: Call Interpreter
     }
-    
+
     func aborted(_ popupContent: PopupContent) {
         // TODO: Call Interpreter
     }
-    
+
 }

@@ -12,7 +12,7 @@ import Presentr
 class SelectFiltersetIconAndNameViewController: PopupViewController {
 
     let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
-    
+
     var selectedIconID: Int = 1
     var selectedName = ""
 
@@ -20,7 +20,7 @@ class SelectFiltersetIconAndNameViewController: PopupViewController {
     var delegate: PopupDelegate? = nil
 
     @IBOutlet fileprivate weak var iconPicker: AKPickerView!
-    
+
     @IBOutlet fileprivate weak var nameTextField: UITextField!
 
     @IBOutlet fileprivate weak var confirmButton: UIButton!
@@ -43,17 +43,17 @@ class SelectFiltersetIconAndNameViewController: PopupViewController {
     }
 
     // MARK: - Icon Picker Methods
-    
+
     // TODO: Implement AKPickerViewMethods
-    
+
     // MARK: - Selection TextField Methods
-    
+
     private func setFiltersetName(to newValue: String) {
         selectedName = newValue
     }
-    
+
     // TODO: Add TextFieldDelegate that calls the above method
-    
+
     // MARK: - Navigational Button Methods
 
     private func configureNavigationButtons() {

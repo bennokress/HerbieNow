@@ -142,10 +142,10 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     func filtersetButtonPressed(id: Int) {
 
         // let filterset = logic.getFilterset(for: id)
-        
+
         // TODO: logic.getVehicles (for all accounts of filterset)
         // TODO: filter vehicles according to filterset and save as filteredVehicles
-        
+
         let filteredVehicles: [Vehicle] = []
         presenter.goToMapView(with: filteredVehicles)
 
@@ -161,7 +161,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     // Das da unten kann dann später mal weg ...
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        logic.getUserData(from: .driveNow) { response in
+        logic.getUserData(from: .car2go) { response in
             self.handleAPIresponse(response, presenterActionRequired: false)
         }
         //        logic.login(with: .driveNow, as: "account@bennokress.de", withPassword: "XXX") { response in

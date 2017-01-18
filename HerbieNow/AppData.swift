@@ -16,6 +16,9 @@ protocol AppDataProtocol {
     /// Update the user location
     func updateUserLocation(to location: Location)
 
+    /// Update nearest Car2Go City
+    func updateNearestCar2GoCity(to cityString: String)
+
     /// Get the user location
     func getUserLocation() -> Location?
 
@@ -24,6 +27,9 @@ protocol AppDataProtocol {
 
     /// Add password for the specified provider to Keychain
     func addPassword(_ password: String, for provider: Provider)
+
+    /// Add User ID for the specified provider to Keychain
+    func addUserID(_ id: String, for provider: Provider)
 
     /// Add X-Auth-Token for the specified provider to Keychain
     func addXAuthToken(_ xAuthToken: String, for provider: Provider)
@@ -42,6 +48,9 @@ protocol AppDataProtocol {
 
     /// Get password for the specified provider from Keychain
     func getPassword(for provider: Provider) -> String?
+
+    /// Get User ID for the specified provider from Keychain
+    func getUserID(for provider: Provider) -> String?
 
     /// Get X-Auth-Token for the specified provider from Keychain
     func getXAuthToken(for provider: Provider) -> String?
@@ -65,6 +74,7 @@ class AppData {
     let appIdentifier = "de.lmu.HerbieNow"
 
     var userLocation: Location?
+    var nearestCar2GoCity: String = "München"
 
     // Singleton - call via AppData
     static var shared = AppData()
@@ -142,6 +152,10 @@ extension AppData: AppDataProtocol {
         addToKeychain(value: password, forKey: "\(provider.rawValue) Password")
     }
 
+    func addUserID(_ id: String, for provider: Provider) {
+        addToKeychain(value: id, forKey: "\(provider.rawValue) User ID")
+    }
+
     func addXAuthToken(_ xAuthToken: String, for provider: Provider) {
         addToKeychain(value: xAuthToken, forKey: "\(provider.rawValue) X-Auth-Token")
     }
@@ -158,10 +172,6 @@ extension AppData: AppDataProtocol {
         addToKeychain(value: credentialKey, forKey: "\(provider.rawValue) OAuth Token Secret")
     }
 
-    func addOAuthCredentials(_ credentials: Data, for provider: Provider) {
-        addToKeychain(value: credentials, forKey: "\(provider.rawValue) OAuth Credentials")
-    }
-
     // MARK: - Get Data
 
     func getUsername(for provider: Provider) -> String? {
@@ -170,6 +180,10 @@ extension AppData: AppDataProtocol {
 
     func getPassword(for provider: Provider) -> String? {
         return findStringInKeychain(forKey: "\(provider.rawValue) Password")
+    }
+
+    func getUserID(for provider: Provider) -> String? {
+        return findStringInKeychain(forKey: "\(provider.rawValue) User ID")
     }
 
     func getXAuthToken(for provider: Provider) -> String? {
@@ -188,10 +202,6 @@ extension AppData: AppDataProtocol {
         return findStringInKeychain(forKey: "\(provider.rawValue) OAuth Token Secret")
     }
 
-    func getOAuthCredentials(for provider: Provider) -> Data? {
-        return findDataInKeychain(forKey: "\(provider.rawValue) OAuth Credentials")
-    }
-
     // MARK: - Delete Data
 
     func deleteCredentials(for provider: Provider) {
@@ -204,7 +214,7 @@ extension AppData: AppDataProtocol {
         case .car2go:
             removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Token")
             removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Token Secret")
-            removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Credentials")
+            removeValueFromKeychain(forKey: "\(provider.rawValue) User ID")
         }
     }
 
@@ -213,6 +223,10 @@ extension AppData: AppDataProtocol {
     func updateUserLocation(to location: Location) {
         userLocation = location
         //        print(Debug.info(source: (name(of: self), #function), message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
+    }
+
+    func updateNearestCar2GoCity(to cityString: String) {
+        nearestCar2GoCity = cityString
     }
 
     func getUserLocation() -> Location? {

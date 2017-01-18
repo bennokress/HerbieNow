@@ -504,7 +504,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwifterSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireNetworkActivityIndicator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Presentr.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField-framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField.framework",
 			);
 			name = Carthage;
 			outputPaths = (

@@ -67,8 +67,6 @@ class Car2GoAPI {
     fileprivate func getOAuthSessionManager(completion: @escaping (SessionManager?) -> Void) {
         let oauthSessionManager = SessionManager.default
         if let savedCredential = credential {
-            print(savedCredential.oauthToken)
-            print(savedCredential.oauthTokenSecret)
             oauthswift.client.credential.oauthToken = savedCredential.oauthToken
             oauthswift.client.credential.oauthTokenSecret = savedCredential.oauthTokenSecret
             oauthSessionManager.adapter = OAuthSwiftRequestAdapter(oauthswift)
@@ -149,13 +147,15 @@ extension Car2GoAPI: API {
 
     func login(completion: @escaping Callback) {
 
+        let functionName = funcID(class: self, func:#function)
+
         authorizeHerbieNowForCar2Go() { response in
 
             if let credential: OAuthSwiftCredential = response.getDetails() {
                 print(Debug.success(source: (name(of: self), #function), message: "User is logged in."))
                 completion(.credential(credential))
             } else {
-                completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: #function))
+                completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: functionName))
             }
 
         }
@@ -164,38 +164,41 @@ extension Car2GoAPI: API {
 
     func getUserData(completion: @escaping Callback) {
 
-        let url = "https://www.car2go.com/api/v2.1/accounts?oauth_consumer_key=\(consumerKey)&format=\(format)"
+        let functionName = funcID(class: self, func:#function)
 
-        getOAuthSessionManager() { sessionManager in
+        getNearestCity(to: appData.getUserLocation()) { cityString in
 
-            guard let AlamofireWithOAuth = sessionManager else {
-                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: #function)
-                completion(error)
-                return
+            let url = "https://www.car2go.com/api/v2.1/accounts?loc=\(cityString.replaceGermanCharacters())&format=\(self.format)"
+
+            self.getOAuthSessionManager() { sessionManager in
+
+                guard let AlamofireWithOAuth = sessionManager else {
+                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                    completion(error)
+                    return
+                }
+
+                AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+
+                    let response: APICallResult
+
+                    if let json = callback.result.value {
+
+                        guard let userID = json["account"][0]["accountId"].int else {
+                            response = self.errorDetails(code: 0, status: "accountID_not_found", message: "No AccountID in JSON Response found.", in: functionName)
+                            completion(response)
+                            return
+                        }
+
+                        self.appData.addUserID(userID.toString(), for: .car2go)
+
+                    } else {
+                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                    }
+
+                }
+
             }
-
-            let request = AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).response { callback in
-
-                print(callback.response ?? "No response")
-                //                let response: APICallResult
-                //
-                //                if let json = callback.result.value {
-                //
-                //                    guard let accountID = json["account"][0]["accountId"].int else {
-                //                        response = self.errorDetails(code: 0, status: "accountID_not_found", message: "No AccountID in JSON Response found.", in: #function)
-                //                        completion(response)
-                //                        return
-                //                    }
-                //
-                //                    // TODO: save accountID to keychain
-                //                    print(accountID)
-                //
-                //                } else {
-                //                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: #function)
-                //                }
-            }
-
-            debugPrint(request)
 
         }
 
@@ -209,7 +212,7 @@ extension Car2GoAPI: API {
 
         let functionName = funcID(class: self, func:#function)
 
-        getNearestCity(actualLocation: location) { cityString in
+        getNearestCity(to: location) { cityString in
 
             let url = "https://www.car2go.com/api/v2.1/vehicles?loc=\(cityString.replaceGermanCharacters())&oauth_consumer_key=\(self.consumerKey)&format=\(self.format)"
 
@@ -246,7 +249,12 @@ extension Car2GoAPI: API {
 
     }
 
-    func getNearestCity (actualLocation location: Location, completion: @escaping (_ city: String) -> Void) {
+    func getNearestCity(to userLocation: Location?, completion: @escaping (_ city: String) -> Void) {
+
+        guard let userLocation = userLocation else {
+            completion("München")
+            return
+        }
 
         let url = "https://www.car2go.com/api/v2.1/locations?oauth_consumer_key=\(consumerKey)&format=\(format)"
 
@@ -274,7 +282,7 @@ extension Car2GoAPI: API {
                     var nearestCity: Location = cities[0]
 
                     for city in cities {
-                        if nearestCity.getDistance(from: location.asObject) > city.getDistance(from: location.asObject) {
+                        if nearestCity.getDistance(from: userLocation.asObject) > city.getDistance(from: userLocation.asObject) {
                             nearestCity = city
                         }
                     }

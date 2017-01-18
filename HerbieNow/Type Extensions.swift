@@ -138,6 +138,10 @@ extension Int {
         }
     }
 
+    func toString() -> String {
+        return "\(self)"
+    }
+
     /// Converts Integer to 3-digit-String
     func to3DigitString() -> String {
         if self >= 0 && self < 10 {
