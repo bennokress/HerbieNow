@@ -43,6 +43,8 @@
 		D39568501E2E536A003FC042 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D395684F1E2E536A003FC042 /* Locksmith.framework */; };
 		D39568521E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */; };
 		D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568551E2F67A2003FC042 /* PopupViewController.swift */; };
+		D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568571E2F6E4E003FC042 /* PopupDelegate.swift */; };
+		D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -115,6 +117,8 @@
 		D395684F1E2E536A003FC042 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 		D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireNetworkActivityIndicator.framework; path = Carthage/Build/iOS/AlamofireNetworkActivityIndicator.framework; sourceTree = "<group>"; };
 		D39568551E2F67A2003FC042 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		D39568571E2F6E4E003FC042 /* PopupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
+		D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupViewController.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -258,11 +262,11 @@
 		0375789E1DD0B46400AA8FC0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D39568541E2F676D003FC042 /* Popups */,
-				9E6969301E16B09900E70773 /* Fonts */,
 				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
 				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
+				D39568541E2F676D003FC042 /* Popups */,
+				9E6969301E16B09900E70773 /* Fonts */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -307,6 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				D39568551E2F67A2003FC042 /* PopupViewController.swift */,
+				D39568571E2F6E4E003FC042 /* PopupDelegate.swift */,
+				D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */,
 			);
 			name = Popups;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */,
 				D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */,
 				037578A51DD0B68200AA8FC0 /* Location.swift in Sources */,
+				D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */,
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
 				D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
@@ -523,6 +530,7 @@
 				039F0B741DD8DBC500AB56C0 /* User.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
 				D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */,
+				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
 			);

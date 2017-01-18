@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import SwiftSpinner
 import Presentr
 
 class PopupViewController: UIViewController {
     
-    var bookingMode: BookingPopupMode = .unknown
-    
-    // To display in the Booking Detail Popup
-    var booking: Booking = Booking()
+    // General Filterset without limitations to manipulate by user over the popup-workflow - Attention: Position is -1 and has to be set by the icon that was tapped!
+    var filterset: Filterset = Filterset(from: "11:1111:11111111111111111:111:11:000999:000100:11:111:0:-1:New Filter:No Image")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +20,10 @@ class PopupViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showLoadingAnimation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    }
-    
-    func showLoadingAnimation() {
-        SwiftSpinner.setTitleFont(ciFont)
-        SwiftSpinner.show("Loading Data")
-    }
-    
-    func dismissLoadingAnimation() {
-        SwiftSpinner.hide()
     }
     
 }
@@ -44,7 +31,7 @@ class PopupViewController: UIViewController {
 extension PopupViewController: PresentrDelegate {
     
     func presentrShouldDismiss(keyboardShowing: Bool) -> Bool {
-        print(Debug.warning(source: (name(of: self), #function), message: "presentrShouldDismiss was called ... maybe this is useful to clean up stuff?"))
+        print(Debug.warning(source: (name(of: self), #function), message: "Popup was dismissed without saving."))
         return true
     }
     

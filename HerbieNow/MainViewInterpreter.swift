@@ -165,7 +165,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         logic.getUserData(from: .driveNow) { response in
             self.handleAPIresponse(response, presenterActionRequired: false)
         }
-        //        logic.login(with: .driveNow, as: "account@bennokress.de", withPassword: "t2B7P+9/{7Hhavd") { response in
+        //        logic.login(with: .driveNow, as: "account@bennokress.de", withPassword: "XXX") { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
         //        }
         // logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in

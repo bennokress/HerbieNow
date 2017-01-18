@@ -324,6 +324,14 @@ enum Model {
 
 }
 
+enum PopupContent {
+    case login
+    case modelIntern(filterset: Filterset)
+    case modelExtern(filterset: Filterset)
+    case modelChoice(filterset: Filterset)
+    case filtersetDescription(filterset: Filterset)
+}
+
 enum Provider: String {
 
     // String representation is used for prefixing UserDefaults and Keychain keys

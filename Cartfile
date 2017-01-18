@@ -6,3 +6,4 @@
 	github "delba/JASON"									 	# deal with JSON responses more easily
 	github "matthewpalmer/Locksmith"							# better keychain usage
 	github "hackiftekhar/IQKeyboardManager"						# adjust view automatically when keyboard is present (for login with providers) - init in AppDelegate
+	github "IcaliaLabs/Presentr"								# custom popup integration
