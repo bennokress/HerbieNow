@@ -11,24 +11,15 @@ import Presentr
 
 class SelectFiltersetIconAndNameViewController: PopupViewController {
 
+    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
+    
     var selectedIconID: Int = 1
     var selectedName = ""
 
     // This will be set by the MainViewController, so that the Popup has a way to get information back there
     var delegate: PopupDelegate? = nil
 
-    @IBOutlet fileprivate weak var icon01Button: UIButton!
-    @IBOutlet fileprivate weak var icon02Button: UIButton!
-    @IBOutlet fileprivate weak var icon03Button: UIButton!
-    @IBOutlet fileprivate weak var icon04Button: UIButton!
-    @IBOutlet fileprivate weak var icon05Button: UIButton!
-    @IBOutlet fileprivate weak var icon06Button: UIButton!
-    @IBOutlet fileprivate weak var icon07Button: UIButton!
-    @IBOutlet fileprivate weak var icon08Button: UIButton!
-    @IBOutlet fileprivate weak var icon09Button: UIButton!
-    @IBOutlet fileprivate weak var icon10Button: UIButton!
-    @IBOutlet fileprivate weak var icon11Button: UIButton!
-    @IBOutlet fileprivate weak var icon12Button: UIButton!
+    @IBOutlet fileprivate weak var iconPicker: AKPickerView!
     
     @IBOutlet fileprivate weak var nameTextField: UITextField!
 
@@ -47,16 +38,13 @@ class SelectFiltersetIconAndNameViewController: PopupViewController {
         super.viewDidAppear(animated)
 
         print(Debug.event(message: "Select Filterset Name & Icon Popup - View Did Appear"))
+        // TODO: Remove models based on current filterset from displayed models to disable them permanently for the current workflow
         configureNavigationButtons()
     }
 
-    // MARK: - Selection Button Methods
-
-    private func changeIconSelection(to iconID: Int) {
-        selectedIconID = iconID
-    }
-
-    // TODO: Add generic button function that calls the correct selection and deselects all other buttons based on button ID (icon = buttonID+1)
+    // MARK: - Icon Picker Methods
+    
+    // TODO: Implement AKPickerViewMethods
     
     // MARK: - Selection TextField Methods
     

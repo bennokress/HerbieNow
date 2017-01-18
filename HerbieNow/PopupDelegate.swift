@@ -9,8 +9,7 @@
 import Foundation
 
 protocol PopupDelegate {
-
-    // TODO: Username and Password have to be saved for Drivenow
+    
     func dismissedLoginPopup(with username: String, and password: String)
 
     func dismissed(_ popupContent: PopupContent)

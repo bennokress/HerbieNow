@@ -17,13 +17,13 @@ protocol MainViewInterpreterProtocol {
 
     func viewDidAppear()
 
-    func accountButtonPressed()
+    func providerButtonPressed(for provider: Provider)
 
     func mapButtonPressed()
 
-    func filtersetButtonPressed()
+    func filtersetButtonPressed(id: Int)
 
-    func filtersetButtonLongPressed()
+    func filtersetButtonLongPressed(id: Int)
 
 }
 
@@ -128,7 +128,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
 
     }
 
-    func accountButtonPressed() {
+    func providerButtonPressed(for provider: Provider) {
 
         // TODO: Überprüfe, ob der Account verbunden ist
         // logic.isAccountConfigured(for: Provider)
@@ -139,20 +139,19 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         presenter.goToMapView()
     }
 
-    func filtersetButtonPressed() {
+    func filtersetButtonPressed(id: Int) {
 
-        // TODO: id durch filtersetButton ID ersetzen
-        //        let id = 1
-
-        //        let filterset = logic.getFilterset(for: id)
+        // let filterset = logic.getFilterset(for: id)
+        
         // TODO: logic.getVehicles (for all accounts of filterset)
         // TODO: filter vehicles according to filterset and save as filteredVehicles
+        
         let filteredVehicles: [Vehicle] = []
         presenter.goToMapView(with: filteredVehicles)
 
     }
 
-    func filtersetButtonLongPressed() {
+    func filtersetButtonLongPressed(id: Int) {
 
         // TODO: richtiges filterset herausfinden und übergeben
         // presenter.showDeleteFiltersetAlert(for: filterset)
