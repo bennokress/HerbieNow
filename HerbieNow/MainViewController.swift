@@ -16,7 +16,7 @@ protocol MainViewControllerProtocol: class {
     func goToMapView(with vehicles: [Vehicle])
 
     // TODO: Add arguments and documentation comment - FiltersetButtons & ProviderButtons
-    func displayConfiguredButtons(filtersets: [Filterset?], providers: [Bool])
+    func displayConfiguredButtonsAndLabels(filtersets: [Filterset?], providers: [Bool])
 
     // TODO: Maybe change to filterset ID? Add documentation comment
     func showDeleteFiltersetAlert(for filterset: Filterset)
@@ -35,6 +35,17 @@ class MainViewController: UIViewController {
     @IBOutlet fileprivate weak var filterset7Button: UIButton!
     @IBOutlet fileprivate weak var filterset8Button: UIButton!
     @IBOutlet fileprivate weak var filterset9Button: UIButton!
+    
+    @IBOutlet fileprivate weak var filterset1Label: UILabel!
+    @IBOutlet fileprivate weak var filterset2Label: UILabel!
+    @IBOutlet fileprivate weak var filterset3Label: UILabel!
+    @IBOutlet fileprivate weak var filterset4Label: UILabel!
+    @IBOutlet fileprivate weak var filterset5Label: UILabel!
+    @IBOutlet fileprivate weak var filterset6Label: UILabel!
+    @IBOutlet fileprivate weak var filterset7Label: UILabel!
+    @IBOutlet fileprivate weak var filterset8Label: UILabel!
+    @IBOutlet fileprivate weak var filterset9Label: UILabel!
+    
     @IBOutlet fileprivate weak var driveNowButton: UIButton!
     @IBOutlet fileprivate weak var car2goButton: UIButton!
     @IBOutlet fileprivate weak var goToMapButton: UIButton!
@@ -131,12 +142,13 @@ class MainViewController: UIViewController {
         print(Debug.event(message: "Map Button Pressed"))
         interpreter.mapButtonPressed()
     }
-
+    
     private func setExclusiveTouchForAllButtons() {
-        for uiObject in self.view.subviews {
-            if let button = uiObject as? UIButton {
-                button.isExclusiveTouch = true
-            }
+        for case let button as UIButton in self.view.subviews {
+            button.isExclusiveTouch = true
+        }
+        for case let button as UIButton in self.view.subviews {
+            button.setTitleForAllStates("")
         }
     }
 
@@ -148,7 +160,7 @@ extension MainViewController: MainViewControllerProtocol {
         // TODO: implement function
     }
 
-    func displayConfiguredButtons(filtersets: [Filterset?], providers: [Bool]) {
+    func displayConfiguredButtonsAndLabels(filtersets: [Filterset?], providers: [Bool]) {
         // TODO: implement function
     }
 
