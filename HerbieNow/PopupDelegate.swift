@@ -9,14 +9,18 @@
 import Foundation
 
 protocol PopupDelegate {
-    
+
     // TODO: Username and Password have to be saved for Drivenow
     func dismissedLoginPopup(with username: String, and password: String)
-    
+
+    func dismissed(_ popupContent: PopupContent)
+    func reverted(_ popupContent: PopupContent)
+    func aborted(_ popupContent: PopupContent)
+
 }
 
 extension PopupDelegate {
-    
+
     internal func dismissedPopup(of type: PopupContent) -> String {
         switch type {
         case .login:
@@ -31,5 +35,5 @@ extension PopupDelegate {
             return "Select Name & Icon Popup dismissed"
         }
     }
-    
+
 }

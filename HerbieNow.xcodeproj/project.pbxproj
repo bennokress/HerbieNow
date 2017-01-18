@@ -45,6 +45,7 @@
 		D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568551E2F67A2003FC042 /* PopupViewController.swift */; };
 		D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568571E2F6E4E003FC042 /* PopupDelegate.swift */; };
 		D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */; };
+		D395685C1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685B1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -119,6 +120,7 @@
 		D39568551E2F67A2003FC042 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		D39568571E2F6E4E003FC042 /* PopupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
 		D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupViewController.swift; sourceTree = "<group>"; };
+		D395685B1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelInternOptionsViewController.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				D39568551E2F67A2003FC042 /* PopupViewController.swift */,
 				D39568571E2F6E4E003FC042 /* PopupDelegate.swift */,
 				D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */,
+				D395685B1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift */,
 			);
 			name = Popups;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
+				D395685C1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
