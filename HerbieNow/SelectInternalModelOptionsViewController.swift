@@ -1,5 +1,5 @@
 //
-//  SelectModelInternOptionsViewController.swift
+//  SelectInternalModelOptionsViewController.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 18.01.17.
@@ -9,7 +9,7 @@
 import UIKit
 import Presentr
 
-class SelectModelInternOptionsViewController: PopupViewController {
+class SelectInternalModelOptionsViewController: PopupViewController {
 
     // Displayed Options in Popup
     var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]

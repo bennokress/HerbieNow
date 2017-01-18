@@ -45,8 +45,9 @@
 		D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568551E2F67A2003FC042 /* PopupViewController.swift */; };
 		D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568571E2F6E4E003FC042 /* PopupDelegate.swift */; };
 		D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */; };
-		D395685C1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685B1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift */; };
-		D395685E1E2FB93C003FC042 /* SelectModelExternOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685D1E2FB93C003FC042 /* SelectModelExternOptionViewController.swift */; };
+		D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift */; };
+		D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift */; };
+		D39568601E2FBEA8003FC042 /* SelectModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685F1E2FBEA8003FC042 /* SelectModelsViewController.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -121,8 +122,9 @@
 		D39568551E2F67A2003FC042 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		D39568571E2F6E4E003FC042 /* PopupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
 		D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupViewController.swift; sourceTree = "<group>"; };
-		D395685B1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelInternOptionsViewController.swift; sourceTree = "<group>"; };
-		D395685D1E2FB93C003FC042 /* SelectModelExternOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelExternOptionViewController.swift; sourceTree = "<group>"; };
+		D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsViewController.swift; sourceTree = "<group>"; };
+		D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsViewController.swift; sourceTree = "<group>"; };
+		D395685F1E2FBEA8003FC042 /* SelectModelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelsViewController.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -317,8 +319,9 @@
 				D39568551E2F67A2003FC042 /* PopupViewController.swift */,
 				D39568571E2F6E4E003FC042 /* PopupDelegate.swift */,
 				D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */,
-				D395685B1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift */,
-				D395685D1E2FB93C003FC042 /* SelectModelExternOptionViewController.swift */,
+				D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift */,
+				D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift */,
+				D395685F1E2FBEA8003FC042 /* SelectModelsViewController.swift */,
 			);
 			name = Popups;
 			sourceTree = "<group>";
@@ -530,7 +533,8 @@
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
 				D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */,
-				D395685E1E2FB93C003FC042 /* SelectModelExternOptionViewController.swift in Sources */,
+				D39568601E2FBEA8003FC042 /* SelectModelsViewController.swift in Sources */,
+				D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift in Sources */,
 				039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */,
 				D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */,
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
@@ -540,7 +544,7 @@
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
-				D395685C1E2FB1CB003FC042 /* SelectModelInternOptionsViewController.swift in Sources */,
+				D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

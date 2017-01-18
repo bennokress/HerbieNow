@@ -1,5 +1,5 @@
 //
-//  SelectModelExternOptionViewController.swift
+//  SelectExternalModelOptionsViewController.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 18.01.17.
@@ -9,7 +9,7 @@
 import UIKit
 import Presentr
 
-class SelectModelExternOptionsViewController: PopupViewController {
+class SelectExternalModelOptionsViewController: PopupViewController {
 
     // Sele Options in Popup
     var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
