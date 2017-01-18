@@ -1,18 +1,18 @@
 //
 //  ConsoleFormat.swift
-//  HerbieNow
+//  TimeTrack
 //
-//  Created by Benno Kress on 30.12.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Created by Benno Kress on 23.08.16.
+//  Copyright © 2016 it-economics. All rights reserved.
 //
 
 import Foundation
 
 enum ConsoleFormat {
-    case success(class: Any, func: String, message: String)
-    case warning(class: Any, func: String, message: String)
-    case error(class: Any, func: String, message: String)
-    case info(class: Any, func: String, message: String)
+    case success(source: (class: String, func: String), message: String)
+    case warning(source: (class: String, func: String), message: String)
+    case error(source: (class: String, func: String), message: String)
+    case info(source: (class: String, func: String), message: String)
     case event(message: String)
     case list(message: String, indent: Int)
     case line
@@ -22,20 +22,20 @@ enum ConsoleFormat {
 extension ConsoleFormat: CustomStringConvertible {
 
     /// Adjust this width by 1 to get the whole width on the console adjusted by 3.
-    var leftColumnWidth: Int {
+    private var leftColumnWidth: Int {
         return 66
     }
 
-    var description: String {
+    internal var description: String {
         switch self {
-        case .success(let classObject, let funcName, let message):
-            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) ✅ \(message)"
-        case .warning(let classObject, let funcName, let message):
-            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) ⚠️ \(message)"
-        case .error(let classObject, let funcName, let message):
-            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) 🆘 \(message)"
-        case .info(let classObject, let funcName, let message):
-            return "\(getSourceTag(for: funcID(class: classObject, func: funcName))) ℹ️ \(message)"
+        case .success(let source, let message):
+            return "\(getSourceTag(for: source.class, source.func)) ✅ \(message)"
+        case .warning(let source, let message):
+            return "\(getSourceTag(for: source.class, source.func)) ⚠️ \(message)"
+        case .error(let source, let message):
+            return "\(getSourceTag(for: source.class, source.func)) 🆘 \(message)"
+        case .info(let source, let message):
+            return "\(getSourceTag(for: source.class, source.func)) ℹ️ \(message)"
         case .event(let message):
             let headline = "Event detected"
             let headlineWidth = headline.characters.count
@@ -63,33 +63,34 @@ extension ConsoleFormat: CustomStringConvertible {
         }
     }
 
-    var rightColumnWidth: Int {
+    private var rightColumnWidth: Int {
         return 2 * leftColumnWidth
     }
 
-    var middleColumnWidth: Int {
+    private var middleColumnWidth: Int {
         return 4
     }
 
-    var fullWidth: Int {
+    private var fullWidth: Int {
         return leftColumnWidth + middleColumnWidth + rightColumnWidth
     }
 
-    func rightAligned(_ message: String) -> String {
+    private func rightAligned(_ message: String) -> String {
         let fullMessage = "↓ \(message)"
         let whitespaceLength = rightColumnWidth - fullMessage.characters.count
         let spaces = whitespaceLength > 0 ? String(repeating: " ", count: whitespaceLength) : ""
         return fullMessage.prefixed(with: spaces)
     }
 
-    func getSourceTag(for source: String) -> String {
+    private func getSourceTag(for className: String, _ functionName: String) -> String {
+        let source = "\(className).\(functionName.until("("))"
         let sourceLength = source.characters.count
         let whitespaceLength = leftColumnWidth - sourceLength
         let spaces = whitespaceLength > 0 ? String(repeating: " ", count: whitespaceLength) : ""
         return "[\(source)]".prefixed(with: spaces)
     }
 
-    func emptyLeftAndMiddleColumn() -> String {
+    private func emptyLeftAndMiddleColumn() -> String {
         return String(repeating: " ", count: leftColumnWidth + middleColumnWidth)
     }
 

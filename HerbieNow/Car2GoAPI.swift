@@ -152,7 +152,7 @@ extension Car2GoAPI: API {
         authorizeHerbieNowForCar2Go() { response in
 
             if let credential: OAuthSwiftCredential = response.getDetails() {
-                print(Debug.success(class: name(of: self), func: #function, message: "User is logged in."))
+                print(Debug.success(source: (name(of: self), #function), message: "User is logged in."))
                 completion(.credential(credential))
             } else {
                 completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: #function))
