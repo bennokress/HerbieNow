@@ -3,13 +3,16 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 07.11.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import UIKit
 import CoreData
 import CoreLocation
 import IQKeyboardManagerSwift
+import OAuthSwift
+import OAuthSwiftAlamofire
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -36,6 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         keyboardManager.enableAutoToolbar = false
         keyboardManager.keyboardDistanceFromTextField = 16.0
 
+        // MARK: - Alamofire Network Indicator
+        NetworkActivityIndicatorManager.shared.isEnabled = true
+
+        return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        OAuthSwift.handle(url: url)
         return true
     }
 
@@ -125,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(Debug.error(class: self, func: #function, message: "Location Manager could not retrieve location data."))
+        print(Debug.error(source: (name(of: self), #function), message: "Location Manager could not retrieve location data."))
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

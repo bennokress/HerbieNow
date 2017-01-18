@@ -3,11 +3,11 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 20.12.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import Foundation
-import KeychainAccess
+import Locksmith
 
 protocol AppDataProtocol {
 
@@ -31,6 +31,12 @@ protocol AppDataProtocol {
     /// Add Open-Car-Token for the specified provider to Keychain
     func addOpenCarToken(_ openCarToken: String, for provider: Provider)
 
+    /// Add OAuth Token for the specified provider to Keychain
+    func addOAuthToken(_ credentialKey: String, for provider: Provider)
+
+    /// Add OAuth Token Secret for the specified provider to Keychain
+    func addOAuthTokenSecret(_ credentialKey: String, for provider: Provider)
+
     /// Get username for the specified provider from Keychain
     func getUsername(for provider: Provider) -> String?
 
@@ -43,15 +49,20 @@ protocol AppDataProtocol {
     /// Get Open-Car-Token for the specified provider from Keychain
     func getOpenCarToken(for provider: Provider) -> String?
 
+    /// Get OAuth Token for the specified provider from Keychain
+    func getOAuthToken(for provider: Provider) -> String?
+
+    /// Get OAuth Token Secret for the specified provider from Keychain
+    func getOAuthTokenSecret(for provider: Provider) -> String?
+
     /// Delete all saved credentials for the specified provider from Keychain
     func deleteCredentials(for provider: Provider)
-
 }
 
 class AppData {
 
     let userDefaults = UserDefaults.standard
-    let keychain = Keychain(service: "de.lmu.HerbieNow").synchronizable(true)
+    let appIdentifier = "de.lmu.HerbieNow"
 
     var userLocation: Location?
 
@@ -59,26 +70,42 @@ class AppData {
     static var shared = AppData()
     private init() {}
 
-    /// Add a value to the Keychain.
+    /// Add a value (String) to the Keychain.
     fileprivate func addToKeychain(value: String, forKey key: String) {
-        keychain[key] = value
+        do {
+            try Locksmith.updateData(data: [key : value], forUserAccount: "\(appIdentifier) \(key)")
+        } catch {
+            print(Debug.error(source: (name(of: self), #function), message: "Saving \(key) to keychain was unsuccessful."))
+        }
+    }
+
+    /// Add a value (Data) to the Keychain.
+    fileprivate func addToKeychain(value: Data, forKey key: String) {
+        do {
+            try Locksmith.updateData(data: [key : value], forUserAccount: "\(appIdentifier) \(key)")
+        } catch {
+            print(Debug.error(source: (name(of: self), #function), message: "Saving \(key) to keychain was unsuccessful."))
+        }
     }
 
     /// Find a value for the specified key in Keychain. Returns nil, if none found.
-    fileprivate func findValueInKeychain(forKey key: String) -> String? {
-        do {
-            return try keychain.getString(key)
-        } catch {
-            return nil
-        }
+    fileprivate func findStringInKeychain(forKey key: String) -> String? {
+        let data = Locksmith.loadDataForUserAccount(userAccount: "\(appIdentifier) \(key)")
+        return data?[key] as? String
+    }
+
+    /// Find a value for the specified key in Keychain. Returns nil, if none found.
+    fileprivate func findDataInKeychain(forKey key: String) -> Data? {
+        let data = Locksmith.loadDataForUserAccount(userAccount: "\(appIdentifier) \(key)")
+        return data?[key] as? Data
     }
 
     /// Remove the saved value for the specified key from Keychain.
     fileprivate func removeValueFromKeychain(forKey key: String) {
         do {
-            try keychain.remove(key)
-        } catch let error {
-            print(Debug.error(class: self, func: #function, message: "Keychain remove value error: \(error)"))
+            try Locksmith.deleteDataForUserAccount(userAccount: "\(appIdentifier) \(key)")
+        } catch {
+            print(Debug.error(source: (name(of: self), #function), message: "Deleting \(key) from keychain was unsuccessful."))
         }
     }
 
@@ -123,38 +150,69 @@ extension AppData: AppDataProtocol {
         addToKeychain(value: openCarToken, forKey: "\(provider.rawValue) Open-Car-Token")
     }
 
+    func addOAuthToken(_ credentialKey: String, for provider: Provider) {
+        addToKeychain(value: credentialKey, forKey: "\(provider.rawValue) OAuth Token")
+    }
+
+    func addOAuthTokenSecret(_ credentialKey: String, for provider: Provider) {
+        addToKeychain(value: credentialKey, forKey: "\(provider.rawValue) OAuth Token Secret")
+    }
+
+    func addOAuthCredentials(_ credentials: Data, for provider: Provider) {
+        addToKeychain(value: credentials, forKey: "\(provider.rawValue) OAuth Credentials")
+    }
+
     // MARK: - Get Data
 
     func getUsername(for provider: Provider) -> String? {
-        return findValueInKeychain(forKey: "\(provider.rawValue) Username")
+        return findStringInKeychain(forKey: "\(provider.rawValue) Username")
     }
 
     func getPassword(for provider: Provider) -> String? {
-        return findValueInKeychain(forKey: "\(provider.rawValue) Password")
+        return findStringInKeychain(forKey: "\(provider.rawValue) Password")
     }
 
     func getXAuthToken(for provider: Provider) -> String? {
-        return findValueInKeychain(forKey: "\(provider.rawValue) X-Auth-Token")
+        return findStringInKeychain(forKey: "\(provider.rawValue) X-Auth-Token")
     }
 
     func getOpenCarToken(for provider: Provider) -> String? {
-        return findValueInKeychain(forKey: "\(provider.rawValue) Open-Car-Token")
+        return findStringInKeychain(forKey: "\(provider.rawValue) Open-Car-Token")
+    }
+
+    func getOAuthToken(for provider: Provider) -> String? {
+        return findStringInKeychain(forKey: "\(provider.rawValue) OAuth Token")
+    }
+
+    func getOAuthTokenSecret(for provider: Provider) -> String? {
+        return findStringInKeychain(forKey: "\(provider.rawValue) OAuth Token Secret")
+    }
+
+    func getOAuthCredentials(for provider: Provider) -> Data? {
+        return findDataInKeychain(forKey: "\(provider.rawValue) OAuth Credentials")
     }
 
     // MARK: - Delete Data
 
     func deleteCredentials(for provider: Provider) {
-        removeValueFromKeychain(forKey: "\(provider.rawValue) Username")
-        removeValueFromKeychain(forKey: "\(provider.rawValue) Password")
-        removeValueFromKeychain(forKey: "\(provider.rawValue) X-Auth-Token")
-        removeValueFromKeychain(forKey: "\(provider.rawValue) Open-Car-Token")
+        switch provider {
+        case .driveNow:
+            removeValueFromKeychain(forKey: "\(provider.rawValue) Username")
+            removeValueFromKeychain(forKey: "\(provider.rawValue) Password")
+            removeValueFromKeychain(forKey: "\(provider.rawValue) X-Auth-Token")
+            removeValueFromKeychain(forKey: "\(provider.rawValue) Open-Car-Token")
+        case .car2go:
+            removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Token")
+            removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Token Secret")
+            removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Credentials")
+        }
     }
 
     // MARK: - User Location
 
     func updateUserLocation(to location: Location) {
         userLocation = location
-        print(Debug.info(class: self, func: #function, message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
+        //        print(Debug.info(source: (name(of: self), #function), message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
     }
 
     func getUserLocation() -> Location? {

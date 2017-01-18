@@ -3,7 +3,7 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 07.11.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import Foundation
@@ -16,26 +16,29 @@ struct Location {
     let latitude: Double
     let longitude: Double
 
+    let car2goCityName: String?
+
     let coordinateDescription: String
 
     // Computed properties for location
-    var currentLocationAsObject: CLLocation {
+    var asObject: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
 
-    init(latitude: Double, longitude: Double) {
+    init(latitude: Double, longitude: Double, car2goCityName: String? = nil) {
 
         self.latitude = latitude
         self.longitude = longitude
+        self.car2goCityName = car2goCityName
 
         coordinateDescription = "lat: \(latitude), long: \(longitude)"
     }
 
     func getAddress(completion: @escaping ((street: String, areaCode: String, city: String)?) -> Void) {
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(currentLocationAsObject) { (placemarks, error) in
+        geocoder.reverseGeocodeLocation(self.asObject) { (placemarks, error) in
             if error != nil {
-                print(Debug.error(class: self, func: #function, message: "Reverse Geocoding failed"))
+                print(Debug.error(source: (name(of: self), #function), message: "Reverse Geocoding failed"))
                 completion(nil)
             } else {
                 let placeArray = placemarks as [CLPlacemark]!
@@ -50,11 +53,14 @@ struct Location {
                     return
                 }
 
-                print(Debug.success(class: self, func: #function, message: "Reverse Geocoding: (\(self.latitude), \(self.longitude)) is \(street) in \(areaCode) \(city)"))
+                print(Debug.success(source: (name(of: self), #function), message: "Reverse Geocoding: (\(self.latitude), \(self.longitude)) is \(street) in \(areaCode) \(city)"))
                 completion((street, areaCode, city))
             }
 
         }
     }
 
+    func getDistance(from otherLocation:CLLocation) -> Double {
+        return otherLocation.distance(from: self.asObject)
+    }
 }

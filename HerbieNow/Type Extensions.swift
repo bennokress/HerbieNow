@@ -3,7 +3,7 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 14.12.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import UIKit
@@ -11,11 +11,11 @@ import JASON
 import Alamofire
 
 extension Bool {
-    
+
     func toInt() -> Int {
         return self ? 1 : 0
     }
-    
+
 }
 
 extension DataRequest {
@@ -27,12 +27,11 @@ extension DataRequest {
      */
     static public func JASONReponseSerializer() -> DataResponseSerializer<JASON.JSON> {
         return DataResponseSerializer { _, _, data, error in
-            guard error == nil else {
-                // swiftlint:disable:next force_unwrapping
-                return .failure(error!)
+            if let error = error {
+                return .failure(error)
+            } else {
+                return .success(JASON.JSON(data))
             }
-
-            return .success(JASON.JSON(data))
         }
     }
 
@@ -138,19 +137,16 @@ extension Int {
             return false
         }
     }
-    
+
     /// Converts Integer to 3-digit-String
     func to3DigitString() -> String {
-        if(self >= 0 && self < 10){
+        if self >= 0 && self < 10 {
             return "00\(self)"
-        }
-        else if(self >= 10 && self < 100){
+        } else if self >= 10 && self < 100 {
             return "0\(self)"
-        }
-        else if(self >= 100 && self < 1000){
+        } else if self >= 100 && self < 1000 {
             return "\(self)"
-        }
-        else {
+        } else {
             return "999"
         }
     }
@@ -191,9 +187,51 @@ extension String {
         self = self.replacing(" ", with: "")
     }
 
+    func replaceGermanCharacters() -> String {
+
+        return self
+            .replacing("ä", with: "ae")
+            .replacing("ö", with: "oe")
+            .replacing("ü", with: "ue")
+            .replacing("Ä", with: "Ae")
+            .replacing("Ö", with: "Oe")
+            .replacing("Ü", with: "Ue")
+            .replacing("ß", with: "ss")
+
+    }
+
     func until(_ string: String) -> String {
         var components = self.components(separatedBy: string)
         return components[0]
+    }
+
+    func toBoolArray() -> [Bool] {
+        var boolArray:[Bool] = []
+        for char in self.characters {
+            if char == "0" {
+                boolArray.append(false)
+            } else {
+                boolArray.append(true)
+            }
+        }
+        return boolArray
+
+    }
+
+    func toIntArray() -> [Int] {
+
+        let index = self.index(self.startIndex, offsetBy: 3)
+        guard let min = Int(self.substring(to: index)), let max = Int(self.substring(from: index)) else {
+            return []
+        }
+
+        // converting a 6-digit string of the form 065090 into an Int-array of the form [65, 90]
+        var intArray:[Int] = []
+
+        intArray.append(min)
+        intArray.append(max)
+
+        return intArray
     }
 
     struct Numbers { static let characterSet = CharacterSet(charactersIn: "0123456789") }

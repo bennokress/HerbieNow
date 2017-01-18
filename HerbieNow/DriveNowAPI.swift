@@ -3,7 +3,7 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 13.12.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import Foundation
@@ -51,7 +51,6 @@ class DriveNowAPI {
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
 
-        // swiftlint:disable:next line_length
         guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let longitude = json["longitude"].double else {
             return nil
         }
@@ -251,7 +250,7 @@ extension DriveNowAPI: API {
 
                 var vehicles: [Vehicle] = []
 
-                guard let jsonVehicles = json["items"][0]["cars"]["items"].jsonArray else {
+                guard let jsonVehicles = json["items"][0]["cars"]["items"].jsonArray, let jsonParkingSpaces = json["items"][0]["parkingSpaces"]["items"].jsonArray else {
                     response = self.errorDetails(for: json, in: functionName)
                     completion(response)
                     return
@@ -260,6 +259,21 @@ extension DriveNowAPI: API {
                 for jsonVehicle in jsonVehicles {
                     if let vehicle = self.getVehicleFromJSON(jsonVehicle) {
                         vehicles.append(vehicle)
+                    }
+                }
+
+                for parkingSpace in jsonParkingSpaces {
+                    guard let jsonParkingSpaceVehicles = parkingSpace["cars"]["items"].jsonArray else {
+                        // if jsonParkingSpaceVehicles can not be parsed somehow, then just the normal vehicles get passed back (no error)
+                        response = .vehicles(vehicles)
+                        completion(response)
+                        return
+                    }
+
+                    for jsonVehicle in jsonParkingSpaceVehicles {
+                        if let vehicle = self.getVehicleFromJSON(jsonVehicle) {
+                            vehicles.append(vehicle)
+                        }
                     }
                 }
 

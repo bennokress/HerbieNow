@@ -3,7 +3,7 @@
 //  HerbieNow
 //
 //  Created by Benno Kress on 13.12.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ protocol API {
     typealias Callback = (APICallResult) -> Void
 
     /// Login with credentials from Keychain -> returns Bool, if successful or not
-    func login( completion: @escaping Callback )
+    func login(completion: @escaping Callback )
 
     /// Get User Data retrieves the Open-Car-Token for DriveNow -> returns Bool, if successful or not
     func getUserData( completion: @escaping Callback )

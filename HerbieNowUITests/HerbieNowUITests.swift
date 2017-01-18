@@ -3,7 +3,7 @@
 //  HerbieNowUITests
 //
 //  Created by Benno Kress on 07.11.16.
-//  Copyright © 2016 LMU. All rights reserved.
+//  Copyright © 2017 LMU. All rights reserved.
 //
 
 import XCTest
