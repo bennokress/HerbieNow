@@ -40,7 +40,7 @@ class Car2GoAPI {
     static var shared = Car2GoAPI()
     private init() {
         oauthswift = OAuth1Swift(
-            consumerKey:    consumerKey,
+            consumerKey: consumerKey,
             consumerSecret: consumerSecret,
             requestTokenUrl: "https://www.car2go.com/api/reqtoken",
             authorizeUrl:    "https://www.car2go.com/api/authorize",
@@ -67,9 +67,11 @@ class Car2GoAPI {
     fileprivate func getOAuthSessionManager(completion: @escaping (SessionManager?) -> Void) {
         let oauthSessionManager = SessionManager.default
         if let savedCredential = credential {
+            print(savedCredential.oauthToken)
+            print(savedCredential.oauthTokenSecret)
             oauthswift.client.credential.oauthToken = savedCredential.oauthToken
             oauthswift.client.credential.oauthTokenSecret = savedCredential.oauthTokenSecret
-            oauthSessionManager.adapter = oauthswift.requestAdapter
+            oauthSessionManager.adapter = OAuthSwiftRequestAdapter(oauthswift)
             completion(oauthSessionManager)
         } else {
             authorizeHerbieNowForCar2Go() { response in
@@ -164,22 +166,19 @@ extension Car2GoAPI: API {
 
         let url = "https://www.car2go.com/api/v2.1/accounts?oauth_consumer_key=\(consumerKey)&format=\(format)"
 
-        getOAuthSessionManager() { _ in
+        getOAuthSessionManager() { sessionManager in
 
-            //            guard let AlamofireWithOAuth = sessionManager else {
-            //                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: #function)
-            //                completion(error)
-            //                // TODO: Maybe start login call automatically and come back here afterwards?
-            //                return
-            //            }
+            guard let AlamofireWithOAuth = sessionManager else {
+                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: #function)
+                completion(error)
+                return
+            }
 
-            let AlamofireWithOAuth = SessionManager.default
-            AlamofireWithOAuth.adapter = self.oauthswift.requestAdapter
-            AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).response { callback in
+            let request = AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).response { callback in
 
+                print(callback.response ?? "No response")
                 //                let response: APICallResult
-                print(callback)
-
+                //
                 //                if let json = callback.result.value {
                 //
                 //                    guard let accountID = json["account"][0]["accountId"].int else {
@@ -194,8 +193,9 @@ extension Car2GoAPI: API {
                 //                } else {
                 //                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: #function)
                 //                }
-
             }
+
+            debugPrint(request)
 
         }
 

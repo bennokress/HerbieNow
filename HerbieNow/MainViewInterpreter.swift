@@ -81,7 +81,7 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 print(Debug.info(class: self, func: #function, message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
             case .vehicles(let vehicles):
                 print(Debug.info(class: self, func: #function, message: "Let map show \(vehicles.count) vehicles."))
-//                                presenter.showVehiclesOnMap(vehicles)
+                //                                presenter.showVehiclesOnMap(vehicles)
                 //                print(Debug.info(class: self, func: #function, message: "Let the presenter display the following \(vehicles.count) vehicles:"))
                 //                for vehicle in vehicles {
                 //                    print(Debug.list(message: vehicle.description, indent: 1))
@@ -142,7 +142,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     func filtersetButtonPressed() {
 
         // TODO: id durch filtersetButton ID ersetzen
-//        let id = 1
+        //        let id = 1
 
         //        let filterset = logic.getFilterset(for: id)
         // TODO: logic.getVehicles (for all accounts of filterset)
@@ -162,16 +162,16 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     // Das da unten kann dann später mal weg ...
 
     func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        //        logic.getUserData(from: .car2go) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: false)
-        //        }
+        logic.getUserData(from: .car2go) { response in
+            self.handleAPIresponse(response, presenterActionRequired: false)
+        }
 
         // logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
         //    self.handleAPIresponse(response, presenterActionRequired: true)
         // }
-        logic.login(with: .car2go) { (response) in
-            self.handleAPIresponse(response, presenterActionRequired: true)
-        }
+        //        logic.login(with: .car2go) { (response) in
+        //            self.handleAPIresponse(response, presenterActionRequired: true)
+        //        }
 
         //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
         //            self.handleAPIresponse(response, presenterActionRequired: true)
