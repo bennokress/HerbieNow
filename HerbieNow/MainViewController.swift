@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
     @IBOutlet fileprivate weak var filterset7Button: UIButton!
     @IBOutlet fileprivate weak var filterset8Button: UIButton!
     @IBOutlet fileprivate weak var filterset9Button: UIButton!
-    
+
     @IBOutlet fileprivate weak var filterset1Label: UILabel!
     @IBOutlet fileprivate weak var filterset2Label: UILabel!
     @IBOutlet fileprivate weak var filterset3Label: UILabel!
@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
     @IBOutlet fileprivate weak var filterset7Label: UILabel!
     @IBOutlet fileprivate weak var filterset8Label: UILabel!
     @IBOutlet fileprivate weak var filterset9Label: UILabel!
-    
+
     @IBOutlet fileprivate weak var driveNowButton: UIButton!
     @IBOutlet fileprivate weak var car2goButton: UIButton!
     @IBOutlet fileprivate weak var goToMapButton: UIButton!
@@ -142,7 +142,7 @@ class MainViewController: UIViewController {
         print(Debug.event(message: "Map Button Pressed"))
         interpreter.mapButtonPressed()
     }
-    
+
     private func setExclusiveTouchForAllButtons() {
         for case let button as UIButton in self.view.subviews {
             button.isExclusiveTouch = true
