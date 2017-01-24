@@ -22,6 +22,7 @@ class Car2GoAPI {
     let consumerKey = "HerbyNow"
     let consumerSecret = "e1t9zimQmxmGrJ9eoMaq"
     let format = "json"
+    let test = 1
 
     let oauthswift: OAuth1Swift
 
@@ -88,12 +89,38 @@ class Car2GoAPI {
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
         guard let vin = json["vin"].string,
             let fuelLevelInPercent = json["fuel"].int,
-            let transmissionChar = json["engineType"].character,
-            let licensePlate = json["name"].string,
-            let latitude = json["coordinates"][1].double,
-            let longitude = json["coordinates"][0].double
+            let transmissionChar = json["engineType"].character
             else {
                 return nil
+        }
+        var licensePlateValue:String?=nil
+        var locationValue:Location?=nil
+
+        if let licensePlate = json["name"].string {
+            licensePlateValue = licensePlate
+        } else if let licensePlate = json["numberPlate"].string {
+            licensePlateValue = licensePlate
+        } else {
+            return nil
+        }
+
+        guard let license = licensePlateValue else {
+            print(Debug.error(source: (name(of: self), #function), message: "License Plate not Detected"))
+            return nil
+        }
+
+        if let latitude = json["coordinates"][1].double, let longitude = json["coordinates"][0].double {
+            print("Optional1")
+            locationValue = Location(latitude: latitude, longitude: longitude)
+        } else if let latitude = json["position"]["latitude"].double, let longitude = json["position"]["longitude"].double {
+            print("Option2")
+            locationValue = Location(latitude: latitude, longitude: longitude)
+        } else {
+            return nil
+        }
+        guard let location = locationValue else {
+            print(Debug.error(source: (name(of: self), #function), message: "Convertaion for Coordinates failed."))
+            return nil
         }
 
         // TODO Hier noch nicht fertig
@@ -101,14 +128,12 @@ class Car2GoAPI {
         let fuelType = FuelType(fromRawValue: "P")
         let transmissionType = TransmissionType(fromRawValue: transmissionChar)
 
-        let location = Location(latitude: latitude, longitude: longitude)
-
         return Vehicle(provider: car2go,
                        vin: vin,
                        fuelLevel: fuelLevelInPercent,
                        fuelType: fuelType,
                        transmissionType: transmissionType,
-                       licensePlate: licensePlate,
+                       licensePlate: license,
                        location: location
         )
     }
@@ -119,9 +144,8 @@ class Car2GoAPI {
                 return nil
         }
 
-        let endTime = (startTime + 1800*1000) // add 30 min Reservation Time
+        let endTime = (startTime + 30*60*1000) // add 30 min Reservation Time
         let endDate = Date(unixTimestamp: endTime)
-
         return Reservation(provider: car2go, endTime: endDate, vehicle: vehicle)
     }
 
@@ -141,6 +165,7 @@ class Car2GoAPI {
         }
         return Location(latitude: latitude, longitude: longitude, car2goCityName: name)
     }
+
 }
 
 extension Car2GoAPI: API {
@@ -205,6 +230,41 @@ extension Car2GoAPI: API {
     }
 
     func getReservationStatus(completion: @escaping Callback) {
+        let functionName = funcID(class: self, func:#function)
+
+        let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)"
+
+        self.getOAuthSessionManager() { sessionManager in
+
+            guard let AlamofireWithOAuth = sessionManager else {
+                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                completion(error)
+                return
+            }
+
+            AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+
+                let response: APICallResult
+
+                if let json = callback.result.value {
+                    guard let bookingArray = json["booking"].jsonArray else {
+                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: functionName)
+                        completion(response)
+                        return
+                    }
+
+                    let userHasActiveReservation = (bookingArray.count > 0) ? true : false
+                    let reservation = userHasActiveReservation ? (self.getReservationFromJSON(bookingArray[0])) : nil
+
+                    response = .reservation(active: userHasActiveReservation, reservation: reservation)
+
+                } else {
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                }
+                completion(response)
+            }
+
+        }
 
     }
 
@@ -303,17 +363,118 @@ extension Car2GoAPI: API {
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
 
+        let functionName = funcID(class: self, func:#function)
+
+        getNearestCity(to: appData.getUserLocation()) { cityString in
+
+            let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)&vin=\(vin)&account=\(self.appData.getUserID(for: .car2go))"
+
+            self.getOAuthSessionManager() { sessionManager in
+
+                guard let AlamofireWithOAuth = sessionManager else {
+                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                    completion(error)
+                    return
+                }
+
+                AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+
+                    let response: APICallResult
+
+                    if let json = callback.result.value {
+                        guard let bookingArray = json["booking"].jsonArray else {
+                            response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: functionName)
+                            completion(response)
+                            return
+                        }
+
+                        let userHasActiveReservation = (bookingArray.count > 0) ? true : false
+
+                        response = .success(userHasActiveReservation)
+
+                    } else {
+                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                    }
+                    completion(response)
+                }
+
+            }
+
+        }
+
     }
 
     func cancelReservation(completion: @escaping Callback) {
+        let functionName = funcID(class: self, func:#function)
+
+        var url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)"
+
+        self.getOAuthSessionManager() { sessionManager in
+
+            guard let AlamofireWithOAuth = sessionManager else {
+                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                completion(error)
+                return
+            }
+
+            AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+
+                var response: APICallResult
+
+                if let json = callback.result.value {
+                    guard let bookingArray = json["booking"].jsonArray else {
+                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false 1", in: functionName)
+                        completion(response)
+                        return
+                    }
+
+                    let userHasActiveReservation = (bookingArray.count > 0) ? true : false
+
+                    if userHasActiveReservation {
+                        let bookingID = bookingArray[0]["bookingId"]
+                        url="https://www.car2go.com/api/v2.1/booking/\(bookingID)"
+                        response = .success(true)
+
+                        AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+
+                            guard let bookingStatus = json["returnValue"]["code"].int else {
+                                response = self.errorDetails(code: 0, status: "Car2Go", message: "CancleRequest is gone false 2", in: functionName)
+                                completion(response)
+                                return
+                            }
+                            var cancleRequest:Bool
+
+                            if bookingStatus == 0 {
+                                cancleRequest=true
+                            } else {
+                                cancleRequest=false
+                            }
+
+                            response = .success(cancleRequest)
+
+                        }
+                    } else {
+                        response = .success(true) //Keine Aktive Reservierung vorhanden
+                    }
+
+                } else {
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                }
+
+                completion(response)
+            }
+
+        }
 
     }
 
     func openVehicle(withVIN vin: String, completion: @escaping Callback) {
+        /*Not given in Car2go*/
 
     }
 
     func closeVehicle(withVIN vin: String, completion: @escaping Callback) {
+        /*Not given in Car2go*/
 
     }
 
