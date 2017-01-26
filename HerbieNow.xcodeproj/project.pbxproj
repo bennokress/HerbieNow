@@ -24,6 +24,8 @@
 		9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969311E16B0D100E70773 /* CaviarDreams.ttf */; };
 		9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */; };
 		9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6871481E16B7CA00994011 /* Assets.xcassets */; };
+		9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */; };
+		9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD31E3977970038349F /* Ailerons-Typeface.otf */; };
 		D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */; };
 		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
 		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
@@ -105,6 +107,8 @@
 		9E6871481E16B7CA00994011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E6969311E16B0D100E70773 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
+		9E782CD31E3977970038349F /* Ailerons-Typeface.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ailerons-Typeface.otf"; sourceTree = "<group>"; };
+		9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
 		D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleFormat.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 		9E6969301E16B09900E70773 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */,
+				9E782CD31E3977970038349F /* Ailerons-Typeface.otf */,
 				9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */,
 				9E6969311E16B0D100E70773 /* CaviarDreams.ttf */,
 			);
@@ -463,6 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */,
+				9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */,
 				9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */,
 				9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */,
 				034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */,
