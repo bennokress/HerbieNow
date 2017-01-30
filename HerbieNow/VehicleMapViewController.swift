@@ -23,49 +23,36 @@ class VehicleMapViewController: UIViewController {
 
     // nur fuers testen, kommt aus dem model
     let initialLocation = CLLocation(latitude: 48.149960, longitude: 11.594359)
-    // zoomradius
+    
+    // zoom radius
     let regionRadius:CLLocationDistance = 1000
-
-    // test funktion fuer dummy-autos
-    func getVehicles() -> [Vehicle] {
-        let vehicleList: [Vehicle] = []
-        /*
-         vehicleList.append(Vehicle(provider: "DriveNow",
-         model: "BMW",
-         location: CLLocationCoordinate2D(latitude: 48.150500, longitude: 11.595638)))
-         vehicleList.append(Vehicle(provider: "DriveNow",
-         model: "Smart",
-         location: CLLocationCoordinate2D(latitude: 48.149954, longitude: 11.595037)))
-         vehicleList.append(Vehicle(provider: "DriveNow",
-         model: "Mercedes",
-         location: CLLocationCoordinate2D(latitude: 48.150226, longitude: 11.595155)))
-         vehicleList.append(Vehicle(provider: "Car2Go",
-         model: "BMW",
-         location: CLLocationCoordinate2D(latitude: 48.150827, longitude: 11.595085)))
-         vehicleList.append(Vehicle(provider: "Car2Go",
-         model: "Smart",
-         location: CLLocationCoordinate2D(latitude: 48.148980, longitude: 11.594608)))
-         */
-        return vehicleList
-    }
-
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(Debug.event(message: "MapView: View Did Load"))
+        
         centerMapOnLocation(location: initialLocation)
         mapView.delegate = self
+        
+        createAnnotations()
+    }
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func createAnnotations() {
         var annotations: [PinAnnotation] = []
+        let vehicleList: [Vehicle] = []
+        
         // iterate through vehicles to set every pin
-        for _ in getVehicles() {
+        for _ in vehicleList {
             var color: UIColor
             // hier z.B.: if drivenow -> red, else -> blue
             color = UIColor.red
-
+            
             let anno = PinAnnotation(title: "Car", locationName: "vehicle.getDescription()", discipline: "Car", coordinate: CLLocationCoordinate2DMake(0, 0), color: color)
             annotations.append(anno)
         }
