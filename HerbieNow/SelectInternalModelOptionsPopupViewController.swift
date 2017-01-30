@@ -9,6 +9,12 @@
 import UIKit
 import Presentr
 
+protocol SelectInternalModelOptionsPopupViewControllerProtocol: class {
+    
+    var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol { get set }
+    
+}
+
 class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     // Displayed Options in Popup
@@ -20,9 +26,6 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
     var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
     var selectedHPRange: (min: Int, max: Int) = (0, 200)
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var fuelTypePetrolButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeDieselButton: UIButton!

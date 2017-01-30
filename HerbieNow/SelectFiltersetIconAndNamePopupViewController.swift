@@ -9,15 +9,18 @@
 import UIKit
 import Presentr
 
+protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
+    
+    var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol { get set }
+    
+}
+
 class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
 
     let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
 
     var selectedIconID: Int = 1
     var selectedName = ""
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var iconPicker: AKPickerView!
 

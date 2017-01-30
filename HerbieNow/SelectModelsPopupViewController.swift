@@ -9,6 +9,12 @@
 import UIKit
 import Presentr
 
+protocol SelectModelsPopupViewControllerProtocol: class {
+    
+    var interpreter: SelectModelsPopupInterpreterProtocol { get set }
+    
+}
+
 class SelectModelsPopupViewController: PopupViewController {
 
     // Displayed Models in Popup
@@ -20,9 +26,6 @@ class SelectModelsPopupViewController: PopupViewController {
     var selectedModels: Set<Model> = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
                                       .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
                                       .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var bmw1er5DoorButton: UIButton!
     @IBOutlet fileprivate weak var bmwI3Button: UIButton!

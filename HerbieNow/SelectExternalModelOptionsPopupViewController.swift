@@ -9,6 +9,12 @@
 import UIKit
 import Presentr
 
+protocol SelectExternalModelOptionsPopupViewControllerProtocol: class {
+    
+    var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol { get set }
+    
+}
+
 class SelectExternalModelOptionsPopupViewController: PopupViewController {
 
     // Sele Options in Popup
@@ -16,9 +22,6 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
     var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
     var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
     var selectedHiFiMandatorySetting: Bool = false
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
     @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!
