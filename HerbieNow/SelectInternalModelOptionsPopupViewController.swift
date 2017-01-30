@@ -15,17 +15,11 @@ protocol SelectInternalModelOptionsPopupViewControllerProtocol: class {
 
 }
 
-class SelectInternalModelOptionsPopupViewController: PopupViewController {
-
-    // Displayed Options in Popup
-    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
-    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
-    var displayedHPRange: (min: Int, max: Int) = (0, 200)
-
-    // Selected Values by the user, updated dynamically - Set is used, because it prohibits duplicate items
-    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
-    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
-    var selectedHPRange: (min: Int, max: Int) = (0, 200)
+class SelectInternalModelOptionsPopupViewController: PopupViewController, SelectInternalModelOptionsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol = SelectInternalModelOptionsPopupInterpreter(for: self) as SelectInternalModelOptionsPopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     @IBOutlet fileprivate weak var fuelTypePetrolButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeDieselButton: UIButton!
@@ -43,20 +37,50 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        configureNavigationButtons()
+        interpreter.viewDidAppear(with: data)
+    }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
+    
+    // Displayed Options in Popup
+    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
+    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
+    var displayedHPRange: (min: Int, max: Int) = (0, 200)
+    
+    // Selected Values by the user, updated dynamically - Set is used, because it prohibits duplicate items
+    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
+    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
+    var selectedHPRange: (min: Int, max: Int) = (0, 200)
+    
+    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeConfirmButtonAction()
+        }
+    }
+    
+    @IBAction func backBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeBackButtonAction()
+        }
+    }
+    
+    @IBAction func abortButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeAbortButtonAction()
+        }
     }
 
-    // MARK: - Selection Button Methods
+}
 
-    private func flipSelection(for type: FuelType) {
+extension SelectInternalModelOptionsPopupViewController: InternalRouting {
+
+    fileprivate func flipSelection(for type: FuelType) {
         if selectedFuelTypes.contains(type) {
             selectedFuelTypes.remove(type)
         } else {
@@ -64,7 +88,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
         }
     }
 
-    private func flipSelection(for type: TransmissionType) {
+    fileprivate func flipSelection(for type: TransmissionType) {
         if selectedTransmissionTypes.contains(type) {
             selectedTransmissionTypes.remove(type)
         } else {
@@ -76,11 +100,11 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     // MARK: - Selection TextField Methods
 
-    private func adjustMinHP(to newValue: Int) {
+    fileprivate func adjustMinHP(to newValue: Int) {
         selectedHPRange.min = newValue
     }
 
-    private func adjustMaxHP(to newValue: Int) {
+    fileprivate func adjustMaxHP(to newValue: Int) {
         selectedHPRange.max = newValue
     }
 
@@ -88,7 +112,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     // MARK: - Navigational Button Methods
 
-    private func configureNavigationButtons() {
+    fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {
             self.confirmButton.imageForNormal = UIImage(named: "Next")
             self.confirmButton.imageView?.tintColor = UIColor.green
@@ -98,35 +122,17 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
         }
     }
 
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
-        }
-    }
-
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
-        }
-    }
-
-    @IBAction func abortButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
-        }
-    }
-
-    private func executeConfirmButtonAction() {
+    fileprivate func executeConfirmButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.dismissed(popup)
     }
 
-    private func executeBackButtonAction() {
+    fileprivate func executeBackButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
         //        delegate?.reverted(popup)
     }
 
-    private func executeAbortButtonAction() {
+    fileprivate func executeAbortButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.aborted(popup)
     }

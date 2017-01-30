@@ -15,12 +15,11 @@ protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
 
 }
 
-class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
-
-    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
-
-    var selectedIconID: Int = 1
-    var selectedName = ""
+class SelectFiltersetIconAndNamePopupViewController: PopupViewController, SelectFiltersetIconAndNamePopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol = SelectFiltersetIconAndNamePopupInterpreter(for: self) as SelectFiltersetIconAndNamePopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     @IBOutlet fileprivate weak var iconPicker: AKPickerView!
 
@@ -32,18 +31,22 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
-        //        selectedName = "Filterset #\(filterset.getPosition())"
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
+        interpreter.viewDidAppear(with: data)
         // TODO: Remove models based on current filterset from displayed models to disable them permanently for the current workflow
-        configureNavigationButtons()
     }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
+    
+    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
+    
+    var selectedIconID: Int = 1
+    var selectedName = ""
 
     // MARK: - Icon Picker Methods
 

@@ -12,7 +12,7 @@ protocol LoginPopupViewControllerProtocol: class {
 
     var interpreter: LoginPopupInterpreterProtocol { get set }
 
-    func usernameAndPasswordAreSaved(from returnData: ViewReturnData)
+    func dismissPopup(with returnData: ViewReturnData)
     func usernameWasRejected(because reason: String)
     func passwordWasRejected(because reason: String)
 
@@ -47,7 +47,7 @@ class LoginPopupViewController: PopupViewController {
 
 extension LoginPopupViewController: LoginPopupViewControllerProtocol {
 
-    func usernameAndPasswordAreSaved(from returnData: ViewReturnData) {
+    func dismissPopup(with returnData: ViewReturnData) {
         dismiss(animated: true) { () in
             self.delegate?.popupDismissed(with: returnData, via: .confirm)
         }

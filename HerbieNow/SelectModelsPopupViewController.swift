@@ -15,17 +15,11 @@ protocol SelectModelsPopupViewControllerProtocol: class {
 
 }
 
-class SelectModelsPopupViewController: PopupViewController {
-
-    // Displayed Models in Popup
-    var displayedModels: [Model] = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
-                                    .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
-                                    .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
-
-    // Sele Options in Popup
-    var selectedModels: Set<Model> = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
-                                      .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
-                                      .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
+class SelectModelsPopupViewController: PopupViewController, SelectModelsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectModelsPopupInterpreterProtocol = SelectModelsPopupInterpreter(for: self) as SelectModelsPopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     @IBOutlet fileprivate weak var bmw1er5DoorButton: UIButton!
     @IBOutlet fileprivate weak var bmwI3Button: UIButton!
@@ -48,17 +42,27 @@ class SelectModelsPopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        configureNavigationButtons()
+        interpreter.viewDidAppear(with: data)
     }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
 
+    // Displayed Models in Popup
+    var displayedModels: [Model] = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
+                                    .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
+                                    .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
+    
+    // Sele Options in Popup
+    var selectedModels: Set<Model> = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
+                                      .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
+                                      .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
+    
     // MARK: - Selection Button Methods
 
     private func flipModelSelection(for type: Model) {

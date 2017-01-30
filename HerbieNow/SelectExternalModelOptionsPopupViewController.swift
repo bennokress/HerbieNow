@@ -15,13 +15,11 @@ protocol SelectExternalModelOptionsPopupViewControllerProtocol: class {
 
 }
 
-class SelectExternalModelOptionsPopupViewController: PopupViewController {
-
-    // Sele Options in Popup
-    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
-    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
-    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
-    var selectedHiFiMandatorySetting: Bool = false
+class SelectExternalModelOptionsPopupViewController: PopupViewController, SelectExternalModelOptionsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol = SelectExternalModelOptionsPopupInterpreter(for: self) as SelectExternalModelOptionsPopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
     @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!
@@ -41,16 +39,22 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        configureNavigationButtons()
+        interpreter.viewDidAppear(with: data)
     }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
+    
+    // Sele Options in Popup
+    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
+    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
+    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
+    var selectedHiFiMandatorySetting: Bool = false
 
     // MARK: - Selection Button Methods
 
