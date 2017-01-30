@@ -10,13 +10,11 @@ import Foundation
 
 protocol LoginPopupInterpreterProtocol: class {
 
-    var presenter: LoginPopupPresenterProtocol { get set }
-    var logic: LogicProtocol { get set }
-
     func login(with returnData: ViewReturnData)
 
 }
 
+// MARK: -
 class LoginPopupInterpreter {
 
     var presenter: LoginPopupPresenterProtocol
@@ -29,6 +27,7 @@ class LoginPopupInterpreter {
 
 }
 
+// MARK: - Login Popup Interpreter Protocol Conformance
 extension LoginPopupInterpreter: LoginPopupInterpreterProtocol {
 
     func login(with returnData: ViewReturnData) {

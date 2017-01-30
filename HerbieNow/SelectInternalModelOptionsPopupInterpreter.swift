@@ -14,10 +14,15 @@ protocol SelectInternalModelOptionsPopupInterpreterProtocol {
 
 }
 
+// MARK: -
 class SelectInternalModelOptionsPopupInterpreter {
+    
+    // MARK: Links
 
     var presenter: SelectInternalModelOptionsPopupPresenterProtocol
     var logic: LogicProtocol
+    
+    // MARK: Initialization
 
     init(for vehicleMapVC: SelectInternalModelOptionsPopupViewControllerProtocol? = nil, _ presenter: SelectInternalModelOptionsPopupPresenterProtocol = SelectInternalModelOptionsPopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
 
@@ -28,6 +33,7 @@ class SelectInternalModelOptionsPopupInterpreter {
 
 }
 
+// MARK: Select Internal Model Options Popup Interpreter Protocol Conformance
 extension SelectInternalModelOptionsPopupInterpreter: SelectInternalModelOptionsPopupInterpreterProtocol {
     
     func viewDidAppear(with data: ViewData?) {
@@ -37,7 +43,7 @@ extension SelectInternalModelOptionsPopupInterpreter: SelectInternalModelOptions
         }
         
         if case .internalModelOptionsPopupData() = viewData {
-            // TODO: implement
+            // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

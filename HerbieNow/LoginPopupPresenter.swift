@@ -10,24 +10,29 @@ import Foundation
 
 protocol LoginPopupPresenterProtocol: class {
 
-    weak var popup: LoginPopupViewControllerProtocol? { get set }
-
     func credentialsAccepted(from returnData: ViewReturnData)
     func usernameRejected(because reason: String)
     func passwordRejected(because reason: String)
 
 }
 
+
+// MARK: -
 class LoginPopupPresenter {
+    
+    // MARK: Links
 
     weak var popup: LoginPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
 
+    // MARK: Initialization
+    
     init(to loginViewController: LoginPopupViewControllerProtocol? = nil) {
         popup = loginViewController
     }
 
 }
 
+// MARK: Login Popup Presenter Protocol Conformance
 extension LoginPopupPresenter: LoginPopupPresenterProtocol {
 
     func credentialsAccepted(from returnData: ViewReturnData) {

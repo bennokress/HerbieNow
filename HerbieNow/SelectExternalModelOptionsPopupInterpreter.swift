@@ -14,10 +14,15 @@ protocol SelectExternalModelOptionsPopupInterpreterProtocol {
 
 }
 
+// MARK: -
 class SelectExternalModelOptionsPopupInterpreter {
+    
+    // MARK: Links
 
     var presenter: SelectExternalModelOptionsPopupPresenterProtocol
     var logic: LogicProtocol
+    
+    // MARK: Initialization
 
     init(for vehicleMapVC: SelectExternalModelOptionsPopupViewControllerProtocol? = nil, _ presenter: SelectExternalModelOptionsPopupPresenterProtocol = SelectExternalModelOptionsPopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
 
@@ -28,6 +33,7 @@ class SelectExternalModelOptionsPopupInterpreter {
 
 }
 
+// MARK: Select External Model Options Popup Interpreter Protocol Conformance
 extension SelectExternalModelOptionsPopupInterpreter: SelectExternalModelOptionsPopupInterpreterProtocol {
     
     func viewDidAppear(with data: ViewData?) {
@@ -37,7 +43,7 @@ extension SelectExternalModelOptionsPopupInterpreter: SelectExternalModelOptions
         }
         
         if case .externalModelOptionsPopupData() = viewData {
-            // TODO: implement
+            // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

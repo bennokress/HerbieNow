@@ -12,9 +12,14 @@ protocol SelectModelsPopupPresenterProtocol {
 
 }
 
+// MARK: -
 class SelectModelsPopupPresenter {
 
+    // MARK: Links
+
     weak var vehicleMapVC: SelectModelsPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
+
+    // MARK: Initialization
 
     init(to vehicleMapViewController: SelectModelsPopupViewControllerProtocol? = nil) {
         vehicleMapVC = vehicleMapViewController
@@ -22,6 +27,7 @@ class SelectModelsPopupPresenter {
 
 }
 
+// MARK: Select Models Popup Presenter Protocol Conformance
 extension SelectModelsPopupPresenter: SelectModelsPopupPresenterProtocol {
 
 }
