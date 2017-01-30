@@ -10,7 +10,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol VehicleMapViewControllerProtocol: class {
+    
+}
+
 class VehicleMapViewController: UIViewController {
+    
+    // swiftlint:disable:next force_cast
+    lazy var interpreter: VehicleMapInterpreterProtocol = VehicleMapInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
     
     //cmd drag mit der map view im storyboard
     @IBOutlet weak var mapView: MKMapView!
@@ -66,6 +73,10 @@ class VehicleMapViewController: UIViewController {
         mapView.addAnnotations(annotations)
     }
     
+    
+}
+
+extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     
 }
 
