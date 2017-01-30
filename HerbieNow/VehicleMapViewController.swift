@@ -13,13 +13,9 @@ import CoreLocation
 protocol VehicleMapViewControllerProtocol: class {
     
     func centerMap(on location: Location)
-    
     func showMyLocation(at location: Location)
-    
     func showAnnotations(for vehicles: [Vehicle])
-    
-    /// Performs the segue back to the main view (after the Back-button is pressed)
-    func goToMainView()
+    func goBackToMainView()
 
 }
 
@@ -59,6 +55,7 @@ class VehicleMapViewController: UIViewController {
     }
 }
 
+// MARK: - Vehicle Map View Controller Protocol Conformance
 extension VehicleMapViewController: VehicleMapViewControllerProtocol {
 
     func centerMap(on location: Location) {
@@ -90,11 +87,12 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
         mapViewOutlet.addAnnotations(annotations)
     }
     
-    func goToMainView() {
+    func goBackToMainView() {
         // TODO: segue to main view
     }
 }
 
+// MARK: - Map View Delegate Conformance
 extension VehicleMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

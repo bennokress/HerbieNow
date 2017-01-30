@@ -11,16 +11,17 @@ import SwiftSpinner
 
 protocol MainViewControllerProtocol: class {
 
-    // This protocol contains every function, the MainViewPresenter can call.
-
-    /// Performs the segue to Map View. Typically after the search button is pressed.
-    func goToMapView(with vehicles: [Vehicle])
-
-    // TODO: Add arguments and documentation comment - FiltersetButtons & ProviderButtons
-    func displayConfiguredButtonsAndLabels(filtersets: [Filterset?], providers: [Bool])
-
-    // TODO: Maybe change to filterset ID? Add documentation comment
-    func showDeleteFiltersetAlert(for filterset: Filterset)
+    // MARK: UI Configuration
+    func configureFiltersetButtons(filtersets: [Filterset?], providers: [Bool])
+    func dismissLoadingAnimation()
+    
+    // MARK: Segues and Popup Presentation
+    func presentMapView(with data: ViewData)
+    func presentLoginPopup()
+    func presentSelectInternalModelOptionsPopup(with data: ViewData)
+    func presentSelectExternalModelOptionsPopup(with data: ViewData)
+    func presentSelectModelsPopup(with data: ViewData)
+    func presentSelectFiltersetIconAndNamePopup(with data: ViewData)
 
 }
 
@@ -103,33 +104,33 @@ class MainViewController: UIViewController {
         interpreter.filtersetButtonPressed(id: id)
     }
 
-    @IBAction func filtersetButtonLongPressed(_ sender: UIButton) {
-        let id: Int
-        switch sender {
-        case filterset1Button:
-            id = 1
-        case filterset2Button:
-            id = 2
-        case filterset3Button:
-            id = 3
-        case filterset4Button:
-            id = 4
-        case filterset5Button:
-            id = 5
-        case filterset6Button:
-            id = 6
-        case filterset7Button:
-            id = 7
-        case filterset8Button:
-            id = 8
-        case filterset9Button:
-            id = 9
-        default:
-            return
-        }
-        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Long Pressed"))
-        interpreter.filtersetButtonLongPressed(id: id)
-    }
+//    @IBAction func filtersetButtonLongPressed(_ sender: UIButton) {
+//        let id: Int
+//        switch sender {
+//        case filterset1Button:
+//            id = 1
+//        case filterset2Button:
+//            id = 2
+//        case filterset3Button:
+//            id = 3
+//        case filterset4Button:
+//            id = 4
+//        case filterset5Button:
+//            id = 5
+//        case filterset6Button:
+//            id = 6
+//        case filterset7Button:
+//            id = 7
+//        case filterset8Button:
+//            id = 8
+//        case filterset9Button:
+//            id = 9
+//        default:
+//            return
+//        }
+//        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Long Pressed"))
+//        interpreter.filtersetButtonLongPressed(id: id)
+//    }
 
     @IBAction func providerButtonPressed(_ sender: UIButton) {
         let provider: Provider
@@ -168,16 +169,36 @@ extension MainViewController: InternalRouting {
 
 // MARK: - Main View Controller Protocol Conformance
 extension MainViewController: MainViewControllerProtocol {
-
-    func goToMapView(with vehicles: [Vehicle]) {
+    
+    // MARK: - UI Configuration
+    
+    func configureFiltersetButtons(filtersets: [Filterset?], providers: [Bool]) {
         // TODO: implement function
     }
-
-    func displayConfiguredButtonsAndLabels(filtersets: [Filterset?], providers: [Bool]) {
+    
+    // MARK: Segues and Popup Presentation
+    
+    func presentMapView(with data: ViewData) {
         // TODO: implement function
     }
-
-    func showDeleteFiltersetAlert(for filterset: Filterset) {
+    
+    func presentLoginPopup() {
+        // TODO: implement function
+    }
+    
+    func presentSelectInternalModelOptionsPopup(with data: ViewData) {
+        // TODO: implement function
+    }
+    
+    func presentSelectExternalModelOptionsPopup(with data: ViewData) {
+        // TODO: implement function
+    }
+    
+    func presentSelectModelsPopup(with data: ViewData) {
+        // TODO: implement function
+    }
+    
+    func presentSelectFiltersetIconAndNamePopup(with data: ViewData) {
         // TODO: implement function
     }
 
@@ -196,11 +217,11 @@ extension MainViewController: PopupDelegate {
 
     func showLoadingAnimation(title: String) {
         let spinner = SwiftSpinner.sharedInstance
-        //        spinner.backgroundColor = UIColor.dunkelblau100
-        //        spinner.innerColor = UIColor.dunkelblau060
-        //        spinner.outerColor = UIColor.dunkelblau100
-        //        spinner.titleLabel.textColor = UIColor.dunkelblau020
-        //        spinner.titleLabel.font = UIFont.univers
+//        spinner.backgroundColor = UIColor(html: "#8fa6c2")
+        spinner.innerColor = UIColor(html: "#12253d")
+        spinner.outerColor = UIColor(html: "#010215")
+        spinner.titleLabel.textColor = UIColor(html: "#8fa6c2")
+        spinner.titleLabel.font = UIFont(name: "Ailerons-Regular", size: 22)
         spinner.title = title
         SwiftSpinner.show(title)
     }
