@@ -1,5 +1,5 @@
 //
-//  VehicleMapPresenter.swift
+//  VehicleMapViewPresenter.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 30.01.17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol VehicleMapPresenterProtocol {
+protocol VehicleMapViewPresenterProtocol {
     
     func centerMap(on location: Location)
     
@@ -18,18 +18,23 @@ protocol VehicleMapPresenterProtocol {
     
 }
 
-/// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
-class VehicleMapPresenter {
+// MARK: -
+class VehicleMapViewPresenter {
+    
+    // MARK: Links
 
     weak var vehicleMapVC: VehicleMapViewControllerProtocol? // avoiding a retain cycle with this weak reference
 
+    // MARK: Initialization
+    
     init(to vehicleMapViewController: VehicleMapViewControllerProtocol? = nil) {
         vehicleMapVC = vehicleMapViewController
     }
 
 }
 
-extension VehicleMapPresenter: VehicleMapPresenterProtocol {
+// MARK: - Vehicle Map View Presenter Protocol Conformance
+extension VehicleMapViewPresenter: VehicleMapViewPresenterProtocol {
     
     func centerMap(on location: Location) {
         vehicleMapVC?.centerMap(on: location)
@@ -40,7 +45,7 @@ extension VehicleMapPresenter: VehicleMapPresenterProtocol {
     }
     
     func goToMainView() {
-        vehicleMapVC?.goToMainView()
+        vehicleMapVC?.goBackToMainView()
     }
     
 }

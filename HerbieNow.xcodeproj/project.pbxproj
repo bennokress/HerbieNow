@@ -31,14 +31,14 @@
 		9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782CD91E3A7EF50038349F /* HerbieTextField.swift */; };
 		D306D1B81E1692E800D5CD64 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* Debug.swift */; };
 		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
-		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
+		D32089A01E0ACE5300C17BD7 /* LocationUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
 		D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
 		D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B11E3F80E700418581 /* EmptyProtocols.swift */; };
-		D384D4B51E3F839B00418581 /* VehicleMapInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */; };
-		D384D4B71E3F83A700418581 /* VehicleMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */; };
+		D384D4B51E3F839B00418581 /* VehicleMapViewInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B41E3F839B00418581 /* VehicleMapViewInterpreter.swift */; };
+		D384D4B71E3F83A700418581 /* VehicleMapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B61E3F83A700418581 /* VehicleMapViewPresenter.swift */; };
 		D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */; };
 		D384D4BD1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */; };
 		D384D4BF1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */; };
@@ -133,7 +133,7 @@
 		D306D1B71E1692E800D5CD64 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
-		D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInterpreterProtocol.swift; sourceTree = "<group>"; };
+		D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdateDelegate.swift; sourceTree = "<group>"; };
 		D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
 		D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwiftAlamofire.framework; path = Carthage/Build/iOS/OAuthSwiftAlamofire.framework; sourceTree = "<group>"; };
 		D3297A391E06B3D000831923 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 		D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filterset.swift; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
 		D384D4B11E3F80E700418581 /* EmptyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyProtocols.swift; sourceTree = "<group>"; };
-		D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapInterpreter.swift; sourceTree = "<group>"; };
-		D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapPresenter.swift; sourceTree = "<group>"; };
+		D384D4B41E3F839B00418581 /* VehicleMapViewInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapViewInterpreter.swift; sourceTree = "<group>"; };
+		D384D4B61E3F83A700418581 /* VehicleMapViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapViewPresenter.swift; sourceTree = "<group>"; };
 		D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupInterpreter.swift; sourceTree = "<group>"; };
 		D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsPopupInterpreter.swift; sourceTree = "<group>"; };
 		D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsPopupInterpreter.swift; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */,
-				D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */,
+				D384D4B61E3F83A700418581 /* VehicleMapViewPresenter.swift */,
 				D384D4B81E3F83D800418581 /* Popups */,
 			);
 			name = Presenter;
@@ -385,9 +385,9 @@
 		D384D4B31E3F835E00418581 /* Interpreter */ = {
 			isa = PBXGroup;
 			children = (
-				D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */,
+				D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */,
 				037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */,
-				D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */,
+				D384D4B41E3F839B00418581 /* VehicleMapViewInterpreter.swift */,
 				D384D4B91E3F83E300418581 /* Popups */,
 			);
 			name = Interpreter;
@@ -628,7 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */,
+				D32089A01E0ACE5300C17BD7 /* LocationUpdateDelegate.swift in Sources */,
 				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
 				D384D4CF1E3F8D4900418581 /* ViewEnumerations.swift in Sources */,
 				D384D4C31E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift in Sources */,
@@ -648,7 +648,7 @@
 				D384D4BD1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift in Sources */,
 				039F0B721DD8D6A000AB56C0 /* ModelEnumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
-				D384D4B51E3F839B00418581 /* VehicleMapInterpreter.swift in Sources */,
+				D384D4B51E3F839B00418581 /* VehicleMapViewInterpreter.swift in Sources */,
 				14FB0F151E3F7E9200BA763C /* VehicleMapViewController.swift in Sources */,
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
 				14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */,
@@ -667,7 +667,7 @@
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
 				039F0B741DD8DBC500AB56C0 /* User.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
-				D384D4B71E3F83A700418581 /* VehicleMapPresenter.swift in Sources */,
+				D384D4B71E3F83A700418581 /* VehicleMapViewPresenter.swift in Sources */,
 				D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */,
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,

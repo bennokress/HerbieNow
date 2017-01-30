@@ -11,32 +11,29 @@ import OAuthSwift
 
 protocol MainViewInterpreterProtocol {
 
-    func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
-
-    // This protocol contains every function, the MainViewController can call.
-
     func viewDidAppear()
 
+    // MARK: UI Interaction
     func providerButtonPressed(for provider: Provider)
-
     func mapButtonPressed()
-
     func filtersetButtonPressed(id: Int)
-
     func filtersetButtonLongPressed(id: Int)
 
-    // Popups
+    // MARK: Popups
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
 
 }
 
-/// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
-class MainViewInterpreter: GeneralInterpretProtocol {
+// MARK: -
+class MainViewInterpreter {
 
+    // MARK: Links
+    
     let appDelegate: AppDelegate
-
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
+    
+    // MARK: Initialization
 
     init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
 
@@ -45,14 +42,78 @@ class MainViewInterpreter: GeneralInterpretProtocol {
         self.logic = Logic()
 
     }
+    
+}
 
+// MARK: - Location Update Delegate Conformance
+extension MainViewInterpreter: LocationUpdateDelegate {
+    
     func locationUpdated(_ location: Location) {
         logic.saveUpdatedLocation(location)
         let labelText = "New Location\n\nLatitude:\n\(location.latitude)\nLongitude:\n\(location.longitude)"
         presenter.display(message: labelText)
     }
+    
+}
 
-    func requestRegularLocationUpdates() {
+// MARK: - Main View Interpreter Protocol Conformance
+extension MainViewInterpreter: MainViewInterpreterProtocol {
+    
+    func viewDidAppear() {
+        
+        //        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
+        //        presenter.configureAccountButtons(with: configuredAccounts)
+        
+        let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
+        presenter.configureFiltersetButtons(with: configuredFiltersets)
+        
+        // Allow Location Updates
+        // Triggers Pop-up window for location service authorization
+        requestRegularLocationUpdates()
+        
+    }
+    
+    func providerButtonPressed(for provider: Provider) {
+        
+        // TODO: Überprüfe, ob der Account verbunden ist
+        // logic.isAccountConfigured(for: Provider)
+        
+    }
+    
+    func mapButtonPressed() {
+        presenter.goToMapView()
+    }
+    
+    func filtersetButtonPressed(id: Int) {
+        
+        // let filterset = logic.getFilterset(for: id)
+        
+        // TODO: logic.getVehicles (for all accounts of filterset)
+        // TODO: filter vehicles according to filterset and save as filteredVehicles
+        
+        let filterset = Filterset(from: "00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded")
+        presenter.goToMapView(with: filterset)
+        
+    }
+    
+    func filtersetButtonLongPressed(id: Int) {
+        
+        // TODO: richtiges filterset herausfinden und übergeben
+        // presenter.showDeleteFiltersetAlert(for: filterset)
+        
+    }
+    
+    func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        // TODO: Handle this
+        Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
+    }
+    
+}
+
+// MARK: - Internal Functions
+extension MainViewInterpreter: InternalRouting {
+
+    fileprivate func requestRegularLocationUpdates() {
         appDelegate.registerCurrentInterpreterForLocationUpdates(self)
         appDelegate.locationManager.requestAlwaysAuthorization()
     }
@@ -111,87 +172,6 @@ class MainViewInterpreter: GeneralInterpretProtocol {
 
         }
 
-    }
-
-}
-
-extension MainViewInterpreter: MainViewInterpreterProtocol {
-
-    func viewDidAppear() {
-
-        //        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
-        //        presenter.configureAccountButtons(with: configuredAccounts)
-
-        let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
-        presenter.configureFiltersetButtons(with: configuredFiltersets)
-
-        // Allow Location Updates
-        // Triggers Pop-up window for location service authorization
-        requestRegularLocationUpdates()
-
-    }
-
-    func providerButtonPressed(for provider: Provider) {
-
-        // TODO: Überprüfe, ob der Account verbunden ist
-        // logic.isAccountConfigured(for: Provider)
-
-    }
-
-    func mapButtonPressed() {
-        presenter.goToMapView()
-    }
-
-    func filtersetButtonPressed(id: Int) {
-
-        // let filterset = logic.getFilterset(for: id)
-
-        // TODO: logic.getVehicles (for all accounts of filterset)
-        // TODO: filter vehicles according to filterset and save as filteredVehicles
-
-        let filterset = Filterset(from: "00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded")
-        presenter.goToMapView(with: filterset)
-
-    }
-
-    func filtersetButtonLongPressed(id: Int) {
-
-        // TODO: richtiges filterset herausfinden und übergeben
-        // presenter.showDeleteFiltersetAlert(for: filterset)
-
-    }
-
-    func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
-        // TODO: Handle this
-        Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
-    }
-
-    // Das da unten kann dann später mal weg ...
-
-    func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        //        logic.getUserData(from: .car2go) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: false)
-        //        }
-        //        logic.login(with: .driveNow, as: "account@bennokress.de", withPassword: "XXX") { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-        // logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
-        //    self.handleAPIresponse(response, presenterActionRequired: true)
-        // }
-        //        logic.login(with: .car2go) { (response) in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-
-        //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-
-        //        logic.reserveVehicle(withVIN: "WMWWG310803C16019", of: .driveNow) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-        //        logic.getReservationStatus(from: .driveNow) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
     }
 
 }

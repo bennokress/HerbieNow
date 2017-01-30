@@ -12,7 +12,7 @@ import SwiftSpinner
 protocol MainViewControllerProtocol: class {
 
     // MARK: UI Configuration
-    func configureFiltersetButtons(filtersets: [Filterset?], providers: [Bool])
+    func updateFiltersetButtons(filtersets: [Filterset?], providers: [Bool])
     func dismissLoadingAnimation()
     
     // MARK: Segues and Popup Presentation
@@ -28,7 +28,6 @@ protocol MainViewControllerProtocol: class {
 // MARK: -
 class MainViewController: UIViewController {
     
-    // swiftlint:disable:next force_cast
     lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
     // MARK: UI Elements
@@ -61,15 +60,12 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
         setExclusiveTouchForAllButtons()
-        interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear()
     }
@@ -169,7 +165,7 @@ extension MainViewController: MainViewControllerProtocol {
     
     // MARK: - UI Configuration
     
-    func configureFiltersetButtons(filtersets: [Filterset?], providers: [Bool]) {
+    func updateFiltersetButtons(filtersets: [Filterset?], providers: [Bool]) {
         // TODO: implement function
     }
     

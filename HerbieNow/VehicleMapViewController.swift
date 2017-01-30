@@ -22,7 +22,7 @@ protocol VehicleMapViewControllerProtocol: class {
 // MARK: -
 class VehicleMapViewController: UIViewController {
 
-    lazy var interpreter: VehicleMapInterpreterProtocol = VehicleMapInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
+    lazy var interpreter: VehicleMapViewInterpreterProtocol = VehicleMapViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
     
     // MARK: Data & Settings
     
