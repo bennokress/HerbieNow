@@ -33,7 +33,7 @@ class VehicleMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(Debug.event(message: "MapView: View Did Load"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
         
         interpreter.viewDidLoad()
         mapViewOutlet.delegate = self
@@ -43,7 +43,7 @@ class VehicleMapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print(Debug.event(message: "View Did Appear"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
     
         interpreter.viewDidAppear()
     }
