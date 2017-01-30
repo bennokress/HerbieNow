@@ -11,6 +11,12 @@ import MapKit
 import CoreLocation
 
 protocol VehicleMapViewControllerProtocol: class {
+    
+    func centerMap(on location: Location)
+    
+    func showMyLocation(at location: Location)
+    
+    func showAnnotations(for vehicles: [Vehicle])
 
 }
 
@@ -19,10 +25,7 @@ class VehicleMapViewController: UIViewController {
     // swiftlint:disable:next force_cast
     lazy var interpreter: VehicleMapInterpreterProtocol = VehicleMapInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
-    @IBOutlet weak private var mapView: MKMapView!
-
-    // nur fuers testen, kommt aus dem model
-    let initialLocation = CLLocation(latitude: 48.149960, longitude: 11.594359)
+    @IBOutlet weak fileprivate var mapViewOutlet: MKMapView!
     
     // zoom radius
     let regionRadius:CLLocationDistance = 1000
@@ -32,37 +35,50 @@ class VehicleMapViewController: UIViewController {
 
         print(Debug.event(message: "MapView: View Did Load"))
         
-        centerMapOnLocation(location: initialLocation)
-        mapView.delegate = self
-        
-        createAnnotations()
+        interpreter.viewDidLoad()
+        mapViewOutlet.delegate = self
+        //createAnnotations()
     }
     
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    func createAnnotations() {
-        var annotations: [PinAnnotation] = []
-        let vehicleList: [Vehicle] = []
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // iterate through vehicles to set every pin
-        for _ in vehicleList {
-            var color: UIColor
-            // hier z.B.: if drivenow -> red, else -> blue
-            color = UIColor.red
-            
-            let anno = PinAnnotation(title: "Car", locationName: "vehicle.getDescription()", discipline: "Car", coordinate: CLLocationCoordinate2DMake(0, 0), color: color)
-            annotations.append(anno)
-        }
-        mapView.addAnnotations(annotations)
+        print(Debug.event(message: "View Did Appear"))
+    
+        interpreter.viewDidAppear()
     }
-
 }
 
 extension VehicleMapViewController: VehicleMapViewControllerProtocol {
 
+    func centerMap(on location: Location) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.asObject.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapViewOutlet.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func showMyLocation(at location: Location) {
+        let myAnnotation = PinAnnotation(title: "Me", locationName: "I am here", discipline: "Person", coordinate: location.asObject.coordinate, color: UIColor.brown)
+        mapViewOutlet.addAnnotation(myAnnotation)
+    }
+    
+    func showAnnotations(for vehicles: [Vehicle]) {
+        var annotations: [PinAnnotation] = []
+        
+        // iterate through vehicles to set every pin
+        for vehicle in vehicles {
+            var color: UIColor
+            // hier z.B.: if drivenow -> red, else -> blue
+            color = UIColor.red
+            
+            let anno = PinAnnotation(title: "Car",
+                                     locationName: "vehicle.getDescription()",
+                                     discipline: "Car",
+                                     coordinate: vehicle.location.asObject.coordinate,
+                                     color: color)
+            annotations.append(anno)
+        }
+        mapViewOutlet.addAnnotations(annotations)
+    }
 }
 
 extension VehicleMapViewController: MKMapViewDelegate {

@@ -10,7 +10,9 @@ import Foundation
 
 protocol VehicleMapPresenterProtocol {
     
+    func centerMap(on location: Location)
     
+    func showMyLocation(at location: Location)
     
 }
 
@@ -26,5 +28,13 @@ class VehicleMapPresenter {
 }
 
 extension VehicleMapPresenter: VehicleMapPresenterProtocol {
+    
+    func centerMap(on location: Location) {
+        vehicleMapVC?.centerMap(on: location)
+    }
+    
+    func showMyLocation(at location: Location) {
+        vehicleMapVC?.showMyLocation(at: location)
+    }
     
 }
