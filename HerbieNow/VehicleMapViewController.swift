@@ -22,33 +22,35 @@ protocol VehicleMapViewControllerProtocol: class {
 // MARK: -
 class VehicleMapViewController: UIViewController {
 
-    // swiftlint:disable:next force_cast
     lazy var interpreter: VehicleMapInterpreterProtocol = VehicleMapInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
+    
+    // MARK: Data & Settings
+    
+    let zoomRadius: CLLocationDistance = 1000
+    
+    // MARK: UI Elements
 
     @IBOutlet weak fileprivate var mapViewOutlet: MKMapView!
     @IBOutlet weak fileprivate var backButton: UIButton!
     
-    
-    // zoom radius
-    let regionRadius:CLLocationDistance = 1000
+    // MARK: Mandatory View Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
-        
         interpreter.viewDidLoad()
+        setExclusiveTouchForAllButtons()
         mapViewOutlet.delegate = self
-        //createAnnotations()
+        // createAnnotations()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-    
         interpreter.viewDidAppear()
     }
+    
+    // MARK: UI Element Interaction Functions
     
     @IBAction func backButtonPressed(_ sender: Any) {
         interpreter.backButtonPressed()
@@ -59,7 +61,7 @@ class VehicleMapViewController: UIViewController {
 extension VehicleMapViewController: VehicleMapViewControllerProtocol {
 
     func centerMap(on location: Location) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.asObject.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.asObject.coordinate, zoomRadius * 2.0, zoomRadius * 2.0)
         mapViewOutlet.setRegion(coordinateRegion, animated: true)
     }
     
@@ -136,4 +138,15 @@ extension VehicleMapViewController: MKMapViewDelegate {
 
     }
 
+}
+
+// MARK: - Internal Functions
+extension VehicleMapViewController: InternalRouting {
+    
+    fileprivate func setExclusiveTouchForAllButtons() {
+        for case let button as UIButton in self.view.subviews {
+            button.isExclusiveTouch = true
+        }
+    }
+    
 }

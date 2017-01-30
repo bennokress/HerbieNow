@@ -160,9 +160,6 @@ extension MainViewController: InternalRouting {
         for case let button as UIButton in self.view.subviews {
             button.isExclusiveTouch = true
         }
-        for case let button as UIButton in self.view.subviews {
-            button.setTitleForAllStates("")
-        }
     }
     
 }

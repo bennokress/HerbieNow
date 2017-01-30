@@ -16,6 +16,7 @@ class PopupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setExclusiveTouchForAllButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +38,12 @@ class PopupViewController: UIViewController {
 
     func dismissLoadingAnimation() {
         delegate?.dismissLoadingAnimation()
+    }
+    
+    private func setExclusiveTouchForAllButtons() {
+        for case let button as UIButton in self.view.subviews {
+            button.isExclusiveTouch = true
+        }
     }
 
 }
