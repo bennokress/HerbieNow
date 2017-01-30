@@ -11,6 +11,8 @@ import Locksmith
 
 protocol AppDataProtocol {
 
+    // MARK: Location
+    
     var userLocation: Location? { get set }
 
     /// Update the user location
@@ -21,6 +23,8 @@ protocol AppDataProtocol {
 
     /// Get the user location
     func getUserLocation() -> Location?
+    
+    // MARK: Keychain
 
     /// Add username for the specified provider to Keychain
     func addUsername(_ username: String, for provider: Provider)

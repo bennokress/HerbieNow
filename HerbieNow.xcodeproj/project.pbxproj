@@ -30,7 +30,6 @@
 		9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD31E3977970038349F /* Ailerons-Typeface.otf */; };
 		9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782CD91E3A7EF50038349F /* HerbieTextField.swift */; };
 		D306D1B81E1692E800D5CD64 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* Debug.swift */; };
-		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
 		D32089A01E0ACE5300C17BD7 /* LocationUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
@@ -132,7 +131,6 @@
 		9E782CD91E3A7EF50038349F /* HerbieTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieTextField.swift; sourceTree = "<group>"; };
 		D306D1B71E1692E800D5CD64 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
-		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
 		D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdateDelegate.swift; sourceTree = "<group>"; };
 		D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
 		D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwiftAlamofire.framework; path = Carthage/Build/iOS/OAuthSwiftAlamofire.framework; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 				D33132491E07D92100645858 /* VIN-related Extensions.swift */,
 				D306D1B71E1692E800D5CD64 /* Debug.swift */,
 				D3297A391E06B3D000831923 /* Reservation.swift */,
-				D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */,
 				D384D4B11E3F80E700418581 /* EmptyProtocols.swift */,
 			);
 			name = "Helper Files";
@@ -655,7 +652,6 @@
 				D384D4C91E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift in Sources */,
 				D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
-				D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */,
 				D384D4CD1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift in Sources */,
 				D39568601E2FBEA8003FC042 /* SelectModelsPopupViewController.swift in Sources */,
 				D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift in Sources */,
