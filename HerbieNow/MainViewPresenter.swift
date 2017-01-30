@@ -12,7 +12,7 @@ protocol MainViewPresenterProtocol {
 
     // This protocol contains every function, the MainViewInterpreter can call.
 
-    func goToMapView(with vehicles: [Vehicle])
+    func goToMapView(with filterset: Filterset?)
 
     //    func configureAccountButtons(with accounts: [Account])
 
@@ -45,8 +45,8 @@ class MainViewPresenter {
 
 extension MainViewPresenter: MainViewPresenterProtocol {
 
-    func goToMapView(with vehicles: [Vehicle]) {
-        mainVC?.goToMapView(with: vehicles)
+    func goToMapView(with filterset: Filterset?) {
+        //        mainVC?.goToMapView(with: )
     }
 
     //    func configureAccountButtons(with accounts: [Account]) {

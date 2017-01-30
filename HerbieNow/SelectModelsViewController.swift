@@ -22,7 +22,7 @@ class SelectModelsViewController: PopupViewController {
                                       .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
 
     // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate? = nil
+    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var bmw1er5DoorButton: UIButton!
     @IBOutlet fileprivate weak var bmwI3Button: UIButton!
