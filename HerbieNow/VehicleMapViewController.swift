@@ -11,77 +11,62 @@ import MapKit
 import CoreLocation
 
 protocol VehicleMapViewControllerProtocol: class {
-    
+
 }
 
 class VehicleMapViewController: UIViewController {
-    
+
     // swiftlint:disable:next force_cast
     lazy var interpreter: VehicleMapInterpreterProtocol = VehicleMapInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
-    
-    //cmd drag mit der map view im storyboard
-    @IBOutlet weak var mapView: MKMapView!
-    
-    //nur fuers testen, kommt aus dem model
+
+    @IBOutlet weak private var mapView: MKMapView!
+
+    // nur fuers testen, kommt aus dem model
     let initialLocation = CLLocation(latitude: 48.149960, longitude: 11.594359)
-    //zoomradius
+    
+    // zoom radius
     let regionRadius:CLLocationDistance = 1000
-    
-    
-    //test funktion fuer dummy-autos
-    func getVehicles() -> [Vehicle] {
-        var vehicleList: [Vehicle] = []
-        vehicleList.append(Vehicle(provider: "DriveNow",
-                                   model: "BMW",
-                                   location: CLLocationCoordinate2D(latitude: 48.150500, longitude: 11.595638)))
-        vehicleList.append(Vehicle(provider: "DriveNow",
-                                   model: "Smart",
-                                   location: CLLocationCoordinate2D(latitude: 48.149954, longitude: 11.595037)))
-        vehicleList.append(Vehicle(provider: "DriveNow",
-                                   model: "Mercedes",
-                                   location: CLLocationCoordinate2D(latitude: 48.150226, longitude: 11.595155)))
-        vehicleList.append(Vehicle(provider: "Car2Go",
-                                   model: "BMW",
-                                   location: CLLocationCoordinate2D(latitude: 48.150827, longitude: 11.595085)))
-        vehicleList.append(Vehicle(provider: "Car2Go",
-                                   model: "Smart",
-                                   location: CLLocationCoordinate2D(latitude: 48.148980, longitude: 11.594608)))
-        return vehicleList
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        print(Debug.event(message: "MapView: View Did Load"))
+        
+        centerMapOnLocation(location: initialLocation)
+        mapView.delegate = self
+        
+        createAnnotations()
     }
-    
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        centerMapOnLocation(location: initialLocation)
-        mapView.delegate = self
+    func createAnnotations() {
         var annotations: [PinAnnotation] = []
-        for vehicle in getVehicles() {
+        let vehicleList: [Vehicle] = []
+        
+        // iterate through vehicles to set every pin
+        for _ in vehicleList {
             var color: UIColor
-            if vehicle.provider == "DriveNow" {
-                color = UIColor.red
-            }else{
-                color = UIColor.blue
-            }
-            let anno = PinAnnotation(title: "Car", locationName: vehicle.getDescription(), discipline: "Car", coordinate: vehicle.location, color: color)
+            // hier z.B.: if drivenow -> red, else -> blue
+            color = UIColor.red
+            
+            let anno = PinAnnotation(title: "Car", locationName: "vehicle.getDescription()", discipline: "Car", coordinate: CLLocationCoordinate2DMake(0, 0), color: color)
             annotations.append(anno)
         }
         mapView.addAnnotations(annotations)
     }
-    
-    
+
 }
 
 extension VehicleMapViewController: VehicleMapViewControllerProtocol {
-    
+
 }
 
 extension VehicleMapViewController: MKMapViewDelegate {
-    
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? PinAnnotation {
             let identifier = "pin"
@@ -108,7 +93,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
         }
         return nil
     }
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Action for pressing on "info-Button"
         print("Button tapped")
@@ -120,7 +105,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
-        
+
     }
-    
+
 }
