@@ -11,19 +11,15 @@ import Foundation
 protocol LogicProtocol {
 
     typealias Callback = (APICallResult) -> Void
-
-    // This protocol contains every function, every […]ViewInterpreter can call.
-
-    //    func getConfiguredAccounts() -> [Account]
-
+    
+    // MARK: App Data
     func getConfiguredFiltersets() -> [Int : Filterset]
-
     func isAccountConfigured(for provider: Provider) -> Bool
-
     func getFilterset(for id: Int) -> Filterset?
+    func saveUpdatedLocation(_ location: Location)
+    func save(username: String, password: String)
 
-    // MARK: - API Methods
-
+    // MARK: API Methods
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback)
     func getUserData(from provider: Provider, completion: @escaping Callback)
     func getReservationStatus(from provider: Provider, completion: @escaping Callback)
@@ -33,74 +29,54 @@ protocol LogicProtocol {
     func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
 
-    func saveUpdatedLocation(_ location: Location)
-    func save(username: String, password: String)
-
 }
 
-extension LogicProtocol {
-
-    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, completion: @escaping Callback) {
-        login(with: provider, as: username, withPassword: password, completion: completion)
-    }
-
-}
-
-// Logic can do everything inside the Model-Part of the app, but never call anything inside View or Controller
+// MARK: -
 class Logic {
 
     typealias Callback = (APICallResult) -> Void
-
-    let user = User.shared
+    
+    // MARK: Links
+    
     let appData: AppDataProtocol = AppData.shared
 
 }
 
+// MARK: - Logic Protocol Conformance
 extension Logic: LogicProtocol {
-
-    //    func getConfiguredAccounts() -> [Account] {
-
-    //        // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
-    //        return []
-
-    //    }
+    
+    // MARK: App Data
 
     func saveUpdatedLocation(_ location: Location) {
         appData.updateUserLocation(to: location)
     }
 
     func save(username: String, password: String) {
-
         appData.addUsername(username, for: .driveNow)
         appData.addPassword(password, for: .driveNow)
-
     }
 
     func getConfiguredFiltersets() -> [Int : Filterset] {
-
         // TODO: Filtersets abfragen und zurückgeben als Dictionary mit Set-Nummer 1-9 und Filterset.
         return [:]
 
     }
 
     func isAccountConfigured(for provider: Provider) -> Bool {
-        return user.hasConfiguredAccount(for: provider)
+        // TODO: Implement
+        return true
     }
 
     func getFilterset(for id: Int) -> Filterset? {
-
         // TODO: Filterset holen, falls konfiguriert, sonst nil zurückgeben.
         return nil
-
     }
 
     func logout(of provider:Provider) {
         appData.deleteCredentials(for: provider)
     }
 
-    // MARK: - API Methods
-
-    // TODO: Closures zu allen API Calls hinzufügen
+    // MARK: API
 
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback) {
 
@@ -190,4 +166,13 @@ extension Logic: LogicProtocol {
 
     }
 
+}
+
+// MARK: - Default Implementations
+extension LogicProtocol {
+    
+    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, completion: @escaping Callback) {
+        login(with: provider, as: username, withPassword: password, completion: completion)
+    }
+    
 }

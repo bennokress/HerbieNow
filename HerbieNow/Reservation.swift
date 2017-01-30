@@ -9,13 +9,16 @@
 import Foundation
 
 struct Reservation {
-
+    
+    // MARK: Stored Properties
+    
     let provider: Provider
     let endTime: Date
     let vehicle: Vehicle
-
     let description: String
 
+    // MARK: Initialization
+    
     init(provider: Provider, endTime: Date, vehicle: Vehicle) {
 
         self.provider = provider

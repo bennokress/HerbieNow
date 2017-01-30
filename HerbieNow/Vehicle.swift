@@ -9,8 +9,9 @@
 import Foundation
 import JASON
 
-// struct, because it makes sense for a vehicle to be called by value (and therefore copied, when assigned to a variable)
 struct Vehicle {
+    
+    // MARK: Stored Properties
 
     let provider: Provider
     let vin: String
@@ -27,12 +28,13 @@ struct Vehicle {
     let isConvertible: Bool
     let doors: Int
     let seats: Int
-
     let description: String
+    
+    // MARK: Initialization
 
     init(provider: Provider, vin: String, fuelLevel: Int, fuelType: FuelType, transmissionType: TransmissionType, licensePlate: String, location: Location) {
 
-        // from API
+        // From API (read)
         self.provider = provider
         self.vin = vin
         self.fuelLevel = fuelLevel
@@ -41,7 +43,7 @@ struct Vehicle {
         self.licensePlate = licensePlate
         self.location = location
 
-        // computed from vehicle identification number
+        // From VIN (computed)
         self.make = vin.make
         self.model = vin.model
         self.kW = vin.kW
@@ -51,12 +53,14 @@ struct Vehicle {
         self.doors = vin.doors
         self.seats = vin.seats
 
+        // For Console Outputs
         self.description = "\(provider.rawValue): \(licensePlate)\t\tConvertible: \(isConvertible)\t\tHiFi-System: \(hasHiFiSystem)\t\tPower: \(hp)hp \t\(kW)kW \t\t\(location.coordinateDescription)\t\t\(make.rawValue) \(model)"
 
     }
 
 }
 
+// MARK: - Equatable Conformance
 extension Vehicle: Equatable {
 
     static func == (lhs: Vehicle, rhs: Vehicle) -> Bool {
