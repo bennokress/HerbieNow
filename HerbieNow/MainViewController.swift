@@ -24,9 +24,14 @@ protocol MainViewControllerProtocol: class {
 
 }
 
-/// ViewControllers have no logic other than what to display
+// MARK: -
 class MainViewController: UIViewController {
+    
+    // swiftlint:disable:next force_cast
+    lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
+    // MARK: UI Elements
+    
     @IBOutlet fileprivate weak var filterset1Button: UIButton!
     @IBOutlet fileprivate weak var filterset2Button: UIButton!
     @IBOutlet fileprivate weak var filterset3Button: UIButton!
@@ -50,9 +55,8 @@ class MainViewController: UIViewController {
     @IBOutlet fileprivate weak var driveNowButton: UIButton!
     @IBOutlet fileprivate weak var car2goButton: UIButton!
     @IBOutlet fileprivate weak var goToMapButton: UIButton!
-
-    // swiftlint:disable:next force_cast
-    lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +72,8 @@ class MainViewController: UIViewController {
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear()
     }
+    
+    // MARK: UI Element Interaction Functions
 
     @IBAction func filtersetButtonPressed(_ sender: UIButton) {
         let id: Int
@@ -144,7 +150,12 @@ class MainViewController: UIViewController {
         interpreter.mapButtonPressed()
     }
 
-    private func setExclusiveTouchForAllButtons() {
+}
+
+// MARK: - Internal Functions
+extension MainViewController: InternalRouting {
+    
+    fileprivate func setExclusiveTouchForAllButtons() {
         for case let button as UIButton in self.view.subviews {
             button.isExclusiveTouch = true
         }
@@ -152,9 +163,10 @@ class MainViewController: UIViewController {
             button.setTitleForAllStates("")
         }
     }
-
+    
 }
 
+// MARK: - Main View Controller Protocol Conformance
 extension MainViewController: MainViewControllerProtocol {
 
     func goToMapView(with vehicles: [Vehicle]) {
@@ -171,6 +183,7 @@ extension MainViewController: MainViewControllerProtocol {
 
 }
 
+// MARK: - Popup Delegate Conformance
 extension MainViewController: PopupDelegate {
 
     func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {

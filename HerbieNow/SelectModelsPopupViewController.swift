@@ -15,6 +15,7 @@ protocol SelectModelsPopupViewControllerProtocol: class {
 
 }
 
+// MARK: -
 class SelectModelsPopupViewController: PopupViewController, SelectModelsPopupViewControllerProtocol {
     
     lazy var interpreter: SelectModelsPopupInterpreterProtocol = SelectModelsPopupInterpreter(for: self) as SelectModelsPopupInterpreterProtocol

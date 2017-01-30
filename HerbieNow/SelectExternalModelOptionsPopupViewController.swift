@@ -15,6 +15,7 @@ protocol SelectExternalModelOptionsPopupViewControllerProtocol: class {
 
 }
 
+// MARK: -
 class SelectExternalModelOptionsPopupViewController: PopupViewController, SelectExternalModelOptionsPopupViewControllerProtocol {
     
     lazy var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol = SelectExternalModelOptionsPopupInterpreter(for: self) as SelectExternalModelOptionsPopupInterpreterProtocol
@@ -84,8 +85,6 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
 // MARK: - Internal Functions
 extension SelectExternalModelOptionsPopupViewController: InternalRouting {
 
-    // MARK: - Selection Button Methods
-
     //    fileprivate func flipDoorSelection(for type: Doors) {
     //        if selectedDoorTypes.contains(type) {
     //            selectedDoorTypes.remove(type)
@@ -108,8 +107,6 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
 
     // TODO: Add generic button function that calls the correct flip based on button ID
 
-    // MARK: - Selection TextField Methods
-
     fileprivate func adjustMinFuelLevel(to newValue: Int) {
         selectedFuelLevelRange.min = newValue
     }
@@ -119,8 +116,6 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
     }
 
     // TODO: Add TextFieldDelegate that calls the above methods
-
-    // MARK: - Navigational Button Methods
 
     fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {

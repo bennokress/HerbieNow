@@ -15,6 +15,7 @@ protocol SelectInternalModelOptionsPopupViewControllerProtocol: class {
 
 }
 
+// MARK: -
 class SelectInternalModelOptionsPopupViewController: PopupViewController, SelectInternalModelOptionsPopupViewControllerProtocol {
     
     lazy var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol = SelectInternalModelOptionsPopupInterpreter(for: self) as SelectInternalModelOptionsPopupInterpreterProtocol
@@ -103,8 +104,6 @@ extension SelectInternalModelOptionsPopupViewController: InternalRouting {
 
     // TODO: Add generic button function that calls the correct flip based on button ID
 
-    // MARK: - Selection TextField Methods
-
     fileprivate func adjustMinHP(to newValue: Int) {
         selectedHPRange.min = newValue
     }
@@ -114,8 +113,6 @@ extension SelectInternalModelOptionsPopupViewController: InternalRouting {
     }
 
     // TODO: Add TextFieldDelegate that calls the above methods
-
-    // MARK: - Navigational Button Methods
 
     fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {

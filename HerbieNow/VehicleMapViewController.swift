@@ -23,6 +23,7 @@ protocol VehicleMapViewControllerProtocol: class {
 
 }
 
+// MARK: -
 class VehicleMapViewController: UIViewController {
 
     // swiftlint:disable:next force_cast

@@ -18,6 +18,7 @@ protocol LoginPopupViewControllerProtocol: class {
 
 }
 
+// MARK: -
 class LoginPopupViewController: PopupViewController {
 
     lazy var interpreter: LoginPopupInterpreterProtocol = LoginPopupInterpreter(for: self) as LoginPopupInterpreterProtocol    
@@ -51,6 +52,7 @@ class LoginPopupViewController: PopupViewController {
 
 }
 
+// MARK: - Login Popup View Controller Protocol Conformance
 extension LoginPopupViewController: LoginPopupViewControllerProtocol {
 
     func dismissPopup(with returnData: ViewReturnData) {
@@ -75,6 +77,7 @@ extension LoginPopupViewController: LoginPopupViewControllerProtocol {
 
 }
 
+// MARK: - Internal Functions
 extension LoginPopupViewController: InternalRouting {
 
     fileprivate func configureTextFields() {
@@ -111,6 +114,7 @@ extension LoginPopupViewController: InternalRouting {
 
 }
 
+// MARK: - UI Textfield Delegate Conformance
 extension LoginPopupViewController: UITextFieldDelegate {
 
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -15,6 +15,7 @@ protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
 
 }
 
+// MARK: -
 class SelectFiltersetIconAndNamePopupViewController: PopupViewController, SelectFiltersetIconAndNamePopupViewControllerProtocol {
     
     lazy var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol = SelectFiltersetIconAndNamePopupInterpreter(for: self) as SelectFiltersetIconAndNamePopupInterpreterProtocol
