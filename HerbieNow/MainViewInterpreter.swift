@@ -12,14 +12,7 @@ import OAuthSwift
 protocol MainViewInterpreterProtocol {
 
     func viewDidAppear()
-
-    // MARK: UI Interaction
-    func providerButtonPressed(for provider: Provider)
-    func mapButtonPressed()
-    func filtersetButtonPressed(id: Int)
-    func filtersetButtonLongPressed(id: Int)
-
-    // MARK: Popups
+    func userTapped(button: MainViewButton)
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
 
 }
@@ -50,8 +43,6 @@ extension MainViewInterpreter: LocationUpdateDelegate {
     
     func locationUpdated(_ location: Location) {
         logic.saveUpdatedLocation(location)
-        let labelText = "New Location\n\nLatitude:\n\(location.latitude)\nLongitude:\n\(location.longitude)"
-        presenter.display(message: labelText)
     }
     
 }
@@ -66,41 +57,13 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         
         let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
         presenter.configureFiltersetButtons(with: configuredFiltersets)
-        
-        // Allow Location Updates
-        // Triggers Pop-up window for location service authorization
         requestRegularLocationUpdates()
         
     }
     
-    func providerButtonPressed(for provider: Provider) {
-        
-        // TODO: Überprüfe, ob der Account verbunden ist
-        // logic.isAccountConfigured(for: Provider)
-        
-    }
-    
-    func mapButtonPressed() {
-        presenter.goToMapView()
-    }
-    
-    func filtersetButtonPressed(id: Int) {
-        
-        // let filterset = logic.getFilterset(for: id)
-        
-        // TODO: logic.getVehicles (for all accounts of filterset)
-        // TODO: filter vehicles according to filterset and save as filteredVehicles
-        
-        let filterset = Filterset(from: "00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded")
-        presenter.goToMapView(with: filterset)
-        
-    }
-    
-    func filtersetButtonLongPressed(id: Int) {
-        
-        // TODO: richtiges filterset herausfinden und übergeben
-        // presenter.showDeleteFiltersetAlert(for: filterset)
-        
+    func userTapped(button: MainViewButton){
+        // TODO: Handle this
+        Debug.print(.error(source: .location(Source()), message: "Button tapped ... handling not implemented!"))
     }
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {

@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum MainViewButton {
+    
+    case filterset(Filterset?)
+    case provider(Provider)
+    case map
+    
+}
+
 enum NavigationAction {
 
     case back

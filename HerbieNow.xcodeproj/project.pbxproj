@@ -320,10 +320,8 @@
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
 				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
 				14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */,
-				14FB0F161E3F7F4100BA763C /* MapView */,
 				D39568541E2F676D003FC042 /* Popups */,
-				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
-				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
+				14FB0F161E3F7F4100BA763C /* UI Helpers */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -357,12 +355,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		14FB0F161E3F7F4100BA763C /* MapView */ = {
+		14FB0F161E3F7F4100BA763C /* UI Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */,
+				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
+				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
 			);
-			name = MapView;
+			name = "UI Helpers";
 			sourceTree = "<group>";
 		};
 		9E6969301E16B09900E70773 /* Fonts */ = {

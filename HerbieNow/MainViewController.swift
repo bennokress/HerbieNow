@@ -29,6 +29,10 @@ protocol MainViewControllerProtocol: class {
 class MainViewController: UIViewController {
     
     lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
+    
+    // MARK: Data
+    
+    var displayedFiltersets: [Filterset?] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
 
     // MARK: UI Elements
     
@@ -96,8 +100,9 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Pressed"))
-        interpreter.filtersetButtonPressed(id: id)
+        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Tapped"))
+        let filtersetButton = MainViewButton.filterset(displayedFiltersets[id])
+        interpreter.userTapped(button: filtersetButton)
     }
 
 //    @IBAction func filtersetButtonLongPressed(_ sender: UIButton) {
@@ -125,7 +130,8 @@ class MainViewController: UIViewController {
 //            return
 //        }
 //        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Long Pressed"))
-//        interpreter.filtersetButtonLongPressed(id: id)
+//        let filtersetButton = MainViewButton.filterset(displayFiltersets[id])
+//        interpreter.userLongPressed(button: filtersetButton)
 //    }
 
     @IBAction func providerButtonPressed(_ sender: UIButton) {
@@ -138,13 +144,14 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        Debug.print(.event(source: .location(Source()), description: "Account Button Pressed"))
-        interpreter.providerButtonPressed(for: provider)
+        Debug.print(.event(source: .location(Source()), description: "Provider Button for \(provider.rawValue) Pressed"))
+        let providerButton = MainViewButton.provider(provider)
+        interpreter.userTapped(button: providerButton)
     }
 
     @IBAction func mapButtonPressed(_ sender: UIButton) {
         Debug.print(.event(source: .location(Source()), description: "Map Button Pressed"))
-        interpreter.mapButtonPressed()
+        interpreter.userTapped(button: .map)
     }
 
 }
@@ -163,7 +170,7 @@ extension MainViewController: InternalRouting {
 // MARK: - Main View Controller Protocol Conformance
 extension MainViewController: MainViewControllerProtocol {
     
-    // MARK: - UI Configuration
+    // MARK: UI Configuration
     
     func updateFiltersetButtons(filtersets: [Filterset?], providers: [Bool]) {
         // TODO: implement function
