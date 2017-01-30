@@ -21,6 +21,9 @@
 		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
 		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
+		14FB0F151E3F7E9200BA763C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F141E3F7E9200BA763C /* MapViewController.swift */; };
+		14FB0F181E3F7F8400BA763C /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F171E3F7F8400BA763C /* MapViewDelegate.swift */; };
+		14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */; };
 		9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969311E16B0D100E70773 /* CaviarDreams.ttf */; };
 		9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */; };
 		9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6871481E16B7CA00994011 /* Assets.xcassets */; };
@@ -104,6 +107,9 @@
 		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		14FB0F141E3F7E9200BA763C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		14FB0F171E3F7F8400BA763C /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		9E6871481E16B7CA00994011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E6969311E16B0D100E70773 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
@@ -286,6 +292,8 @@
 				034EC1761DD0B34D00E32EC6 /* LaunchScreen.storyboard */,
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
 				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
+				14FB0F141E3F7E9200BA763C /* MapViewController.swift */,
+				14FB0F161E3F7F4100BA763C /* MapView */,
 				D39568541E2F676D003FC042 /* Popups */,
 				9E6969301E16B09900E70773 /* Fonts */,
 			);
@@ -319,6 +327,15 @@
 				D39160B81E0954A1000DBE17 /* AppData.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		14FB0F161E3F7F4100BA763C /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				14FB0F171E3F7F8400BA763C /* MapViewDelegate.swift */,
+				14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */,
+			);
+			name = MapView;
 			sourceTree = "<group>";
 		};
 		9E6969301E16B09900E70773 /* Fonts */ = {
@@ -555,7 +572,10 @@
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
 				039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
+				14FB0F151E3F7E9200BA763C /* MapViewController.swift in Sources */,
+				14FB0F181E3F7F8400BA763C /* MapViewDelegate.swift in Sources */,
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
+				14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
 				D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */,
 				D39568601E2FBEA8003FC042 /* SelectModelsViewController.swift in Sources */,
