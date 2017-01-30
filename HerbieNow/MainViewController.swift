@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 protocol MainViewControllerProtocol: class {
 
@@ -56,7 +57,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(Debug.event(message: "View Did Load"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
         setExclusiveTouchForAllButtons()
         interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
     }
@@ -64,7 +65,7 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        print(Debug.event(message: "View Did Appear"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear()
     }
 
@@ -92,7 +93,7 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        print(Debug.event(message: "Filterset \(id) Button Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Pressed"))
         interpreter.filtersetButtonPressed(id: id)
     }
 
@@ -120,7 +121,7 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        print(Debug.event(message: "Filterset \(id) Button Long Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Long Pressed"))
         interpreter.filtersetButtonLongPressed(id: id)
     }
 
@@ -134,12 +135,12 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        print(Debug.event(message: "Account Button Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Account Button Pressed"))
         interpreter.providerButtonPressed(for: provider)
     }
 
     @IBAction func mapButtonPressed(_ sender: UIButton) {
-        print(Debug.event(message: "Map Button Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Map Button Pressed"))
         interpreter.mapButtonPressed()
     }
 
@@ -172,20 +173,27 @@ extension MainViewController: MainViewControllerProtocol {
 
 extension MainViewController: PopupDelegate {
 
-    func dismissedLoginPopup(with username: String, and password: String) {
-        // TODO: Username and Password have to be saved for Drivenow
+    func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        interpreter.userDismissedPopup(with: selectedData, via: navigationAction)
     }
 
-    func dismissed(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    func popupWorkflowAborted() {
+        interpreter.viewDidAppear()
     }
 
-    func reverted(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    func showLoadingAnimation(title: String) {
+        let spinner = SwiftSpinner.sharedInstance
+        //        spinner.backgroundColor = UIColor.dunkelblau100
+        //        spinner.innerColor = UIColor.dunkelblau060
+        //        spinner.outerColor = UIColor.dunkelblau100
+        //        spinner.titleLabel.textColor = UIColor.dunkelblau020
+        //        spinner.titleLabel.font = UIFont.univers
+        spinner.title = title
+        SwiftSpinner.show(title)
     }
 
-    func aborted(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    func dismissLoadingAnimation() {
+        SwiftSpinner.hide()
     }
 
 }

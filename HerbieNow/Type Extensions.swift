@@ -204,6 +204,19 @@ extension String {
 
     }
 
+    func followed(by suffix: String) -> String {
+        return "\(self)\(suffix)"
+    }
+
+    func indented(by tabs: Int) -> String {
+        let spaces = String(repeating: " ", count: 4*tabs)
+        return self.prefixed(with: spaces)
+    }
+
+    func surrounded(by prefix: String, and suffix: String) -> String {
+        return prefix + self + suffix
+    }
+
     func until(_ string: String) -> String {
         var components = self.components(separatedBy: string)
         return components[0]

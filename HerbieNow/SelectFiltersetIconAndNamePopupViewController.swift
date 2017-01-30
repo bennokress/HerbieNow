@@ -9,15 +9,18 @@
 import UIKit
 import Presentr
 
+protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
+
+    var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol { get set }
+
+}
+
 class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
 
     let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
 
     var selectedIconID: Int = 1
     var selectedName = ""
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var iconPicker: AKPickerView!
 
@@ -30,14 +33,14 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(Debug.event(message: "Select Filterset Name & Icon Popup - View Did Load"))
-        selectedName = "Filterset #\(filterset.getPosition())"
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
+        //        selectedName = "Filterset #\(filterset.getPosition())"
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        print(Debug.event(message: "Select Filterset Name & Icon Popup - View Did Appear"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         // TODO: Remove models based on current filterset from displayed models to disable them permanently for the current workflow
         configureNavigationButtons()
     }
@@ -85,18 +88,18 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
     }
 
     private func executeConfirmButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.dismissed(popup)
+        //        let popup = PopupContent.modelIntern(filterset: filterset)
+        //        delegate?.dismissed(popup)
     }
 
     private func executeBackButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        delegate?.reverted(popup)
+        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
+        //        delegate?.reverted(popup)
     }
 
     private func executeAbortButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.aborted(popup)
+        //        let popup = PopupContent.modelIntern(filterset: filterset)
+        //        delegate?.aborted(popup)
     }
 
 }

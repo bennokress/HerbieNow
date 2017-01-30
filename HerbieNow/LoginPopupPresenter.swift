@@ -8,23 +8,38 @@
 
 import Foundation
 
-protocol LoginPopupPresenterProtocol {
-    
-    
-    
+protocol LoginPopupPresenterProtocol: class {
+
+    weak var popup: LoginPopupViewControllerProtocol? { get set }
+
+    func credentialsAccepted(from returnData: ViewReturnData)
+    func usernameRejected(because reason: String)
+    func passwordRejected(because reason: String)
+
 }
 
-/// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
 class LoginPopupPresenter {
-    
-    weak var vehicleMapVC: LoginPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
-    
-    init(to vehicleMapViewController: LoginPopupViewControllerProtocol? = nil) {
-        vehicleMapVC = vehicleMapViewController
+
+    weak var popup: LoginPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
+
+    init(to loginViewController: LoginPopupViewControllerProtocol? = nil) {
+        popup = loginViewController
     }
-    
+
 }
 
 extension LoginPopupPresenter: LoginPopupPresenterProtocol {
-    
+
+    func credentialsAccepted(from returnData: ViewReturnData) {
+        popup?.usernameAndPasswordAreSaved(from: returnData)
+    }
+
+    func usernameRejected(because reason: String) {
+        popup?.usernameWasRejected(because: reason)
+    }
+
+    func passwordRejected(because reason: String) {
+        popup?.passwordWasRejected(because: reason)
+    }
+
 }

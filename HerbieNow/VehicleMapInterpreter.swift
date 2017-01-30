@@ -23,18 +23,18 @@ protocol VehicleMapInterpreterProtocol {
 class VehicleMapInterpreter: GeneralInterpretProtocol {
     
     let appDelegate: AppDelegate
-    
+
     var presenter: VehicleMapPresenterProtocol
     var logic: LogicProtocol
     
     var mapCentered: Bool = false
     
     init(for vehicleMapVC: VehicleMapViewControllerProtocol? = nil, _ presenter: VehicleMapPresenterProtocol = VehicleMapPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
-        
+
         self.appDelegate = appDelegate
         self.presenter = VehicleMapPresenter(to: vehicleMapVC)
         self.logic = Logic()
-        
+
     }
     
     func locationUpdated(_ location: Location) {

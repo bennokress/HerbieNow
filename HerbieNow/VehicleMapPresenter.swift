@@ -18,13 +18,13 @@ protocol VehicleMapPresenterProtocol {
 
 /// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
 class VehicleMapPresenter {
-    
+
     weak var vehicleMapVC: VehicleMapViewControllerProtocol? // avoiding a retain cycle with this weak reference
-    
+
     init(to vehicleMapViewController: VehicleMapViewControllerProtocol? = nil) {
         vehicleMapVC = vehicleMapViewController
     }
-    
+
 }
 
 extension VehicleMapPresenter: VehicleMapPresenterProtocol {

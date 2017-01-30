@@ -15,17 +15,17 @@ class PinAnnotation: NSObject, MKAnnotation {
     let discipline: String
     let coordinate: CLLocationCoordinate2D
     let color: UIColor
-    
+
     init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D, color: UIColor) {
         self.title = title
         self.locationName = locationName
         self.discipline = discipline
         self.coordinate = coordinate
         self.color = color
-        
+
         super.init()
     }
-    
+
     var subtitle: String? {
         return locationName
     }

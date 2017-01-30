@@ -8,3 +8,4 @@
 	github "hackiftekhar/IQKeyboardManager"						# adjust view automatically when keyboard is present (for login with providers) - init in AppDelegate
 	github "IcaliaLabs/Presentr"								# custom popup integration
 	github "Skyscanner/SkyFloatingLabelTextField"				# beautified text fields
+	github "icanzilb/SwiftSpinner"								# loading animation

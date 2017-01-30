@@ -85,7 +85,7 @@ class AppData {
         do {
             try Locksmith.updateData(data: [key : value], forUserAccount: "\(appIdentifier) \(key)")
         } catch {
-            print(Debug.error(source: (name(of: self), #function), message: "Saving \(key) to keychain was unsuccessful."))
+            Debug.print(.error(source: .location(Source()), message: "Saving \(key) to keychain was unsuccessful."))
         }
     }
 
@@ -94,7 +94,7 @@ class AppData {
         do {
             try Locksmith.updateData(data: [key : value], forUserAccount: "\(appIdentifier) \(key)")
         } catch {
-            print(Debug.error(source: (name(of: self), #function), message: "Saving \(key) to keychain was unsuccessful."))
+            Debug.print(.error(source: .location(Source()), message: "Saving \(key) to keychain was unsuccessful."))
         }
     }
 
@@ -115,7 +115,7 @@ class AppData {
         do {
             try Locksmith.deleteDataForUserAccount(userAccount: "\(appIdentifier) \(key)")
         } catch {
-            print(Debug.error(source: (name(of: self), #function), message: "Deleting \(key) from keychain was unsuccessful."))
+            Debug.print(.error(source: .location(Source()), message: "Deleting \(key) from keychain was unsuccessful."))
         }
     }
 
@@ -222,7 +222,7 @@ extension AppData: AppDataProtocol {
 
     func updateUserLocation(to location: Location) {
         userLocation = location
-        //        print(Debug.info(source: (name(of: self), #function), message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
+        //        Debug.print(.info(source: .location(Source()), message: "New Location: \(userLocation?.coordinateDescription ?? "Location should be updated, but was not valid!")"))
     }
 
     func updateNearestCar2GoCity(to cityString: String) {

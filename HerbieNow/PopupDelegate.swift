@@ -9,11 +9,11 @@
 import Foundation
 
 protocol PopupDelegate {
-    
+
     func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
     func popupWorkflowAborted()
-    
+
     func showLoadingAnimation(title: String)
     func dismissLoadingAnimation()
-    
+
 }

@@ -9,6 +9,12 @@
 import UIKit
 import Presentr
 
+protocol SelectExternalModelOptionsPopupViewControllerProtocol: class {
+
+    var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol { get set }
+
+}
+
 class SelectExternalModelOptionsPopupViewController: PopupViewController {
 
     // Sele Options in Popup
@@ -16,9 +22,6 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
     var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
     var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
     var selectedHiFiMandatorySetting: Bool = false
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
     @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!
@@ -39,13 +42,13 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(Debug.event(message: "Select External Model Options Popup - View Did Load"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        print(Debug.event(message: "Select External Model Options Popup - View Did Appear"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         configureNavigationButtons()
     }
 
@@ -116,18 +119,18 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
     }
 
     private func executeConfirmButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.dismissed(popup)
+        //        let popup = PopupContent.modelIntern(filterset: filterset)
+        //        delegate?.dismissed(popup)
     }
 
     private func executeBackButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        delegate?.reverted(popup)
+        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
+        //        delegate?.reverted(popup)
     }
 
     private func executeAbortButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.aborted(popup)
+        //        let popup = PopupContent.modelIntern(filterset: filterset)
+        //        delegate?.aborted(popup)
     }
 
 }
