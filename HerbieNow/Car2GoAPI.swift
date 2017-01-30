@@ -365,7 +365,7 @@ extension Car2GoAPI: API {
 
         let functionName = funcID(class: self, func:#function)
 
-        getNearestCity(to: appData.getUserLocation()) { cityString in
+        getNearestCity(to: appData.getUserLocation()) { _ in
 
             let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)&vin=\(vin)&account=\(self.appData.getUserID(for: .car2go))"
 
@@ -435,7 +435,7 @@ extension Car2GoAPI: API {
                         url="https://www.car2go.com/api/v2.1/booking/\(bookingID)"
                         response = .success(true)
 
-                        AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+                        AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { _ in
 
                             guard let bookingStatus = json["returnValue"]["code"].int else {
                                 response = self.errorDetails(code: 0, status: "Car2Go", message: "CancleRequest is gone false 2", in: functionName)

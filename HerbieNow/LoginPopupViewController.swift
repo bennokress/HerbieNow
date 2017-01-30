@@ -14,7 +14,7 @@ class LoginPopupViewController: PopupViewController {
     @IBOutlet fileprivate weak var passwordTextField: UITextField!
     @IBOutlet fileprivate weak var confirmButton: UIButton!
 
-    var delegate: PopupDelegate? = nil
+    var delegate: PopupDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

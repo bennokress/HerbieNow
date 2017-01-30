@@ -18,7 +18,7 @@ class SelectExternalModelOptionsViewController: PopupViewController {
     var selectedHiFiMandatorySetting: Bool = false
 
     // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate? = nil
+    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
     @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!

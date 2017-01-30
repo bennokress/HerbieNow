@@ -146,8 +146,8 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         // TODO: logic.getVehicles (for all accounts of filterset)
         // TODO: filter vehicles according to filterset and save as filteredVehicles
 
-        let filteredVehicles: [Vehicle] = []
-        presenter.goToMapView(with: filteredVehicles)
+        let filterset = Filterset(from: "00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded")
+        presenter.goToMapView(with: filterset)
 
     }
 

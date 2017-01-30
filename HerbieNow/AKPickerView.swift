@@ -268,7 +268,7 @@ public class AKPickerView: UIView, UICollectionViewDataSource, UICollectionViewD
     // MARK: - Properties
     // MARK: - Readwrite Properties
     /// Readwrite. Data source of picker view.
-    public weak var dataSource: AKPickerViewDataSource? = nil
+    public weak var dataSource: AKPickerViewDataSource?
     /// Readwrite. Delegate of picker view.
     public weak var delegate: AKPickerViewDelegate? = nil {
         didSet {

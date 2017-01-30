@@ -22,7 +22,7 @@ class SelectInternalModelOptionsViewController: PopupViewController {
     var selectedHPRange: (min: Int, max: Int) = (0, 200)
 
     // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate? = nil
+    var delegate: PopupDelegate?
 
     @IBOutlet fileprivate weak var fuelTypePetrolButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeDieselButton: UIButton!

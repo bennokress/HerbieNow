@@ -266,7 +266,6 @@
 				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
 				039F0B731DD8DBC500AB56C0 /* User.swift */,
 				037578A21DD0B53400AA8FC0 /* Vehicle.swift */,
-				D3297A391E06B3D000831923 /* Reservation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +304,7 @@
 				D340A2DE1E01FD60001D5153 /* Type Extensions.swift */,
 				D33132491E07D92100645858 /* VIN-related Extensions.swift */,
 				D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */,
+				D3297A391E06B3D000831923 /* Reservation.swift */,
 				D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */,
 			);
 			name = "Helper Files";

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var window: UIWindow?
 
     var appData = AppData.shared
-    var currentInterpreter : GeneralInterpretProtocol? = nil
+    var currentInterpreter : GeneralInterpretProtocol?
 
     lazy var locationManager: CLLocationManager = {
         let m = CLLocationManager()
