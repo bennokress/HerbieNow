@@ -13,16 +13,20 @@ import JASON
 class DriveNowAPI {
 
     typealias Callback = (APICallResult) -> Void
+    
+    // MARK: Links
 
     let appData: AppDataProtocol = AppData.shared
     let driveNow = Provider.driveNow
+    
+    // MARK: Data & Settings
 
     let apiKey: String
     let language: String
     var metrowsHeaders: HTTPHeaders
     var api2Headers: HTTPHeaders
 
-    // Singleton - call via DriveNowAPI.shared
+    // MARK: Private Initalization & Public Singleton
     static var shared = DriveNowAPI()
     private init() {
 
@@ -49,48 +53,9 @@ class DriveNowAPI {
 
     }
 
-    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
-
-        guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let longitude = json["longitude"].double else {
-            return nil
-        }
-
-        let fuelLevelInPercent = fuelLevel.inPercent()
-        let fuelType = FuelType(fromRawValue: fuelChar)
-        let transmissionType = TransmissionType(fromRawValue: transmissionChar)
-        let location = Location(latitude: latitude, longitude: longitude)
-
-        return Vehicle(provider: .driveNow, vin: vin, fuelLevel: fuelLevelInPercent, fuelType: fuelType, transmissionType: transmissionType, licensePlate: licensePlate, location: location)
-    }
-
-    fileprivate func getReservationFromJSON(_ json: JSON) -> Reservation? {
-
-        guard let endTime = json["reservedUntil"].string?.toDate(), let vehicle = getVehicleFromJSON(json["car"]) else {
-            return nil
-        }
-
-        return Reservation(provider: driveNow, endTime: endTime, vehicle: vehicle)
-
-    }
-
-    fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
-
-        let error: APICallResult
-
-        if let code = json["code"].int, let codeDetail = json["codeDetail"].string, let message = json["message"].string {
-            error = .error(code: code, codeDetail: codeDetail, message: message, parentFunction: function)
-        } else if let status = json["status"].string {
-            error = .error(code: 0, codeDetail: status, message: "Error reported by DriveNow!", parentFunction: function)
-        } else {
-            error = .error(code: 0, codeDetail: "response_content_error", message: "Wrong variables and/or variable types in response!", parentFunction: function)
-        }
-
-        return error
-
-    }
-
 }
 
+// MARK: - API Protocol Conformance
 extension DriveNowAPI: API {
 
     func login(completion: @escaping Callback) {
@@ -462,43 +427,43 @@ extension DriveNowAPI: API {
     }
 
     // This is just in case DriveNow decides to remove the legacy version used in getUserData(), which returns far more information
-    private func getUserDataNewVersion(completion: @escaping Callback) {
-
-        let functionName = "DriveNowAPI.getUserDataNewVersion"
-
-        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
-            let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
-            completion(error)
-            return
-        }
-
-        let url = "https://metrows.drive-now.com/php/drivenowws/v3/user"
-
-        let parameters: Parameters = [
-            "auth" : xAuthToken,
-            "language" : language,
-            "openCarToken" : openCarToken
-        ]
-
-        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { callback in
-
-            let response: APICallResult
-
-            if let json = callback.result.value {
-                // TODO: What do we want from this?
-                print(json)
-                let succesfullyGotDetails = true
-                response = .success(succesfullyGotDetails)
-
-            } else {
-                response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
-            }
-
-            completion(response)
-
-        }
-
-    }
+//    private func getUserDataNewVersion(completion: @escaping Callback) {
+//
+//        let functionName = "DriveNowAPI.getUserDataNewVersion"
+//
+//        guard let xAuthToken = appData.getXAuthToken(for: driveNow), let openCarToken = appData.getOpenCarToken(for: driveNow) else {
+//            let error = APICallResult.error(code: 0, codeDetail: "missing_key", message: "The DriveNow X-Auth-Token and / or Open-Car-Token are missing in Keychain!", parentFunction: functionName)
+//            completion(error)
+//            return
+//        }
+//
+//        let url = "https://metrows.drive-now.com/php/drivenowws/v3/user"
+//
+//        let parameters: Parameters = [
+//            "auth" : xAuthToken,
+//            "language" : language,
+//            "openCarToken" : openCarToken
+//        ]
+//
+//        Alamofire.request(url, parameters: parameters, encoding: URLEncoding.default, headers: metrowsHeaders).responseJASON { callback in
+//
+//            let response: APICallResult
+//
+//            if let json = callback.result.value {
+//                // TODO: What do we want from this?
+//                print(json)
+//                let succesfullyGotDetails = true
+//                response = .success(succesfullyGotDetails)
+//
+//            } else {
+//                response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+//            }
+//
+//            completion(response)
+//
+//        }
+//
+//    }
 
     // This is just in case DriveNow decides to remove the legacy version of getUserData(), which returns the present openCarToken and makes this call unnecessary
     private func getOpenCarToken(for cardNumber: String, completion: @escaping Callback) {
@@ -546,4 +511,49 @@ extension DriveNowAPI: API {
 
     }
 
+}
+
+// MARK: - Internal Functions
+extension DriveNowAPI: InternalRouting {
+    
+    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
+        
+        guard let vin = json["id"].string, let fuelLevel = json["fuelLevel"].double, let fuelChar = json["fuelType"].character, let transmissionChar = json["transmission"].character, let licensePlate = json["licensePlate"].string, let latitude = json["latitude"].double, let longitude = json["longitude"].double else {
+            return nil
+        }
+        
+        let fuelLevelInPercent = fuelLevel.inPercent()
+        let fuelType = FuelType(fromRawValue: fuelChar)
+        let transmissionType = TransmissionType(fromRawValue: transmissionChar)
+        let location = Location(latitude: latitude, longitude: longitude)
+        
+        return Vehicle(provider: .driveNow, vin: vin, fuelLevel: fuelLevelInPercent, fuelType: fuelType, transmissionType: transmissionType, licensePlate: licensePlate, location: location)
+    }
+    
+    fileprivate func getReservationFromJSON(_ json: JSON) -> Reservation? {
+        
+        guard let endTime = json["reservedUntil"].string?.toDate(), let vehicle = getVehicleFromJSON(json["car"]) else {
+            return nil
+        }
+        
+        return Reservation(provider: driveNow, endTime: endTime, vehicle: vehicle)
+        
+    }
+    
+    fileprivate func errorDetails(for json: JSON, in function: String) -> APICallResult {
+        
+        let error: APICallResult
+        
+        if let code = json["code"].int, let codeDetail = json["codeDetail"].string, let message = json["message"].string {
+            error = .error(code: code, codeDetail: codeDetail, message: message, parentFunction: function)
+        } else if let status = json["status"].string {
+            error = .error(code: 0, codeDetail: status, message: "Error reported by DriveNow!", parentFunction: function)
+        } else {
+            error = .error(code: 0, codeDetail: "response_content_error", message: "Wrong variables and/or variable types in response!", parentFunction: function)
+        }
+        
+        return error
+        
+    }
+    
 }
