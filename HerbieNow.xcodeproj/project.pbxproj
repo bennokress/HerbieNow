@@ -39,6 +39,16 @@
 		D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B11E3F80E700418581 /* EmptyProtocols.swift */; };
 		D384D4B51E3F839B00418581 /* VehicleMapInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */; };
 		D384D4B71E3F83A700418581 /* VehicleMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */; };
+		D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */; };
+		D384D4BD1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */; };
+		D384D4BF1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */; };
+		D384D4C11E3F887600418581 /* SelectModelsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4C01E3F887600418581 /* SelectModelsPopupInterpreter.swift */; };
+		D384D4C31E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4C21E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift */; };
+		D384D4C51E3F89B400418581 /* LoginPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4C41E3F89B400418581 /* LoginPopupPresenter.swift */; };
+		D384D4C71E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4C61E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift */; };
+		D384D4C91E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4C81E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift */; };
+		D384D4CB1E3F89E200418581 /* SelectModelsPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4CA1E3F89E200418581 /* SelectModelsPopupPresenter.swift */; };
+		D384D4CD1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4CC1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
 		D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160C01E0982B7000DBE17 /* MapKit.framework */; };
 		D39568481E2E5369003FC042 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
@@ -53,10 +63,10 @@
 		D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568551E2F67A2003FC042 /* PopupViewController.swift */; };
 		D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568571E2F6E4E003FC042 /* PopupDelegate.swift */; };
 		D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */; };
-		D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift */; };
-		D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift */; };
-		D39568601E2FBEA8003FC042 /* SelectModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685F1E2FBEA8003FC042 /* SelectModelsViewController.swift */; };
-		D39568621E2FC18D003FC042 /* SelectFiltersetIconAndNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNameViewController.swift */; };
+		D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift */; };
+		D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift */; };
+		D39568601E2FBEA8003FC042 /* SelectModelsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395685F1E2FBEA8003FC042 /* SelectModelsPopupViewController.swift */; };
+		D39568621E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift */; };
 		D39568641E2FCE98003FC042 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568631E2FCE98003FC042 /* AKPickerView.swift */; };
 		D39568661E300269003FC042 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */; };
 		D39568681E300279003FC042 /* Presentr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568671E300279003FC042 /* Presentr.framework */; };
@@ -131,6 +141,16 @@
 		D384D4B11E3F80E700418581 /* EmptyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyProtocols.swift; sourceTree = "<group>"; };
 		D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapInterpreter.swift; sourceTree = "<group>"; };
 		D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapPresenter.swift; sourceTree = "<group>"; };
+		D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupInterpreter.swift; sourceTree = "<group>"; };
+		D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsPopupInterpreter.swift; sourceTree = "<group>"; };
+		D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsPopupInterpreter.swift; sourceTree = "<group>"; };
+		D384D4C01E3F887600418581 /* SelectModelsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelsPopupInterpreter.swift; sourceTree = "<group>"; };
+		D384D4C21E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFiltersetIconAndNamePopupInterpreter.swift; sourceTree = "<group>"; };
+		D384D4C41E3F89B400418581 /* LoginPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupPresenter.swift; sourceTree = "<group>"; };
+		D384D4C61E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsPopupPresenter.swift; sourceTree = "<group>"; };
+		D384D4C81E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsPopupPresenter.swift; sourceTree = "<group>"; };
+		D384D4CA1E3F89E200418581 /* SelectModelsPopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelsPopupPresenter.swift; sourceTree = "<group>"; };
+		D384D4CC1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFiltersetIconAndNamePopupPresenter.swift; sourceTree = "<group>"; };
 		D39160B81E0954A1000DBE17 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		D39160BC1E0969AD000DBE17 /* JASON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JASON.framework; path = Carthage/Build/iOS/JASON.framework; sourceTree = "<group>"; };
@@ -142,10 +162,10 @@
 		D39568551E2F67A2003FC042 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		D39568571E2F6E4E003FC042 /* PopupDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
 		D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupViewController.swift; sourceTree = "<group>"; };
-		D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsViewController.swift; sourceTree = "<group>"; };
-		D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsViewController.swift; sourceTree = "<group>"; };
-		D395685F1E2FBEA8003FC042 /* SelectModelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelsViewController.swift; sourceTree = "<group>"; };
-		D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFiltersetIconAndNameViewController.swift; sourceTree = "<group>"; };
+		D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsPopupViewController.swift; sourceTree = "<group>"; };
+		D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsPopupViewController.swift; sourceTree = "<group>"; };
+		D395685F1E2FBEA8003FC042 /* SelectModelsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelsPopupViewController.swift; sourceTree = "<group>"; };
+		D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFiltersetIconAndNamePopupViewController.swift; sourceTree = "<group>"; };
 		D39568631E2FCE98003FC042 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
 		D39568671E300279003FC042 /* Presentr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Presentr.framework; path = Carthage/Build/iOS/Presentr.framework; sourceTree = "<group>"; };
@@ -302,7 +322,6 @@
 				14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */,
 				14FB0F161E3F7F4100BA763C /* MapView */,
 				D39568541E2F676D003FC042 /* Popups */,
-				9E6969301E16B09900E70773 /* Fonts */,
 				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
 			);
 			name = View;
@@ -372,6 +391,11 @@
 		D384D4B81E3F83D800418581 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				D384D4C41E3F89B400418581 /* LoginPopupPresenter.swift */,
+				D384D4C61E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift */,
+				D384D4C81E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift */,
+				D384D4CA1E3F89E200418581 /* SelectModelsPopupPresenter.swift */,
+				D384D4CC1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift */,
 			);
 			name = Popups;
 			sourceTree = "<group>";
@@ -379,6 +403,11 @@
 		D384D4B91E3F83E300418581 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */,
+				D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */,
+				D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */,
+				D384D4C01E3F887600418581 /* SelectModelsPopupInterpreter.swift */,
+				D384D4C21E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift */,
 			);
 			name = Popups;
 			sourceTree = "<group>";
@@ -389,10 +418,10 @@
 				D39568551E2F67A2003FC042 /* PopupViewController.swift */,
 				D39568571E2F6E4E003FC042 /* PopupDelegate.swift */,
 				D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */,
-				D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift */,
-				D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift */,
-				D395685F1E2FBEA8003FC042 /* SelectModelsViewController.swift */,
-				D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNameViewController.swift */,
+				D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift */,
+				D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift */,
+				D395685F1E2FBEA8003FC042 /* SelectModelsPopupViewController.swift */,
+				D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift */,
 			);
 			name = Popups;
 			sourceTree = "<group>";
@@ -595,6 +624,7 @@
 			files = (
 				D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */,
 				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
+				D384D4C31E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift in Sources */,
 				D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */,
 				D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */,
 				9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */,
@@ -602,23 +632,31 @@
 				037578A51DD0B68200AA8FC0 /* Location.swift in Sources */,
 				D39568641E2FCE98003FC042 /* AKPickerView.swift in Sources */,
 				D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */,
+				D384D4CB1E3F89E200418581 /* SelectModelsPopupPresenter.swift in Sources */,
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
 				D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
+				D384D4C11E3F887600418581 /* SelectModelsPopupInterpreter.swift in Sources */,
 				D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */,
+				D384D4BD1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift in Sources */,
 				039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
 				D384D4B51E3F839B00418581 /* VehicleMapInterpreter.swift in Sources */,
 				14FB0F151E3F7E9200BA763C /* VehicleMapViewController.swift in Sources */,
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
 				14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */,
+				D384D4C91E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift in Sources */,
+				D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
 				D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */,
-				D39568601E2FBEA8003FC042 /* SelectModelsViewController.swift in Sources */,
-				D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsViewController.swift in Sources */,
+				D384D4CD1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift in Sources */,
+				D39568601E2FBEA8003FC042 /* SelectModelsPopupViewController.swift in Sources */,
+				D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift in Sources */,
 				039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */,
+				D384D4C51E3F89B400418581 /* LoginPopupPresenter.swift in Sources */,
 				D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */,
-				D39568621E2FC18D003FC042 /* SelectFiltersetIconAndNameViewController.swift in Sources */,
+				D39568621E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift in Sources */,
+				D384D4C71E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift in Sources */,
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
 				039F0B741DD8DBC500AB56C0 /* User.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
@@ -627,7 +665,8 @@
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
-				D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsViewController.swift in Sources */,
+				D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift in Sources */,
+				D384D4BF1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
