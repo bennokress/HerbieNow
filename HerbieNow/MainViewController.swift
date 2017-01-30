@@ -12,12 +12,13 @@ import SwiftSpinner
 protocol MainViewControllerProtocol: class {
 
     // MARK: UI Configuration
-    func updateFiltersetButtons(filtersets: [Filterset?], providers: [Bool])
+    func updateFiltersetButtons(filtersets: [Filterset?])
+    func updateProviderButtons(driveNow driveNowActive: Bool, car2go car2goActive: Bool)
     func dismissLoadingAnimation()
     
     // MARK: Segues and Popup Presentation
     func presentVehicleMapView(with data: ViewData)
-    func presentLoginPopup()
+    func presentDriveNowLoginPopup()
     func presentSelectInternalModelOptionsPopup(with data: ViewData)
     func presentSelectExternalModelOptionsPopup(with data: ViewData)
     func presentSelectModelsPopup(with data: ViewData)
@@ -33,6 +34,8 @@ class MainViewController: UIViewController {
     // MARK: Data
     
     var displayedFiltersets: [Filterset?] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    var driveNowConfigured: Bool = false
+    var car2goConfigured: Bool = false
 
     // MARK: UI Elements
     
@@ -166,6 +169,14 @@ extension MainViewController: InternalRouting {
         }
     }
     
+    fileprivate func reloadFiltersetButtons() {
+        // TODO: Load and display Filtersets from displayedFiltersets
+    }
+    
+    fileprivate func reloadProviderButtons() {
+        // TODO: Activate or deactivate Provider Buttons based on the [Provider]Configured-values
+    }
+    
 }
 
 // MARK: - Main View Controller Protocol Conformance
@@ -173,40 +184,51 @@ extension MainViewController: MainViewControllerProtocol {
     
     // MARK: UI Configuration
     
-    func updateFiltersetButtons(filtersets: [Filterset?], providers: [Bool]) {
-        // TODO: implement function
+    func updateFiltersetButtons(filtersets: [Filterset?]) {
+        displayedFiltersets = filtersets
+        reloadFiltersetButtons()
+    }
+    
+    func updateProviderButtons(driveNow driveNowActive: Bool, car2go car2goActive: Bool) {
+        driveNowConfigured = driveNowActive
+        car2goConfigured = car2goActive
+        reloadProviderButtons()
     }
     
     // MARK: Segues and Popup Presentation
     
     func presentVehicleMapView(with data: ViewData) {
-        // TODO: implement function
         guard let vehicles = data.displayedVehicles else {
             Debug.print(.error(source: .location(Source()), message: "No vehicles received in data!"))
             return
         }
         dismissLoadingAnimation()
-        Debug.print(.success(source: .location(Source()), message: "\(vehicles.count) vehicles ready to be displayed."))
+        Debug.print(.success(source: .location(Source()), message: "\(vehicles.count) vehicles ready to be displayed ... not yet implemented"))
     }
     
-    func presentLoginPopup() {
+    func presentDriveNowLoginPopup() {
         Debug.print(.error(source: .location(Source()), message: "Display Login Popup ... not yet implemented!"))
+        // TODO: Implement Presentation
     }
     
     func presentSelectInternalModelOptionsPopup(with data: ViewData) {
         Debug.print(.error(source: .location(Source()), message: "Display Internal Model Options Popup ... not yet implemented!"))
+        // TODO: Implement Presentation
     }
     
     func presentSelectExternalModelOptionsPopup(with data: ViewData) {
         Debug.print(.error(source: .location(Source()), message: "Display External Model Options Popup ... not yet implemented!"))
+        // TODO: Implement Presentation
     }
     
     func presentSelectModelsPopup(with data: ViewData) {
         Debug.print(.error(source: .location(Source()), message: "Display Models Popup ... not yet implemented!"))
+        // TODO: Implement Presentation
     }
     
     func presentSelectFiltersetIconAndNamePopup(with data: ViewData) {
         Debug.print(.error(source: .location(Source()), message: "Display Filterset Icon and Name Popup ... not yet implemented!"))
+        // TODO: Implement Presentation
     }
 
 }

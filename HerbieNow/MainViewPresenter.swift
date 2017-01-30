@@ -44,7 +44,7 @@ extension MainViewPresenter: MainViewPresenterProtocol {
     func presentPopup(_ popup: View) {
         switch popup {
         case .login:
-            mainVC?.presentLoginPopup()
+            mainVC?.presentDriveNowLoginPopup()
         case .internalModelOptions(let popupData):
             mainVC?.presentSelectInternalModelOptionsPopup(with: popupData)
         case .externalModelOptions(let popupData):
