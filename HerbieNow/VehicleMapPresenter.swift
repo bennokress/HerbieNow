@@ -14,6 +14,8 @@ protocol VehicleMapPresenterProtocol {
     
     func showMyLocation(at location: Location)
     
+    func goToMainView()
+    
 }
 
 /// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
@@ -35,6 +37,10 @@ extension VehicleMapPresenter: VehicleMapPresenterProtocol {
     
     func showMyLocation(at location: Location) {
         vehicleMapVC?.showMyLocation(at: location)
+    }
+    
+    func goToMainView() {
+        vehicleMapVC?.goToMainView()
     }
     
 }

@@ -47,6 +47,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIp-8x-DjC">
                                                         <rect key="frame" x="8" y="6.6666666666666661" width="34" height="30"/>
                                                         <state key="normal" title="back"/>
+                                                        <connections>
+                                                            <action selector="backButtonPressed:" destination="Zrg-Ig-d3B" eventType="touchUpInside" id="Iaa-R0-Otc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0039215686274509803" green="0.0078431372549019607" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -122,6 +125,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="backButton" destination="aIp-8x-DjC" id="ecN-rQ-WJd"/>
                         <outlet property="mapViewOutlet" destination="AhY-h4-zBU" id="AoJ-Xi-RDm"/>
                     </connections>
                 </viewController>
