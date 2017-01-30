@@ -183,18 +183,12 @@ extension Logic: LogicProtocol {
         var allVehicles: [Vehicle] = []
         
         getAvailableVehicles(from: .driveNow, around: location) { response in
-            guard let driveNowVehicles: [Vehicle] = response.getDetails() else {
-                Debug.print(.error(source: .location(Source()), message: "Response did not contain DriveNow vehicle data."))
-                return
-            }
+            guard let driveNowVehicles: [Vehicle] = response.getDetails() else { return }
             
             allVehicles.append(contentsOf: driveNowVehicles)
             
             self.getAvailableVehicles(from: .car2go, around: location) { response in
-                guard let car2goVehicles: [Vehicle] = response.getDetails() else {
-                    Debug.print(.error(source: .location(Source()), message: "Response did not contain Car2Go vehicle data."))
-                    return
-                }
+                guard let car2goVehicles: [Vehicle] = response.getDetails() else { return }
                 
                 allVehicles.append(contentsOf: car2goVehicles)
                 let callback = APICallResult.vehicles(allVehicles)

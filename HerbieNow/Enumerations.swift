@@ -1,5 +1,5 @@
 //
-//  ModelEnumerations.swift
+//  Enumerations.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 13.11.16.
@@ -63,6 +63,7 @@ enum APICallResult {
         case .reservation(let hasActiveReservation, _):
             return hasActiveReservation
         default:
+            Debug.print(.error(source: .location(Source()), message: "No Bool found in Response!"))
             return nil
         }
     }
@@ -72,6 +73,7 @@ enum APICallResult {
         case .vehicles(let list):
             return list
         default:
+            Debug.print(.error(source: .location(Source()), message: "No Vehicles found in Response!"))
             return nil
         }
     }
@@ -81,6 +83,7 @@ enum APICallResult {
         case .reservation(_, let reservation):
             return reservation
         default:
+            Debug.print(.error(source: .location(Source()), message: "No Reservation found in Response!"))
             return nil
         }
     }
@@ -90,6 +93,7 @@ enum APICallResult {
         case .credential(let credential):
             return credential
         default:
+            Debug.print(.error(source: .location(Source()), message: "No Credentials found in Response!"))
             return nil
         }
     }

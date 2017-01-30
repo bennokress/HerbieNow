@@ -108,14 +108,15 @@ extension MainViewInterpreter: InternalRouting {
     }
     
     fileprivate func getFilteredVehicles(for provider: Provider) {
-        Debug.print(.error(source: .location(Source()), message: "Get filtered vehicles for \(provider.rawValue) ... handling not implemented!"))
+        logic.getAvailableVehicles(from: provider) { response in
+            guard let vehicles: [Vehicle] = response.getDetails() else { return }
+            self.presentVehicleMapView(with: vehicles)
+        }
     }
     
     fileprivate func getUnfilteredVehicles() {
         logic.getAllAvailableVehicles() { response in
-            guard let vehicles: [Vehicle] = response.getDetails() else {
-                return
-            }
+            guard let vehicles: [Vehicle] = response.getDetails() else { return }
             self.presentVehicleMapView(with: vehicles)
         }
     }
