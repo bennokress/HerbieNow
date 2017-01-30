@@ -122,7 +122,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="mapView" destination="AhY-h4-zBU" id="YBv-Jh-S7q"/>
+                        <outlet property="mapViewOutlet" destination="AhY-h4-zBU" id="AoJ-Xi-RDm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q09-3U-r2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,7 +209,7 @@
                                                                         <rect key="frame" x="119" y="0.0" width="120" height="120"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D07-OZ-TZY">
-                                                                                <rect key="frame" x="22" y="4" width="77" height="76"/>
+                                                                                <rect key="frame" x="22.666666666666657" y="4" width="76" height="76"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchDown" id="7Ss-oU-wzb"/>
@@ -286,17 +286,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="358" height="118"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-Ju-gla" userLabel="Cell 1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="119" height="120"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-Go-546">
-                                                                                <rect key="frame" x="22" y="4" width="76" height="76"/>
+                                                                                <rect key="frame" x="22" y="4" width="76" height="76.666666666666686"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchDown" id="6YP-Bh-QkB"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qu-Ly-21w">
-                                                                                <rect key="frame" x="0.0" y="84" width="119" height="35"/>
+                                                                                <rect key="frame" x="0.0" y="84.666666666666686" width="119" height="35.333333333333314"/>
                                                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -316,7 +316,7 @@
                                                                         <rect key="frame" x="119" y="0.0" width="120" height="118"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLF-AJ-oCT">
-                                                                                <rect key="frame" x="22" y="4" width="77" height="76"/>
+                                                                                <rect key="frame" x="22.666666666666657" y="4" width="76" height="76.666666666666686"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchDown" id="ceh-DB-Lff"/>
@@ -341,7 +341,7 @@
                                                                         <rect key="frame" x="239" y="0.0" width="119" height="118"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCf-YE-8Fg">
-                                                                                <rect key="frame" x="22" y="4" width="76" height="76"/>
+                                                                                <rect key="frame" x="22" y="4" width="76" height="76.666666666666686"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchDown" id="c9x-Ol-eyZ"/>
@@ -421,7 +421,7 @@
                                                                         <rect key="frame" x="119" y="0.0" width="120" height="120"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-E7-Ady">
-                                                                                <rect key="frame" x="22" y="4" width="77" height="76"/>
+                                                                                <rect key="frame" x="22.666666666666657" y="4" width="76" height="76"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchDown" id="nVz-dC-8jP"/>
@@ -699,7 +699,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="esW-4t-1Na" customClass="HerbieTextField" customModule="HerbieNow" customModuleProvider="target">
-                                <rect key="frame" x="58" y="194" width="298" height="19"/>
+                                <rect key="frame" x="58" y="193" width="298" height="19"/>
                                 <color key="textColor" red="0.97603976155817662" green="0.98570352157360408" blue="0.98570352157360408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next"/>
