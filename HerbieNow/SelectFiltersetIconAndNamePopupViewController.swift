@@ -19,7 +19,16 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
     
     lazy var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol = SelectFiltersetIconAndNamePopupInterpreter(for: self) as SelectFiltersetIconAndNamePopupInterpreterProtocol
     
+    // MARK: Data
+    
     var filterset: Filterset = Filterset()
+    
+    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
+    
+    var selectedIconID: Int = 1
+    var selectedName = ""
+    
+    // MARK: UI Elements
 
     @IBOutlet fileprivate weak var iconPicker: AKPickerView!
 
@@ -28,6 +37,8 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
     @IBOutlet fileprivate weak var confirmButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,31 +49,42 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
         super.viewDidAppear(animated)
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear(with: data)
-        // TODO: Remove models based on current filterset from displayed models to disable them permanently for the current workflow
     }
     
-    // ------------------------------------------------------------------------------------------------------------------------------- //
+    // MARK: UI Element Interaction Functions
     
-    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
+    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeConfirmButtonAction()
+        }
+    }
     
-    var selectedIconID: Int = 1
-    var selectedName = ""
-
-    // MARK: - Icon Picker Methods
+    @IBAction func backBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeBackButtonAction()
+        }
+    }
+    
+    @IBAction func abortButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeAbortButtonAction()
+        }
+    }
 
     // TODO: Implement AKPickerViewMethods
 
-    // MARK: - Selection TextField Methods
+}
 
-    private func setFiltersetName(to newValue: String) {
+// MARK: - Internal Functions
+extension SelectFiltersetIconAndNamePopupViewController: InternalRouting {
+    
+    fileprivate func setFiltersetName(to newValue: String) {
         selectedName = newValue
     }
-
+    
     // TODO: Add TextFieldDelegate that calls the above method
-
-    // MARK: - Navigational Button Methods
-
-    private func configureNavigationButtons() {
+    
+    fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {
             self.confirmButton.imageForNormal = UIImage(named: "Next")
             self.confirmButton.imageView?.tintColor = UIColor.green
@@ -71,38 +93,20 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
             self.backButton.isHidden = true
         }
     }
-
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
-        }
-    }
-
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
-        }
-    }
-
-    @IBAction func abortButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
-        }
-    }
-
-    private func executeConfirmButtonAction() {
+    
+    fileprivate func executeConfirmButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.dismissed(popup)
     }
-
-    private func executeBackButtonAction() {
+    
+    fileprivate func executeBackButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
         //        delegate?.reverted(popup)
     }
-
-    private func executeAbortButtonAction() {
+    
+    fileprivate func executeAbortButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.aborted(popup)
     }
-
+    
 }

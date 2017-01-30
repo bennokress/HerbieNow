@@ -19,8 +19,20 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
     
     lazy var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol = SelectInternalModelOptionsPopupInterpreter(for: self) as SelectInternalModelOptionsPopupInterpreterProtocol
     
+    // MARK: Data
+    
     var filterset: Filterset = Filterset()
-
+    
+    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
+    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
+    var displayedHPRange: (min: Int, max: Int) = (0, 200)
+    
+    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
+    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
+    var selectedHPRange: (min: Int, max: Int) = (0, 200)
+    
+    // MARK: UI Elements
+    
     @IBOutlet fileprivate weak var fuelTypePetrolButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeDieselButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeElectricButton: UIButton!
@@ -34,6 +46,8 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
     @IBOutlet fileprivate weak var confirmButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,17 +60,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
         interpreter.viewDidAppear(with: data)
     }
     
-    // ------------------------------------------------------------------------------------------------------------------------------- //
-    
-    // Displayed Options in Popup
-    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
-    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
-    var displayedHPRange: (min: Int, max: Int) = (0, 200)
-    
-    // Selected Values by the user, updated dynamically - Set is used, because it prohibits duplicate items
-    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
-    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
-    var selectedHPRange: (min: Int, max: Int) = (0, 200)
+    // MARK: UI Element Interaction Functions
     
     @IBAction func confirmBookingButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in
@@ -78,6 +82,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
 
 }
 
+// MARK: - Internal Functions
 extension SelectInternalModelOptionsPopupViewController: InternalRouting {
 
     fileprivate func flipSelection(for type: FuelType) {

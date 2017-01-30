@@ -19,7 +19,16 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     
     lazy var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol = SelectExternalModelOptionsPopupInterpreter(for: self) as SelectExternalModelOptionsPopupInterpreterProtocol
     
+    // MARK: Data
+    
     var filterset: Filterset = Filterset()
+    
+    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
+    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
+    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
+    var selectedHiFiMandatorySetting: Bool = false
+    
+    // MARK: UI Elements
 
     @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
     @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!
@@ -36,6 +45,8 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     @IBOutlet fileprivate weak var confirmButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +59,34 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
         interpreter.viewDidAppear(with: data)
     }
     
-    // ------------------------------------------------------------------------------------------------------------------------------- //
+    // MARK: UI Element Interaction Functions
     
-    // Sele Options in Popup
-    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
-    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
-    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
-    var selectedHiFiMandatorySetting: Bool = false
+    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeConfirmButtonAction()
+        }
+    }
+    
+    @IBAction func backBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeBackButtonAction()
+        }
+    }
+    
+    @IBAction func abortButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeAbortButtonAction()
+        }
+    }
+    
+}
+
+// MARK: - Internal Functions
+extension SelectExternalModelOptionsPopupViewController: InternalRouting {
 
     // MARK: - Selection Button Methods
 
-    //    private func flipDoorSelection(for type: Doors) {
+    //    fileprivate func flipDoorSelection(for type: Doors) {
     //        if selectedDoorTypes.contains(type) {
     //            selectedDoorTypes.remove(type)
     //        } else {
@@ -66,7 +94,7 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     //        }
     //    }
     //
-    //    private func flipSelection(for type: Seats) {
+    //    fileprivate func flipSelection(for type: Seats) {
     //        if selectedSeatTypes.contains(type) {
     //            selectedSeatTypes.remove(type)
     //        } else {
@@ -74,7 +102,7 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     //        }
     //    }
 
-    private func flipSelectionForHiFi() {
+    fileprivate func flipSelectionForHiFi() {
         selectedHiFiMandatorySetting = !selectedHiFiMandatorySetting
     }
 
@@ -82,11 +110,11 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
 
     // MARK: - Selection TextField Methods
 
-    private func adjustMinFuelLevel(to newValue: Int) {
+    fileprivate func adjustMinFuelLevel(to newValue: Int) {
         selectedFuelLevelRange.min = newValue
     }
 
-    private func adjustMaxFuelLevel(to newValue: Int) {
+    fileprivate func adjustMaxFuelLevel(to newValue: Int) {
         selectedFuelLevelRange.max = newValue
     }
 
@@ -94,7 +122,7 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
 
     // MARK: - Navigational Button Methods
 
-    private func configureNavigationButtons() {
+    fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {
             self.confirmButton.imageForNormal = UIImage(named: "Next")
             self.confirmButton.imageView?.tintColor = UIColor.green
@@ -104,35 +132,17 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
         }
     }
 
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
-        }
-    }
-
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
-        }
-    }
-
-    @IBAction func abortButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
-        }
-    }
-
-    private func executeConfirmButtonAction() {
+    fileprivate func executeConfirmButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.dismissed(popup)
     }
 
-    private func executeBackButtonAction() {
+    fileprivate func executeBackButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
         //        delegate?.reverted(popup)
     }
 
-    private func executeAbortButtonAction() {
+    fileprivate func executeAbortButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.aborted(popup)
     }

@@ -20,11 +20,15 @@ protocol LoginPopupViewControllerProtocol: class {
 
 class LoginPopupViewController: PopupViewController {
 
-    lazy var interpreter: LoginPopupInterpreterProtocol = LoginPopupInterpreter(for: self) as LoginPopupInterpreterProtocol
+    lazy var interpreter: LoginPopupInterpreterProtocol = LoginPopupInterpreter(for: self) as LoginPopupInterpreterProtocol    
+    
+    // MARK: UI Elements
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,8 @@ class LoginPopupViewController: PopupViewController {
         configureButtons()
         dismissLoadingAnimation()
     }
+    
+    // MARK: UI Element Interaction Functions
 
     @IBAction func ConfirmButtonPressed(_ sender: Any) {
         login()
