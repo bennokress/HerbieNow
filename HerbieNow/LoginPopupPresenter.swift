@@ -31,7 +31,7 @@ class LoginPopupPresenter {
 extension LoginPopupPresenter: LoginPopupPresenterProtocol {
 
     func credentialsAccepted(from returnData: ViewReturnData) {
-        popup?.usernameAndPasswordAreSaved(from: returnData)
+        popup?.dismissPopup(with: returnData)
     }
 
     func usernameRejected(because reason: String) {

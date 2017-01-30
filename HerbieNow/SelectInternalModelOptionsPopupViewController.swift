@@ -15,7 +15,11 @@ protocol SelectInternalModelOptionsPopupViewControllerProtocol: class {
 
 }
 
-class SelectInternalModelOptionsPopupViewController: PopupViewController {
+class SelectInternalModelOptionsPopupViewController: PopupViewController, SelectInternalModelOptionsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol = SelectInternalModelOptionsPopupInterpreter(for: self) as SelectInternalModelOptionsPopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     // Displayed Options in Popup
     var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
@@ -43,20 +47,38 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        configureNavigationButtons()
+        interpreter.viewDidAppear(with: data)
+    }
+    
+    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeConfirmButtonAction()
+        }
+    }
+    
+    @IBAction func backBookingButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeBackButtonAction()
+        }
+    }
+    
+    @IBAction func abortButtonTapped(_ sender: Any) {
+        dismiss(animated: true) { _ in
+            self.executeAbortButtonAction()
+        }
     }
 
-    // MARK: - Selection Button Methods
+}
 
-    private func flipSelection(for type: FuelType) {
+extension SelectInternalModelOptionsPopupViewController: InternalRouting {
+
+    fileprivate func flipSelection(for type: FuelType) {
         if selectedFuelTypes.contains(type) {
             selectedFuelTypes.remove(type)
         } else {
@@ -64,7 +86,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
         }
     }
 
-    private func flipSelection(for type: TransmissionType) {
+    fileprivate func flipSelection(for type: TransmissionType) {
         if selectedTransmissionTypes.contains(type) {
             selectedTransmissionTypes.remove(type)
         } else {
@@ -76,11 +98,11 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     // MARK: - Selection TextField Methods
 
-    private func adjustMinHP(to newValue: Int) {
+    fileprivate func adjustMinHP(to newValue: Int) {
         selectedHPRange.min = newValue
     }
 
-    private func adjustMaxHP(to newValue: Int) {
+    fileprivate func adjustMaxHP(to newValue: Int) {
         selectedHPRange.max = newValue
     }
 
@@ -88,7 +110,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
 
     // MARK: - Navigational Button Methods
 
-    private func configureNavigationButtons() {
+    fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {
             self.confirmButton.imageForNormal = UIImage(named: "Next")
             self.confirmButton.imageView?.tintColor = UIColor.green
@@ -98,35 +120,17 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
         }
     }
 
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
-        }
-    }
-
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
-        }
-    }
-
-    @IBAction func abortButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
-        }
-    }
-
-    private func executeConfirmButtonAction() {
+    fileprivate func executeConfirmButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.dismissed(popup)
     }
 
-    private func executeBackButtonAction() {
+    fileprivate func executeBackButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
         //        delegate?.reverted(popup)
     }
 
-    private func executeAbortButtonAction() {
+    fileprivate func executeAbortButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.aborted(popup)
     }

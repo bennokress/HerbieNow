@@ -15,7 +15,11 @@ protocol SelectExternalModelOptionsPopupViewControllerProtocol: class {
 
 }
 
-class SelectExternalModelOptionsPopupViewController: PopupViewController {
+class SelectExternalModelOptionsPopupViewController: PopupViewController, SelectExternalModelOptionsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol = SelectExternalModelOptionsPopupInterpreter(for: self) as SelectExternalModelOptionsPopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     // Sele Options in Popup
     var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
@@ -41,15 +45,13 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        configureNavigationButtons()
+        interpreter.viewDidAppear(with: data)
     }
 
     // MARK: - Selection Button Methods

@@ -15,7 +15,11 @@ protocol SelectModelsPopupViewControllerProtocol: class {
 
 }
 
-class SelectModelsPopupViewController: PopupViewController {
+class SelectModelsPopupViewController: PopupViewController, SelectModelsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectModelsPopupInterpreterProtocol = SelectModelsPopupInterpreter(for: self) as SelectModelsPopupInterpreterProtocol
+    
+    var filterset: Filterset = Filterset()
 
     // Displayed Models in Popup
     var displayedModels: [Model] = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
@@ -48,15 +52,13 @@ class SelectModelsPopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        configureNavigationButtons()
+        interpreter.viewDidAppear(with: data)
     }
 
     // MARK: - Selection Button Methods

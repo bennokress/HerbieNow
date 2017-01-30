@@ -9,20 +9,19 @@
 import Foundation
 
 protocol SelectInternalModelOptionsPopupInterpreterProtocol {
+    
+    func viewDidAppear(with data: ViewData?)
 
 }
 
 /// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
 class SelectInternalModelOptionsPopupInterpreter {
 
-    let appDelegate: AppDelegate
-
     var presenter: SelectInternalModelOptionsPopupPresenterProtocol
     var logic: LogicProtocol
 
-    init(for vehicleMapVC: SelectInternalModelOptionsPopupViewControllerProtocol? = nil, _ presenter: SelectInternalModelOptionsPopupPresenterProtocol = SelectInternalModelOptionsPopupPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
+    init(for vehicleMapVC: SelectInternalModelOptionsPopupViewControllerProtocol? = nil, _ presenter: SelectInternalModelOptionsPopupPresenterProtocol = SelectInternalModelOptionsPopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
 
-        self.appDelegate = appDelegate
         self.presenter = SelectInternalModelOptionsPopupPresenter(to: vehicleMapVC)
         self.logic = Logic()
 
@@ -31,5 +30,18 @@ class SelectInternalModelOptionsPopupInterpreter {
 }
 
 extension SelectInternalModelOptionsPopupInterpreter: SelectInternalModelOptionsPopupInterpreterProtocol {
+    
+    func viewDidAppear(with data: ViewData?) {
+        guard let viewData = data else {
+            Debug.print(.error(source: .location(Source()), message: "No data found."))
+            return
+        }
+        
+        if case .internalModelOptionsPopupData() = viewData {
+            // TODO: implement
+        } else {
+            Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
+        }
+    }
 
 }
