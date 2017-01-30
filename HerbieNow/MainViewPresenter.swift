@@ -11,6 +11,7 @@ import Foundation
 protocol MainViewPresenterProtocol {
 
     func presentVehicleMapView(with vehicles: [Vehicle])
+    func presentPopup(_ popup: View)
     func configureFiltersetButtons(with filtersets: [Int : Filterset])
     func showDeleteFiltersetAlert(for filterset: Filterset)
     func display(message: String)
@@ -38,6 +39,24 @@ extension MainViewPresenter: MainViewPresenterProtocol {
     func presentVehicleMapView(with vehicles: [Vehicle]) {
         let vehicleMapData = ViewData.vehicleMapData(displayedVehicles: vehicles)
         mainVC?.presentVehicleMapView(with: vehicleMapData)
+    }
+    
+    func presentPopup(_ popup: View) {
+        switch popup {
+        case .login:
+            mainVC?.presentLoginPopup()
+        case .internalModelOptions(let popupData):
+            mainVC?.presentSelectInternalModelOptionsPopup(with: popupData)
+        case .externalModelOptions(let popupData):
+            mainVC?.presentSelectExternalModelOptionsPopup(with: popupData)
+        case .models(let popupData):
+            mainVC?.presentSelectModelsPopup(with: popupData)
+        case .filtersetNameAndIcon(let popupData):
+            mainVC?.presentSelectFiltersetIconAndNamePopup(with: popupData)
+        default:
+            Debug.print(.error(source: .location(Source()), message: "No fitting Popup View Data received"))
+            break
+        }
     }
 
     func configureFiltersetButtons(with filtersets: [Int : Filterset]) {

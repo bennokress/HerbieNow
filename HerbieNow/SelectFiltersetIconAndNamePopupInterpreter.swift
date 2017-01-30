@@ -42,7 +42,7 @@ extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndName
             return
         }
         
-        if case .filtersetNameAndIconPopupData() = viewData {
+        if case .filtersetNameAndIconPopupData(let filterset, let icons) = viewData {
             // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))

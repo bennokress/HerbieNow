@@ -42,7 +42,7 @@ extension SelectModelsPopupInterpreter: SelectModelsPopupInterpreterProtocol {
             return
         }
         
-        if case .modelsPopupData() = viewData {
+        if case .modelsPopupData(let filterset, let displayedModels) = viewData {
             // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))

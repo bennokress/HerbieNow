@@ -190,23 +190,23 @@ extension MainViewController: MainViewControllerProtocol {
     }
     
     func presentLoginPopup() {
-        // TODO: implement function
+        Debug.print(.error(source: .location(Source()), message: "Display Login Popup ... not yet implemented!"))
     }
     
     func presentSelectInternalModelOptionsPopup(with data: ViewData) {
-        // TODO: implement function
+        Debug.print(.error(source: .location(Source()), message: "Display Internal Model Options Popup ... not yet implemented!"))
     }
     
     func presentSelectExternalModelOptionsPopup(with data: ViewData) {
-        // TODO: implement function
+        Debug.print(.error(source: .location(Source()), message: "Display External Model Options Popup ... not yet implemented!"))
     }
     
     func presentSelectModelsPopup(with data: ViewData) {
-        // TODO: implement function
+        Debug.print(.error(source: .location(Source()), message: "Display Models Popup ... not yet implemented!"))
     }
     
     func presentSelectFiltersetIconAndNamePopup(with data: ViewData) {
-        // TODO: implement function
+        Debug.print(.error(source: .location(Source()), message: "Display Filterset Icon and Name Popup ... not yet implemented!"))
     }
 
 }

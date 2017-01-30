@@ -42,7 +42,7 @@ extension SelectInternalModelOptionsPopupInterpreter: SelectInternalModelOptions
             return
         }
         
-        if case .internalModelOptionsPopupData() = viewData {
+        if case .internalModelOptionsPopupData(let filterset) = viewData {
             // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))

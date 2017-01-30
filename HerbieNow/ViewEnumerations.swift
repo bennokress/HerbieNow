@@ -60,10 +60,10 @@ enum ViewData {
 
     case mainData(displayedFiltersets: [Filterset])
     case vehicleMapData(displayedVehicles: [Vehicle])
-    case internalModelOptionsPopupData()
-    case externalModelOptionsPopupData()
-    case modelsPopupData()
-    case filtersetNameAndIconPopupData()
+    case internalModelOptionsPopupData(Filterset)
+    case externalModelOptionsPopupData(Filterset)
+    case modelsPopupData(Filterset, displayedModels: [Model])
+    case filtersetNameAndIconPopupData(Filterset, displayedIcons: [UIImage])
 
     var displayedFiltersets: [Filterset]? {
         switch self {

@@ -142,7 +142,7 @@ struct Filterset {
     
     // MARK: Mutating Functions
 
-    mutating func update(with newFilter: Filter) {
+    mutating func update(filter newFilter: Filter) {
         for (index, filter) in filters.enumerated() {
             if filter == newFilter {
                 filters[index] = newFilter
@@ -150,15 +150,15 @@ struct Filterset {
         }
     }
 
-    mutating func update(with newName: String) {
+    mutating func update(name newName: String) {
         name = newName
     }
 
-    mutating func update(with newPosition: Int) {
+    mutating func update(position newPosition: Int) {
         position = newPosition
     }
 
-    mutating func update(with newImage: UIImage) {
+    mutating func update(image newImage: UIImage) {
         image = newImage
     }
     

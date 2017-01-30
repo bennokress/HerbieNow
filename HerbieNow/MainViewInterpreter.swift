@@ -96,15 +96,23 @@ extension MainViewInterpreter: InternalRouting {
     // MARK: Filterset Handling
 
     fileprivate func createFilterset(at index: Int) {
-        guard index > 0, index <= 9 else {
+        guard index.isInRange(min: 1, max: 9) else {
             Debug.print(.error(source: .location(Source()), message: "Filterset index should only be between 1 and 9!"))
             return
         }
-        Debug.print(.error(source: .location(Source()), message: "Create Filterset #\(index) ... handling not implemented!"))
+        var newFilterset = Filterset()
+        newFilterset.update(position: index)
+        let popupData = ViewData.internalModelOptionsPopupData(newFilterset)
+        let internalModelOptionsPopup = View.internalModelOptions(data: popupData)
+        presenter.presentPopup(internalModelOptionsPopup)
     }
     
     fileprivate func getFilteredVehicles(for filterset: Filterset) {
-        Debug.print(.error(source: .location(Source()), message: "Get filtered vehicles (for filterset) ... handling not implemented!"))
+        logic.getAllAvailableVehicles() { response in
+            guard let unfilteredVehicles: [Vehicle] = response.getDetails() else { return }
+            let vehicles = filterset.filter(vehicles: unfilteredVehicles)
+            self.presentVehicleMapView(with: vehicles)
+        }
     }
     
     fileprivate func getFilteredVehicles(for provider: Provider) {
@@ -155,7 +163,7 @@ extension MainViewInterpreter: InternalRouting {
                 // TODO: Test-Filter entfernen
                 let filterString = "11:0111:11111111111111111:111:11:000200:000100:11:111:0:1:myFilterName:imageCodedIn64"
                 var testFilterset = Filterset(from: filterString)
-                testFilterset.update(with: .provider(driveNow: true, car2go: false))
+                testFilterset.update(filter: .provider(driveNow: true, car2go: false))
                 print(testFilterset.asString)
                 //                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
                 //                Debug.print(.event(source: .location(Source()), description: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))

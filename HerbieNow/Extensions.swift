@@ -127,6 +127,10 @@ extension Double {
 }
 
 extension Int {
+    
+    func isInRange(min: Int, max: Int) -> Bool {
+        return self >= min && self <= max
+    }
 
     /// Converts 1 to true and 0 to false. Defaults to false.
     func toBool() -> Bool {
