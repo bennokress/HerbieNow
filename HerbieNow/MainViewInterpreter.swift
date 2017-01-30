@@ -24,6 +24,9 @@ protocol MainViewInterpreterProtocol {
     func filtersetButtonPressed(id: Int)
 
     func filtersetButtonLongPressed(id: Int)
+    
+    // Popups
+    func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
 
 }
 
@@ -156,6 +159,12 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         // TODO: richtiges filterset herausfinden und übergeben
         // presenter.showDeleteFiltersetAlert(for: filterset)
 
+    }
+    
+    
+    func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        // TODO: Handle this
+        Debug.error(source: (name(of: self), #function), message: "Popup dismissed ... handling not implemented!")
     }
 
     // Das da unten kann dann später mal weg ...

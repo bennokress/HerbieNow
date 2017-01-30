@@ -8,29 +8,49 @@
 
 import Foundation
 
-protocol LoginPopupInterpreterProtocol {
+protocol LoginPopupInterpreterProtocol: class {
     
+    var presenter: LoginPopupPresenterProtocol { get set }
+    var logic: LogicProtocol { get set }
+    
+    func login(with returnData: ViewReturnData)
     
 }
 
-/// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
 class LoginPopupInterpreter {
-    
-    let appDelegate: AppDelegate
     
     var presenter: LoginPopupPresenterProtocol
     var logic: LogicProtocol
     
-    init(for vehicleMapVC: LoginPopupViewControllerProtocol? = nil, _ presenter: LoginPopupPresenterProtocol = LoginPopupPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
-        
-        self.appDelegate = appDelegate
-        self.presenter = LoginPopupPresenter(to: vehicleMapVC)
+    init(for loginVC: LoginPopupViewControllerProtocol? = nil, _ presenter: LoginPopupPresenterProtocol = LoginPopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
+        self.presenter = LoginPopupPresenter(to: loginVC)
         self.logic = Logic()
-        
     }
     
 }
 
 extension LoginPopupInterpreter: LoginPopupInterpreterProtocol {
+    
+    func login(with returnData: ViewReturnData) {
+        
+        guard case .loginPopupReturnData(let username, let password) = returnData else {
+            Debug.print(.error(source: .location(Source()), message: "Return Data has wrong format."))
+            return
+        }
+        
+        guard let usernameString = username, usernameString != "" else {
+            presenter.usernameRejected(because: "Username was not accepted.")
+            return
+        }
+        
+        guard let passwordString = password, passwordString != "" else {
+            presenter.passwordRejected(because: "Password was not accepted.")
+            return
+        }
+        
+        logic.save(username: usernameString, password: passwordString)
+        presenter.credentialsAccepted(from: returnData)
+        
+    }
     
 }

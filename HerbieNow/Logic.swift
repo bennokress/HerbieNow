@@ -34,6 +34,7 @@ protocol LogicProtocol {
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
 
     func saveUpdatedLocation(_ location: Location)
+    func save(username: String, password: String)
 
 }
 
@@ -66,6 +67,13 @@ extension Logic: LogicProtocol {
 
     func saveUpdatedLocation(_ location: Location) {
         appData.updateUserLocation(to: location)
+    }
+    
+    func save(username: String, password: String) {
+        
+        appData.addUsername(username, for: .driveNow)
+        appData.addPassword(password, for: .driveNow)
+        
     }
 
     func getConfiguredFiltersets() -> [Int : Filterset] {
@@ -103,9 +111,8 @@ extension Logic: LogicProtocol {
                 completion(error)
                 return
             }
-
-            appData.addUsername(dnUsername, for: .driveNow)
-            appData.addPassword(dnPassword, for: .driveNow)
+            
+            save(username: dnUsername, password: dnPassword)
 
             let api = provider.api()
             api.login() { response in

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 protocol MainViewControllerProtocol: class {
 
@@ -171,21 +172,28 @@ extension MainViewController: MainViewControllerProtocol {
 }
 
 extension MainViewController: PopupDelegate {
-
-    func dismissedLoginPopup(with username: String, and password: String) {
-        // TODO: Username and Password have to be saved for Drivenow
+    
+    func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        interpreter.userDismissedPopup(with: selectedData, via: navigationAction)
     }
-
-    func dismissed(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    
+    func popupWorkflowAborted() {
+        interpreter.viewDidAppear()
     }
-
-    func reverted(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    
+    func showLoadingAnimation(title: String) {
+        let spinner = SwiftSpinner.sharedInstance
+//        spinner.backgroundColor = UIColor.dunkelblau100
+//        spinner.innerColor = UIColor.dunkelblau060
+//        spinner.outerColor = UIColor.dunkelblau100
+//        spinner.titleLabel.textColor = UIColor.dunkelblau020
+//        spinner.titleLabel.font = UIFont.univers
+        spinner.title = title
+        SwiftSpinner.show(title)
     }
-
-    func aborted(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    
+    func dismissLoadingAnimation() {
+        SwiftSpinner.hide()
     }
 
 }

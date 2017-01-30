@@ -34,7 +34,7 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
         super.viewDidLoad()
 
         print(Debug.event(message: "Select Filterset Name & Icon Popup - View Did Load"))
-        selectedName = "Filterset #\(filterset.getPosition())"
+//        selectedName = "Filterset #\(filterset.getPosition())"
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -88,18 +88,18 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
     }
 
     private func executeConfirmButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.dismissed(popup)
+//        let popup = PopupContent.modelIntern(filterset: filterset)
+//        delegate?.dismissed(popup)
     }
 
     private func executeBackButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        delegate?.reverted(popup)
+//        let popup = PopupContent.modelIntern(filterset: originalFilterset)
+//        delegate?.reverted(popup)
     }
 
     private func executeAbortButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.aborted(popup)
+//        let popup = PopupContent.modelIntern(filterset: filterset)
+//        delegate?.aborted(popup)
     }
 
 }

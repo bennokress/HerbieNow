@@ -32,7 +32,7 @@ struct Filterset {
 
     init(from initString: String) {
         // String has the form: 00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded
-        let stringArray = initString.splited(by: ":")
+        let stringArray = initString.splitted(by: ":")
 
         let providerBoolArray = stringArray[0].toBoolArray()
         let providerFilter: Filter = getProviderFilter(from: providerBoolArray)

@@ -50,6 +50,7 @@
 		D384D4CB1E3F89E200418581 /* SelectModelsPopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4CA1E3F89E200418581 /* SelectModelsPopupPresenter.swift */; };
 		D384D4CD1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4CC1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift */; };
 		D384D4CF1E3F8D4900418581 /* ViewEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */; };
+		D384D4D01E3F98A700418581 /* SwiftSpinner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
 		D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160C01E0982B7000DBE17 /* MapKit.framework */; };
 		D39568481E2E5369003FC042 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
@@ -182,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D384D4D01E3F98A700418581 /* SwiftSpinner.framework in Frameworks */,
 				D39568681E300279003FC042 /* Presentr.framework in Frameworks */,
 				D39568661E300269003FC042 /* SkyFloatingLabelTextField.framework in Frameworks */,
 				D39568521E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework in Frameworks */,
@@ -596,6 +598,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireNetworkActivityIndicator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Presentr.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftSpinner.framework",
 			);
 			name = Carthage;
 			outputPaths = (
