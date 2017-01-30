@@ -105,7 +105,7 @@ class Car2GoAPI {
         }
 
         guard let license = licensePlateValue else {
-            print(Debug.error(source: (name(of: self), #function), message: "License Plate not Detected"))
+            Debug.print(.error(source: .location(Source()), message: "License Plate not Detected"))
             return nil
         }
 
@@ -119,7 +119,7 @@ class Car2GoAPI {
             return nil
         }
         guard let location = locationValue else {
-            print(Debug.error(source: (name(of: self), #function), message: "Convertaion for Coordinates failed."))
+            Debug.print(.error(source: .location(Source()), message: "Convertaion for Coordinates failed."))
             return nil
         }
 
@@ -177,7 +177,7 @@ extension Car2GoAPI: API {
         authorizeHerbieNowForCar2Go() { response in
 
             if let credential: OAuthSwiftCredential = response.getDetails() {
-                print(Debug.success(source: (name(of: self), #function), message: "User is logged in."))
+                Debug.print(.success(source: .location(Source()), message: "User is logged in."))
                 completion(.credential(credential))
             } else {
                 completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: functionName))

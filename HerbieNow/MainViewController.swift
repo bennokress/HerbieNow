@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 protocol MainViewControllerProtocol: class {
 
@@ -23,9 +24,14 @@ protocol MainViewControllerProtocol: class {
 
 }
 
-/// ViewControllers have no logic other than what to display
+// MARK: -
 class MainViewController: UIViewController {
+    
+    // swiftlint:disable:next force_cast
+    lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
+    // MARK: UI Elements
+    
     @IBOutlet fileprivate weak var filterset1Button: UIButton!
     @IBOutlet fileprivate weak var filterset2Button: UIButton!
     @IBOutlet fileprivate weak var filterset3Button: UIButton!
@@ -49,14 +55,13 @@ class MainViewController: UIViewController {
     @IBOutlet fileprivate weak var driveNowButton: UIButton!
     @IBOutlet fileprivate weak var car2goButton: UIButton!
     @IBOutlet fileprivate weak var goToMapButton: UIButton!
-
-    // swiftlint:disable:next force_cast
-    lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(Debug.event(message: "View Did Load"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
         setExclusiveTouchForAllButtons()
         interpreter.dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
     }
@@ -64,9 +69,11 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        print(Debug.event(message: "View Did Appear"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear()
     }
+    
+    // MARK: UI Element Interaction Functions
 
     @IBAction func filtersetButtonPressed(_ sender: UIButton) {
         let id: Int
@@ -92,7 +99,7 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        print(Debug.event(message: "Filterset \(id) Button Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Pressed"))
         interpreter.filtersetButtonPressed(id: id)
     }
 
@@ -120,7 +127,7 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        print(Debug.event(message: "Filterset \(id) Button Long Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Long Pressed"))
         interpreter.filtersetButtonLongPressed(id: id)
     }
 
@@ -134,16 +141,21 @@ class MainViewController: UIViewController {
         default:
             return
         }
-        print(Debug.event(message: "Account Button Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Account Button Pressed"))
         interpreter.providerButtonPressed(for: provider)
     }
 
     @IBAction func mapButtonPressed(_ sender: UIButton) {
-        print(Debug.event(message: "Map Button Pressed"))
+        Debug.print(.event(source: .location(Source()), description: "Map Button Pressed"))
         interpreter.mapButtonPressed()
     }
 
-    private func setExclusiveTouchForAllButtons() {
+}
+
+// MARK: - Internal Functions
+extension MainViewController: InternalRouting {
+    
+    fileprivate func setExclusiveTouchForAllButtons() {
         for case let button as UIButton in self.view.subviews {
             button.isExclusiveTouch = true
         }
@@ -151,9 +163,10 @@ class MainViewController: UIViewController {
             button.setTitleForAllStates("")
         }
     }
-
+    
 }
 
+// MARK: - Main View Controller Protocol Conformance
 extension MainViewController: MainViewControllerProtocol {
 
     func goToMapView(with vehicles: [Vehicle]) {
@@ -170,22 +183,30 @@ extension MainViewController: MainViewControllerProtocol {
 
 }
 
+// MARK: - Popup Delegate Conformance
 extension MainViewController: PopupDelegate {
 
-    func dismissedLoginPopup(with username: String, and password: String) {
-        // TODO: Username and Password have to be saved for Drivenow
+    func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        interpreter.userDismissedPopup(with: selectedData, via: navigationAction)
     }
 
-    func dismissed(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    func popupWorkflowAborted() {
+        interpreter.viewDidAppear()
     }
 
-    func reverted(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    func showLoadingAnimation(title: String) {
+        let spinner = SwiftSpinner.sharedInstance
+        //        spinner.backgroundColor = UIColor.dunkelblau100
+        //        spinner.innerColor = UIColor.dunkelblau060
+        //        spinner.outerColor = UIColor.dunkelblau100
+        //        spinner.titleLabel.textColor = UIColor.dunkelblau020
+        //        spinner.titleLabel.font = UIFont.univers
+        spinner.title = title
+        SwiftSpinner.show(title)
     }
 
-    func aborted(_ popupContent: PopupContent) {
-        // TODO: Call Interpreter
+    func dismissLoadingAnimation() {
+        SwiftSpinner.hide()
     }
 
 }

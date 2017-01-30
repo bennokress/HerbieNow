@@ -9,20 +9,32 @@
 import UIKit
 import Presentr
 
-class SelectModelsPopupViewController: PopupViewController {
+protocol SelectModelsPopupViewControllerProtocol: class {
 
+    var interpreter: SelectModelsPopupInterpreterProtocol { get set }
+
+}
+
+// MARK: -
+class SelectModelsPopupViewController: PopupViewController, SelectModelsPopupViewControllerProtocol {
+    
+    lazy var interpreter: SelectModelsPopupInterpreterProtocol = SelectModelsPopupInterpreter(for: self) as SelectModelsPopupInterpreterProtocol
+    
+    // MARK: Data
+    
+    var filterset: Filterset = Filterset()
+    
     // Displayed Models in Popup
     var displayedModels: [Model] = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
                                     .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
                                     .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
-
+    
     // Sele Options in Popup
     var selectedModels: Set<Model> = [.bmw1er5Door, .bmwI3, .bmwX1, .bmw2erAT, .bmw2erConvertible,
                                       .mini3Door, .mini5Door, .miniClubman, .miniConvertible,
                                       .smartForTwo, .mercedesCLA, .mercedesGLA, .mercedesAclass, .mercedesBclass]
-
-    // This will be set by the MainViewController, so that the Popup has a way to get information back there
-    var delegate: PopupDelegate?
+    
+    // MARK: UI Elements
 
     @IBOutlet fileprivate weak var bmw1er5DoorButton: UIButton!
     @IBOutlet fileprivate weak var bmwI3Button: UIButton!
@@ -42,43 +54,21 @@ class SelectModelsPopupViewController: PopupViewController {
     @IBOutlet fileprivate weak var confirmButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
+    
+    // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(Debug.event(message: "Select Models Popup - View Did Load"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        print(Debug.event(message: "Select Models Popup - View Did Appear"))
-        configureNavigationButtons()
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
+        interpreter.viewDidAppear(with: data)
     }
 
-    // MARK: - Selection Button Methods
-
-    private func flipModelSelection(for type: Model) {
-        if selectedModels.contains(type) {
-            selectedModels.remove(type)
-        } else {
-            selectedModels.insert(type)
-        }
-    }
-
-    // TODO: Add generic button function that calls the correct flip based on button ID
-
-    // MARK: - Navigational Button Methods
-
-    private func configureNavigationButtons() {
-        DispatchQueue.main.async {
-            self.confirmButton.imageForNormal = UIImage(named: "Next")
-            self.confirmButton.imageView?.tintColor = UIColor.green
-            self.abortButton.imageForNormal = UIImage(named: "Cancel")
-            self.abortButton.imageView?.tintColor = UIColor.blue
-            self.backButton.isHidden = true
-        }
-    }
+    // MARK: UI Element Interaction Functions
 
     @IBAction func confirmBookingButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in
@@ -97,20 +87,45 @@ class SelectModelsPopupViewController: PopupViewController {
             self.executeAbortButtonAction()
         }
     }
+    
+}
 
-    private func executeConfirmButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.dismissed(popup)
+// MARK: - Internal Functions
+extension SelectModelsPopupViewController {
+    
+    // TODO: Add generic button function that calls the correct flip based on button ID
+    
+    fileprivate func configureNavigationButtons() {
+        DispatchQueue.main.async {
+            self.confirmButton.imageForNormal = UIImage(named: "Next")
+            self.confirmButton.imageView?.tintColor = UIColor.green
+            self.abortButton.imageForNormal = UIImage(named: "Cancel")
+            self.abortButton.imageView?.tintColor = UIColor.blue
+            self.backButton.isHidden = true
+        }
+    }
+    
+    fileprivate func flipModelSelection(for type: Model) {
+        if selectedModels.contains(type) {
+            selectedModels.remove(type)
+        } else {
+            selectedModels.insert(type)
+        }
     }
 
-    private func executeBackButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        delegate?.reverted(popup)
+    fileprivate func executeConfirmButtonAction() {
+        //        let popup = PopupContent.modelIntern(filterset: Filterset)
+        //        delegate?.dismissed(popup)
     }
 
-    private func executeAbortButtonAction() {
-        let popup = PopupContent.modelIntern(filterset: filterset)
-        delegate?.aborted(popup)
+    fileprivate func executeBackButtonAction() {
+        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
+        //        delegate?.reverted(popup)
+    }
+
+    fileprivate func executeAbortButtonAction() {
+        //        let popup = PopupContent.modelIntern(filterset: filterset)
+        //        delegate?.aborted(popup)
     }
 
 }

@@ -10,27 +10,38 @@ import Foundation
 
 protocol SelectFiltersetIconAndNamePopupInterpreterProtocol {
     
-    
+    func viewDidAppear(with data: ViewData?)
+
 }
 
-/// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
 class SelectFiltersetIconAndNamePopupInterpreter {
-    
-    let appDelegate: AppDelegate
-    
+
     var presenter: SelectFiltersetIconAndNamePopupPresenterProtocol
     var logic: LogicProtocol
-    
-    init(for vehicleMapVC: SelectFiltersetIconAndNamePopupViewControllerProtocol? = nil, _ presenter: SelectFiltersetIconAndNamePopupPresenterProtocol = SelectFiltersetIconAndNamePopupPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
-        
-        self.appDelegate = appDelegate
+
+    init(for vehicleMapVC: SelectFiltersetIconAndNamePopupViewControllerProtocol? = nil, _ presenter: SelectFiltersetIconAndNamePopupPresenterProtocol = SelectFiltersetIconAndNamePopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
+
         self.presenter = SelectFiltersetIconAndNamePopupPresenter(to: vehicleMapVC)
         self.logic = Logic()
-        
+
     }
-    
+
 }
 
 extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol {
+
+    func viewDidAppear(with data: ViewData?) {
+        guard let viewData = data else {
+            Debug.print(.error(source: .location(Source()), message: "No data found."))
+            return
+        }
+        
+        if case .filtersetNameAndIconPopupData() = viewData {
+            // TODO: get data by adding .filtersetNameAndIconPopupData(let xyz) above
+            // TODO: pass to presenter
+        } else {
+            Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
+        }
+    }
     
 }

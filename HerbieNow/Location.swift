@@ -38,7 +38,7 @@ struct Location {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(self.asObject) { (placemarks, error) in
             if error != nil {
-                print(Debug.error(source: (name(of: self), #function), message: "Reverse Geocoding failed"))
+                Debug.print(.error(source: .location(Source()), message: "Reverse Geocoding failed"))
                 completion(nil)
             } else {
                 let placeArray = placemarks as [CLPlacemark]!
@@ -53,7 +53,7 @@ struct Location {
                     return
                 }
 
-                print(Debug.success(source: (name(of: self), #function), message: "Reverse Geocoding: (\(self.latitude), \(self.longitude)) is \(street) in \(areaCode) \(city)"))
+                Debug.print(.success(source: .location(Source()), message: "Reverse Geocoding: (\(self.latitude), \(self.longitude)) is \(street) in \(areaCode) \(city)"))
                 completion((street, areaCode, city))
             }
 

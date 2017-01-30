@@ -30,9 +30,13 @@ struct Filterset {
         return stringArray.joined(separator: ":")
     }
 
-    init(from initString: String) {
-        // String has the form: 00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded
-        let stringArray = initString.splited(by: ":")
+    init(from initString: String = "11:1111:11111111111111111:111:11:000400:000100:11:111:0:0:Default Set:no image") {
+        let stringArray = initString.splitted(by: ":")
+        
+        guard stringArray.count == 13 else {
+            Debug.print(.error(source: .location(Source()), message: "Not enough parts in Filterset Initializer String!"))
+            return
+        }
 
         let providerBoolArray = stringArray[0].toBoolArray()
         let providerFilter: Filter = getProviderFilter(from: providerBoolArray)
