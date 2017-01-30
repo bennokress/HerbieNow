@@ -33,6 +33,7 @@
 		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
 		D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */; };
 		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
+		D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B11E3F80E700418581 /* EmptyProtocols.swift */; };
 		D39160B91E0954A1000DBE17 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39160B81E0954A1000DBE17 /* AppData.swift */; };
 		D39160C11E0982B7000DBE17 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160C01E0982B7000DBE17 /* MapKit.framework */; };
 		D39568481E2E5369003FC042 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39160BE1E0969BA000DBE17 /* Alamofire.framework */; };
@@ -119,6 +120,7 @@
 		D33132491E07D92100645858 /* VIN-related Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VIN-related Extensions.swift"; sourceTree = "<group>"; };
 		D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filterset.swift; sourceTree = "<group>"; };
 		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
+		D384D4B11E3F80E700418581 /* EmptyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyProtocols.swift; sourceTree = "<group>"; };
 		D39160B81E0954A1000DBE17 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		D39160BC1E0969AD000DBE17 /* JASON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JASON.framework; path = Carthage/Build/iOS/JASON.framework; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */,
 				D3297A391E06B3D000831923 /* Reservation.swift */,
 				D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */,
+				D384D4B11E3F80E700418581 /* EmptyProtocols.swift */,
 			);
 			name = "Helper Files";
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
 				D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
+				D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */,
 				039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
