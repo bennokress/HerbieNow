@@ -14,7 +14,6 @@ protocol SelectFiltersetIconAndNamePopupInterpreterProtocol {
 
 }
 
-/// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
 class SelectFiltersetIconAndNamePopupInterpreter {
 
     var presenter: SelectFiltersetIconAndNamePopupPresenterProtocol

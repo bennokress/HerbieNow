@@ -12,7 +12,6 @@ protocol SelectExternalModelOptionsPopupPresenterProtocol {
 
 }
 
-/// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
 class SelectExternalModelOptionsPopupPresenter {
 
     weak var vehicleMapVC: SelectExternalModelOptionsPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference

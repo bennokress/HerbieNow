@@ -21,16 +21,6 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
     
     var filterset: Filterset = Filterset()
 
-    // Displayed Options in Popup
-    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
-    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
-    var displayedHPRange: (min: Int, max: Int) = (0, 200)
-
-    // Selected Values by the user, updated dynamically - Set is used, because it prohibits duplicate items
-    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
-    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
-    var selectedHPRange: (min: Int, max: Int) = (0, 200)
-
     @IBOutlet fileprivate weak var fuelTypePetrolButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeDieselButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeElectricButton: UIButton!
@@ -55,6 +45,18 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear(with: data)
     }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
+    
+    // Displayed Options in Popup
+    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
+    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
+    var displayedHPRange: (min: Int, max: Int) = (0, 200)
+    
+    // Selected Values by the user, updated dynamically - Set is used, because it prohibits duplicate items
+    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
+    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
+    var selectedHPRange: (min: Int, max: Int) = (0, 200)
     
     @IBAction func confirmBookingButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in

@@ -21,12 +21,6 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     
     var filterset: Filterset = Filterset()
 
-    // Sele Options in Popup
-    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
-    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
-    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
-    var selectedHiFiMandatorySetting: Bool = false
-
     @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
     @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!
 
@@ -53,6 +47,14 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear(with: data)
     }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
+    
+    // Sele Options in Popup
+    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
+    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
+    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
+    var selectedHiFiMandatorySetting: Bool = false
 
     // MARK: - Selection Button Methods
 

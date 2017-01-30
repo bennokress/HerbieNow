@@ -21,11 +21,6 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
     
     var filterset: Filterset = Filterset()
 
-    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
-
-    var selectedIconID: Int = 1
-    var selectedName = ""
-
     @IBOutlet fileprivate weak var iconPicker: AKPickerView!
 
     @IBOutlet fileprivate weak var nameTextField: UITextField!
@@ -45,6 +40,13 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
         interpreter.viewDidAppear(with: data)
         // TODO: Remove models based on current filterset from displayed models to disable them permanently for the current workflow
     }
+    
+    // ------------------------------------------------------------------------------------------------------------------------------- //
+    
+    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
+    
+    var selectedIconID: Int = 1
+    var selectedName = ""
 
     // MARK: - Icon Picker Methods
 

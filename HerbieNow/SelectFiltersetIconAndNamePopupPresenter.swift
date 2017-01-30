@@ -12,7 +12,6 @@ protocol SelectFiltersetIconAndNamePopupPresenterProtocol {
 
 }
 
-/// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
 class SelectFiltersetIconAndNamePopupPresenter {
 
     weak var vehicleMapVC: SelectFiltersetIconAndNamePopupViewControllerProtocol? // avoiding a retain cycle with this weak reference

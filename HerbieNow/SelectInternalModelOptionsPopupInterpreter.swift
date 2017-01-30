@@ -14,7 +14,6 @@ protocol SelectInternalModelOptionsPopupInterpreterProtocol {
 
 }
 
-/// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
 class SelectInternalModelOptionsPopupInterpreter {
 
     var presenter: SelectInternalModelOptionsPopupPresenterProtocol
