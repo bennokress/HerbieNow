@@ -17,6 +17,9 @@ protocol VehicleMapViewControllerProtocol: class {
     func showMyLocation(at location: Location)
     
     func showAnnotations(for vehicles: [Vehicle])
+    
+    /// Performs the segue back to the main view (after the Back-button is pressed)
+    func goToMainView()
 
 }
 
@@ -26,10 +29,12 @@ class VehicleMapViewController: UIViewController {
     lazy var interpreter: VehicleMapInterpreterProtocol = VehicleMapInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
 
     @IBOutlet weak fileprivate var mapViewOutlet: MKMapView!
+    @IBOutlet weak fileprivate var backButton: UIButton!
+    
     
     // zoom radius
     let regionRadius:CLLocationDistance = 1000
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +51,10 @@ class VehicleMapViewController: UIViewController {
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
     
         interpreter.viewDidAppear()
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        interpreter.backButtonPressed()
     }
 }
 
@@ -78,6 +87,10 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
             annotations.append(anno)
         }
         mapViewOutlet.addAnnotations(annotations)
+    }
+    
+    func goToMainView() {
+        // TODO: segue to main view
     }
 }
 

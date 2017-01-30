@@ -67,11 +67,11 @@ extension VehicleMapInterpreter: VehicleMapInterpreterProtocol {
     }
     
     func backButtonPressed() {
-        <#code#>
+        presenter.goToMainView()
     }
     
     func vehicleSelected() {
-        <#code#>
+        // TODO: implement
     }
     
 }
