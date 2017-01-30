@@ -1,5 +1,5 @@
 //
-//  SelectFiltersetIconAndNameViewController.swift
+//  SelectFiltersetIconAndNamePopupViewController.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 18.01.17.
@@ -9,7 +9,7 @@
 import UIKit
 import Presentr
 
-class SelectFiltersetIconAndNameViewController: PopupViewController {
+class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
 
     let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
 

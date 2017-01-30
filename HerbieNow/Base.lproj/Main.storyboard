@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IL9-F9-xu5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IL9-F9-xu5">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Vehicle Map View Controller-->
         <scene sceneID="zcT-Eh-CXm">
             <objects>
-                <viewController id="Zrg-Ig-d3B" sceneMemberID="viewController">
+                <viewController id="Zrg-Ig-d3B" customClass="VehicleMapViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yMQ-vA-BM9"/>
                         <viewControllerLayoutGuide type="bottom" id="C2L-E3-d4m"/>
@@ -121,6 +121,9 @@
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="mapView" destination="AhY-h4-zBU" id="YBv-Jh-S7q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q09-3U-r2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -754,10 +757,10 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="820.92391304347836"/>
         </scene>
-        <!--Select Internal Model Options View Controller-->
+        <!--Select Internal Model Options Popup View Controller-->
         <scene sceneID="h3q-Sg-hFl">
             <objects>
-                <viewController id="0Bg-hc-mFc" customClass="SelectInternalModelOptionsViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Bg-hc-mFc" customClass="SelectInternalModelOptionsPopupViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kRD-qg-chl"/>
                         <viewControllerLayoutGuide type="bottom" id="Yha-Db-Mx1"/>
@@ -893,10 +896,10 @@
             </objects>
             <point key="canvasLocation" x="1034.7826086956522" y="821.73913043478262"/>
         </scene>
-        <!--Select External Model Options View Controller-->
+        <!--Select External Model Options Popup View Controller-->
         <scene sceneID="LPA-SP-ru6">
             <objects>
-                <viewController id="H6w-xS-JuJ" customClass="SelectExternalModelOptionsViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H6w-xS-JuJ" customClass="SelectExternalModelOptionsPopupViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rca-MN-Svu"/>
                         <viewControllerLayoutGuide type="bottom" id="dFJ-vu-s4a"/>
@@ -927,10 +930,10 @@
             </objects>
             <point key="canvasLocation" x="1932" y="822"/>
         </scene>
-        <!--Select Models View Controller-->
+        <!--Select Models Popup View Controller-->
         <scene sceneID="Sb7-Sg-f1n">
             <objects>
-                <viewController id="mw9-Aa-KCr" customClass="SelectModelsViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mw9-Aa-KCr" customClass="SelectModelsPopupViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8QM-ib-be8"/>
                         <viewControllerLayoutGuide type="bottom" id="Hnn-1A-k1X"/>
@@ -961,10 +964,10 @@
             </objects>
             <point key="canvasLocation" x="2830" y="822"/>
         </scene>
-        <!--Select Filterset Icon And Name View Controller-->
+        <!--Select Filterset Icon And Name Popup View Controller-->
         <scene sceneID="6LU-nF-JGd">
             <objects>
-                <viewController id="dzQ-cz-5gZ" customClass="SelectFiltersetIconAndNameViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dzQ-cz-5gZ" customClass="SelectFiltersetIconAndNamePopupViewController" customModule="HerbieNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S61-7W-u5K"/>
                         <viewControllerLayoutGuide type="bottom" id="v74-5w-WZs"/>

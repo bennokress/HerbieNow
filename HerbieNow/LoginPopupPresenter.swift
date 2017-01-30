@@ -1,5 +1,5 @@
 //
-//  VehicleMapPresenter.swift
+//  LoginPopupPresenter.swift
 //  HerbieNow
 //
 //  Created by Benno Kress on 30.01.17.
@@ -8,23 +8,23 @@
 
 import Foundation
 
-protocol VehicleMapPresenterProtocol {
+protocol LoginPopupPresenterProtocol {
     
     
     
 }
 
 /// The Presenter is only called by the Interpreter and structures incoming data for easier presentation by a ViewController
-class VehicleMapPresenter {
+class LoginPopupPresenter {
     
-    weak var vehicleMapVC: VehicleMapViewControllerProtocol? // avoiding a retain cycle with this weak reference
+    weak var vehicleMapVC: LoginPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
     
-    init(to vehicleMapViewController: VehicleMapViewControllerProtocol? = nil) {
+    init(to vehicleMapViewController: LoginPopupViewControllerProtocol? = nil) {
         vehicleMapVC = vehicleMapViewController
     }
     
 }
 
-extension VehicleMapPresenter: VehicleMapPresenterProtocol {
+extension LoginPopupPresenter: LoginPopupPresenterProtocol {
     
 }
