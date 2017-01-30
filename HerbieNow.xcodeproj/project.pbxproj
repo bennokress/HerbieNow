@@ -28,6 +28,7 @@
 		9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6871481E16B7CA00994011 /* Assets.xcassets */; };
 		9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */; };
 		9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD31E3977970038349F /* Ailerons-Typeface.otf */; };
+		9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782CD91E3A7EF50038349F /* HerbieTextField.swift */; };
 		D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */; };
 		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
 		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
@@ -116,6 +117,7 @@
 		9E6969331E16B22700E70773 /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		9E782CD31E3977970038349F /* Ailerons-Typeface.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ailerons-Typeface.otf"; sourceTree = "<group>"; };
 		9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
+		9E782CD91E3A7EF50038349F /* HerbieTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieTextField.swift; sourceTree = "<group>"; };
 		D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleFormat.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
@@ -300,6 +302,8 @@
 				14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */,
 				14FB0F161E3F7F4100BA763C /* MapView */,
 				D39568541E2F676D003FC042 /* Popups */,
+				9E6969301E16B09900E70773 /* Fonts */,
+				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -593,6 +597,7 @@
 				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
 				D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */,
 				D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */,
+				9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */,
 				D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */,
 				037578A51DD0B68200AA8FC0 /* Location.swift in Sources */,
 				D39568641E2FCE98003FC042 /* AKPickerView.swift in Sources */,
