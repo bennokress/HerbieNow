@@ -29,7 +29,7 @@
 		9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */; };
 		9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD31E3977970038349F /* Ailerons-Typeface.otf */; };
 		9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782CD91E3A7EF50038349F /* HerbieTextField.swift */; };
-		D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */; };
+		D306D1B81E1692E800D5CD64 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* Debug.swift */; };
 		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
 		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
@@ -130,7 +130,7 @@
 		9E782CD31E3977970038349F /* Ailerons-Typeface.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ailerons-Typeface.otf"; sourceTree = "<group>"; };
 		9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
 		9E782CD91E3A7EF50038349F /* HerbieTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieTextField.swift; sourceTree = "<group>"; };
-		D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleFormat.swift; sourceTree = "<group>"; };
+		D306D1B71E1692E800D5CD64 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
 		D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInterpreterProtocol.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 				D39568631E2FCE98003FC042 /* AKPickerView.swift */,
 				D340A2DE1E01FD60001D5153 /* Type Extensions.swift */,
 				D33132491E07D92100645858 /* VIN-related Extensions.swift */,
-				D306D1B71E1692E800D5CD64 /* ConsoleFormat.swift */,
+				D306D1B71E1692E800D5CD64 /* Debug.swift */,
 				D3297A391E06B3D000831923 /* Reservation.swift */,
 				D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */,
 				D384D4B11E3F80E700418581 /* EmptyProtocols.swift */,
@@ -609,7 +609,7 @@
 		};
 		D3AF436D1DEF5FC6004431EB /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -617,7 +617,7 @@
 			name = Swiftlint;
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
@@ -633,7 +633,7 @@
 				D384D4CF1E3F8D4900418581 /* ViewEnumerations.swift in Sources */,
 				D384D4C31E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift in Sources */,
 				D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */,
-				D306D1B81E1692E800D5CD64 /* ConsoleFormat.swift in Sources */,
+				D306D1B81E1692E800D5CD64 /* Debug.swift in Sources */,
 				9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */,
 				D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */,
 				037578A51DD0B68200AA8FC0 /* Location.swift in Sources */,

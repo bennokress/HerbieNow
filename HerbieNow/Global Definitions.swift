@@ -11,7 +11,6 @@ import SwifterSwift
 
 typealias Callback = (APICallResult) -> Void
 typealias Success = Bool
-typealias Debug = ConsoleFormat
 
 let today = Date()
 

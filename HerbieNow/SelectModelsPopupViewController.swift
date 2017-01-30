@@ -10,9 +10,9 @@ import UIKit
 import Presentr
 
 protocol SelectModelsPopupViewControllerProtocol: class {
-    
+
     var interpreter: SelectModelsPopupInterpreterProtocol { get set }
-    
+
 }
 
 class SelectModelsPopupViewController: PopupViewController {
@@ -49,13 +49,13 @@ class SelectModelsPopupViewController: PopupViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(Debug.event(message: "Select Models Popup - View Did Load"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        print(Debug.event(message: "Select Models Popup - View Did Appear"))
+        Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         configureNavigationButtons()
     }
 
@@ -102,18 +102,18 @@ class SelectModelsPopupViewController: PopupViewController {
     }
 
     private func executeConfirmButtonAction() {
-//        let popup = PopupContent.modelIntern(filterset: Filterset)
-//        delegate?.dismissed(popup)
+        //        let popup = PopupContent.modelIntern(filterset: Filterset)
+        //        delegate?.dismissed(popup)
     }
 
     private func executeBackButtonAction() {
-//        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-//        delegate?.reverted(popup)
+        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
+        //        delegate?.reverted(popup)
     }
 
     private func executeAbortButtonAction() {
-//        let popup = PopupContent.modelIntern(filterset: filterset)
-//        delegate?.aborted(popup)
+        //        let popup = PopupContent.modelIntern(filterset: filterset)
+        //        delegate?.aborted(popup)
     }
 
 }

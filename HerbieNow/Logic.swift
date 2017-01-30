@@ -68,12 +68,12 @@ extension Logic: LogicProtocol {
     func saveUpdatedLocation(_ location: Location) {
         appData.updateUserLocation(to: location)
     }
-    
+
     func save(username: String, password: String) {
-        
+
         appData.addUsername(username, for: .driveNow)
         appData.addPassword(password, for: .driveNow)
-        
+
     }
 
     func getConfiguredFiltersets() -> [Int : Filterset] {
@@ -111,7 +111,7 @@ extension Logic: LogicProtocol {
                 completion(error)
                 return
             }
-            
+
             save(username: dnUsername, password: dnPassword)
 
             let api = provider.api()

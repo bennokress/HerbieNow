@@ -9,16 +9,16 @@
 import UIKit
 
 enum NavigationAction {
-    
+
     case back
     case next
     case confirm
     case abort
-    
+
 }
 
 enum View {
-    
+
     case main(data: ViewData)
     case vehicleMap(data: ViewData)
     case login
@@ -26,7 +26,7 @@ enum View {
     case externalModelOptions(data: ViewData)
     case models(data: ViewData)
     case filtersetNameAndIcon(data: ViewData)
-    
+
     var viewName: String {
         switch self {
         case .main:
@@ -45,18 +45,18 @@ enum View {
             return "Select Filterset Name and Icon Popup"
         }
     }
-    
+
 }
 
 enum ViewData {
-    
+
     case mainData(displayedFiltersets: [Filterset])
     case vehicleMapData(displayedVehicles: [Vehicle])
     case internalModelOptionsPopupData()
     case externalModelOptionsPopupData()
     case modelsPopupData()
     case filtersetNameAndIconPopupData()
-    
+
     var displayedFiltersets: [Filterset]? {
         switch self {
         case .mainData(let displayedFiltersets):
@@ -65,7 +65,7 @@ enum ViewData {
             return nil
         }
     }
-    
+
     var displayedVehicles: [Vehicle]? {
         switch self {
         case .vehicleMapData(let displayedVehicles):
@@ -74,17 +74,17 @@ enum ViewData {
             return nil
         }
     }
-    
+
 }
 
 enum ViewReturnData {
-    
+
     case loginPopupReturnData(username: String?, password: String?)
     case internalModelOptionsPopupReturnData()
     case externalModelOptionsPopupReturnData()
     case modelsPopupReturnData()
     case filtersetNameAndIconPopupReturnData()
-    
+
     var username: String? {
         switch self {
         case .loginPopupReturnData(let username, _):
@@ -93,7 +93,7 @@ enum ViewReturnData {
             return nil
         }
     }
-    
+
     var password: String? {
         switch self {
         case .loginPopupReturnData(_, let password):
@@ -102,5 +102,5 @@ enum ViewReturnData {
             return nil
         }
     }
-    
+
 }

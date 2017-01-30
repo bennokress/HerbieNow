@@ -24,7 +24,7 @@ protocol MainViewInterpreterProtocol {
     func filtersetButtonPressed(id: Int)
 
     func filtersetButtonLongPressed(id: Int)
-    
+
     // Popups
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
 
@@ -70,22 +70,22 @@ class MainViewInterpreter: GeneralInterpretProtocol {
             switch response {
             case .error(_, _, _, _):
                 //                presenter.displayAlert(with: response)
-                print(Debug.info(source: (name(of: self), #function), message: "Let presenter show an alert for: \(response.description)"))
+                Debug.print(.info(source: .location(Source()), message: "Let presenter show an alert for: \(response.description)"))
             case .reservation(let userHasActiveReservation, let optionalReservation):
                 //                userHasActiveReservation ? displayReservation(optionalReservation) : displayNoReservation()
                 if userHasActiveReservation {
                     guard let reservation = optionalReservation else { fatalError("Bad format: Active Reservation was nil.") }
-                    print(Debug.info(source: (name(of: self), #function), message: "Let presenter show reservation: \(reservation.description)"))
+                    Debug.print(.info(source: .location(Source()), message: "Let presenter show reservation: \(reservation.description)"))
                 } else {
-                    print(Debug.info(source: (name(of: self), #function), message: "Let presenter show that no reservation is active."))
+                    Debug.print(.info(source: .location(Source()), message: "Let presenter show that no reservation is active."))
                 }
             case .success(let successful):
                 //                successful ? presenter.letUserKnowOfSuccessfulAPIcall() : presenter.letUserKnowOfUnsuccessfulAPIcall()
-                print(Debug.info(source: (name(of: self), #function), message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
+                Debug.print(.info(source: .location(Source()), message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
             case .vehicles(let vehicles):
-                print(Debug.info(source: (name(of: self), #function), message: "Let map show \(vehicles.count) vehicles."))
+                Debug.print(.info(source: .location(Source()), message: "Let map show \(vehicles.count) vehicles."))
                 //                                presenter.showVehiclesOnMap(vehicles)
-                //                print(Debug.info(source: (name(of: self), #function), message: "Let the presenter display the following \(vehicles.count) vehicles:"))
+                //                Debug.print(.info(source: .location(Source()), message: "Let the presenter display the following \(vehicles.count) vehicles:"))
                 //                for vehicle in vehicles {
                 //                    print(Debug.list(message: vehicle.description, indent: 1))
                 //                }
@@ -96,18 +96,18 @@ class MainViewInterpreter: GeneralInterpretProtocol {
                 testFilterset.update(with: .provider(driveNow: true, car2go: false))
                 print(testFilterset.asString)
                 //                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
-                //                print(Debug.event(message: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
+                //                Debug.print(.event(source: .location(Source()), description: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
                 //                for vehicle in filteredVehicles {
                 //                    print(Debug.list(message: vehicle.description, indent: 1))
             //                }
             case .credential(let credential):
-                print(Debug.info(source: (name(of: self), #function), message: "Token: \(credential.oauthToken)"))
-                print(Debug.info(source: (name(of: self), #function), message: "Secret: \(credential.oauthTokenSecret)"))
+                Debug.print(.info(source: .location(Source()), message: "Token: \(credential.oauthToken)"))
+                Debug.print(.info(source: .location(Source()), message: "Secret: \(credential.oauthTokenSecret)"))
             }
 
         } else {
 
-            print(Debug.info(source: (name(of: self), #function), message: "Background action for API Call Result: \(response.description)"))
+            Debug.print(.info(source: .location(Source()), message: "Background action for API Call Result: \(response.description)"))
 
         }
 
@@ -160,11 +160,10 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         // presenter.showDeleteFiltersetAlert(for: filterset)
 
     }
-    
-    
+
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
         // TODO: Handle this
-        Debug.error(source: (name(of: self), #function), message: "Popup dismissed ... handling not implemented!")
+        Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
     }
 
     // Das da unten kann dann später mal weg ...
