@@ -151,6 +151,7 @@ class MainViewController: UIViewController {
 
     @IBAction func mapButtonPressed(_ sender: UIButton) {
         Debug.print(.event(source: .location(Source()), description: "Map Button Pressed"))
+        showLoadingAnimation(title: "Finding Vehicles")
         interpreter.userTapped(button: .map)
     }
 
@@ -180,6 +181,12 @@ extension MainViewController: MainViewControllerProtocol {
     
     func presentVehicleMapView(with data: ViewData) {
         // TODO: implement function
+        guard let vehicles = data.displayedVehicles else {
+            Debug.print(.error(source: .location(Source()), message: "No vehicles received in data!"))
+            return
+        }
+        dismissLoadingAnimation()
+        Debug.print(.success(source: .location(Source()), message: "\(vehicles.count) vehicles ready to be displayed."))
     }
     
     func presentLoginPopup() {
@@ -217,9 +224,9 @@ extension MainViewController: PopupDelegate {
 
     func showLoadingAnimation(title: String) {
         let spinner = SwiftSpinner.sharedInstance
-//        spinner.backgroundColor = UIColor(html: "#8fa6c2")
-        spinner.innerColor = UIColor(html: "#12253d")
-        spinner.outerColor = UIColor(html: "#010215")
+        spinner.backgroundColor = UIColor(html: "#010215")
+        spinner.innerColor = UIColor(html: "#8fa6c2")
+        spinner.outerColor = UIColor(html: "#12253d")
         spinner.titleLabel.textColor = UIColor(html: "#8fa6c2")
         spinner.titleLabel.font = UIFont(name: "Ailerons-Regular", size: 22)
         spinner.title = title

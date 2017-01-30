@@ -110,10 +110,8 @@ class Car2GoAPI {
         }
 
         if let latitude = json["coordinates"][1].double, let longitude = json["coordinates"][0].double {
-            print("Optional1")
             locationValue = Location(latitude: latitude, longitude: longitude)
         } else if let latitude = json["position"]["latitude"].double, let longitude = json["position"]["longitude"].double {
-            print("Option2")
             locationValue = Location(latitude: latitude, longitude: longitude)
         } else {
             return nil

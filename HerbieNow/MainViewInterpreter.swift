@@ -112,7 +112,12 @@ extension MainViewInterpreter: InternalRouting {
     }
     
     fileprivate func getUnfilteredVehicles() {
-        Debug.print(.error(source: .location(Source()), message: "Get all available vehicles ... handling not implemented!"))
+        logic.getAllAvailableVehicles() { response in
+            guard let vehicles: [Vehicle] = response.getDetails() else {
+                return
+            }
+            self.presentVehicleMapView(with: vehicles)
+        }
     }
     
     // MARK: API Handling

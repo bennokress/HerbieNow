@@ -28,7 +28,6 @@ struct Vehicle {
     let isConvertible: Bool
     let doors: Int
     let seats: Int
-    let description: String
     
     // MARK: Initialization
 
@@ -53,9 +52,6 @@ struct Vehicle {
         self.doors = vin.doors
         self.seats = vin.seats
 
-        // For Console Outputs
-        self.description = "\(provider.rawValue): \(licensePlate)\t\tConvertible: \(isConvertible)\t\tHiFi-System: \(hasHiFiSystem)\t\tPower: \(hp)hp \t\(kW)kW \t\t\(location.coordinateDescription)\t\t\(make.rawValue) \(model)"
-
     }
 
 }
@@ -67,4 +63,13 @@ extension Vehicle: Equatable {
         return lhs.vin == rhs.vin
     }
 
+}
+
+// MARK: - Custom String Convertible Conformance
+extension Vehicle: CustomStringConvertible {
+    
+    var description: String {
+        return "\(provider.rawValue): \(licensePlate)\t\tConvertible: \(isConvertible)\t\tHiFi-System: \(hasHiFiSystem)\t\tPower: \(hp)hp \t\(kW)kW \t\t\(location.coordinateDescription)\t\t\(make.rawValue) \(model)"
+    }
+    
 }

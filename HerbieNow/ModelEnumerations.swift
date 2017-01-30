@@ -339,7 +339,7 @@ enum Provider: String {
     case driveNow = "DriveNow"
     case car2go = "Car2Go"
 
-    func api() -> API {
+    var api: API {
 
         switch self {
         case .driveNow:

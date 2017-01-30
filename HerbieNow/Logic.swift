@@ -18,16 +18,20 @@ protocol LogicProtocol {
     func getFilterset(for id: Int) -> Filterset?
     func saveUpdatedLocation(_ location: Location)
     func save(username: String, password: String)
+    func getLastKnownUserLocation() -> Location?
 
     // MARK: API Methods
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback)
     func getUserData(from provider: Provider, completion: @escaping Callback)
     func getReservationStatus(from provider: Provider, completion: @escaping Callback)
-    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback)
+    func getAvailableVehicles(from provider: Provider, around location: Location?, completion: @escaping Callback)
     func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
     func cancelReservation(with provider: Provider, completion: @escaping Callback)
     func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
+    
+    // MARK: Convenience Getter
+    func getAllAvailableVehicles(around location: Location?, completion: @escaping Callback)
 
 }
 
@@ -71,6 +75,9 @@ extension Logic: LogicProtocol {
         // TODO: Filterset holen, falls konfiguriert, sonst nil zurückgeben.
         return nil
     }
+    func getLastKnownUserLocation() -> Location? {
+        return appData.getUserLocation()
+    }
 
     func logout(of provider:Provider) {
         appData.deleteCredentials(for: provider)
@@ -90,12 +97,12 @@ extension Logic: LogicProtocol {
 
             save(username: dnUsername, password: dnPassword)
 
-            let api = provider.api()
+            let api = provider.api
             api.login() { response in
                 completion(response)
             }
         case .car2go:
-            let api = provider.api()
+            let api = provider.api
             api.login() { response in
                 completion(response)
             }
@@ -105,8 +112,7 @@ extension Logic: LogicProtocol {
 
     func getUserData(from provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.getUserData() { response in
+        provider.api.getUserData() { response in
             completion(response)
         }
 
@@ -114,17 +120,20 @@ extension Logic: LogicProtocol {
 
     func getReservationStatus(from provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.getReservationStatus() { response in
+        provider.api.getReservationStatus() { response in
             completion(response)
         }
 
     }
 
-    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback) {
+    func getAvailableVehicles(from provider: Provider, around location: Location?, completion: @escaping Callback) {
+        
+        guard let location = location else {
+            Debug.print(.error(source: .location(Source()), message: "No Location provided"))
+            return
+        }
 
-        let api = provider.api()
-        api.getAvailableVehicles(around: location) { response in
+        provider.api.getAvailableVehicles(around: location) { response in
             completion(response)
         }
 
@@ -132,8 +141,7 @@ extension Logic: LogicProtocol {
 
     func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.reserveVehicle(withVIN: vin) { response in
+        provider.api.reserveVehicle(withVIN: vin) { response in
             completion(response)
         }
 
@@ -141,8 +149,7 @@ extension Logic: LogicProtocol {
 
     func cancelReservation(with provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.cancelReservation() { response in
+        provider.api.cancelReservation() { response in
             completion(response)
         }
 
@@ -150,8 +157,7 @@ extension Logic: LogicProtocol {
 
     func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.openVehicle(withVIN: vin) { response in
+        provider.api.openVehicle(withVIN: vin) { response in
             completion(response)
         }
 
@@ -159,11 +165,42 @@ extension Logic: LogicProtocol {
 
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.closeVehicle(withVIN: vin) { response in
+        provider.api.closeVehicle(withVIN: vin) { response in
             completion(response)
         }
 
+    }
+    
+    // MARK: Convenience Getter
+    
+    func getAllAvailableVehicles(around location: Location?, completion: @escaping Callback) {
+        
+        guard let location = location else {
+            Debug.print(.error(source: .location(Source()), message: "No Location provided"))
+            return
+        }
+        
+        var allVehicles: [Vehicle] = []
+        
+        getAvailableVehicles(from: .driveNow, around: location) { response in
+            guard let driveNowVehicles: [Vehicle] = response.getDetails() else {
+                Debug.print(.error(source: .location(Source()), message: "Response did not contain DriveNow vehicle data."))
+                return
+            }
+            
+            allVehicles.append(contentsOf: driveNowVehicles)
+            
+            self.getAvailableVehicles(from: .car2go, around: location) { response in
+                guard let car2goVehicles: [Vehicle] = response.getDetails() else {
+                    Debug.print(.error(source: .location(Source()), message: "Response did not contain Car2Go vehicle data."))
+                    return
+                }
+                
+                allVehicles.append(contentsOf: car2goVehicles)
+                let callback = APICallResult.vehicles(allVehicles)
+                completion(callback)
+            }
+        }
     }
 
 }
@@ -173,6 +210,24 @@ extension LogicProtocol {
     
     func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, completion: @escaping Callback) {
         login(with: provider, as: username, withPassword: password, completion: completion)
+    }
+    
+    func getAvailableVehicles(from provider: Provider, around location: Location? = nil, completion: @escaping Callback) {
+        if let customLocation = location {
+            getAvailableVehicles(from: provider, around: customLocation, completion: completion)
+        } else {
+            let userLocation = getLastKnownUserLocation()
+            getAvailableVehicles(from: provider, around: userLocation, completion: completion)
+        }
+    }
+    
+    func getAllAvailableVehicles(around location: Location? = nil, completion: @escaping Callback) {
+        if let customLocation = location {
+            getAllAvailableVehicles(around: customLocation, completion: completion)
+        } else {
+            let userLocation = getLastKnownUserLocation()
+            getAllAvailableVehicles(around: userLocation, completion: completion)
+        }
     }
     
 }
