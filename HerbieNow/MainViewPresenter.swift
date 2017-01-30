@@ -10,7 +10,7 @@ import Foundation
 
 protocol MainViewPresenterProtocol {
 
-    func goToMapView(with filterset: Filterset?)
+    func presentVehicleMapView(with vehicles: [Vehicle])
     func configureFiltersetButtons(with filtersets: [Int : Filterset])
     func showDeleteFiltersetAlert(for filterset: Filterset)
     func display(message: String)
@@ -35,8 +35,9 @@ class MainViewPresenter {
 // MARK: - Main View Presenter Protocol Conformance
 extension MainViewPresenter: MainViewPresenterProtocol {
 
-    func goToMapView(with filterset: Filterset?) {
-        //        mainVC?.goToMapView(with: )
+    func presentVehicleMapView(with vehicles: [Vehicle]) {
+        let vehicleMapData = ViewData.vehicleMapData(displayedVehicles: vehicles)
+        mainVC?.presentVehicleMapView(with: vehicleMapData)
     }
 
     func configureFiltersetButtons(with filtersets: [Int : Filterset]) {

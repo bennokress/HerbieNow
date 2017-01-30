@@ -16,7 +16,7 @@ protocol MainViewControllerProtocol: class {
     func dismissLoadingAnimation()
     
     // MARK: Segues and Popup Presentation
-    func presentMapView(with data: ViewData)
+    func presentVehicleMapView(with data: ViewData)
     func presentLoginPopup()
     func presentSelectInternalModelOptionsPopup(with data: ViewData)
     func presentSelectExternalModelOptionsPopup(with data: ViewData)
@@ -101,7 +101,7 @@ class MainViewController: UIViewController {
             return
         }
         Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Tapped"))
-        let filtersetButton = MainViewButton.filterset(displayedFiltersets[id])
+        let filtersetButton = MainViewButton.filterset(displayedFiltersets[id-1], id: id)
         interpreter.userTapped(button: filtersetButton)
     }
 
@@ -178,7 +178,7 @@ extension MainViewController: MainViewControllerProtocol {
     
     // MARK: Segues and Popup Presentation
     
-    func presentMapView(with data: ViewData) {
+    func presentVehicleMapView(with data: ViewData) {
         // TODO: implement function
     }
     

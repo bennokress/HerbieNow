@@ -10,7 +10,7 @@ import UIKit
 
 enum MainViewButton {
     
-    case filterset(Filterset?)
+    case filterset(Filterset?, id: Int)
     case provider(Provider)
     case map
     

@@ -62,8 +62,20 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     }
     
     func userTapped(button: MainViewButton){
-        // TODO: Handle this
-        Debug.print(.error(source: .location(Source()), message: "Button tapped ... handling not implemented!"))
+        
+        switch button {
+        case .filterset(let filterset, let index):
+            if let filterset = filterset {
+                getFilteredVehicles(for: filterset)
+            } else {
+                createFilterset(at: index)
+            }
+        case .provider(let provider):
+            getFilteredVehicles(for: provider)
+        case .map:
+            getUnfilteredVehicles()
+        }
+        
     }
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
@@ -80,10 +92,30 @@ extension MainViewInterpreter: InternalRouting {
         appDelegate.registerCurrentInterpreterForLocationUpdates(self)
         appDelegate.locationManager.requestAlwaysAuthorization()
     }
+    
+    // MARK: Filterset Handling
 
-    fileprivate func createFilterset() {
-
+    fileprivate func createFilterset(at index: Int) {
+        guard index > 0, index <= 9 else {
+            Debug.print(.error(source: .location(Source()), message: "Filterset index should only be between 1 and 9!"))
+            return
+        }
+        Debug.print(.error(source: .location(Source()), message: "Create Filterset #\(index) ... handling not implemented!"))
     }
+    
+    fileprivate func getFilteredVehicles(for filterset: Filterset) {
+        Debug.print(.error(source: .location(Source()), message: "Get filtered vehicles (for filterset) ... handling not implemented!"))
+    }
+    
+    fileprivate func getFilteredVehicles(for provider: Provider) {
+        Debug.print(.error(source: .location(Source()), message: "Get filtered vehicles for \(provider.rawValue) ... handling not implemented!"))
+    }
+    
+    fileprivate func getUnfilteredVehicles() {
+        Debug.print(.error(source: .location(Source()), message: "Get all available vehicles ... handling not implemented!"))
+    }
+    
+    // MARK: API Handling
 
     fileprivate func handleAPIresponse(_ response: APICallResult, presenterActionRequired: Bool) {
 
@@ -137,4 +169,13 @@ extension MainViewInterpreter: InternalRouting {
 
     }
 
+}
+
+// MARK: - Presenter Connection
+extension MainViewInterpreter: PresenterConnection {
+    
+    func presentVehicleMapView(with vehicles: [Vehicle]) {
+        presenter.presentVehicleMapView(with: vehicles)
+    }
+    
 }
