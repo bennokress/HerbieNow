@@ -10,8 +10,7 @@ import Foundation
 
 protocol VehicleMapViewInterpreterProtocol {
     
-    func viewDidLoad()
-    func viewDidAppear()
+    func viewDidAppear(with data: ViewData?)
     
     // MARK: UI Interaction
     func backButtonPressed()
@@ -62,14 +61,13 @@ extension VehicleMapViewInterpreter: LocationUpdateDelegate {
 // MARK: - Vehicle Map View Interpreter Protocol Conformance
 extension VehicleMapViewInterpreter: VehicleMapViewInterpreterProtocol {
     
-    func viewDidLoad() {
-        // Allow Location Updates
-        // Triggers Pop-up window for location service authorization
+    func viewDidAppear(with data: ViewData?) {
         requestRegularLocationUpdates()
-    }
-    
-    func viewDidAppear() {
-        
+        guard let viewData = data else {
+            Debug.print(.error(source: .location(Source()), message: "No View Data found"))
+            return
+        }
+        presenter.showVehicles(from: viewData)
     }
     
     func backButtonPressed() {

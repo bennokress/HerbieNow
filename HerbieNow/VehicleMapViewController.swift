@@ -23,11 +23,13 @@ protocol VehicleMapViewControllerProtocol: class {
 class VehicleMapViewController: UIViewController {
 
     lazy var interpreter: VehicleMapViewInterpreterProtocol = VehicleMapViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
+    var delegate: MapViewDelegate? = nil
     
     let segueIdentifier = "unwindToMainView"
     
     // MARK: Data & Settings
     
+    var data: ViewData? = nil
     let zoomRadius: CLLocationDistance = 1000
     
     // MARK: UI Elements
@@ -40,16 +42,15 @@ class VehicleMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
-        interpreter.viewDidLoad()
         setExclusiveTouchForAllButtons()
         mapViewOutlet.delegate = self
-        // createAnnotations()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
-        interpreter.viewDidAppear()
+        interpreter.viewDidAppear(with: data)
+        delegate?.dismissLoadingAnimation()
     }
     
     // MARK: UI Element Interaction Functions
@@ -73,6 +74,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     }
     
     func showAnnotations(for vehicles: [Vehicle]) {
+        Debug.print(.info(source: .location(Source()), message: "Presenting \(vehicles.count) vehicles on the map."))
         var annotations: [PinAnnotation] = []
         
         // iterate through vehicles to set every pin
@@ -131,7 +133,6 @@ extension VehicleMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // Action for pressing on "info-Button"
-        print("Button tapped")
         if let annot = view.annotation as? PinAnnotation {
             // alert window
             let ac = UIAlertController(title: "Hier kann man nun reservieren",

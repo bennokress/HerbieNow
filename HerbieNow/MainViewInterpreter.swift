@@ -154,6 +154,7 @@ extension MainViewInterpreter: InternalRouting {
 extension MainViewInterpreter: PresenterConnection {
     
     func presentVehicleMapView(with vehicles: [Vehicle]) {
+        print("Still got \(vehicles.count) vehicles.")
         presenter.presentVehicleMapView(with: vehicles)
     }
     

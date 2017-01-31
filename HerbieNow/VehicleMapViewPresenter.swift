@@ -11,10 +11,9 @@ import Foundation
 protocol VehicleMapViewPresenterProtocol {
     
     func centerMap(on location: Location)
-    
     func showMyLocation(at location: Location)
-    
     func goToMainView()
+    func showVehicles(from data: ViewData)
     
 }
 
@@ -46,6 +45,12 @@ extension VehicleMapViewPresenter: VehicleMapViewPresenterProtocol {
     
     func goToMainView() {
         vehicleMapVC?.goBackToMainView()
+    }
+    
+    func showVehicles(from data: ViewData) {
+        if case .vehicleMapData(let vehicles) = data {
+            vehicleMapVC?.showAnnotations(for: vehicles)
+        }
     }
     
 }

@@ -71,6 +71,7 @@
 		D39568641E2FCE98003FC042 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39568631E2FCE98003FC042 /* AKPickerView.swift */; };
 		D39568661E300269003FC042 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */; };
 		D39568681E300279003FC042 /* Presentr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568671E300279003FC042 /* Presentr.framework */; };
+		D3ADC5D81E4117FD0084B5B6 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -171,6 +172,7 @@
 		D39568631E2FCE98003FC042 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
 		D39568671E300279003FC042 /* Presentr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Presentr.framework; path = Carthage/Build/iOS/Presentr.framework; sourceTree = "<group>"; };
+		D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 			children = (
 				D39568551E2F67A2003FC042 /* PopupViewController.swift */,
 				D39568571E2F6E4E003FC042 /* PopupDelegate.swift */,
+				D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */,
 				D39568591E2F6FE0003FC042 /* LoginPopupViewController.swift */,
 				D395685B1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift */,
 				D395685D1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift */,
@@ -672,6 +675,7 @@
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				9E782D651E4099F90038349F /* HerbieBlurView.swift in Sources */,
+				D3ADC5D81E4117FD0084B5B6 /* MapViewDelegate.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
 				D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift in Sources */,
 				D384D4BF1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift in Sources */,
