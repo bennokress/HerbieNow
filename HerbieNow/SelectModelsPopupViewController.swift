@@ -70,19 +70,19 @@ class SelectModelsPopupViewController: PopupViewController, SelectModelsPopupVie
 
     // MARK: UI Element Interaction Functions
 
-    @IBAction func nextButtonTapped(_ sender: Any) {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
             self.executeNextButtonAction()
         }
     }
 
-    @IBAction func backButtonTapped(_ sender: Any) {
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
             self.executeBackButtonAction()
         }
     }
 
-    @IBAction func abortButtonTapped(_ sender: Any) {
+    @IBAction func abortButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
             self.executeAbortButtonAction()
         }
