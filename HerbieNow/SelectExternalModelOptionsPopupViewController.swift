@@ -62,19 +62,19 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeNextButtonAction()
+            self.executeAction(.next)
         }
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
+            self.executeAction(.back)
         }
     }
     
     @IBAction func abortButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
+            self.executeAction(.abort)
         }
     }
     
@@ -124,20 +124,14 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
             self.backButton.isHidden = true
         }
     }
-
-    fileprivate func executeNextButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: filterset)
-        //        delegate?.dismissed(popup)
-    }
-
-    fileprivate func executeBackButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        //        delegate?.reverted(popup)
-    }
-
-    fileprivate func executeAbortButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: filterset)
-        //        delegate?.aborted(popup)
+    
+    fileprivate func executeAction(_ action: NavigationAction) {
+        guard let data = data, let filtersetConfiguration = data.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
+            return
+        }
+        let returnData = ViewReturnData.externalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
+        delegate?.popupDismissed(with: returnData, via: action)
     }
 
 }

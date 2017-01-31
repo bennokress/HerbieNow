@@ -17,6 +17,7 @@ protocol SelectInternalModelOptionsPopupViewControllerProtocol: class {
 
     func updateFuelTypeButtonsActiveState(diesel dieselActive: Bool, petrol petrolActive: Bool, electric electricActive: Bool)
     func updateTransmissionTypeButtonsActiveState(automatic automaticActive: Bool, manual manualActive: Bool)
+    func updateHiFiSystemButtonActiveState(hifiSystemOnly: Bool)
     
 }
 
@@ -56,13 +57,13 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeNextButtonAction()
+            self.executeAction(.next)
         }
     }
     
     @IBAction func abortButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
+            self.executeAction(.abort)
         }
     }
     
@@ -115,6 +116,11 @@ extension SelectInternalModelOptionsPopupViewController: SelectInternalModelOpti
 //        manualActive ? transmissionTypeManualButton.setImageForAllStates(UIImage(named: "manualColored")!) : transmissionTypeManualButton.setImageForAllStates(UIImage(named: "manualGray")!)
     }
     
+    func updateHiFiSystemButtonActiveState(hifiSystemOnly: Bool) {
+        // TODO: De-Comment when Icons are ready
+//                hifiSystemOnly ? hifiSystemOnlyButton.setImageForAllStates(UIImage(named: "hifiColored")!) : hifiSystemOnlyButton.setImageForAllStates(UIImage(named: "hifiGray")!)
+    }
+    
 }
 
 // MARK: - Internal Functions
@@ -129,31 +135,13 @@ extension SelectInternalModelOptionsPopupViewController: InternalRouting {
         }
     }
 
-    fileprivate func executeNextButtonAction() {
+    fileprivate func executeAction(_ action: NavigationAction) {
         guard let data = data, let filtersetConfiguration = data.filterset else {
             Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
             return
         }
         let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
-        delegate?.popupDismissed(with: returnData, via: .next)
-    }
-
-    fileprivate func executeBackButtonAction() {
-        guard let data = data, let filtersetConfiguration = data.filterset else {
-            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
-            return
-        }
-        let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
-        delegate?.popupDismissed(with: returnData, via: .back)
-    }
-
-    fileprivate func executeAbortButtonAction() {
-        guard let data = data, let filtersetConfiguration = data.filterset else {
-            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
-            return
-        }
-        let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
-        delegate?.popupDismissed(with: returnData, via: .abort)
+        delegate?.popupDismissed(with: returnData, via: action)
     }
 
 }

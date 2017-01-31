@@ -351,7 +351,7 @@ extension MainViewController: PopupSetup {
 extension MainViewController: PopupDelegate {
 
     func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
-        showLoadingAnimation(title: "Loading Data")
+        showLoadingAnimation(title: "Loading")
         interpreter.userDismissedPopup(with: selectedData, via: navigationAction)
     }
 
