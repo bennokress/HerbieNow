@@ -52,12 +52,16 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     
     func viewDidAppear() {
         
-        //        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
-        //        presenter.configureAccountButtons(with: configuredAccounts)
-        
-        let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
-        presenter.configureFiltersetButtons(with: configuredFiltersets)
         requestRegularLocationUpdates()
+        
+        let configuredFiltersets = logic.getConfiguredFiltersets()
+        let driveNowActive = logic.isAccountConfigured(for: .driveNow)
+        let car2goActive = logic.isAccountConfigured(for: .car2go)
+        
+        let mainViewData = ViewData.mainData(displayedFiltersets: configuredFiltersets, driveNowActive: driveNowActive, car2goActive: car2goActive)
+        
+        presenter.updateData(with: mainViewData)
+        presenter.dismissLoadingAnimation()
         
     }
     
@@ -133,7 +137,7 @@ extension MainViewInterpreter: InternalRouting {
 
     fileprivate func handleAPIresponse(_ response: APICallResult, presenterActionRequired: Bool) {
 
-        // TODO: Jeweiliges API Call Result entpacken und an die passenden Stellen weiterleiten
+        // TODO: Wichtige Funktionen auslagern, Rest löschen
 
         if presenterActionRequired {
 

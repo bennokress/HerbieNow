@@ -8,6 +8,23 @@
 
 import UIKit
 
+enum AppStoryboard : String {
+    
+    // -> Explanation here: https://medium.com/@gurdeep060289/clean-code-for-multiple-storyboards-c64eb679dbf6#.z2yrmjsei
+    
+    case main = "Main"
+    
+    var instance : UIStoryboard {
+        return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
+    }
+    
+    func viewController<T: UIViewController>(_ viewControllerClass: T.Type) -> T {
+        let storyboardID = (viewControllerClass as UIViewController.Type).storyboardID
+        return instance.instantiateViewController(withIdentifier: storyboardID) as!T
+    }
+    
+}
+
 enum MainViewButton {
     
     case filterset(Filterset?, id: Int)
@@ -23,6 +40,14 @@ enum NavigationAction {
     case confirm
     case abort
 
+}
+
+extension UIViewController {
+    
+    class var storyboardID: String {
+        return "\(self)"
+    }
+    
 }
 
 enum View {
@@ -58,17 +83,35 @@ enum View {
 
 enum ViewData {
 
-    case mainData(displayedFiltersets: [Filterset])
+    case mainData(displayedFiltersets: [Filterset?], driveNowActive: Bool, car2goActive: Bool)
     case vehicleMapData(displayedVehicles: [Vehicle])
     case internalModelOptionsPopupData(Filterset)
     case externalModelOptionsPopupData(Filterset)
     case modelsPopupData(Filterset, displayedModels: [Model])
     case filtersetNameAndIconPopupData(Filterset, displayedIcons: [UIImage])
 
-    var displayedFiltersets: [Filterset]? {
+    var displayedFiltersets: [Filterset?]? {
         switch self {
-        case .mainData(let displayedFiltersets):
+        case .mainData(let displayedFiltersets, _, _):
             return displayedFiltersets
+        default:
+            return nil
+        }
+    }
+    
+    var driveNowConfigured: Bool? {
+        switch self {
+        case .mainData(_ , let driveNowActive, _):
+            return driveNowActive
+        default:
+            return nil
+        }
+    }
+    
+    var car2goConfigured: Bool? {
+        switch self {
+        case .mainData(_ , _, let car2goActive):
+            return car2goActive
         default:
             return nil
         }
@@ -78,6 +121,33 @@ enum ViewData {
         switch self {
         case .vehicleMapData(let displayedVehicles):
             return displayedVehicles
+        default:
+            return nil
+        }
+    }
+    
+    var filterset: Filterset? {
+        switch self {
+        case .internalModelOptionsPopupData(let filterset), .externalModelOptionsPopupData(let filterset), .modelsPopupData(let filterset, _), .filtersetNameAndIconPopupData(let filterset, _):
+            return filterset
+        default:
+            return nil
+        }
+    }
+    
+    var displayedModels: [Model]? {
+        switch self {
+        case .modelsPopupData(_, let displayedModels):
+            return displayedModels
+        default:
+            return nil
+        }
+    }
+    
+    var displayedIcons: [UIImage]? {
+        switch self {
+        case .filtersetNameAndIconPopupData(_, let displayedIcons):
+            return displayedIcons
         default:
             return nil
         }

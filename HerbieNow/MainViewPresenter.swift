@@ -12,9 +12,8 @@ protocol MainViewPresenterProtocol {
 
     func presentVehicleMapView(with vehicles: [Vehicle])
     func presentPopup(_ popup: View)
-    func configureFiltersetButtons(with filtersets: [Int : Filterset])
-    func showDeleteFiltersetAlert(for filterset: Filterset)
-    func display(message: String)
+    func updateData(with viewData: ViewData)
+    func dismissLoadingAnimation()
 
 }
 
@@ -59,16 +58,16 @@ extension MainViewPresenter: MainViewPresenterProtocol {
         }
     }
 
-    func configureFiltersetButtons(with filtersets: [Int : Filterset]) {
-        // TODO: activate or deactivate filterset buttons
+    func updateData(with viewData: ViewData) {
+        guard let displayedFiltersets = viewData.displayedFiltersets, let driveNowConfigured = viewData.driveNowConfigured, let car2goConfigured = viewData.car2goConfigured else {
+            return
+        }
+        mainVC?.updateFiltersetButtons(filtersets: displayedFiltersets)
+        mainVC?.updateProviderButtons(driveNow: driveNowConfigured, car2go: car2goConfigured)
     }
-
-    func showDeleteFiltersetAlert(for filterset: Filterset) {
-        // TODO: present alert
-    }
-
-    func display(message: String) {
-        // mainVC . do something
+    
+    func dismissLoadingAnimation() {
+        mainVC?.dismissLoadingAnimation()
     }
 
 }

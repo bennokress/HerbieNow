@@ -12,10 +12,10 @@ struct Filterset {
     
     // MARK: Stored Properties
 
-    fileprivate var filters: [Filter] = []
-    fileprivate var position: Int = 0
-    fileprivate var name: String = "defaultName"
-    fileprivate var image = UIImage()
+    var filters: [Filter] = []
+    var position: Int = 0
+    var name: String = "defaultName"
+    var image = UIImage()
     
     // MARK: Computed Properties
 
@@ -126,18 +126,6 @@ struct Filterset {
 
         return filteredVehicles
 
-    }
-
-    func getName() -> String {
-        return name
-    }
-
-    func getPosition() -> Int {
-        return position
-    }
-
-    func getImage() -> UIImage {
-        return image
     }
     
     // MARK: Mutating Functions
@@ -435,4 +423,13 @@ extension Filterset: InternalRouting {
         return filteredVehicles
     }
 
+}
+
+// MARK: - Equatable Conformance
+extension Filterset: Equatable {
+    
+    static func == (lhs: Filterset, rhs: Filterset) -> Bool {
+        return lhs.asString == rhs.asString
+    }
+    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import Presentr
 
 protocol MainViewControllerProtocol: class {
 
@@ -170,11 +171,72 @@ extension MainViewController: InternalRouting {
     }
     
     fileprivate func reloadFiltersetButtons() {
-        // TODO: Load and display Filtersets from displayedFiltersets
+        
+        var round = 0
+        
+        for filterset in displayedFiltersets {
+            
+            round += 1
+            
+            var currentButton: UIButton
+            var currentLabel: UILabel
+            
+            switch round {
+            case 1:
+                currentButton = filterset1Button
+                currentLabel = filterset1Label
+            case 2:
+                currentButton = filterset2Button
+                currentLabel = filterset2Label
+            case 3:
+                currentButton = filterset3Button
+                currentLabel = filterset3Label
+            case 4:
+                currentButton = filterset4Button
+                currentLabel = filterset4Label
+            case 5:
+                currentButton = filterset5Button
+                currentLabel = filterset5Label
+            case 6:
+                currentButton = filterset6Button
+                currentLabel = filterset6Label
+            case 7:
+                currentButton = filterset7Button
+                currentLabel = filterset7Label
+            case 8:
+                currentButton = filterset8Button
+                currentLabel = filterset8Label
+            case 9:
+                currentButton = filterset9Button
+                currentLabel = filterset9Label
+            default:
+                fatalError("Filterset Index out of range!")
+            }
+            
+            if let filterset = filterset {
+                
+                currentButton.setImageForAllStates(filterset.image)
+                currentLabel.text = filterset.name
+                
+            } else {
+                
+                currentButton.setImageForAllStates(#imageLiteral(resourceName: "addFilter"))
+                currentLabel.text = "Add Filterset"
+                
+            }
+        }
     }
     
     fileprivate func reloadProviderButtons() {
-        // TODO: Activate or deactivate Provider Buttons based on the [Provider]Configured-values
+        driveNowConfigured ? driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "driveNow")) : driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "Face11"))
+        car2goConfigured ? car2goButton.setImageForAllStates(#imageLiteral(resourceName: "car2go")) : car2goButton.setImageForAllStates(#imageLiteral(resourceName: "Face03"))
+        // TODO: Implement greyed out buttons if false
+    }
+    
+    fileprivate func presentPopup(ofType popup: Presentr, viewController: PopupViewController, with data: ViewData? = nil) {
+        viewController.data = data
+        viewController.delegate = self
+        customPresentViewController(popup, viewController: viewController, animated: true, completion: nil)
     }
     
 }
@@ -207,36 +269,77 @@ extension MainViewController: MainViewControllerProtocol {
     }
     
     func presentDriveNowLoginPopup() {
-        Debug.print(.error(source: .location(Source()), message: "Display Login Popup ... not yet implemented!"))
-        // TODO: Implement Presentation
+        presentPopup(ofType: popupConfiguration, viewController: loginPopupVC)
     }
     
     func presentSelectInternalModelOptionsPopup(with data: ViewData) {
-        Debug.print(.error(source: .location(Source()), message: "Display Internal Model Options Popup ... not yet implemented!"))
-        // TODO: Implement Presentation
+        presentPopup(ofType: popupConfiguration, viewController: internalModelOptionsPopupVC, with: data)
     }
     
     func presentSelectExternalModelOptionsPopup(with data: ViewData) {
-        Debug.print(.error(source: .location(Source()), message: "Display External Model Options Popup ... not yet implemented!"))
-        // TODO: Implement Presentation
+        presentPopup(ofType: popupConfiguration, viewController: externalModalOptionsPopupVC, with: data)
     }
     
     func presentSelectModelsPopup(with data: ViewData) {
-        Debug.print(.error(source: .location(Source()), message: "Display Models Popup ... not yet implemented!"))
-        // TODO: Implement Presentation
+        presentPopup(ofType: popupConfiguration, viewController: modelsPopupVC, with: data)
     }
     
     func presentSelectFiltersetIconAndNamePopup(with data: ViewData) {
-        Debug.print(.error(source: .location(Source()), message: "Display Filterset Icon and Name Popup ... not yet implemented!"))
-        // TODO: Implement Presentation
+        presentPopup(ofType: popupConfiguration, viewController: filtersetIconAndNamePopupVC, with: data)
     }
 
+}
+
+// MARK: - Popup Setup
+extension MainViewController: PopupSetup {
+    
+    var popupConfiguration: Presentr {
+        let width = ModalSize.fluid(percentage: 0.9)
+        let height = ModalSize.fluid(percentage: 0.8)
+        let center = ModalCenterPosition.center
+        let customType = PresentationType.custom(width: width, height: height, center: center)
+        
+        let customPopup = Presentr(presentationType: customType)
+        customPopup.transitionType = .coverHorizontalFromRight
+        customPopup.dismissOnTap = true
+        customPopup.dismissOnSwipe = false
+        customPopup.dismissAnimated = true
+        customPopup.dismissTransitionType = .coverHorizontalFromLeft
+        customPopup.roundCorners = true
+        customPopup.cornerRadius = 5
+        customPopup.backgroundOpacity = 1.0
+        customPopup.blurBackground = true
+        customPopup.blurStyle = UIBlurEffectStyle.light
+        return customPopup
+    }
+    
+    var loginPopupVC: LoginPopupViewController {
+        return AppStoryboard.main.viewController(LoginPopupViewController.self)
+    }
+    
+    var internalModelOptionsPopupVC: SelectInternalModelOptionsPopupViewController {
+        return AppStoryboard.main.viewController(SelectInternalModelOptionsPopupViewController.self)
+    }
+    
+    var externalModalOptionsPopupVC: SelectExternalModelOptionsPopupViewController {
+        return AppStoryboard.main.viewController(SelectExternalModelOptionsPopupViewController.self)
+    }
+    
+    var modelsPopupVC: SelectModelsPopupViewController {
+        return AppStoryboard.main.viewController(SelectModelsPopupViewController.self)
+    }
+    
+    var filtersetIconAndNamePopupVC: SelectFiltersetIconAndNamePopupViewController {
+        return AppStoryboard.main.viewController(SelectFiltersetIconAndNamePopupViewController.self)
+    }
+    
 }
 
 // MARK: - Popup Delegate Conformance
 extension MainViewController: PopupDelegate {
 
     func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        showLoadingAnimation(title: "Loading Data")
         interpreter.userDismissedPopup(with: selectedData, via: navigationAction)
     }
 

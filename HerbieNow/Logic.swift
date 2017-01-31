@@ -13,9 +13,8 @@ protocol LogicProtocol {
     typealias Callback = (APICallResult) -> Void
     
     // MARK: App Data
-    func getConfiguredFiltersets() -> [Int : Filterset]
+    func getConfiguredFiltersets() -> [Filterset?]
     func isAccountConfigured(for provider: Provider) -> Bool
-    func getFilterset(for id: Int) -> Filterset?
     func saveUpdatedLocation(_ location: Location)
     func save(username: String, password: String)
     func getLastKnownUserLocation() -> Location?
@@ -59,22 +58,27 @@ extension Logic: LogicProtocol {
         appData.addUsername(username, for: .driveNow)
         appData.addPassword(password, for: .driveNow)
     }
-
-    func getConfiguredFiltersets() -> [Int : Filterset] {
-        // TODO: Filtersets abfragen und zurückgeben als Dictionary mit Set-Nummer 1-9 und Filterset.
-        return [:]
-
-    }
-
+    
     func isAccountConfigured(for provider: Provider) -> Bool {
-        // TODO: Implement
-        return true
+        switch provider {
+        case .driveNow:
+            if appData.getUsername(for: .driveNow) != nil {
+                return true
+            }
+        case .car2go:
+            if appData.getOAuthToken(for: .car2go) != nil {
+                return true
+            }
+        }
+        return false
     }
 
-    func getFilterset(for id: Int) -> Filterset? {
-        // TODO: Filterset holen, falls konfiguriert, sonst nil zurückgeben.
-        return nil
+    func getConfiguredFiltersets() -> [Filterset?] {
+        // TODO: Filtersets aus AppData abrufen
+        return [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+
     }
+    
     func getLastKnownUserLocation() -> Location? {
         return appData.getUserLocation()
     }
