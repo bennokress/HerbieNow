@@ -106,6 +106,7 @@ class MainViewController: UIViewController {
         }
         Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Tapped"))
         let filtersetButton = MainViewButton.filterset(displayedFiltersets[id-1], id: id)
+        showLoadingAnimation(title: "Finding Vehicles")
         interpreter.userTapped(button: filtersetButton)
     }
 
@@ -150,6 +151,7 @@ class MainViewController: UIViewController {
         }
         Debug.print(.event(source: .location(Source()), description: "Provider Button for \(provider.rawValue) Pressed"))
         let providerButton = MainViewButton.provider(provider)
+        showLoadingAnimation(title: "Finding Vehicles")
         interpreter.userTapped(button: providerButton)
     }
 

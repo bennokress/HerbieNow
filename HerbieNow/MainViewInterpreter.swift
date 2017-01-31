@@ -75,15 +75,28 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
                 createFilterset(at: index)
             }
         case .provider(let provider):
-            getFilteredVehicles(for: provider)
+            if logic.isAccountConfigured(for: provider) {
+                getFilteredVehicles(for: provider)
+            } else {
+                // TODO: Login with Provider
+            }
         case .map:
-            getUnfilteredVehicles()
+            let driveNowConfigured = logic.isAccountConfigured(for: .driveNow)
+            let car2goConfigured = logic.isAccountConfigured(for: .car2go)
+            if driveNowConfigured && car2goConfigured {
+                getUnfilteredVehicles()
+            } else if driveNowConfigured {
+                getFilteredVehicles(for: .driveNow)
+            } else if car2goConfigured {
+                getFilteredVehicles(for: .car2go)
+            } else {
+                // TODO: Alert - please login with one of the providers (option 1: DriveNow, option 2: Car2Go, option 3: cancel)
+            }
         }
         
     }
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
-        // TODO: Handle this
         Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
     }
     
@@ -133,60 +146,6 @@ extension MainViewInterpreter: InternalRouting {
         }
     }
     
-    // MARK: API Handling
-
-    fileprivate func handleAPIresponse(_ response: APICallResult, presenterActionRequired: Bool) {
-
-        // TODO: Wichtige Funktionen auslagern, Rest löschen
-
-        if presenterActionRequired {
-
-            switch response {
-            case .error(_, _, _, _):
-                //                presenter.displayAlert(with: response)
-                Debug.print(.info(source: .location(Source()), message: "Let presenter show an alert for: \(response.description)"))
-            case .reservation(let userHasActiveReservation, let optionalReservation):
-                //                userHasActiveReservation ? displayReservation(optionalReservation) : displayNoReservation()
-                if userHasActiveReservation {
-                    guard let reservation = optionalReservation else { fatalError("Bad format: Active Reservation was nil.") }
-                    Debug.print(.info(source: .location(Source()), message: "Let presenter show reservation: \(reservation.description)"))
-                } else {
-                    Debug.print(.info(source: .location(Source()), message: "Let presenter show that no reservation is active."))
-                }
-            case .success(let successful):
-                //                successful ? presenter.letUserKnowOfSuccessfulAPIcall() : presenter.letUserKnowOfUnsuccessfulAPIcall()
-                Debug.print(.info(source: .location(Source()), message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
-            case .vehicles(let vehicles):
-                Debug.print(.info(source: .location(Source()), message: "Let map show \(vehicles.count) vehicles."))
-                //                                presenter.showVehiclesOnMap(vehicles)
-                //                Debug.print(.info(source: .location(Source()), message: "Let the presenter display the following \(vehicles.count) vehicles:"))
-                //                for vehicle in vehicles {
-                //                    print(Debug.list(message: vehicle.description, indent: 1))
-                //                }
-
-                // TODO: Test-Filter entfernen
-                let filterString = "11:0111:11111111111111111:111:11:000200:000100:11:111:0:1:myFilterName:imageCodedIn64"
-                var testFilterset = Filterset(from: filterString)
-                testFilterset.update(filter: .provider(driveNow: true, car2go: false))
-                print(testFilterset.asString)
-                //                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
-                //                Debug.print(.event(source: .location(Source()), description: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
-                //                for vehicle in filteredVehicles {
-                //                    print(Debug.list(message: vehicle.description, indent: 1))
-            //                }
-            case .credential(let credential):
-                Debug.print(.info(source: .location(Source()), message: "Token: \(credential.oauthToken)"))
-                Debug.print(.info(source: .location(Source()), message: "Secret: \(credential.oauthTokenSecret)"))
-            }
-
-        } else {
-
-            Debug.print(.info(source: .location(Source()), message: "Background action for API Call Result: \(response.description)"))
-
-        }
-
-    }
-
 }
 
 // MARK: - Presenter Connection

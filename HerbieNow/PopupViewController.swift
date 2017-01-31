@@ -25,10 +25,12 @@ class PopupViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        dismissLoadingAnimation()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        showLoadingAnimation(title: "Loading Data")
     }
 
     func showLoadingAnimation(title: String) {
