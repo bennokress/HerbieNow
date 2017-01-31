@@ -15,7 +15,7 @@ protocol SelectInternalModelOptionsPopupInterpreterProtocol {
     // MARK: UI Interaction
     func fuelTypeButtonTapped(for changedFuelType: FuelType, with data: ViewData?)
     func transmissionTypeButtonTapped(for changedTransmissionType: TransmissionType, with data: ViewData?)
-    func hpTextfieldValuesChanged(to newValues: (min: Int, max: Int), with data: ViewData?)
+    func hifiSystemOnlyButtonTapped(with data: ViewData?)
 
 }
 
@@ -102,14 +102,16 @@ extension SelectInternalModelOptionsPopupInterpreter: SelectInternalModelOptions
         }
     }
     
-    func hpTextfieldValuesChanged(to newValues: (min: Int, max: Int), with data: ViewData?) {
+    func hifiSystemOnlyButtonTapped(with data: ViewData?) {
         guard let viewData = data, var displayedFilterset = viewData.filterset else {
             Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
             return
         }
-        let newFilter: Filter = .hp(min: newValues.min, max: newValues.max)
-        displayedFilterset.update(filter: newFilter)
-        presenter.updateAllElements(for: displayedFilterset)
+        if case .hifiSystem(let previousChoice) = displayedFilterset.hiFiSystemFilter {
+            let newFilter: Filter = .hifiSystem(only: previousChoice.flipped)
+            displayedFilterset.update(filter: newFilter)
+            presenter.updateAllElements(for: displayedFilterset)
+        }
     }
 
 }

@@ -36,9 +36,6 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     
     @IBOutlet fileprivate weak var hifiSystemOnlyButton: UIButton!
 
-//    @IBOutlet fileprivate weak var hpMinTextField: UITextField!
-//    @IBOutlet fileprivate weak var hpMaxTextField: UITextField!
-
     @IBOutlet fileprivate weak var nextButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
     
@@ -93,12 +90,8 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     }
     
     @IBAction func hifiSystemOnlyButtonTapped(_ sender: UIButton) {
-        // TODO: Implement
+        interpreter.hifiSystemOnlyButtonTapped(with: data)
     }
-    
-//    func hpTextfieldValuesChanged(to newValues: (min: Int, max: Int)) {
-//        interpreter.hpTextfieldValuesChanged(to: newValues, with: data)
-//    }
 
 }
 
