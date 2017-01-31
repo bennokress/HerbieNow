@@ -10,9 +10,9 @@ import UIKit
 
 class HerbieBlurView: UIVisualEffectView {
 
-    init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        effect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+        effect = UIBlurEffect(style: UIBlurEffectStyle.light)
     }
     
     
