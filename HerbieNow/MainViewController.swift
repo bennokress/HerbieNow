@@ -84,9 +84,9 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier {
-            let vc = segue.destination as? VehicleMapViewController
-            vc?.showAnnotations(for: vehicleList)
+        if segue.identifier == segueIdentifier, let vehicleMapVC = segue.destination as? VehicleMapViewController {
+//            Debug.print(.info(source: .location(Source()), message: "\(vehicleList.count)"))
+//            vehicleMapVC.showAnnotations(for: vehicleList)
         }
     }
     
@@ -173,9 +173,7 @@ class MainViewController: UIViewController {
         interpreter.userTapped(button: .map)
     }
     
-    @IBAction func unwindToMainView(segue: UIStoryboardSegue) {
-    
-    }
+    @IBAction func unwindToMainView(segue: UIStoryboardSegue) { }
 
 }
 
@@ -283,9 +281,7 @@ extension MainViewController: MainViewControllerProtocol {
             return
         }
         dismissLoadingAnimation()
-        Debug.print(.success(source: .location(Source()), message: "\(vehicles.count) vehicles ready to be displayed ... not yet implemented"))
-        // data passing
-        vehicleList = vehicles
+//        vehicleList = vehicles
         performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     

@@ -90,6 +90,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
             } else if car2goConfigured {
                 getFilteredVehicles(for: .car2go)
             } else {
+                Debug.print(.warning(source: .location(Source()), message: "Function not yet implemented (DriveNow and Car2Go are not logged in)."))
                 // TODO: Alert - please login with one of the providers (option 1: DriveNow, option 2: Car2Go, option 3: cancel)
             }
         }
@@ -142,6 +143,7 @@ extension MainViewInterpreter: InternalRouting {
     fileprivate func getUnfilteredVehicles() {
         logic.getAllAvailableVehicles() { response in
             guard let vehicles: [Vehicle] = response.getDetails() else { return }
+            Debug.print(.info(source: .location(Source()), message: "Got \(vehicles.count) vehicles"))
             self.presentVehicleMapView(with: vehicles)
         }
     }
