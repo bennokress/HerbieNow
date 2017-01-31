@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSpinner
 import Presentr
+import MapKit
 
 protocol MainViewControllerProtocol: class {
 
@@ -28,11 +29,11 @@ protocol MainViewControllerProtocol: class {
 }
 
 // MARK: -
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MapViewDelegate {
     
     lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
     
-    let segueIdentifier = "mainToMap"
+    let segueIdentifier = "vehicleMapSegue"
     
     // MARK: Data
     
@@ -40,8 +41,7 @@ class MainViewController: UIViewController {
     var driveNowConfigured: Bool = false
     var car2goConfigured: Bool = false
     
-    // vehicleList passed to the next view
-    var vehicleList: [Vehicle] = []
+    var vehicleMapData: ViewData = .vehicleMapData(displayedVehicles: [])
 
     // MARK: UI Elements
     
@@ -85,8 +85,8 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier, let vehicleMapVC = segue.destination as? VehicleMapViewController {
-//            Debug.print(.info(source: .location(Source()), message: "\(vehicleList.count)"))
-//            vehicleMapVC.showAnnotations(for: vehicleList)
+            vehicleMapVC.data = vehicleMapData
+            vehicleMapVC.delegate = self
         }
     }
     
@@ -276,12 +276,7 @@ extension MainViewController: MainViewControllerProtocol {
     // MARK: Segues and Popup Presentation
     
     func presentVehicleMapView(with data: ViewData) {
-        guard let vehicles = data.displayedVehicles else {
-            Debug.print(.error(source: .location(Source()), message: "No vehicles received in data!"))
-            return
-        }
-        dismissLoadingAnimation()
-//        vehicleList = vehicles
+        vehicleMapData = data
         performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     
