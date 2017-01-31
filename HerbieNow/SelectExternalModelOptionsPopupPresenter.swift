@@ -12,9 +12,14 @@ protocol SelectExternalModelOptionsPopupPresenterProtocol {
 
 }
 
+// MARK: -
 class SelectExternalModelOptionsPopupPresenter {
 
+    // MARK: Links
+
     weak var vehicleMapVC: SelectExternalModelOptionsPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
+
+    // MARK: Initialization
 
     init(to vehicleMapViewController: SelectExternalModelOptionsPopupViewControllerProtocol? = nil) {
         vehicleMapVC = vehicleMapViewController
@@ -22,6 +27,7 @@ class SelectExternalModelOptionsPopupPresenter {
 
 }
 
+// MARK: Select External Model Options Popup Presenter Protocol Conformance
 extension SelectExternalModelOptionsPopupPresenter: SelectExternalModelOptionsPopupPresenterProtocol {
 
 }

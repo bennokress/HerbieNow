@@ -9,11 +9,15 @@
 import UIKit
 
 struct Filterset {
+    
+    // MARK: Stored Properties
 
-    private var filters: [Filter] = []
-    private var position: Int = 0
-    private var name: String = "defaultName"
-    private var image = UIImage()
+    var filters: [Filter] = []
+    var position: Int = 0
+    var name: String = "defaultName"
+    var image = UIImage()
+    
+    // MARK: Computed Properties
 
     var asString: String {
         var imageString = "invalid image"
@@ -29,6 +33,19 @@ struct Filterset {
         stringArray.append(imageString)
         return stringArray.joined(separator: ":")
     }
+    
+    var providerFilter: Filter { return filters[0] }
+    var makeFilter: Filter { return filters[1] }
+    var modelFilter: Filter { return filters[2] }
+    var fuelTypeFilter: Filter { return filters[3] }
+    var transmissionFilter: Filter { return filters[4] }
+    var hpFilter: Filter { return filters[5] }
+    var fuelLevelFilter: Filter { return filters[6] }
+    var doorsFilter: Filter { return filters[7] }
+    var seatsFilter: Filter { return filters[8] }
+    var hiFiSystemFilter: Filter { return filters[9] }
+    
+    // MARK: Initialization
 
     init(from initString: String = "11:1111:11111111111111111:111:11:000400:000100:11:111:0:0:Default Set:no image") {
         let stringArray = initString.splitted(by: ":")
@@ -87,7 +104,7 @@ struct Filterset {
         }
     }
 
-    // MARK: - Public Functions
+    // MARK: Public Functions
 
     func filter(vehicles: [Vehicle]) -> [Vehicle] {
 
@@ -121,20 +138,10 @@ struct Filterset {
         return filteredVehicles
 
     }
+    
+    // MARK: Mutating Functions
 
-    func getName() -> String {
-        return name
-    }
-
-    func getPosition() -> Int {
-        return position
-    }
-
-    func getImage() -> UIImage {
-        return image
-    }
-
-    mutating func update(with newFilter: Filter) {
+    mutating func update(filter newFilter: Filter) {
         for (index, filter) in filters.enumerated() {
             if filter == newFilter {
                 filters[index] = newFilter
@@ -142,63 +149,68 @@ struct Filterset {
         }
     }
 
-    mutating func update(with newName: String) {
+    mutating func update(name newName: String) {
         name = newName
     }
 
-    mutating func update(with newPosition: Int) {
+    mutating func update(position newPosition: Int) {
         position = newPosition
     }
 
-    mutating func update(with newImage: UIImage) {
+    mutating func update(image newImage: UIImage) {
         image = newImage
     }
+    
+}
 
-    // MARK: - Private functions
+// MARK: - Internal Functions
+extension Filterset: InternalRouting {
+    
+    // MARK: Private Getter
 
-    private func getProviderFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getProviderFilter(from boolArray: [Bool]) -> Filter {
         return .provider(driveNow: boolArray[0], car2go: boolArray[1])
     }
 
-    private func getMakeFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getMakeFilter(from boolArray: [Bool]) -> Filter {
         return .make(bmw: boolArray[0], mini: boolArray[1], mercedes: boolArray[2], smart: boolArray[3])
     }
 
-    private func getModelFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getModelFilter(from boolArray: [Bool]) -> Filter {
         return .model(mini3door: boolArray[0], mini5door: boolArray[1], miniConvertible: boolArray[2], miniClubman: boolArray[3], miniCountryman: boolArray[4], bmwI3: boolArray[5], bmw1er: boolArray[6], bmwX1: boolArray[7], bmw2erAT: boolArray[8], bmw2erConvertible: boolArray[9], smartForTwo: boolArray[10], smartRoadster: boolArray[11], smartForFour: boolArray[12], mercedesGLA: boolArray[13], mercedesCLA: boolArray[14], mercedesA: boolArray[15], mercedesB: boolArray[16])
     }
 
-    private func getFuelTypeFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getFuelTypeFilter(from boolArray: [Bool]) -> Filter {
         return .fuelType(petrol: boolArray[0], diesel: boolArray[1], electric: boolArray[2])
     }
 
-    private func getTransmissionFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getTransmissionFilter(from boolArray: [Bool]) -> Filter {
         return .transmission(automatic: boolArray[0], manual: boolArray[1])
     }
 
-    private func getHPFilter(from intArray: [Int]) -> Filter {
+    fileprivate func getHPFilter(from intArray: [Int]) -> Filter {
         return .hp(min: intArray[0], max: intArray[1])
     }
 
-    private func getFuelLevelFilter(from intArray: [Int]) -> Filter {
+    fileprivate func getFuelLevelFilter(from intArray: [Int]) -> Filter {
         return .fuelLevel(min: intArray[0], max: intArray[1])
     }
 
-    private func getDoorsFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getDoorsFilter(from boolArray: [Bool]) -> Filter {
         return .doors(three: boolArray[0], five: boolArray[1])
     }
 
-    private func getSeatsFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getSeatsFilter(from boolArray: [Bool]) -> Filter {
         return .seats(two: boolArray[0], four: boolArray[1], five: boolArray[2])
     }
 
-    private func getHiFiSystemFilter(from boolArray: [Bool]) -> Filter {
+    fileprivate func getHiFiSystemFilter(from boolArray: [Bool]) -> Filter {
         return .hifiSystem(only: boolArray[0])
     }
 
-    // MARK: - used by filter(vehicles:)
+    // MARK: Filer by ...
 
-    private func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByProvider(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -216,7 +228,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByMake(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByMake(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -240,7 +252,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByModel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -292,7 +304,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByFueltype(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -314,7 +326,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByTransmission(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByTransmission(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -334,7 +346,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByHP(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -349,7 +361,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByFuellevel(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -364,7 +376,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByDoors(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -384,7 +396,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterBySeats(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -406,7 +418,7 @@ struct Filterset {
         return filteredVehicles
     }
 
-    private func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
+    fileprivate func filterByHiFiSystem(_ fullList: [Vehicle], with filter: Filter) -> [Vehicle] {
 
         var filteredVehicles: [Vehicle] = []
 
@@ -422,4 +434,13 @@ struct Filterset {
         return filteredVehicles
     }
 
+}
+
+// MARK: - Equatable Conformance
+extension Filterset: Equatable {
+    
+    static func == (lhs: Filterset, rhs: Filterset) -> Bool {
+        return lhs.asString == rhs.asString
+    }
+    
 }

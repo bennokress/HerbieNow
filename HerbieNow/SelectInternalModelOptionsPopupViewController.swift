@@ -12,25 +12,18 @@ import Presentr
 protocol SelectInternalModelOptionsPopupViewControllerProtocol: class {
 
     var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol { get set }
+    
+    func updateViewData(to newData: ViewData)
 
+    func updateFuelTypeButtonsActiveState(diesel dieselActive: Bool, petrol petrolActive: Bool, electric electricActive: Bool)
+    func updateTransmissionTypeButtonsActiveState(automatic automaticActive: Bool, manual manualActive: Bool)
+    
 }
 
 // MARK: -
-class SelectInternalModelOptionsPopupViewController: PopupViewController, SelectInternalModelOptionsPopupViewControllerProtocol {
+class SelectInternalModelOptionsPopupViewController: PopupViewController {
     
     lazy var interpreter: SelectInternalModelOptionsPopupInterpreterProtocol = SelectInternalModelOptionsPopupInterpreter(for: self) as SelectInternalModelOptionsPopupInterpreterProtocol
-    
-    // MARK: Data
-    
-    var filterset: Filterset = Filterset()
-    
-    var displayedFuelTypes: [FuelType] = [.petrol, .diesel, .electric]
-    var displayedTransmissionTypes: [TransmissionType] = [.automatic, .manual]
-    var displayedHPRange: (min: Int, max: Int) = (0, 200)
-    
-    var selectedFuelTypes: Set<FuelType> = [.petrol, .diesel, .electric]
-    var selectedTransmissionTypes: Set<TransmissionType> = [.automatic, .manual]
-    var selectedHPRange: (min: Int, max: Int) = (0, 200)
     
     // MARK: UI Elements
     
@@ -44,7 +37,7 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
     @IBOutlet fileprivate weak var hpMinTextField: UITextField!
     @IBOutlet fileprivate weak var hpMaxTextField: UITextField!
 
-    @IBOutlet fileprivate weak var confirmButton: UIButton!
+    @IBOutlet fileprivate weak var nextButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
     
@@ -63,80 +56,115 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController, Select
     
     // MARK: UI Element Interaction Functions
     
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
+            self.executeNextButtonAction()
         }
     }
     
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
             self.executeBackButtonAction()
         }
     }
     
-    @IBAction func abortButtonTapped(_ sender: Any) {
+    @IBAction func abortButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
             self.executeAbortButtonAction()
         }
     }
+    
+    @IBAction func fuelTypeButtonTapped(_ sender: UIButton) {
+        let tappedFuelType: FuelType
+        switch sender {
+        case fuelTypePetrolButton: tappedFuelType = .petrol
+        case fuelTypeDieselButton: tappedFuelType = .diesel
+        case fuelTypeElectricButton: tappedFuelType = .electric
+        default:
+            tappedFuelType = .unknown
+        }
+        interpreter.fuelTypeButtonTapped(for: tappedFuelType, with: data)
+    }
+    
+    @IBAction func transmissionTypeButtonTapped(_ sender: UIButton) {
+        let tappedTransmissionType: TransmissionType
+        switch sender {
+        case transmissionTypeAutomaticButton: tappedTransmissionType = .automatic
+        case transmissionTypeManualButton: tappedTransmissionType = .manual
+        default:
+            tappedTransmissionType = .unknown
+        }
+        interpreter.transmissionTypeButtonTapped(for: tappedTransmissionType, with: data)
+    }
+    
+    func hpTextfieldValuesChanged(to newValues: (min: Int, max: Int)) {
+        interpreter.hpTextfieldValuesChanged(to: newValues, with: data)
+    }
 
+}
+
+// MARK: - Select Internal Model Options Popup View Controller Protocol Conformance
+extension SelectInternalModelOptionsPopupViewController: SelectInternalModelOptionsPopupViewControllerProtocol {
+    
+    func updateViewData(to newData: ViewData) {
+        data = newData
+    }
+    
+    func updateFuelTypeButtonsActiveState(diesel dieselActive: Bool, petrol petrolActive: Bool, electric electricActive: Bool) {
+        // TODO: De-Comment when Icons are ready
+//        dieselActive ? fuelTypeDieselButton.setImageForAllStates(UIImage(named: "dieselColored")!) : fuelTypeDieselButton.setImageForAllStates(UIImage(named: "dieselGray")!)
+//        petrolActive ? fuelTypePetrolButton.setImageForAllStates(UIImage(named: "petrolColored")!) : fuelTypePetrolButton.setImageForAllStates(UIImage(named: "petrolGray")!)
+//        electricActive ? fuelTypeElectricButton.setImageForAllStates(UIImage(named: "electricColored")!) : fuelTypeElectricButton.setImageForAllStates(UIImage(named: "electircGray")!)
+    }
+    
+    func updateTransmissionTypeButtonsActiveState(automatic automaticActive: Bool, manual manualActive: Bool) {
+        // TODO: De-Comment when Icons are ready
+//        automaticActive ? transmissionTypeAutomaticButton.setImageForAllStates(UIImage(named: "automaticColored")!) : transmissionTypeAutomaticButton.setImageForAllStates(UIImage(named: "automaticGray")!)
+//        manualActive ? transmissionTypeManualButton.setImageForAllStates(UIImage(named: "manualColored")!) : transmissionTypeManualButton.setImageForAllStates(UIImage(named: "manualGray")!)
+    }
+    
 }
 
 // MARK: - Internal Functions
 extension SelectInternalModelOptionsPopupViewController: InternalRouting {
 
-    fileprivate func flipSelection(for type: FuelType) {
-        if selectedFuelTypes.contains(type) {
-            selectedFuelTypes.remove(type)
-        } else {
-            selectedFuelTypes.insert(type)
-        }
-    }
-
-    fileprivate func flipSelection(for type: TransmissionType) {
-        if selectedTransmissionTypes.contains(type) {
-            selectedTransmissionTypes.remove(type)
-        } else {
-            selectedTransmissionTypes.insert(type)
-        }
-    }
-
-    // TODO: Add generic button function that calls the correct flip based on button ID
-
-    fileprivate func adjustMinHP(to newValue: Int) {
-        selectedHPRange.min = newValue
-    }
-
-    fileprivate func adjustMaxHP(to newValue: Int) {
-        selectedHPRange.max = newValue
-    }
-
-    // TODO: Add TextFieldDelegate that calls the above methods
-
     fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {
-            self.confirmButton.imageForNormal = UIImage(named: "Next")
-            self.confirmButton.imageView?.tintColor = UIColor.green
+            self.nextButton.imageForNormal = UIImage(named: "Next")
+            self.nextButton.imageView?.tintColor = UIColor.green
             self.abortButton.imageForNormal = UIImage(named: "Cancel")
             self.abortButton.imageView?.tintColor = UIColor.blue
             self.backButton.isHidden = true
         }
     }
 
-    fileprivate func executeConfirmButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: filterset)
-        //        delegate?.dismissed(popup)
+    fileprivate func executeNextButtonAction() {
+        guard let data = data, let filtersetConfiguration = data.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
+            return
+        }
+        let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
+        delegate?.popupDismissed(with: returnData, via: .next)
     }
 
     fileprivate func executeBackButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        //        delegate?.reverted(popup)
+        guard let data = data, let filtersetConfiguration = data.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
+            return
+        }
+        let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
+        delegate?.popupDismissed(with: returnData, via: .back)
     }
 
     fileprivate func executeAbortButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: filterset)
-        //        delegate?.aborted(popup)
+        guard let data = data, let filtersetConfiguration = data.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
+            return
+        }
+        let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
+        delegate?.popupDismissed(with: returnData, via: .abort)
     }
 
 }
+
+// TODO: Add TextFieldDelegate that calls hpTextfieldValuesChanged

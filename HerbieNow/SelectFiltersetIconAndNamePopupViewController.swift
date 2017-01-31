@@ -54,13 +54,13 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
     
     // MARK: UI Element Interaction Functions
     
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+    @IBAction func confirmButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in
             self.executeConfirmButtonAction()
         }
     }
     
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
+    @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in
             self.executeBackButtonAction()
         }

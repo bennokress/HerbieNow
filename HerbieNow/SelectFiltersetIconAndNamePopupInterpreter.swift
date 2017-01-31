@@ -14,11 +14,16 @@ protocol SelectFiltersetIconAndNamePopupInterpreterProtocol {
 
 }
 
+// MARK: -
 class SelectFiltersetIconAndNamePopupInterpreter {
+    
+    // MARK: Links
 
     var presenter: SelectFiltersetIconAndNamePopupPresenterProtocol
     var logic: LogicProtocol
 
+    // MARK: Initialization
+    
     init(for vehicleMapVC: SelectFiltersetIconAndNamePopupViewControllerProtocol? = nil, _ presenter: SelectFiltersetIconAndNamePopupPresenterProtocol = SelectFiltersetIconAndNamePopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
 
         self.presenter = SelectFiltersetIconAndNamePopupPresenter(to: vehicleMapVC)
@@ -28,6 +33,7 @@ class SelectFiltersetIconAndNamePopupInterpreter {
 
 }
 
+// MARK: Select Filterset Icon and Name Popup Interpreter Protocol Conformance
 extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol {
 
     func viewDidAppear(with data: ViewData?) {
@@ -36,9 +42,8 @@ extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndName
             return
         }
         
-        if case .filtersetNameAndIconPopupData() = viewData {
-            // TODO: get data by adding .filtersetNameAndIconPopupData(let xyz) above
-            // TODO: pass to presenter
+        if case .filtersetNameAndIconPopupData(let filterset, let icons) = viewData {
+            // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

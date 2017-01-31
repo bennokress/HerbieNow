@@ -18,8 +18,7 @@
 		037578A51DD0B68200AA8FC0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A41DD0B68200AA8FC0 /* Location.swift */; };
 		037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */; };
 		037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */; };
-		039F0B721DD8D6A000AB56C0 /* ModelEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* ModelEnumerations.swift */; };
-		039F0B741DD8DBC500AB56C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B731DD8DBC500AB56C0 /* User.swift */; };
+		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
 		14FB0F151E3F7E9200BA763C /* VehicleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */; };
 		14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */; };
@@ -29,17 +28,15 @@
 		9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */; };
 		9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD31E3977970038349F /* Ailerons-Typeface.otf */; };
 		9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782CD91E3A7EF50038349F /* HerbieTextField.swift */; };
-		9E782D5F1E3FBDF00038349F /* HerbieBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782D5E1E3FBDF00038349F /* HerbieBlurView.swift */; };
 		D306D1B81E1692E800D5CD64 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* Debug.swift */; };
-		D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */; };
-		D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */; };
+		D32089A01E0ACE5300C17BD7 /* LocationUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
-		D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VIN-related Extensions.swift */; };
+		D331324A1E07D92100645858 /* VINExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33132491E07D92100645858 /* VINExtensions.swift */; };
 		D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */; };
-		D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Type Extensions.swift */; };
+		D340A2DF1E01FD60001D5153 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340A2DE1E01FD60001D5153 /* Extensions.swift */; };
 		D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B11E3F80E700418581 /* EmptyProtocols.swift */; };
-		D384D4B51E3F839B00418581 /* VehicleMapInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */; };
-		D384D4B71E3F83A700418581 /* VehicleMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */; };
+		D384D4B51E3F839B00418581 /* VehicleMapViewInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B41E3F839B00418581 /* VehicleMapViewInterpreter.swift */; };
+		D384D4B71E3F83A700418581 /* VehicleMapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4B61E3F83A700418581 /* VehicleMapViewPresenter.swift */; };
 		D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */; };
 		D384D4BD1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */; };
 		D384D4BF1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */; };
@@ -120,8 +117,7 @@
 		037578A41DD0B68200AA8FC0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewInterpreter.swift; sourceTree = "<group>"; };
-		039F0B711DD8D6A000AB56C0 /* ModelEnumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelEnumerations.swift; sourceTree = "<group>"; };
-		039F0B731DD8DBC500AB56C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapViewController.swift; sourceTree = "<group>"; };
 		14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
@@ -131,20 +127,18 @@
 		9E782CD31E3977970038349F /* Ailerons-Typeface.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ailerons-Typeface.otf"; sourceTree = "<group>"; };
 		9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
 		9E782CD91E3A7EF50038349F /* HerbieTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieTextField.swift; sourceTree = "<group>"; };
-		9E782D5E1E3FBDF00038349F /* HerbieBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieBlurView.swift; sourceTree = "<group>"; };
 		D306D1B71E1692E800D5CD64 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
-		D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Global Definitions.swift"; sourceTree = "<group>"; };
-		D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInterpreterProtocol.swift; sourceTree = "<group>"; };
+		D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdateDelegate.swift; sourceTree = "<group>"; };
 		D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
 		D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwiftAlamofire.framework; path = Carthage/Build/iOS/OAuthSwiftAlamofire.framework; sourceTree = "<group>"; };
 		D3297A391E06B3D000831923 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
-		D33132491E07D92100645858 /* VIN-related Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VIN-related Extensions.swift"; sourceTree = "<group>"; };
+		D33132491E07D92100645858 /* VINExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VINExtensions.swift; sourceTree = "<group>"; };
 		D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filterset.swift; sourceTree = "<group>"; };
-		D340A2DE1E01FD60001D5153 /* Type Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Type Extensions.swift"; sourceTree = "<group>"; };
+		D340A2DE1E01FD60001D5153 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D384D4B11E3F80E700418581 /* EmptyProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyProtocols.swift; sourceTree = "<group>"; };
-		D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapInterpreter.swift; sourceTree = "<group>"; };
-		D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapPresenter.swift; sourceTree = "<group>"; };
+		D384D4B41E3F839B00418581 /* VehicleMapViewInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapViewInterpreter.swift; sourceTree = "<group>"; };
+		D384D4B61E3F83A700418581 /* VehicleMapViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapViewPresenter.swift; sourceTree = "<group>"; };
 		D384D4BA1E3F882700418581 /* LoginPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPopupInterpreter.swift; sourceTree = "<group>"; };
 		D384D4BC1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInternalModelOptionsPopupInterpreter.swift; sourceTree = "<group>"; };
 		D384D4BE1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectExternalModelOptionsPopupInterpreter.swift; sourceTree = "<group>"; };
@@ -299,11 +293,11 @@
 		0375789C1DD0B43000AA8FC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				039F0B711DD8D6A000AB56C0 /* ModelEnumerations.swift */,
+				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
 				D33CB4DD1E1E69FE00AA16A1 /* Filterset.swift */,
 				037578A41DD0B68200AA8FC0 /* Location.swift */,
-				039F0B751DD8DE6E00AB56C0 /* Logic.swift */,
-				039F0B731DD8DBC500AB56C0 /* User.swift */,
+				039F0B711DD8D6A000AB56C0 /* Enumerations.swift */,
+				D3297A391E06B3D000831923 /* Reservation.swift */,
 				037578A21DD0B53400AA8FC0 /* Vehicle.swift */,
 			);
 			name = Model;
@@ -313,7 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				037578A71DD0B7D800AA8FC0 /* MainViewPresenter.swift */,
-				D384D4B61E3F83A700418581 /* VehicleMapPresenter.swift */,
+				D384D4B61E3F83A700418581 /* VehicleMapViewPresenter.swift */,
 				D384D4B81E3F83D800418581 /* Popups */,
 			);
 			name = Presenter;
@@ -326,11 +320,8 @@
 				034EC16E1DD0B34D00E32EC6 /* Main.storyboard */,
 				034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */,
 				14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */,
-				14FB0F161E3F7F4100BA763C /* MapView */,
 				D39568541E2F676D003FC042 /* Popups */,
-				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
-				9E782D5E1E3FBDF00038349F /* HerbieBlurView.swift */,
-				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
+				14FB0F161E3F7F4100BA763C /* UI Helpers */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -345,11 +336,9 @@
 				034EC1791DD0B34D00E32EC6 /* Info.plist */,
 				034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */,
 				D39568631E2FCE98003FC042 /* AKPickerView.swift */,
-				D340A2DE1E01FD60001D5153 /* Type Extensions.swift */,
-				D33132491E07D92100645858 /* VIN-related Extensions.swift */,
+				D340A2DE1E01FD60001D5153 /* Extensions.swift */,
+				D33132491E07D92100645858 /* VINExtensions.swift */,
 				D306D1B71E1692E800D5CD64 /* Debug.swift */,
-				D3297A391E06B3D000831923 /* Reservation.swift */,
-				D306D1BB1E16957A00D5CD64 /* Global Definitions.swift */,
 				D384D4B11E3F80E700418581 /* EmptyProtocols.swift */,
 			);
 			name = "Helper Files";
@@ -366,12 +355,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		14FB0F161E3F7F4100BA763C /* MapView */ = {
+		14FB0F161E3F7F4100BA763C /* UI Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */,
+				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
+				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
 			);
-			name = MapView;
+			name = "UI Helpers";
 			sourceTree = "<group>";
 		};
 		9E6969301E16B09900E70773 /* Fonts */ = {
@@ -388,9 +379,9 @@
 		D384D4B31E3F835E00418581 /* Interpreter */ = {
 			isa = PBXGroup;
 			children = (
-				D320899F1E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift */,
+				D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */,
 				037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */,
-				D384D4B41E3F839B00418581 /* VehicleMapInterpreter.swift */,
+				D384D4B41E3F839B00418581 /* VehicleMapViewInterpreter.swift */,
 				D384D4B91E3F83E300418581 /* Popups */,
 			);
 			name = Interpreter;
@@ -631,7 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D32089A01E0ACE5300C17BD7 /* GeneralInterpreterProtocol.swift in Sources */,
+				D32089A01E0ACE5300C17BD7 /* LocationUpdateDelegate.swift in Sources */,
 				037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */,
 				D384D4CF1E3F8D4900418581 /* ViewEnumerations.swift in Sources */,
 				D384D4C31E3F889800418581 /* SelectFiltersetIconAndNamePopupInterpreter.swift in Sources */,
@@ -642,24 +633,22 @@
 				037578A51DD0B68200AA8FC0 /* Location.swift in Sources */,
 				D39568641E2FCE98003FC042 /* AKPickerView.swift in Sources */,
 				D39568581E2F6E4E003FC042 /* PopupDelegate.swift in Sources */,
-				9E782D5F1E3FBDF00038349F /* HerbieBlurView.swift in Sources */,
 				D384D4CB1E3F89E200418581 /* SelectModelsPopupPresenter.swift in Sources */,
 				037578A81DD0B7D800AA8FC0 /* MainViewPresenter.swift in Sources */,
-				D331324A1E07D92100645858 /* VIN-related Extensions.swift in Sources */,
+				D331324A1E07D92100645858 /* VINExtensions.swift in Sources */,
 				034EC16D1DD0B34D00E32EC6 /* MainViewController.swift in Sources */,
 				D384D4C11E3F887600418581 /* SelectModelsPopupInterpreter.swift in Sources */,
 				D384D4B21E3F80E700418581 /* EmptyProtocols.swift in Sources */,
 				D384D4BD1E3F884000418581 /* SelectInternalModelOptionsPopupInterpreter.swift in Sources */,
-				039F0B721DD8D6A000AB56C0 /* ModelEnumerations.swift in Sources */,
+				039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */,
 				034EC1731DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld in Sources */,
-				D384D4B51E3F839B00418581 /* VehicleMapInterpreter.swift in Sources */,
+				D384D4B51E3F839B00418581 /* VehicleMapViewInterpreter.swift in Sources */,
 				14FB0F151E3F7E9200BA763C /* VehicleMapViewController.swift in Sources */,
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
 				14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */,
 				D384D4C91E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift in Sources */,
 				D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
-				D306D1BC1E16957A00D5CD64 /* Global Definitions.swift in Sources */,
 				D384D4CD1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift in Sources */,
 				D39568601E2FBEA8003FC042 /* SelectModelsPopupViewController.swift in Sources */,
 				D395685E1E2FB93C003FC042 /* SelectExternalModelOptionsPopupViewController.swift in Sources */,
@@ -669,10 +658,9 @@
 				D39568621E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift in Sources */,
 				D384D4C71E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift in Sources */,
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
-				039F0B741DD8DBC500AB56C0 /* User.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
-				D384D4B71E3F83A700418581 /* VehicleMapPresenter.swift in Sources */,
-				D340A2DF1E01FD60001D5153 /* Type Extensions.swift in Sources */,
+				D384D4B71E3F83A700418581 /* VehicleMapViewPresenter.swift in Sources */,
+				D340A2DF1E01FD60001D5153 /* Extensions.swift in Sources */,
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var window: UIWindow?
 
     var appData = AppData.shared
-    var currentInterpreter : GeneralInterpretProtocol?
+    var currentInterpreter : LocationUpdateDelegate?
 
     lazy var locationManager: CLLocationManager = {
         let m = CLLocationManager()
@@ -147,7 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     }
 
-    func registerCurrentInterpreterForLocationUpdates(_ interpreter: GeneralInterpretProtocol) {
+    func registerCurrentInterpreterForLocationUpdates(_ interpreter: LocationUpdateDelegate) {
         self.currentInterpreter = interpreter
     }
 

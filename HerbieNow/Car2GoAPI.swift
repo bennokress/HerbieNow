@@ -110,10 +110,8 @@ class Car2GoAPI {
         }
 
         if let latitude = json["coordinates"][1].double, let longitude = json["coordinates"][0].double {
-            print("Optional1")
             locationValue = Location(latitude: latitude, longitude: longitude)
         } else if let latitude = json["position"]["latitude"].double, let longitude = json["position"]["longitude"].double {
-            print("Option2")
             locationValue = Location(latitude: latitude, longitude: longitude)
         } else {
             return nil
@@ -172,15 +170,13 @@ extension Car2GoAPI: API {
 
     func login(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func:#function)
-
         authorizeHerbieNowForCar2Go() { response in
 
             if let credential: OAuthSwiftCredential = response.getDetails() {
                 Debug.print(.success(source: .location(Source()), message: "User is logged in."))
                 completion(.credential(credential))
             } else {
-                completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: functionName))
+                completion(.error(code: 0, codeDetail: "no_credentials", message: "Response did not contain Credentials", parentFunction: Source().function))
             }
 
         }
@@ -189,8 +185,6 @@ extension Car2GoAPI: API {
 
     func getUserData(completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func:#function)
-
         getNearestCity(to: appData.getUserLocation()) { cityString in
 
             let url = "https://www.car2go.com/api/v2.1/accounts?loc=\(cityString.replaceGermanCharacters())&format=\(self.format)"
@@ -198,7 +192,7 @@ extension Car2GoAPI: API {
             self.getOAuthSessionManager() { sessionManager in
 
                 guard let AlamofireWithOAuth = sessionManager else {
-                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: Source().function)
                     completion(error)
                     return
                 }
@@ -210,7 +204,7 @@ extension Car2GoAPI: API {
                     if let json = callback.result.value {
 
                         guard let userID = json["account"][0]["accountId"].int else {
-                            response = self.errorDetails(code: 0, status: "accountID_not_found", message: "No AccountID in JSON Response found.", in: functionName)
+                            response = self.errorDetails(code: 0, status: "accountID_not_found", message: "No AccountID in JSON Response found.", in: Source().function)
                             completion(response)
                             return
                         }
@@ -218,7 +212,7 @@ extension Car2GoAPI: API {
                         self.appData.addUserID(userID.toString(), for: .car2go)
 
                     } else {
-                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
                     }
 
                 }
@@ -230,14 +224,13 @@ extension Car2GoAPI: API {
     }
 
     func getReservationStatus(completion: @escaping Callback) {
-        let functionName = funcID(class: self, func:#function)
 
         let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)"
 
         self.getOAuthSessionManager() { sessionManager in
 
             guard let AlamofireWithOAuth = sessionManager else {
-                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: Source().function)
                 completion(error)
                 return
             }
@@ -248,7 +241,7 @@ extension Car2GoAPI: API {
 
                 if let json = callback.result.value {
                     guard let bookingArray = json["booking"].jsonArray else {
-                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: functionName)
+                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: Source().function)
                         completion(response)
                         return
                     }
@@ -259,7 +252,7 @@ extension Car2GoAPI: API {
                     response = .reservation(active: userHasActiveReservation, reservation: reservation)
 
                 } else {
-                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
                 }
                 completion(response)
             }
@@ -269,8 +262,6 @@ extension Car2GoAPI: API {
     }
 
     func getAvailableVehicles(around location: Location, completion: @escaping Callback) {
-
-        let functionName = funcID(class: self, func:#function)
 
         getNearestCity(to: location) { cityString in
 
@@ -298,7 +289,7 @@ extension Car2GoAPI: API {
                     response = .vehicles(vehicles)
 
                 } else {
-                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
                 }
 
                 completion(response)
@@ -363,8 +354,6 @@ extension Car2GoAPI: API {
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
 
-        let functionName = funcID(class: self, func:#function)
-
         getNearestCity(to: appData.getUserLocation()) { _ in
 
             let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)&vin=\(vin)&account=\(self.appData.getUserID(for: .car2go))"
@@ -372,7 +361,7 @@ extension Car2GoAPI: API {
             self.getOAuthSessionManager() { sessionManager in
 
                 guard let AlamofireWithOAuth = sessionManager else {
-                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: Source().function)
                     completion(error)
                     return
                 }
@@ -383,7 +372,7 @@ extension Car2GoAPI: API {
 
                     if let json = callback.result.value {
                         guard let bookingArray = json["booking"].jsonArray else {
-                            response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: functionName)
+                            response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: Source().function)
                             completion(response)
                             return
                         }
@@ -393,7 +382,7 @@ extension Car2GoAPI: API {
                         response = .success(userHasActiveReservation)
 
                     } else {
-                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
                     }
                     completion(response)
                 }
@@ -405,14 +394,13 @@ extension Car2GoAPI: API {
     }
 
     func cancelReservation(completion: @escaping Callback) {
-        let functionName = funcID(class: self, func:#function)
 
         var url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)"
 
         self.getOAuthSessionManager() { sessionManager in
 
             guard let AlamofireWithOAuth = sessionManager else {
-                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: functionName)
+                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: Source().function)
                 completion(error)
                 return
             }
@@ -423,7 +411,7 @@ extension Car2GoAPI: API {
 
                 if let json = callback.result.value {
                     guard let bookingArray = json["booking"].jsonArray else {
-                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false 1", in: functionName)
+                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false 1", in: Source().function)
                         completion(response)
                         return
                     }
@@ -438,7 +426,7 @@ extension Car2GoAPI: API {
                         AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { _ in
 
                             guard let bookingStatus = json["returnValue"]["code"].int else {
-                                response = self.errorDetails(code: 0, status: "Car2Go", message: "CancleRequest is gone false 2", in: functionName)
+                                response = self.errorDetails(code: 0, status: "Car2Go", message: "CancleRequest is gone false 2", in: Source().function)
                                 completion(response)
                                 return
                             }
@@ -458,7 +446,7 @@ extension Car2GoAPI: API {
                     }
 
                 } else {
-                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: functionName)
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
                 }
 
                 completion(response)

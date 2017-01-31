@@ -14,10 +14,15 @@ protocol SelectModelsPopupInterpreterProtocol {
 
 }
 
+// MARK: -
 class SelectModelsPopupInterpreter {
+    
+    // MARK: Links
 
     var presenter: SelectModelsPopupPresenterProtocol
     var logic: LogicProtocol
+    
+    // MARK: Initialization
 
     init(for vehicleMapVC: SelectModelsPopupViewControllerProtocol? = nil, _ presenter: SelectModelsPopupPresenterProtocol = SelectModelsPopupPresenter(to: nil), _ logic: LogicProtocol = Logic()) {
 
@@ -28,6 +33,7 @@ class SelectModelsPopupInterpreter {
 
 }
 
+// MARK: Select Models Popup Interpreter Protocol Conformance
 extension SelectModelsPopupInterpreter: SelectModelsPopupInterpreterProtocol {
     
     func viewDidAppear(with data: ViewData?) {
@@ -36,9 +42,8 @@ extension SelectModelsPopupInterpreter: SelectModelsPopupInterpreterProtocol {
             return
         }
         
-        if case .modelsPopupData() = viewData {
-            // TODO: get data by adding .filtersetNameAndIconPopupData(let xyz) above
-            // TODO: pass to presenter
+        if case .modelsPopupData(let filterset, let displayedModels) = viewData {
+            // TODO: Retrieve Data from ViewData
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

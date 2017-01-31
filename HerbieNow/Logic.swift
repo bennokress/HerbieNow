@@ -11,96 +11,83 @@ import Foundation
 protocol LogicProtocol {
 
     typealias Callback = (APICallResult) -> Void
-
-    // This protocol contains every function, every […]ViewInterpreter can call.
-
-    //    func getConfiguredAccounts() -> [Account]
-
-    func getConfiguredFiltersets() -> [Int : Filterset]
-
+    
+    // MARK: App Data
+    func getConfiguredFiltersets() -> [Filterset?]
     func isAccountConfigured(for provider: Provider) -> Bool
+    func saveUpdatedLocation(_ location: Location)
+    func save(username: String, password: String)
+    func getLastKnownUserLocation() -> Location?
 
-    func getFilterset(for id: Int) -> Filterset?
-
-    // MARK: - API Methods
-
+    // MARK: API Methods
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback)
     func getUserData(from provider: Provider, completion: @escaping Callback)
     func getReservationStatus(from provider: Provider, completion: @escaping Callback)
-    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback)
+    func getAvailableVehicles(from provider: Provider, around location: Location?, completion: @escaping Callback)
     func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
     func cancelReservation(with provider: Provider, completion: @escaping Callback)
     func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback)
-
-    func saveUpdatedLocation(_ location: Location)
-    func save(username: String, password: String)
-
-}
-
-extension LogicProtocol {
-
-    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, completion: @escaping Callback) {
-        login(with: provider, as: username, withPassword: password, completion: completion)
-    }
+    
+    // MARK: Convenience Getter
+    func getAllAvailableVehicles(around location: Location?, completion: @escaping Callback)
 
 }
 
-// Logic can do everything inside the Model-Part of the app, but never call anything inside View or Controller
+// MARK: -
 class Logic {
 
     typealias Callback = (APICallResult) -> Void
-
-    let user = User.shared
+    
+    // MARK: Links
+    
     let appData: AppDataProtocol = AppData.shared
 
 }
 
+// MARK: - Logic Protocol Conformance
 extension Logic: LogicProtocol {
-
-    //    func getConfiguredAccounts() -> [Account] {
-
-    //        // TODO: Account-Daten abfragen und zurückgeben. Wenn kein Account konfiguriert ist, wird ein leeres Array zurückgegeben.
-    //        return []
-
-    //    }
+    
+    // MARK: App Data
 
     func saveUpdatedLocation(_ location: Location) {
         appData.updateUserLocation(to: location)
     }
 
     func save(username: String, password: String) {
-
         appData.addUsername(username, for: .driveNow)
         appData.addPassword(password, for: .driveNow)
-
     }
-
-    func getConfiguredFiltersets() -> [Int : Filterset] {
-
-        // TODO: Filtersets abfragen und zurückgeben als Dictionary mit Set-Nummer 1-9 und Filterset.
-        return [:]
-
-    }
-
+    
     func isAccountConfigured(for provider: Provider) -> Bool {
-        return user.hasConfiguredAccount(for: provider)
+        switch provider {
+        case .driveNow:
+            if appData.getUsername(for: .driveNow) != nil {
+                return true
+            }
+        case .car2go:
+            if appData.getOAuthToken(for: .car2go) != nil {
+                return true
+            }
+        }
+        return false
     }
 
-    func getFilterset(for id: Int) -> Filterset? {
+    func getConfiguredFiltersets() -> [Filterset?] {
+        // TODO: Filtersets aus AppData abrufen
+        return [nil, nil, nil, nil, nil, nil, nil, nil, nil]
 
-        // TODO: Filterset holen, falls konfiguriert, sonst nil zurückgeben.
-        return nil
-
+    }
+    
+    func getLastKnownUserLocation() -> Location? {
+        return appData.getUserLocation()
     }
 
     func logout(of provider:Provider) {
         appData.deleteCredentials(for: provider)
     }
 
-    // MARK: - API Methods
-
-    // TODO: Closures zu allen API Calls hinzufügen
+    // MARK: API
 
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback) {
 
@@ -114,12 +101,12 @@ extension Logic: LogicProtocol {
 
             save(username: dnUsername, password: dnPassword)
 
-            let api = provider.api()
+            let api = provider.api
             api.login() { response in
                 completion(response)
             }
         case .car2go:
-            let api = provider.api()
+            let api = provider.api
             api.login() { response in
                 completion(response)
             }
@@ -129,8 +116,7 @@ extension Logic: LogicProtocol {
 
     func getUserData(from provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.getUserData() { response in
+        provider.api.getUserData() { response in
             completion(response)
         }
 
@@ -138,17 +124,20 @@ extension Logic: LogicProtocol {
 
     func getReservationStatus(from provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.getReservationStatus() { response in
+        provider.api.getReservationStatus() { response in
             completion(response)
         }
 
     }
 
-    func getAvailableVehicles(from provider: Provider, around location: Location, completion: @escaping Callback) {
+    func getAvailableVehicles(from provider: Provider, around location: Location?, completion: @escaping Callback) {
+        
+        guard let location = location else {
+            Debug.print(.error(source: .location(Source()), message: "No Location provided"))
+            return
+        }
 
-        let api = provider.api()
-        api.getAvailableVehicles(around: location) { response in
+        provider.api.getAvailableVehicles(around: location) { response in
             completion(response)
         }
 
@@ -156,8 +145,7 @@ extension Logic: LogicProtocol {
 
     func reserveVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.reserveVehicle(withVIN: vin) { response in
+        provider.api.reserveVehicle(withVIN: vin) { response in
             completion(response)
         }
 
@@ -165,8 +153,7 @@ extension Logic: LogicProtocol {
 
     func cancelReservation(with provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.cancelReservation() { response in
+        provider.api.cancelReservation() { response in
             completion(response)
         }
 
@@ -174,8 +161,7 @@ extension Logic: LogicProtocol {
 
     func openVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.openVehicle(withVIN: vin) { response in
+        provider.api.openVehicle(withVIN: vin) { response in
             completion(response)
         }
 
@@ -183,11 +169,63 @@ extension Logic: LogicProtocol {
 
     func closeVehicle(withVIN vin: String, of provider: Provider, completion: @escaping Callback) {
 
-        let api = provider.api()
-        api.closeVehicle(withVIN: vin) { response in
+        provider.api.closeVehicle(withVIN: vin) { response in
             completion(response)
         }
 
     }
+    
+    // MARK: Convenience Getter
+    
+    func getAllAvailableVehicles(around location: Location?, completion: @escaping Callback) {
+        
+        guard let location = location else {
+            Debug.print(.error(source: .location(Source()), message: "No Location provided"))
+            return
+        }
+        
+        var allVehicles: [Vehicle] = []
+        
+        getAvailableVehicles(from: .driveNow, around: location) { response in
+            guard let driveNowVehicles: [Vehicle] = response.getDetails() else { return }
+            
+            allVehicles.append(contentsOf: driveNowVehicles)
+            
+            self.getAvailableVehicles(from: .car2go, around: location) { response in
+                guard let car2goVehicles: [Vehicle] = response.getDetails() else { return }
+                
+                allVehicles.append(contentsOf: car2goVehicles)
+                let callback = APICallResult.vehicles(allVehicles)
+                completion(callback)
+            }
+        }
+    }
 
+}
+
+// MARK: - Default Implementations
+extension LogicProtocol {
+    
+    func login(with provider: Provider, as username: String? = nil, withPassword password: String? = nil, completion: @escaping Callback) {
+        login(with: provider, as: username, withPassword: password, completion: completion)
+    }
+    
+    func getAvailableVehicles(from provider: Provider, around location: Location? = nil, completion: @escaping Callback) {
+        if let customLocation = location {
+            getAvailableVehicles(from: provider, around: customLocation, completion: completion)
+        } else {
+            let userLocation = getLastKnownUserLocation()
+            getAvailableVehicles(from: provider, around: userLocation, completion: completion)
+        }
+    }
+    
+    func getAllAvailableVehicles(around location: Location? = nil, completion: @escaping Callback) {
+        if let customLocation = location {
+            getAllAvailableVehicles(around: customLocation, completion: completion)
+        } else {
+            let userLocation = getLastKnownUserLocation()
+            getAllAvailableVehicles(around: userLocation, completion: completion)
+        }
+    }
+    
 }

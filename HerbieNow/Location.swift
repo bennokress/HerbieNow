@@ -12,18 +12,21 @@ import CoreLocation
 struct Location {
 
     typealias AddressDictFormat = [String: Any]
+    
+    // MARK: Stored Properties
 
     let latitude: Double
     let longitude: Double
-
     let car2goCityName: String?
-
     let coordinateDescription: String
 
-    // Computed properties for location
+    // MARK: Computed Properties
+    
     var asObject: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
+    
+    // MARK: Initalization
 
     init(latitude: Double, longitude: Double, car2goCityName: String? = nil) {
 
@@ -32,6 +35,12 @@ struct Location {
         self.car2goCityName = car2goCityName
 
         coordinateDescription = "lat: \(latitude), long: \(longitude)"
+    }
+    
+    // MARK: Getter
+    
+    func getDistance(from otherLocation:CLLocation) -> Double {
+        return otherLocation.distance(from: self.asObject)
     }
 
     func getAddress(completion: @escaping ((street: String, areaCode: String, city: String)?) -> Void) {
@@ -58,9 +67,5 @@ struct Location {
             }
 
         }
-    }
-
-    func getDistance(from otherLocation:CLLocation) -> Double {
-        return otherLocation.distance(from: self.asObject)
     }
 }

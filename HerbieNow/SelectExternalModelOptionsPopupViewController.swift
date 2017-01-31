@@ -43,7 +43,7 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
 
     @IBOutlet fileprivate weak var hifiOptionButton: UIButton!
 
-    @IBOutlet fileprivate weak var confirmButton: UIButton!
+    @IBOutlet fileprivate weak var nextButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
     
@@ -62,13 +62,13 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     
     // MARK: UI Element Interaction Functions
     
-    @IBAction func confirmBookingButtonTapped(_ sender: Any) {
+    @IBAction func nextButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
+            self.executeNextButtonAction()
         }
     }
     
-    @IBAction func backBookingButtonTapped(_ sender: Any) {
+    @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true) { _ in
             self.executeBackButtonAction()
         }
@@ -119,15 +119,15 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
 
     fileprivate func configureNavigationButtons() {
         DispatchQueue.main.async {
-            self.confirmButton.imageForNormal = UIImage(named: "Next")
-            self.confirmButton.imageView?.tintColor = UIColor.green
+            self.nextButton.imageForNormal = UIImage(named: "Next")
+            self.nextButton.imageView?.tintColor = UIColor.green
             self.abortButton.imageForNormal = UIImage(named: "Cancel")
             self.abortButton.imageView?.tintColor = UIColor.blue
             self.backButton.isHidden = true
         }
     }
 
-    fileprivate func executeConfirmButtonAction() {
+    fileprivate func executeNextButtonAction() {
         //        let popup = PopupContent.modelIntern(filterset: filterset)
         //        delegate?.dismissed(popup)
     }

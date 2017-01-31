@@ -11,32 +11,22 @@ import OAuthSwift
 
 protocol MainViewInterpreterProtocol {
 
-    func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren()
-
-    // This protocol contains every function, the MainViewController can call.
-
     func viewDidAppear()
-
-    func providerButtonPressed(for provider: Provider)
-
-    func mapButtonPressed()
-
-    func filtersetButtonPressed(id: Int)
-
-    func filtersetButtonLongPressed(id: Int)
-
-    // Popups
+    func userTapped(button: MainViewButton)
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
 
 }
 
-/// The Interpreter is only called by a ViewController and decides what method of the Model has to be run. Gets data back via closures.
-class MainViewInterpreter: GeneralInterpretProtocol {
+// MARK: -
+class MainViewInterpreter {
 
+    // MARK: Links
+    
     let appDelegate: AppDelegate
-
     var presenter: MainViewPresenterProtocol
     var logic: LogicProtocol
+    
+    // MARK: Initialization
 
     init(for mainVC: MainViewControllerProtocol? = nil, _ presenter: MainViewPresenterProtocol = MainViewPresenter(to: nil), _ logic: LogicProtocol = Logic(), appDelegate: AppDelegate) {
 
@@ -45,153 +35,124 @@ class MainViewInterpreter: GeneralInterpretProtocol {
         self.logic = Logic()
 
     }
+    
+}
 
+// MARK: - Location Update Delegate Conformance
+extension MainViewInterpreter: LocationUpdateDelegate {
+    
     func locationUpdated(_ location: Location) {
         logic.saveUpdatedLocation(location)
-        let labelText = "New Location\n\nLatitude:\n\(location.latitude)\nLongitude:\n\(location.longitude)"
-        presenter.display(message: labelText)
     }
+    
+}
 
-    func requestRegularLocationUpdates() {
+// MARK: - Main View Interpreter Protocol Conformance
+extension MainViewInterpreter: MainViewInterpreterProtocol {
+    
+    func viewDidAppear() {
+        
+        requestRegularLocationUpdates()
+        
+        let configuredFiltersets = logic.getConfiguredFiltersets()
+        let driveNowActive = logic.isAccountConfigured(for: .driveNow)
+        let car2goActive = logic.isAccountConfigured(for: .car2go)
+        
+        let mainViewData = ViewData.mainData(displayedFiltersets: configuredFiltersets, driveNowActive: driveNowActive, car2goActive: car2goActive)
+        
+        presenter.updateData(with: mainViewData)
+        presenter.dismissLoadingAnimation()
+        
+    }
+    
+    func userTapped(button: MainViewButton){
+        
+        switch button {
+        case .filterset(let filterset, let index):
+            if let filterset = filterset {
+                getFilteredVehicles(for: filterset)
+            } else {
+                createFilterset(at: index)
+            }
+        case .provider(let provider):
+            if logic.isAccountConfigured(for: provider) {
+                getFilteredVehicles(for: provider)
+            } else {
+                // TODO: Login with Provider
+            }
+        case .map:
+            let driveNowConfigured = logic.isAccountConfigured(for: .driveNow)
+            let car2goConfigured = logic.isAccountConfigured(for: .car2go)
+            if driveNowConfigured && car2goConfigured {
+                getUnfilteredVehicles()
+            } else if driveNowConfigured {
+                getFilteredVehicles(for: .driveNow)
+            } else if car2goConfigured {
+                getFilteredVehicles(for: .car2go)
+            } else {
+                // TODO: Alert - please login with one of the providers (option 1: DriveNow, option 2: Car2Go, option 3: cancel)
+            }
+        }
+        
+    }
+    
+    func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
+        Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
+    }
+    
+}
+
+// MARK: - Internal Functions
+extension MainViewInterpreter: InternalRouting {
+
+    fileprivate func requestRegularLocationUpdates() {
         appDelegate.registerCurrentInterpreterForLocationUpdates(self)
         appDelegate.locationManager.requestAlwaysAuthorization()
     }
+    
+    // MARK: Filterset Handling
 
-    fileprivate func createFilterset() {
-
-    }
-
-    fileprivate func handleAPIresponse(_ response: APICallResult, presenterActionRequired: Bool) {
-
-        // TODO: Jeweiliges API Call Result entpacken und an die passenden Stellen weiterleiten
-
-        if presenterActionRequired {
-
-            switch response {
-            case .error(_, _, _, _):
-                //                presenter.displayAlert(with: response)
-                Debug.print(.info(source: .location(Source()), message: "Let presenter show an alert for: \(response.description)"))
-            case .reservation(let userHasActiveReservation, let optionalReservation):
-                //                userHasActiveReservation ? displayReservation(optionalReservation) : displayNoReservation()
-                if userHasActiveReservation {
-                    guard let reservation = optionalReservation else { fatalError("Bad format: Active Reservation was nil.") }
-                    Debug.print(.info(source: .location(Source()), message: "Let presenter show reservation: \(reservation.description)"))
-                } else {
-                    Debug.print(.info(source: .location(Source()), message: "Let presenter show that no reservation is active."))
-                }
-            case .success(let successful):
-                //                successful ? presenter.letUserKnowOfSuccessfulAPIcall() : presenter.letUserKnowOfUnsuccessfulAPIcall()
-                Debug.print(.info(source: .location(Source()), message: "Let presenter show: API Call was \(successful ? "successful" : "unsuccessful")."))
-            case .vehicles(let vehicles):
-                Debug.print(.info(source: .location(Source()), message: "Let map show \(vehicles.count) vehicles."))
-                //                                presenter.showVehiclesOnMap(vehicles)
-                //                Debug.print(.info(source: .location(Source()), message: "Let the presenter display the following \(vehicles.count) vehicles:"))
-                //                for vehicle in vehicles {
-                //                    print(Debug.list(message: vehicle.description, indent: 1))
-                //                }
-
-                // TODO: Test-Filter entfernen
-                let filterString = "11:0111:11111111111111111:111:11:000200:000100:11:111:0:1:myFilterName:imageCodedIn64"
-                var testFilterset = Filterset(from: filterString)
-                testFilterset.update(with: .provider(driveNow: true, car2go: false))
-                print(testFilterset.asString)
-                //                let filteredVehicles = testFilterset.filter(vehicles: vehicles)
-                //                Debug.print(.event(source: .location(Source()), description: "Filtered: \(filteredVehicles.count) Vehicles (= \(vehicles.count - filteredVehicles.count) less)"))
-                //                for vehicle in filteredVehicles {
-                //                    print(Debug.list(message: vehicle.description, indent: 1))
-            //                }
-            case .credential(let credential):
-                Debug.print(.info(source: .location(Source()), message: "Token: \(credential.oauthToken)"))
-                Debug.print(.info(source: .location(Source()), message: "Secret: \(credential.oauthTokenSecret)"))
-            }
-
-        } else {
-
-            Debug.print(.info(source: .location(Source()), message: "Background action for API Call Result: \(response.description)"))
-
+    fileprivate func createFilterset(at index: Int) {
+        guard index.isInRange(min: 1, max: 9) else {
+            Debug.print(.error(source: .location(Source()), message: "Filterset index should only be between 1 and 9!"))
+            return
         }
-
+        var newFilterset = Filterset()
+        newFilterset.update(position: index)
+        let popupData = ViewData.internalModelOptionsPopupData(newFilterset)
+        let internalModelOptionsPopup = View.internalModelOptions(data: popupData)
+        presenter.presentPopup(internalModelOptionsPopup)
     }
-
+    
+    fileprivate func getFilteredVehicles(for filterset: Filterset) {
+        logic.getAllAvailableVehicles() { response in
+            guard let unfilteredVehicles: [Vehicle] = response.getDetails() else { return }
+            let vehicles = filterset.filter(vehicles: unfilteredVehicles)
+            self.presentVehicleMapView(with: vehicles)
+        }
+    }
+    
+    fileprivate func getFilteredVehicles(for provider: Provider) {
+        logic.getAvailableVehicles(from: provider) { response in
+            guard let vehicles: [Vehicle] = response.getDetails() else { return }
+            self.presentVehicleMapView(with: vehicles)
+        }
+    }
+    
+    fileprivate func getUnfilteredVehicles() {
+        logic.getAllAvailableVehicles() { response in
+            guard let vehicles: [Vehicle] = response.getDetails() else { return }
+            self.presentVehicleMapView(with: vehicles)
+        }
+    }
+    
 }
 
-extension MainViewInterpreter: MainViewInterpreterProtocol {
-
-    func viewDidAppear() {
-
-        //        let configuredAccounts: [Account] = logic.getConfiguredAccounts()
-        //        presenter.configureAccountButtons(with: configuredAccounts)
-
-        let configuredFiltersets: [Int : Filterset] = logic.getConfiguredFiltersets()
-        presenter.configureFiltersetButtons(with: configuredFiltersets)
-
-        // Allow Location Updates
-        // Triggers Pop-up window for location service authorization
-        requestRegularLocationUpdates()
-
+// MARK: - Presenter Connection
+extension MainViewInterpreter: PresenterConnection {
+    
+    func presentVehicleMapView(with vehicles: [Vehicle]) {
+        presenter.presentVehicleMapView(with: vehicles)
     }
-
-    func providerButtonPressed(for provider: Provider) {
-
-        // TODO: Überprüfe, ob der Account verbunden ist
-        // logic.isAccountConfigured(for: Provider)
-
-    }
-
-    func mapButtonPressed() {
-        presenter.goToMapView()
-    }
-
-    func filtersetButtonPressed(id: Int) {
-
-        // let filterset = logic.getFilterset(for: id)
-
-        // TODO: logic.getVehicles (for all accounts of filterset)
-        // TODO: filter vehicles according to filterset and save as filteredVehicles
-
-        let filterset = Filterset(from: "00:0000:00000000000000000:000:00:000000:000000:00:000:0:0:name:imagecoded")
-        presenter.goToMapView(with: filterset)
-
-    }
-
-    func filtersetButtonLongPressed(id: Int) {
-
-        // TODO: richtiges filterset herausfinden und übergeben
-        // presenter.showDeleteFiltersetAlert(for: filterset)
-
-    }
-
-    func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
-        // TODO: Handle this
-        Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
-    }
-
-    // Das da unten kann dann später mal weg ...
-
-    func dasIstNurEineTestfunktionUmMalZeugAusDemModelLaufenZuLassenOhneMuehsamFrameworksInEinenPlaygroundZuImportieren() {
-        //        logic.getUserData(from: .car2go) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: false)
-        //        }
-        //        logic.login(with: .driveNow, as: "account@bennokress.de", withPassword: "XXX") { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-        // logic.getAvailableVehicles(from: .driveNow, around: Location(latitude: 48.183375, longitude: 11.550553)) { response in
-        //    self.handleAPIresponse(response, presenterActionRequired: true)
-        // }
-        //        logic.login(with: .car2go) { (response) in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-
-        //        logic.getAvailableVehicles(from: .car2go, around: Location(latitude: 53.434236, longitude: 10.356674)) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-
-        //        logic.reserveVehicle(withVIN: "WMWWG310803C16019", of: .driveNow) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-        //        logic.getReservationStatus(from: .driveNow) { response in
-        //            self.handleAPIresponse(response, presenterActionRequired: true)
-        //        }
-    }
-
+    
 }
