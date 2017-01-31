@@ -99,6 +99,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
         Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
+        presenter.dismissLoadingAnimation()
     }
     
 }
@@ -154,7 +155,6 @@ extension MainViewInterpreter: InternalRouting {
 extension MainViewInterpreter: PresenterConnection {
     
     func presentVehicleMapView(with vehicles: [Vehicle]) {
-        print("Still got \(vehicles.count) vehicles.")
         presenter.presentVehicleMapView(with: vehicles)
     }
     

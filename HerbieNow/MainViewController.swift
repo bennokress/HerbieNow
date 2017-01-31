@@ -118,7 +118,7 @@ class MainViewController: UIViewController, MapViewDelegate {
         }
         Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Tapped"))
         let filtersetButton = MainViewButton.filterset(displayedFiltersets[id-1], id: id)
-        showLoadingAnimation(title: "Finding Vehicles")
+        displayedFiltersets[id-1] != nil ? showLoadingAnimation(title: "Finding Vehicles") : showLoadingAnimation(title: "Preparing your new Filterset")
         interpreter.userTapped(button: filtersetButton)
     }
 
@@ -356,22 +356,26 @@ extension MainViewController: PopupDelegate {
     }
 
     func popupWorkflowAborted() {
-        interpreter.viewDidAppear()
+        interpreter.userDismissedPopup(with: .noReturnData, via: .abort)
     }
 
     func showLoadingAnimation(title: String) {
-        let spinner = SwiftSpinner.sharedInstance
-        spinner.backgroundColor = UIColor(html: "#010215")
-        spinner.innerColor = UIColor(html: "#8fa6c2")
-        spinner.outerColor = UIColor(html: "#12253d")
-        spinner.titleLabel.textColor = UIColor(html: "#8fa6c2")
-        spinner.titleLabel.font = UIFont(name: "Ailerons-Regular", size: 22)
-        spinner.title = title
-        SwiftSpinner.show(title)
+        DispatchQueue.main.async {
+            let spinner = SwiftSpinner.sharedInstance
+            spinner.backgroundColor = UIColor(html: "#010215")
+            spinner.innerColor = UIColor(html: "#8fa6c2")
+            spinner.outerColor = UIColor(html: "#12253d")
+            spinner.titleLabel.textColor = UIColor(html: "#8fa6c2")
+            spinner.titleLabel.font = UIFont(name: "Ailerons-Regular", size: 22)
+            spinner.title = title
+            SwiftSpinner.show(title)
+        }
     }
 
     func dismissLoadingAnimation() {
-        SwiftSpinner.hide()
+        DispatchQueue.main.async {
+            SwiftSpinner.hide()
+        }
     }
 
 }
