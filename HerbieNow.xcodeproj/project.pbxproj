@@ -28,6 +28,7 @@
 		9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */; };
 		9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E782CD31E3977970038349F /* Ailerons-Typeface.otf */; };
 		9E782CDA1E3A7EF50038349F /* HerbieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782CD91E3A7EF50038349F /* HerbieTextField.swift */; };
+		9E782D651E4099F90038349F /* HerbieBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E782D641E4099F90038349F /* HerbieBlurView.swift */; };
 		D306D1B81E1692E800D5CD64 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306D1B71E1692E800D5CD64 /* Debug.swift */; };
 		D32089A01E0ACE5300C17BD7 /* LocationUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */; };
 		D3297A3A1E06B3D000831923 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3297A391E06B3D000831923 /* Reservation.swift */; };
@@ -128,6 +129,7 @@
 		9E782CD31E3977970038349F /* Ailerons-Typeface.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ailerons-Typeface.otf"; sourceTree = "<group>"; };
 		9E782CD41E3977A30038349F /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ADAM.CG PRO.otf"; sourceTree = "<group>"; };
 		9E782CD91E3A7EF50038349F /* HerbieTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieTextField.swift; sourceTree = "<group>"; };
+		9E782D641E4099F90038349F /* HerbieBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbieBlurView.swift; sourceTree = "<group>"; };
 		D306D1B71E1692E800D5CD64 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdateDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		14FB0F161E3F7F4100BA763C /* UI Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9E782D641E4099F90038349F /* HerbieBlurView.swift */,
 				14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */,
 				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
 				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
@@ -668,6 +671,7 @@
 				D340A2DF1E01FD60001D5153 /* Extensions.swift in Sources */,
 				D395685A1E2F6FE0003FC042 /* LoginPopupViewController.swift in Sources */,
 				D33CB4DE1E1E69FE00AA16A1 /* Filterset.swift in Sources */,
+				9E782D651E4099F90038349F /* HerbieBlurView.swift in Sources */,
 				D39160B91E0954A1000DBE17 /* AppData.swift in Sources */,
 				D395685C1E2FB1CB003FC042 /* SelectInternalModelOptionsPopupViewController.swift in Sources */,
 				D384D4BF1E3F885700418581 /* SelectExternalModelOptionsPopupInterpreter.swift in Sources */,

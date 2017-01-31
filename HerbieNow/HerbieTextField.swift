@@ -15,14 +15,15 @@ class HerbieTextField: UITextField {
 
         let border = CALayer()
         let width = CGFloat(1.0)
-        border.borderColor = UIColor.init(hexString: "90a6c1")?.cgColor
+        let borderColor = UIColor.init(hexString: "90a6c1")
+        border.borderColor = borderColor?.cgColor
         border.frame = CGRect(x: 0, y: frame.size.height - width, width:  frame.size.width, height: frame.size.height)
 
         border.borderWidth = width
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
 
-        setPlaceHolderTextColor(UIColor(cgColor: border.borderColor!))
+        setPlaceHolderTextColor(borderColor!)
     }
 
     /*
