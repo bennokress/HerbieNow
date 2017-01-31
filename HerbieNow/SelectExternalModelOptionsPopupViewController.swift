@@ -41,8 +41,6 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     @IBOutlet fileprivate weak var fourSeatsButton: UIButton!
     @IBOutlet fileprivate weak var fiveSeatsButton: UIButton!
 
-    @IBOutlet fileprivate weak var hifiOptionButton: UIButton!
-
     @IBOutlet fileprivate weak var nextButton: UIButton!
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
