@@ -72,10 +72,10 @@
 		D39568661E300269003FC042 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */; };
 		D39568681E300279003FC042 /* Presentr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568671E300279003FC042 /* Presentr.framework */; };
 		D3ADC5D81E4117FD0084B5B6 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */; };
+		D3ADC5DA1E4134280084B5B6 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADC5D91E4134280084B5B6 /* RangeSlider.swift */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
-		D3FDAFDE1E40BE2300FF84FC /* RangeSliderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FDAFDD1E40BE2300FF84FC /* RangeSliderFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +173,7 @@
 		D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
 		D39568671E300279003FC042 /* Presentr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Presentr.framework; path = Carthage/Build/iOS/Presentr.framework; sourceTree = "<group>"; };
 		D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		D3ADC5D91E4134280084B5B6 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -185,7 +186,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3FDAFDE1E40BE2300FF84FC /* RangeSliderFramework.framework in Frameworks */,
 				D384D4D01E3F98A700418581 /* SwiftSpinner.framework in Frameworks */,
 				D39568681E300279003FC042 /* Presentr.framework in Frameworks */,
 				D39568661E300269003FC042 /* SkyFloatingLabelTextField.framework in Frameworks */,
@@ -370,6 +370,7 @@
 				14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */,
 				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
 				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
+				D3ADC5D91E4134280084B5B6 /* RangeSlider.swift */,
 			);
 			name = "UI Helpers";
 			sourceTree = "<group>";
@@ -603,7 +604,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Presentr.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftSpinner.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RangeSliderFramework.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -658,6 +658,7 @@
 				D39568561E2F67A2003FC042 /* PopupViewController.swift in Sources */,
 				14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */,
 				D384D4C91E3F89D000418581 /* SelectExternalModelOptionsPopupPresenter.swift in Sources */,
+				D3ADC5DA1E4134280084B5B6 /* RangeSlider.swift in Sources */,
 				D384D4BB1E3F882700418581 /* LoginPopupInterpreter.swift in Sources */,
 				D3C247651E0064080019AFA7 /* API.swift in Sources */,
 				D384D4CD1E3F89FA00418581 /* SelectFiltersetIconAndNamePopupPresenter.swift in Sources */,
