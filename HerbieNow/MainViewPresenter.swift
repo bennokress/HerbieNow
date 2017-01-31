@@ -69,14 +69,7 @@ extension MainViewPresenter: MainViewPresenterProtocol {
     func dismissLoadingAnimation() {
         mainVC?.dismissLoadingAnimation()
     }
-
-}
-
-// MARK: - Default Implementation
-extension MainViewPresenterProtocol {
     
-    func goToMapView(with filterset: Filterset? = nil) {
-        goToMapView(with: filterset)
-    }
-    
+  
+
 }

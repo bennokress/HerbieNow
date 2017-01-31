@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mw9-Aa-KCr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -122,7 +122,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="mapView" destination="AhY-h4-zBU" id="YBv-Jh-S7q"/>
+                        <outlet property="mapViewOutlet" destination="AhY-h4-zBU" id="S4u-Bu-EKQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q09-3U-r2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -589,6 +589,7 @@
                                                                         <state key="normal" image="MapButton"/>
                                                                         <connections>
                                                                             <action selector="mapButtonPressed:" destination="3pd-Dk-mcs" eventType="touchDown" id="JNo-Vt-lsF"/>
+                                                                            <segue destination="Zrg-Ig-d3B" kind="show" identifier="mainToMap" id="X3N-fI-8ZA"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -797,7 +798,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTERS" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcq-vf-yna">
-                                        <rect key="frame" x="138.33333333333331" y="21.333333333333329" width="138.33333333333331" height="37"/>
+                                        <rect key="frame" x="137.66666666666669" y="21.333333333333329" width="139.66666666666669" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kcq-vf-yna" secondAttribute="height" multiplier="34:9" id="k3X-SO-rzn"/>
                                         </constraints>
@@ -1334,7 +1335,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhv-yK-uDu">
-                                                                <rect key="frame" x="27" y="9.6666666666666856" width="107" height="20.666666666666629"/>
+                                                                <rect key="frame" x="27" y="10" width="107" height="20.666666666666686"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="19"/>
                                                                 <color key="textColor" red="0.56470588239999997" green="0.65098039220000004" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1351,7 +1352,7 @@
                                                         <rect key="frame" x="0.0" y="414" width="414" height="138"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-sp-8Ro">
-                                                                <rect key="frame" x="27" y="8.3333333333333144" width="166" height="22.000000000000057"/>
+                                                                <rect key="frame" x="27" y="8.6666666666666856" width="166" height="21.999999999999943"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="19"/>
                                                                 <color key="textColor" red="0.56470588239999997" green="0.65098039220000004" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>

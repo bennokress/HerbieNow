@@ -32,6 +32,8 @@ class MainViewController: UIViewController {
     
     lazy var interpreter: MainViewInterpreterProtocol = MainViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
     
+    let segueIdentifier = "mainToMap"
+    
     // MARK: Data
     
     var displayedFiltersets: [Filterset?] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
@@ -76,6 +78,13 @@ class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         Debug.print(.event(source: .location(Source()), description: "View Did Appear"))
         interpreter.viewDidAppear()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier {
+            //let vc = segue.destination
+            //vc.transitioningDelegate = self
+        }
     }
     
     // MARK: UI Element Interaction Functions
@@ -268,6 +277,7 @@ extension MainViewController: MainViewControllerProtocol {
         }
         dismissLoadingAnimation()
         Debug.print(.success(source: .location(Source()), message: "\(vehicles.count) vehicles ready to be displayed ... not yet implemented"))
+        performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     
     func presentDriveNowLoginPopup() {
