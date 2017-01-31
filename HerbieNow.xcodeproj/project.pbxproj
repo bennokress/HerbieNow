@@ -73,6 +73,7 @@
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
+		D3FDAFDE1E40BE2300FF84FC /* RangeSliderFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FDAFDD1E40BE2300FF84FC /* RangeSliderFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D3FDAFDD1E40BE2300FF84FC /* RangeSliderFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RangeSliderFramework.framework; path = Carthage/Build/iOS/RangeSliderFramework.framework; sourceTree = "<group>"; };
 		D3FF5CDB1E0AC53C0018EDF6 /* SwiftLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftLocation.framework; path = Carthage/Build/iOS/SwiftLocation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FDAFDE1E40BE2300FF84FC /* RangeSliderFramework.framework in Frameworks */,
 				D384D4D01E3F98A700418581 /* SwiftSpinner.framework in Frameworks */,
 				D39568681E300279003FC042 /* Presentr.framework in Frameworks */,
 				D39568661E300269003FC042 /* SkyFloatingLabelTextField.framework in Frameworks */,
@@ -215,6 +218,7 @@
 		0338BF561DD9F5870061EC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3FDAFDD1E40BE2300FF84FC /* RangeSliderFramework.framework */,
 				D39568671E300279003FC042 /* Presentr.framework */,
 				D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */,
 				D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */,
@@ -593,6 +597,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Presentr.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftSpinner.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RangeSliderFramework.framework",
 			);
 			name = Carthage;
 			outputPaths = (
