@@ -34,6 +34,17 @@ struct Filterset {
         return stringArray.joined(separator: ":")
     }
     
+    var providerFilter: Filter { return filters[0] }
+    var makeFilter: Filter { return filters[1] }
+    var modelFilter: Filter { return filters[2] }
+    var fuelTypeFilter: Filter { return filters[3] }
+    var transmissionFilter: Filter { return filters[4] }
+    var hpFilter: Filter { return filters[5] }
+    var fuelLevelFilter: Filter { return filters[6] }
+    var doorsFilter: Filter { return filters[7] }
+    var seatsFilter: Filter { return filters[8] }
+    var hiFiSystemFilter: Filter { return filters[9] }
+    
     // MARK: Initialization
 
     init(from initString: String = "11:1111:11111111111111111:111:11:000400:000100:11:111:0:0:Default Set:no image") {
@@ -155,7 +166,7 @@ struct Filterset {
 // MARK: - Internal Functions
 extension Filterset: InternalRouting {
     
-    // MARK: Getter
+    // MARK: Private Getter
 
     fileprivate func getProviderFilter(from boolArray: [Bool]) -> Filter {
         return .provider(driveNow: boolArray[0], car2go: boolArray[1])

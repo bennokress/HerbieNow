@@ -11,6 +11,10 @@ import JASON
 import Alamofire
 
 extension Bool {
+    
+    var flipped: Bool {
+        return !self
+    }
 
     func toInt() -> Int {
         return self ? 1 : 0

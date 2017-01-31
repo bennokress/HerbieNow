@@ -158,10 +158,10 @@ enum ViewData {
 enum ViewReturnData {
 
     case loginPopupReturnData(username: String?, password: String?)
-    case internalModelOptionsPopupReturnData()
-    case externalModelOptionsPopupReturnData()
-    case modelsPopupReturnData()
-    case filtersetNameAndIconPopupReturnData()
+    case internalModelOptionsPopupReturnData(filtersetConfiguration: Filterset)
+    case externalModelOptionsPopupReturnData(filtersetConfiguration: Filterset)
+    case modelsPopupReturnData(filtersetConfiguration: Filterset)
+    case filtersetNameAndIconPopupReturnData(filtersetConfiguration: Filterset)
 
     var username: String? {
         switch self {
@@ -176,6 +176,16 @@ enum ViewReturnData {
         switch self {
         case .loginPopupReturnData(_, let password):
             return password
+        default:
+            return nil
+        }
+    }
+    
+    var filterset: Filterset? {
+        switch self {
+        case .internalModelOptionsPopupReturnData(let filterset), .externalModelOptionsPopupReturnData(let filterset),
+             .modelsPopupReturnData(let filterset), .filtersetNameAndIconPopupReturnData(let filterset):
+            return filterset
         default:
             return nil
         }
