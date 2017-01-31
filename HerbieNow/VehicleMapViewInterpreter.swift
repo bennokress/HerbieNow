@@ -53,7 +53,8 @@ extension VehicleMapViewInterpreter: LocationUpdateDelegate {
             mapCentered = true
         }
         logic.saveUpdatedLocation(location)
-        presenter.showMyLocation(at: location)
+        //mapView does this itself
+        //presenter.showMyLocation(at: location)
     }
     
 }

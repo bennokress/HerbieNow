@@ -123,9 +123,11 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="mapViewOutlet" destination="AhY-h4-zBU" id="S4u-Bu-EKQ"/>
+                        <segue destination="wb6-lr-e5m" kind="unwind" identifier="unwindToMainView" unwindAction="unwindToMainViewWithSegue:" id="Pbk-Mk-EhY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q09-3U-r2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wb6-lr-e5m" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1034.7826086956522" y="136.95652173913044"/>
         </scene>

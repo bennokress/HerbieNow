@@ -24,6 +24,8 @@ class VehicleMapViewController: UIViewController {
 
     lazy var interpreter: VehicleMapViewInterpreterProtocol = VehicleMapViewInterpreter(for: self, appDelegate: UIApplication.shared.delegate as! AppDelegate)
     
+    let segueIdentifier = "unwindToMainView"
+    
     // MARK: Data & Settings
     
     let zoomRadius: CLLocationDistance = 1000
@@ -76,11 +78,14 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
         // iterate through vehicles to set every pin
         for vehicle in vehicles {
             var color: UIColor
-            // hier z.B.: if drivenow -> red, else -> blue
-            color = UIColor.red
+            if(vehicle.provider == .driveNow){
+                color = UIColor.blue
+            } else {
+                color = UIColor.red
+            }
             
             let anno = PinAnnotation(title: "Car",
-                                     locationName: "vehicle.getDescription()",
+                                     locationName: vehicle.description,
                                      discipline: "Car",
                                      coordinate: vehicle.location.asObject.coordinate,
                                      color: color)
@@ -90,7 +95,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     }
     
     func goBackToMainView() {
-        // TODO: segue to main view
+        performSegue(withIdentifier: segueIdentifier, sender: self)
     }
 }
 

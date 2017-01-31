@@ -39,6 +39,9 @@ class MainViewController: UIViewController {
     var displayedFiltersets: [Filterset?] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
     var driveNowConfigured: Bool = false
     var car2goConfigured: Bool = false
+    
+    // vehicleList passed to the next view
+    var vehicleList: [Vehicle] = []
 
     // MARK: UI Elements
     
@@ -82,8 +85,8 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
-            //let vc = segue.destination
-            //vc.transitioningDelegate = self
+            let vc = segue.destination as? VehicleMapViewController
+            vc?.showAnnotations(for: vehicleList)
         }
     }
     
@@ -168,6 +171,10 @@ class MainViewController: UIViewController {
         Debug.print(.event(source: .location(Source()), description: "Map Button Pressed"))
         showLoadingAnimation(title: "Finding Vehicles")
         interpreter.userTapped(button: .map)
+    }
+    
+    @IBAction func unwindToMainView(segue: UIStoryboardSegue) {
+    
     }
 
 }
@@ -277,6 +284,8 @@ extension MainViewController: MainViewControllerProtocol {
         }
         dismissLoadingAnimation()
         Debug.print(.success(source: .location(Source()), message: "\(vehicles.count) vehicles ready to be displayed ... not yet implemented"))
+        // data passing
+        vehicleList = vehicles
         performSegue(withIdentifier: segueIdentifier, sender: nil)
     }
     
