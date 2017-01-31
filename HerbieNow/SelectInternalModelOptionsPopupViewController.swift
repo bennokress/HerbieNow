@@ -38,7 +38,6 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     @IBOutlet fileprivate weak var hpMaxTextField: UITextField!
 
     @IBOutlet fileprivate weak var nextButton: UIButton!
-    @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
     
     // MARK: Mandatory View Functions
@@ -59,12 +58,6 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
             self.executeNextButtonAction()
-        }
-    }
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
         }
     }
     
@@ -134,7 +127,6 @@ extension SelectInternalModelOptionsPopupViewController: InternalRouting {
             self.nextButton.imageView?.tintColor = UIColor.green
             self.abortButton.imageForNormal = UIImage(named: "Cancel")
             self.abortButton.imageView?.tintColor = UIColor.blue
-            self.backButton.isHidden = true
         }
     }
 
