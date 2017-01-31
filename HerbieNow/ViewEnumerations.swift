@@ -162,6 +162,7 @@ enum ViewReturnData {
     case externalModelOptionsPopupReturnData(filtersetConfiguration: Filterset)
     case modelsPopupReturnData(filtersetConfiguration: Filterset)
     case filtersetNameAndIconPopupReturnData(filtersetConfiguration: Filterset)
+    case noReturnData
 
     var username: String? {
         switch self {

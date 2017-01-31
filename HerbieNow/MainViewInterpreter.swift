@@ -99,6 +99,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
         Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
+        presenter.dismissLoadingAnimation()
     }
     
 }
