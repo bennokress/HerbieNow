@@ -98,8 +98,18 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
     }
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
-        Debug.print(.error(source: .location(Source()), message: "Popup dismissed ... handling not implemented!"))
-        presenter.dismissLoadingAnimation()
+        switch selectedData {
+        case .loginPopupReturnData, .noReturnData:
+            presenter.dismissLoadingAnimation()
+        case .internalModelOptionsPopupReturnData(let filterset):
+            handleDismissedInternalPopup(with: filterset, via: navigationAction)
+        case .externalModelOptionsPopupReturnData(let filterset):
+            handleDismissedExternalPopup(with: filterset, via: navigationAction)
+        case .modelsPopupReturnData(let filterset):
+            handleDismissedModelsPopup(with: filterset, via: navigationAction)
+        case .filtersetIconAndNamePopupReturnData(let filterset):
+            handleDismissedIconAndNamePopup(with: filterset, via: navigationAction)
+        }
     }
     
 }
@@ -146,6 +156,60 @@ extension MainViewInterpreter: InternalRouting {
             guard let vehicles: [Vehicle] = response.getDetails() else { return }
             Debug.print(.info(source: .location(Source()), message: "Got \(vehicles.count) vehicles"))
             self.presentVehicleMapView(with: vehicles)
+        }
+    }
+    
+    // MARK: Popup Flow
+    
+    fileprivate func handleDismissedInternalPopup(with filterset: Filterset, via action: NavigationAction) {
+        switch action {
+        case .next:
+            let popupData = ViewData.externalModelOptionsPopupData(filterset)
+            presenter.presentPopup(.externalModelOptions(data: popupData))
+        default:
+            presenter.dismissLoadingAnimation()
+        }
+    }
+    
+    fileprivate func handleDismissedExternalPopup(with filterset: Filterset, via action: NavigationAction) {
+        switch action {
+        case .next:
+            // TODO: Get fitting filters based on current filterset
+            let popupData = ViewData.modelsPopupData(filterset, displayedModels: [])
+            presenter.presentPopup(.models(data: popupData))
+        case .back:
+            let popupData = ViewData.internalModelOptionsPopupData(filterset)
+            presenter.presentPopup(.internalModelOptions(data: popupData))
+        default:
+            presenter.dismissLoadingAnimation()
+        }
+    }
+    
+    fileprivate func handleDismissedModelsPopup(with filterset: Filterset, via action: NavigationAction) {
+        switch action {
+        case .next:
+            // TODO: Get all icons to display
+            let popupData = ViewData.filtersetNameAndIconPopupData(filterset, displayedIcons: [#imageLiteral(resourceName: "Car01"), #imageLiteral(resourceName: "Car02"), #imageLiteral(resourceName: "Car03")])
+            presenter.presentPopup(.filtersetNameAndIcon(data: popupData))
+        case .back:
+            let popupData = ViewData.externalModelOptionsPopupData(filterset)
+            presenter.presentPopup(.externalModelOptions(data: popupData))
+        default:
+            presenter.dismissLoadingAnimation()
+        }
+    }
+    
+    fileprivate func handleDismissedIconAndNamePopup(with filterset: Filterset, via action: NavigationAction) {
+        switch action {
+        case .confirm:
+            // TODO: Save filterset
+            viewDidAppear()
+        case .back:
+            // TODO: Get all icons to display
+            let popupData = ViewData.filtersetNameAndIconPopupData(filterset, displayedIcons: [#imageLiteral(resourceName: "Car01"), #imageLiteral(resourceName: "Car02"), #imageLiteral(resourceName: "Car03")])
+            presenter.presentPopup(.filtersetNameAndIcon(data: popupData))
+        default:
+            presenter.dismissLoadingAnimation()
         }
     }
     

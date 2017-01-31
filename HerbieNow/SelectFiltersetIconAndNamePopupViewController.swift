@@ -56,19 +56,19 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeConfirmButtonAction()
+            self.executeAction(.confirm)
         }
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeBackButtonAction()
+            self.executeAction(.back)
         }
     }
     
     @IBAction func abortButtonTapped(_ sender: UIButton) {
         dismiss(animated: true) { _ in
-            self.executeAbortButtonAction()
+            self.executeAction(.abort)
         }
     }
 
@@ -95,19 +95,13 @@ extension SelectFiltersetIconAndNamePopupViewController: InternalRouting {
         }
     }
     
-    fileprivate func executeConfirmButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: filterset)
-        //        delegate?.dismissed(popup)
-    }
-    
-    fileprivate func executeBackButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: originalFilterset)
-        //        delegate?.reverted(popup)
-    }
-    
-    fileprivate func executeAbortButtonAction() {
-        //        let popup = PopupContent.modelIntern(filterset: filterset)
-        //        delegate?.aborted(popup)
+    fileprivate func executeAction(_ action: NavigationAction) {
+        guard let data = data, let filtersetConfiguration = data.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
+            return
+        }
+        let returnData = ViewReturnData.filtersetIconAndNamePopupReturnData(filtersetConfiguration: filtersetConfiguration)
+        delegate?.popupDismissed(with: returnData, via: action)
     }
     
 }

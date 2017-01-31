@@ -161,7 +161,7 @@ enum ViewReturnData {
     case internalModelOptionsPopupReturnData(filtersetConfiguration: Filterset)
     case externalModelOptionsPopupReturnData(filtersetConfiguration: Filterset)
     case modelsPopupReturnData(filtersetConfiguration: Filterset)
-    case filtersetNameAndIconPopupReturnData(filtersetConfiguration: Filterset)
+    case filtersetIconAndNamePopupReturnData(filtersetConfiguration: Filterset)
     case noReturnData
 
     var username: String? {
@@ -185,7 +185,7 @@ enum ViewReturnData {
     var filterset: Filterset? {
         switch self {
         case .internalModelOptionsPopupReturnData(let filterset), .externalModelOptionsPopupReturnData(let filterset),
-             .modelsPopupReturnData(let filterset), .filtersetNameAndIconPopupReturnData(let filterset):
+             .modelsPopupReturnData(let filterset), .filtersetIconAndNamePopupReturnData(let filterset):
             return filterset
         default:
             return nil
