@@ -9,6 +9,7 @@
 import UIKit
 
 class HerbieBlurView: UIVisualEffectView {
+    
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
