@@ -11,7 +11,7 @@ import Foundation
 protocol SelectFiltersetIconAndNamePopupPresenterProtocol {
     
     func fillPicker(with encodedIcons: [String])
-    func updateAllElements(for filterset: Filterset, with encodedIcons: [String])
+    func updateAllElements(for filterset: Filterset)
 }
 
 // MARK: -
@@ -36,8 +36,8 @@ extension SelectFiltersetIconAndNamePopupPresenter: SelectFiltersetIconAndNamePo
         popupVC?.fillPicker(with: encodedIcons)
     }
     
-    func updateAllElements(for filterset: Filterset, with encodedIcons: [String]) {
-        let newData = ViewData.filtersetNameAndIconPopupData(filterset, displayedEncodedIcons: encodedIcons)
+    func updateAllElements(for filterset: Filterset) {
+        let newData = ViewData.filtersetNameAndIconPopupData(filterset, displayedEncodedIcons: nil)
         popupVC?.updateViewData(to: newData)
         popupVC?.updateFiltersetNameTextField(to: filterset.name)
     }

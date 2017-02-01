@@ -96,6 +96,7 @@ class Car2GoAPI {
         var licensePlateValue:String?=nil
         var locationValue:Location?=nil
 
+
         if let licensePlate = json["name"].string {
             licensePlateValue = licensePlate
         } else if let licensePlate = json["numberPlate"].string {
@@ -121,9 +122,17 @@ class Car2GoAPI {
             return nil
         }
 
-        // TODO Hier noch nicht fertig
-        // Hier muss über die VIN eine abfrage gemacht werden
-        let fuelType = FuelType(fromRawValue: "P")
+        var fuelType = FuelType(fromRawValue: "U");
+        //Car2Go just give electric or combustion Engine
+        
+        if transmissionChar == "E" {
+            fuelType = FuelType(fromRawValue: "E")
+        }
+        else{
+            fuelType = FuelType(fromRawValue: "U")
+        }
+        
+        
         let transmissionType = TransmissionType(fromRawValue: transmissionChar)
 
         return Vehicle(provider: car2go,
@@ -458,12 +467,12 @@ extension Car2GoAPI: API {
     }
 
     func openVehicle(withVIN vin: String, completion: @escaping Callback) {
-        /*Not given in Car2go*/
+        /*Not used in Car2go*/
 
     }
 
     func closeVehicle(withVIN vin: String, completion: @escaping Callback) {
-        /*Not given in Car2go*/
+        /*Not used in Car2go*/
 
     }
 

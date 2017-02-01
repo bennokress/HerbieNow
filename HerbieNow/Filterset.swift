@@ -6,7 +6,7 @@
 //  Copyright © 2017 LMU. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Filterset {
     
@@ -15,22 +15,18 @@ struct Filterset {
     var filters: [Filter] = []
     var position: Int = 0
     var name: String = "defaultName"
-    var image = UIImage()
+    var encodedImage: String = ""
     
     // MARK: Computed Properties
 
     var asString: String {
-        var imageString = "invalid image"
-        if let imageData: Data = UIImagePNGRepresentation(image) {
-            imageString = imageData.base64EncodedString(options: .lineLength64Characters)
-        }
         var stringArray: [String] = []
         for filter in filters {
             stringArray.append(filter.toString())
         }
         stringArray.append(String(position))
         stringArray.append(name)
-        stringArray.append(imageString)
+        stringArray.append(encodedImage)
         return stringArray.joined(separator: ":")
     }
     
@@ -99,9 +95,7 @@ struct Filterset {
 
         name = stringArray[11]
 
-        if let imageData = Data(base64Encoded: stringArray[12], options: Data.Base64DecodingOptions(rawValue: 0)), let image = UIImage(data: imageData) {
-            self.image = image
-        }
+        encodedImage = stringArray[12]
     }
 
     // MARK: Public Functions
@@ -157,15 +151,15 @@ struct Filterset {
         position = newPosition
     }
 
-    mutating func update(image newImage: UIImage) {
-        image = newImage
+    mutating func update(image newEncodedImage: String) {
+        encodedImage = newEncodedImage
     }
     
     // MARK: Console Output
     
     func debugPrint() {
-        Debug.print(.info(source: .location(Source()), message: "Received Filterset:"))
-        if case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, let smartRoadster, let smartForFour, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB) = self.modelFilter {
+        Debug.print(.info(source: .location(Source()), message: "Received Filterset named \"\(name)\":"))
+        if case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, _, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, _, _, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB) = self.modelFilter {
             Debug.print(.list(item: "Models", indent: 1))
             if mini3door { Debug.print(.list(item: "Mini 3 Door", indent: 2)) }
             if mini5door { Debug.print(.list(item: "Mini 5 Door", indent: 2)) }

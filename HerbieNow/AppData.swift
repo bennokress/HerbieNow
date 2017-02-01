@@ -46,6 +46,9 @@ protocol AppDataProtocol {
 
     /// Add OAuth Token Secret for the specified provider to Keychain
     func addOAuthTokenSecret(_ credentialKey: String, for provider: Provider)
+    
+    /// Add filterset configuration to Keychain
+    func addNewFilterset(_ filterset: Filterset)
 
     /// Get username for the specified provider from Keychain
     func getUsername(for provider: Provider) -> String?
@@ -67,9 +70,15 @@ protocol AppDataProtocol {
 
     /// Get OAuth Token Secret for the specified provider from Keychain
     func getOAuthTokenSecret(for provider: Provider) -> String?
+    
+    /// Get filterset configuration from Keychain
+    func getFiltersets() -> [Filterset?]
 
     /// Delete all saved credentials for the specified provider from Keychain
     func deleteCredentials(for provider: Provider)
+    
+    /// Deletes a filterset at the provided index
+    func deleteFilterset(at index: Int)
 }
 
 // MARK: -
@@ -125,6 +134,22 @@ extension AppData: AppDataProtocol {
         addToKeychain(value: credentialKey, forKey: "\(provider.rawValue) OAuth Token Secret")
     }
     
+    func addNewFilterset(_ filterset: Filterset) {
+        var savedFiltersets = getFiltersets()
+        savedFiltersets.replaceElement(at: filterset.position-1, with: filterset)
+        var filtersetString = ""
+        for filterset in savedFiltersets {
+            if let savedFilterset = filterset {
+                filtersetString.append(savedFilterset.asString)
+                filtersetString.append("*")
+            } else {
+                filtersetString.append(" *")
+            }
+        }
+        filtersetString.removeLastCharacter() // this is an unused *
+        addToKeychain(value: filtersetString, forKey: "Filterset Configurations")
+    }
+    
     func updateUserLocation(to location: Location) {
         userLocation = location
     }
@@ -163,6 +188,23 @@ extension AppData: AppDataProtocol {
         return findStringInKeychain(forKey: "\(provider.rawValue) OAuth Token Secret")
     }
     
+    func getFiltersets() -> [Filterset?] {
+        let savedFiltersetsString = findStringInKeychain(forKey: "Filterset Configurations")
+        if let filtersetStringArray = savedFiltersetsString?.splitted(by: "*") {
+            var filtersetConfiguration: [Filterset?] = []
+            for filtersetString in filtersetStringArray {
+                if filtersetString.contains(":") {
+                    filtersetConfiguration.append(Filterset(from: filtersetString))
+                } else {
+                    filtersetConfiguration.append(nil)
+                }
+            }
+            return filtersetConfiguration
+        } else {
+            return [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+        }
+    }
+    
     func getUserLocation() -> Location? {
         return userLocation
     }
@@ -181,6 +223,10 @@ extension AppData: AppDataProtocol {
             removeValueFromKeychain(forKey: "\(provider.rawValue) OAuth Token Secret")
             removeValueFromKeychain(forKey: "\(provider.rawValue) User ID")
         }
+    }
+    
+    func deleteFilterset(at index: Int) {
+        removeValueFromKeychain(forKey: "Filterset Configurations")
     }
 
 }
