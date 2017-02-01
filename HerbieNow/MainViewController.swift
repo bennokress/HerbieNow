@@ -118,7 +118,7 @@ class MainViewController: UIViewController, MapViewDelegate {
         }
         Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Tapped"))
         let filtersetButton = MainViewButton.filterset(displayedFiltersets[id-1], id: id)
-        displayedFiltersets[id-1] != nil ? showLoadingAnimation(title: "Finding Vehicles") : showLoadingAnimation(title: "Preparing your new Filterset")
+        if displayedFiltersets[id-1] != nil { showLoadingAnimation(title: "Finding Vehicles") }
         interpreter.userTapped(button: filtersetButton)
     }
 
@@ -353,7 +353,6 @@ extension MainViewController: PopupSetup {
 extension MainViewController: PopupDelegate {
 
     func popupDismissed(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
-        showLoadingAnimation(title: "Loading")
         interpreter.userDismissedPopup(with: selectedData, via: navigationAction)
     }
 

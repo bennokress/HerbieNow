@@ -944,11 +944,12 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naE-np-RsW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdw-Yc-nMS">
+                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdw-Yc-nMS">
                                                                         <rect key="frame" x="-0.6666666666666643" y="10.000000000000014" width="76.333333333333314" height="76.666666666666657"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Tdw-Yc-nMS" secondAttribute="height" multiplier="1:1" id="amV-4K-HgI"/>
                                                                         </constraints>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="antrieb"/>
                                                                         <connections>
                                                                             <action selector="fuelTypeButtonTapped:" destination="0Bg-hc-mFc" eventType="touchUpInside" id="srX-Vf-OgZ"/>
@@ -973,12 +974,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7i-QY-yhm">
                                                                 <rect key="frame" x="111.66666666666666" y="0.0" width="74.666666666666686" height="141.66666666666669"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-qx-5mg">
-                                                                        <rect key="frame" x="-0.33333333333331439" y="10.000000000000014" width="76.333333333333314" height="76.666666666666657"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                                        <state key="normal" image="antrieb">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-qx-5mg">
+                                                                        <rect key="frame" x="-0.66666666666665719" y="10.000000000000014" width="76.333333333333343" height="76.666666666666657"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <state key="normal" image="antrieb"/>
                                                                         <connections>
                                                                             <action selector="fuelTypeButtonTapped:" destination="0Bg-hc-mFc" eventType="touchUpInside" id="68Y-1b-jkQ"/>
                                                                         </connections>
@@ -999,12 +998,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDx-AZ-wxI">
                                                                 <rect key="frame" x="223" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVD-cT-lYS">
-                                                                        <rect key="frame" x="-0.33333333333331439" y="10.000000000000014" width="76.333333333333314" height="76.666666666666657"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                                        <state key="normal" image="antrieb">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVD-cT-lYS">
+                                                                        <rect key="frame" x="-0.66666666666668561" y="10.000000000000014" width="76.333333333333371" height="76.666666666666657"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <state key="normal" image="antrieb"/>
                                                                         <connections>
                                                                             <action selector="fuelTypeButtonTapped:" destination="0Bg-hc-mFc" eventType="touchUpInside" id="QiO-Wg-gpv"/>
                                                                         </connections>
@@ -1080,11 +1077,12 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKO-GJ-dBa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt9-Ya-u0c">
+                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt9-Ya-u0c">
                                                                         <rect key="frame" x="-0.6666666666666643" y="10" width="76.333333333333314" height="76.666666666666686"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="wt9-Ya-u0c" secondAttribute="height" multiplier="1:1" id="vIt-A1-m7h"/>
                                                                         </constraints>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="antrieb"/>
                                                                         <connections>
                                                                             <action selector="transmissionTypeButtonTapped:" destination="0Bg-hc-mFc" eventType="touchUpInside" id="Mqd-qe-oJX"/>
@@ -1109,11 +1107,12 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-XO-SgE">
                                                                 <rect key="frame" x="103.33333333333334" y="0.0" width="90.333333333333314" height="141.66666666666669"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
+                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
                                                                         <rect key="frame" x="7" y="10" width="76.333333333333314" height="76.666666666666686"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="gtG-5c-SPq" secondAttribute="height" multiplier="1:1" id="jEw-tm-5vc"/>
                                                                         </constraints>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="antrieb"/>
                                                                         <connections>
                                                                             <action selector="transmissionTypeButtonTapped:" destination="0Bg-hc-mFc" eventType="touchUpInside" id="Iph-vF-gzR"/>
@@ -1173,11 +1172,12 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3t-GQ-tqC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="143.33333333333331"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSl-xU-np9">
+                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSl-xU-np9">
                                                                         <rect key="frame" x="-0.6666666666666643" y="10" width="76.333333333333314" height="76.333333333333314"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="tSl-xU-np9" secondAttribute="height" multiplier="1:1" id="9Tm-Dg-KZd"/>
                                                                         </constraints>
+                                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="antrieb"/>
                                                                         <connections>
                                                                             <action selector="hifiSystemOnlyButtonTapped:" destination="0Bg-hc-mFc" eventType="touchUpInside" id="Jx5-Xh-bce"/>
@@ -1314,12 +1314,17 @@
                     <connections>
                         <outlet property="abortButton" destination="mtT-Vl-Goi" id="zjD-8h-FTt"/>
                         <outlet property="fuelTypeDieselButton" destination="MlD-qx-5mg" id="C7g-2p-muK"/>
+                        <outlet property="fuelTypeDieselLabel" destination="YKi-SQ-aex" id="FZg-eR-g7F"/>
                         <outlet property="fuelTypeElectricButton" destination="WVD-cT-lYS" id="CAM-Xz-M5b"/>
+                        <outlet property="fuelTypeElectricLabel" destination="gpK-Oq-wPO" id="ZTo-el-x6R"/>
                         <outlet property="fuelTypePetrolButton" destination="Tdw-Yc-nMS" id="3A9-1b-uG0"/>
+                        <outlet property="fuelTypePetrolLabel" destination="bqM-dc-ZzG" id="U0H-8O-swY"/>
                         <outlet property="hifiSystemOnlyButton" destination="tSl-xU-np9" id="QXE-iu-JG8"/>
                         <outlet property="nextButton" destination="uIP-5g-Jus" id="aaW-HJ-QQg"/>
                         <outlet property="transmissionTypeAutomaticButton" destination="gtG-5c-SPq" id="I2r-Zf-OP9"/>
+                        <outlet property="transmissionTypeAutomaticLabel" destination="YT4-EP-evN" id="RyP-8c-uBP"/>
                         <outlet property="transmissionTypeManualButton" destination="wt9-Ya-u0c" id="oSI-Ww-s0y"/>
+                        <outlet property="transmissionTypeManualLabel" destination="NvQ-iR-x0z" id="BZo-VP-wgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUa-u6-YdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1404,11 +1409,14 @@
                                                                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="74.666666666666657" height="101.66666666666667"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-DR-utP">
-                                                                                        <rect key="frame" x="1.3333333333333357" y="16.333333333333329" width="71.333333333333314" height="71.333333333333343"/>
+                                                                                        <rect key="frame" x="1.3333333333333357" y="15.333333333333329" width="71.333333333333314" height="71.333333333333343"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="2O7-DR-utP" secondAttribute="height" multiplier="1:1" id="0bD-NC-c8p"/>
                                                                                         </constraints>
                                                                                         <state key="normal" image="antrieb"/>
+                                                                                        <connections>
+                                                                                            <action selector="seatsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="NVK-nZ-3uQ"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -1422,11 +1430,14 @@
                                                                                 <rect key="frame" x="112" y="0.33333333333334281" width="74" height="101.66666666666667"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
-                                                                                        <rect key="frame" x="1.3333333333333428" y="16.333333333333329" width="71.666666666666657" height="71.333333333333343"/>
+                                                                                        <rect key="frame" x="1.3333333333333428" y="15.333333333333329" width="71.666666666666657" height="71.333333333333343"/>
                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
                                                                                         <state key="normal" image="antrieb">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="seatsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="Tdd-8o-Sdq"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -1437,11 +1448,14 @@
                                                                                 <rect key="frame" x="223.33333333333331" y="0.33333333333334281" width="74" height="101.66666666666667"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-NE-cts">
-                                                                                        <rect key="frame" x="1.3333333333333712" y="16.333333333333329" width="72" height="71.333333333333343"/>
+                                                                                        <rect key="frame" x="1.3333333333333712" y="15.333333333333329" width="72" height="71.333333333333343"/>
                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
                                                                                         <state key="normal" image="antrieb">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="seatsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="jpW-gn-sGF"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -1516,6 +1530,9 @@
                                                                                             <constraint firstAttribute="width" secondItem="F2F-3F-Pl3" secondAttribute="height" multiplier="1:1" id="wk8-ok-HoK"/>
                                                                                         </constraints>
                                                                                         <state key="normal" image="antrieb"/>
+                                                                                        <connections>
+                                                                                            <action selector="doorsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="Xxg-MV-1sb"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -1529,11 +1546,14 @@
                                                                                 <rect key="frame" x="112.33333333333334" y="0.66666666666665719" width="74.333333333333314" height="102.66666666666669"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="2" y="15.666666666666686" width="71.333333333333343" height="72"/>
+                                                                                        <rect key="frame" x="2.3333333333333428" y="15.666666666666686" width="71.333333333333314" height="72"/>
                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
                                                                                         <state key="normal" image="antrieb">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="doorsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="4pL-Wg-ZnS"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -1946,6 +1966,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="YQ6-yO-ftS"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="NHS-tS-q6y">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -1974,6 +1997,9 @@
                                                                                 <state key="normal" image="bmw2erAT">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="Trc-ei-whL"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 2er Active Tourer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="0iz-Lp-GFw">
                                                                                 <rect key="frame" x="11" y="122" width="185.66666666666669" height="16"/>
@@ -2008,6 +2034,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="qOX-bx-J35"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="uXk-ke-O57">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -2029,6 +2058,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="IrH-QK-Bm5"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="uTj-Wf-GzW">
                                                                                 <rect key="frame" x="11" y="122" width="186.66666666666669" height="16"/>
@@ -2063,6 +2095,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="kRS-ET-Uyk"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="6R3-Hp-tMb">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -2084,6 +2119,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="YbX-h5-c7N"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Lx-x4b">
                                                                                 <rect key="frame" x="11" y="122" width="186" height="16"/>
@@ -2118,6 +2156,9 @@
                                                                                 <state key="normal" image="mini5door">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="JAh-St-WqF"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-4i-bHt" userLabel="BMW 1er.">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -2140,6 +2181,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="CXd-Ri-X7e"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-VO-t9Q">
                                                                                 <rect key="frame" x="11" y="122" width="186" height="16"/>
@@ -2174,6 +2218,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="e6j-RE-Gdg"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="7FF-Tj-a1t">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -2196,6 +2243,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="T8V-Fq-LAE"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qxr-Yk-hlw">
                                                                                 <rect key="frame" x="11" y="122" width="186" height="16"/>
@@ -2230,6 +2280,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="Y27-AC-auK"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="pQs-Gv-3Yl">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -2252,6 +2305,9 @@
                                                                                 <state key="normal" image="bmw1er">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="unb-0P-KXG"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="arn-HM-otY">
                                                                                 <rect key="frame" x="11" y="122" width="186" height="16"/>
@@ -2286,6 +2342,9 @@
                                                                                 <state key="normal" image="bmw2erAT">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="deg-5i-HmP"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IpR-o3-mio">
                                                                                 <rect key="frame" x="10.333333333333329" y="122" width="186.33333333333331" height="16"/>
@@ -2308,6 +2367,9 @@
                                                                                 <state key="normal" image="bmw2erAT">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="modelSelectionButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="GTP-ns-Yb3"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-iZ-tmw">
                                                                                 <rect key="frame" x="11" y="122" width="186" height="16"/>
@@ -2792,14 +2854,23 @@
                                             <constraint firstAttribute="width" secondItem="tay-Rq-eBm" secondAttribute="height" multiplier="1:1" id="d4N-gG-Ile"/>
                                         </constraints>
                                         <state key="normal" image="continue"/>
+                                        <connections>
+                                            <action selector="confirmButtonTapped:" destination="dzQ-cz-5gZ" eventType="touchUpInside" id="w92-67-IQu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnx-5r-2C8">
                                         <rect key="frame" x="20" y="27" width="56" height="56"/>
                                         <state key="normal" image="backPopup"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="dzQ-cz-5gZ" eventType="touchUpInside" id="F40-UC-FPy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-XR-EdQ">
                                         <rect key="frame" x="179" y="27" width="56" height="56"/>
                                         <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="abortButtonTapped:" destination="dzQ-cz-5gZ" eventType="touchUpInside" id="cZh-KX-5d3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

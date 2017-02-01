@@ -122,6 +122,15 @@ extension MainViewInterpreter: InternalRouting {
         appDelegate.locationManager.requestAlwaysAuthorization()
     }
     
+    fileprivate func getAllAvailableFiltersetIcons() -> [UIImage] {
+        return [#imageLiteral(resourceName: "Car01"),#imageLiteral(resourceName: "Car02"),#imageLiteral(resourceName: "Car03"),#imageLiteral(resourceName: "Car04"),#imageLiteral(resourceName: "Car05"),#imageLiteral(resourceName: "Car06"),#imageLiteral(resourceName: "Car07"),#imageLiteral(resourceName: "Car08"),#imageLiteral(resourceName: "Car09"),#imageLiteral(resourceName: "Car10"),
+        #imageLiteral(resourceName: "Car11"),#imageLiteral(resourceName: "Car12"),#imageLiteral(resourceName: "Car13"),#imageLiteral(resourceName: "Car14"),#imageLiteral(resourceName: "Car15"),#imageLiteral(resourceName: "Car16"),#imageLiteral(resourceName: "Car17"),#imageLiteral(resourceName: "Car18"),#imageLiteral(resourceName: "Car19"),#imageLiteral(resourceName: "Face01"),
+        #imageLiteral(resourceName: "Face02"),#imageLiteral(resourceName: "Face03"),#imageLiteral(resourceName: "Face04"),#imageLiteral(resourceName: "Face05"),#imageLiteral(resourceName: "Face06"),#imageLiteral(resourceName: "Face07"),#imageLiteral(resourceName: "Face08"),#imageLiteral(resourceName: "Face09"),#imageLiteral(resourceName: "Face10"),#imageLiteral(resourceName: "Face11"),
+        #imageLiteral(resourceName: "Face12"),#imageLiteral(resourceName: "Face13"),#imageLiteral(resourceName: "Face14"),#imageLiteral(resourceName: "Face15"),#imageLiteral(resourceName: "Misc01"),#imageLiteral(resourceName: "Misc02"),#imageLiteral(resourceName: "Misc03"),#imageLiteral(resourceName: "Misc04"),#imageLiteral(resourceName: "Misc05"),#imageLiteral(resourceName: "Misc06"),
+        #imageLiteral(resourceName: "Misc07"),#imageLiteral(resourceName: "Misc08"),#imageLiteral(resourceName: "Misc09"),#imageLiteral(resourceName: "Misc10"),#imageLiteral(resourceName: "Misc11"),#imageLiteral(resourceName: "Misc12"),#imageLiteral(resourceName: "Misc13"),#imageLiteral(resourceName: "Misc14"),#imageLiteral(resourceName: "Misc15"),#imageLiteral(resourceName: "Misc16"),
+        #imageLiteral(resourceName: "Misc17"),#imageLiteral(resourceName: "Misc18"),#imageLiteral(resourceName: "Misc19"),#imageLiteral(resourceName: "Misc20"),#imageLiteral(resourceName: "Misc21")]
+    }
+    
     // MARK: Filterset Handling
 
     fileprivate func createFilterset(at index: Int) {
@@ -188,8 +197,7 @@ extension MainViewInterpreter: InternalRouting {
     fileprivate func handleDismissedModelsPopup(with filterset: Filterset, via action: NavigationAction) {
         switch action {
         case .next:
-            // TODO: Get all icons to display
-            let popupData = ViewData.filtersetNameAndIconPopupData(filterset, displayedIcons: [#imageLiteral(resourceName: "Car01"), #imageLiteral(resourceName: "Car02"), #imageLiteral(resourceName: "Car03")])
+            let popupData = ViewData.filtersetNameAndIconPopupData(filterset, displayedIcons: getAllAvailableFiltersetIcons())
             presenter.presentPopup(.filtersetNameAndIcon(data: popupData))
         case .back:
             let popupData = ViewData.externalModelOptionsPopupData(filterset)
@@ -205,9 +213,9 @@ extension MainViewInterpreter: InternalRouting {
             // TODO: Save filterset
             viewDidAppear()
         case .back:
-            // TODO: Get all icons to display
-            let popupData = ViewData.filtersetNameAndIconPopupData(filterset, displayedIcons: [#imageLiteral(resourceName: "Car01"), #imageLiteral(resourceName: "Car02"), #imageLiteral(resourceName: "Car03")])
-            presenter.presentPopup(.filtersetNameAndIcon(data: popupData))
+            // TODO: Get fitting filters based on current filterset
+            let popupData = ViewData.modelsPopupData(filterset, displayedModels: [])
+            presenter.presentPopup(.models(data: popupData))
         default:
             presenter.dismissLoadingAnimation()
         }

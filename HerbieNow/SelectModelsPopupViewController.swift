@@ -88,6 +88,10 @@ class SelectModelsPopupViewController: PopupViewController, SelectModelsPopupVie
         }
     }
     
+    @IBAction func modelSelectionButtonTapped(_ sender: UIButton) {
+        
+    }
+    
 }
 
 // MARK: - Internal Functions

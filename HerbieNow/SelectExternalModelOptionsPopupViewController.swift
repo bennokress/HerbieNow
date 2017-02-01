@@ -81,6 +81,14 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
         }
     }
     
+    @IBAction func seatsSelectionButtonTapped(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func doorsSelectionButtonTapped(_ sender: UIButton) {
+        
+    }
+    
 }
 
 // MARK: - Internal Functions

@@ -31,9 +31,14 @@ class SelectInternalModelOptionsPopupViewController: PopupViewController {
     @IBOutlet fileprivate weak var fuelTypePetrolButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeDieselButton: UIButton!
     @IBOutlet fileprivate weak var fuelTypeElectricButton: UIButton!
+    @IBOutlet fileprivate weak var fuelTypePetrolLabel: UILabel!
+    @IBOutlet fileprivate weak var fuelTypeDieselLabel: UILabel!
+    @IBOutlet fileprivate weak var fuelTypeElectricLabel: UILabel!
 
     @IBOutlet fileprivate weak var transmissionTypeAutomaticButton: UIButton!
     @IBOutlet fileprivate weak var transmissionTypeManualButton: UIButton!
+    @IBOutlet fileprivate weak var transmissionTypeAutomaticLabel: UILabel!
+    @IBOutlet fileprivate weak var transmissionTypeManualLabel: UILabel!
     
     @IBOutlet fileprivate weak var hifiSystemOnlyButton: UIButton!
 
@@ -104,21 +109,18 @@ extension SelectInternalModelOptionsPopupViewController: SelectInternalModelOpti
     }
     
     func updateFuelTypeButtonsActiveState(diesel dieselActive: Bool, petrol petrolActive: Bool, electric electricActive: Bool) {
-        // TODO: De-Comment when Icons are ready
-//        dieselActive ? fuelTypeDieselButton.setImageForAllStates(UIImage(named: "dieselColored")!) : fuelTypeDieselButton.setImageForAllStates(UIImage(named: "dieselGray")!)
-//        petrolActive ? fuelTypePetrolButton.setImageForAllStates(UIImage(named: "petrolColored")!) : fuelTypePetrolButton.setImageForAllStates(UIImage(named: "petrolGray")!)
-//        electricActive ? fuelTypeElectricButton.setImageForAllStates(UIImage(named: "electricColored")!) : fuelTypeElectricButton.setImageForAllStates(UIImage(named: "electircGray")!)
+        changeButtonState(toActive: dieselActive, button: fuelTypeDieselButton, label: fuelTypeDieselLabel)
+        changeButtonState(toActive: petrolActive, button: fuelTypePetrolButton, label: fuelTypePetrolLabel)
+        changeButtonState(toActive: electricActive, button: fuelTypeElectricButton, label: fuelTypeElectricLabel)
     }
     
     func updateTransmissionTypeButtonsActiveState(automatic automaticActive: Bool, manual manualActive: Bool) {
-        // TODO: De-Comment when Icons are ready
-//        automaticActive ? transmissionTypeAutomaticButton.setImageForAllStates(UIImage(named: "automaticColored")!) : transmissionTypeAutomaticButton.setImageForAllStates(UIImage(named: "automaticGray")!)
-//        manualActive ? transmissionTypeManualButton.setImageForAllStates(UIImage(named: "manualColored")!) : transmissionTypeManualButton.setImageForAllStates(UIImage(named: "manualGray")!)
+        changeButtonState(toActive: automaticActive, button: transmissionTypeAutomaticButton, label: transmissionTypeAutomaticLabel)
+        changeButtonState(toActive: manualActive, button: transmissionTypeManualButton, label: transmissionTypeManualLabel)
     }
     
     func updateHiFiSystemButtonActiveState(hifiSystemOnly: Bool) {
-        // TODO: De-Comment when Icons are ready
-//                hifiSystemOnly ? hifiSystemOnlyButton.setImageForAllStates(UIImage(named: "hifiColored")!) : hifiSystemOnlyButton.setImageForAllStates(UIImage(named: "hifiGray")!)
+        changeButtonState(toActive: hifiSystemOnly, button: hifiSystemOnlyButton)
     }
     
 }
@@ -143,7 +145,12 @@ extension SelectInternalModelOptionsPopupViewController: InternalRouting {
         let returnData = ViewReturnData.internalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
         delegate?.popupDismissed(with: returnData, via: action)
     }
+    
+    fileprivate func changeButtonState(toActive active: Bool, button: UIButton, label: UILabel? = nil) {
+        active ? (button.tintColor = UIColor.white) : (button.tintColor = UIColor.darkGray)
+        if let label = label {
+            active ? (label.textColor = UIColor.white) : (label.textColor = UIColor.darkGray)
+        }
+    }
 
 }
-
-// TODO: Add TextFieldDelegate that calls hpTextfieldValuesChanged
