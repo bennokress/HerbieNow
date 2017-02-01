@@ -306,12 +306,21 @@ extension MainViewController: MainViewControllerProtocol {
 extension MainViewController: PopupSetup {
     
     var popupConfiguration: Presentr {
-        let width = ModalSize.full
         let screenHeight = super.view.height
-        let topSpaceHeight = screenHeight * 0.11 + UIApplication.shared.statusBarFrame.height // Top View is set to 11% of full height in storyboard!
-        let popupHeight = screenHeight - topSpaceHeight
-        let height = ModalSize.custom(size: Float(popupHeight))
-        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 0, y: topSpaceHeight))
+        let screeWidth = super.view.width
+        
+        let sideAndBottomSpaceToScreen: CGFloat = 27
+        let topSpaceToScreen = screenHeight * 0.11 + UIApplication.shared.statusBarFrame.height // Top View is set to 11% of full height in storyboard!
+        
+        let popupHeight = Float(screenHeight - topSpaceToScreen - sideAndBottomSpaceToScreen)
+        let height = ModalSize.custom(size: popupHeight)
+        
+        let popupWidth = Float(screeWidth - (2 * sideAndBottomSpaceToScreen))
+        let width = ModalSize.custom(size: popupWidth)
+        
+        let originX: CGFloat = sideAndBottomSpaceToScreen
+        let originY: CGFloat = topSpaceToScreen
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: originX, y: originY))
         let customType = PresentationType.custom(width: width, height: height, center: center)
         
         let customPopup = Presentr(presentationType: customType)

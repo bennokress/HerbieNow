@@ -1409,7 +1409,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="74.666666666666657" height="101.66666666666667"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-DR-utP">
-                                                                                        <rect key="frame" x="1.3333333333333357" y="16.000000000000014" width="71.333333333333314" height="71.333333333333314"/>
+                                                                                        <rect key="frame" x="1.3333333333333357" y="15.333333333333329" width="71.333333333333314" height="71.333333333333343"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="2O7-DR-utP" secondAttribute="height" multiplier="1:1" id="0bD-NC-c8p"/>
                                                                                         </constraints>
@@ -1431,7 +1431,7 @@
                                                                                 <rect key="frame" x="112" y="0.33333333333334281" width="74" height="101.66666666666667"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
-                                                                                        <rect key="frame" x="1.3333333333333428" y="16.000000000000014" width="71.666666666666657" height="71.333333333333314"/>
+                                                                                        <rect key="frame" x="1.3333333333333428" y="15.333333333333329" width="71.666666666666657" height="71.333333333333343"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="antrieb"/>
                                                                                         <connections>
@@ -1447,7 +1447,7 @@
                                                                                 <rect key="frame" x="223.33333333333331" y="0.33333333333334281" width="74" height="101.66666666666667"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-NE-cts">
-                                                                                        <rect key="frame" x="1.3333333333333712" y="16.000000000000014" width="72" height="71.333333333333314"/>
+                                                                                        <rect key="frame" x="1.3333333333333712" y="15.333333333333329" width="72" height="71.333333333333343"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="antrieb"/>
                                                                                         <connections>
@@ -1544,7 +1544,7 @@
                                                                                 <rect key="frame" x="112.33333333333334" y="0.66666666666665719" width="74.333333333333314" height="102.66666666666669"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="2.6666666666666572" y="14.666666666666686" width="71.333333333333343" height="72"/>
+                                                                                        <rect key="frame" x="2" y="14.666666666666686" width="71.333333333333343" height="72"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="antrieb"/>
                                                                                         <connections>
