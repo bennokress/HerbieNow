@@ -15,7 +15,7 @@ protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
     
     func updateViewData(to newData: ViewData)
     
-    func fillPicker(with icons: [UIImage])
+    func fillPicker(with encodedIcons: [String])
     func updateFiltersetNameTextField(to name: String)
 
 }
@@ -43,6 +43,8 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        iconPicker.delegate = self
+        iconPicker.dataSource = self
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
     }
 
@@ -80,8 +82,13 @@ extension SelectFiltersetIconAndNamePopupViewController: SelectFiltersetIconAndN
         data = newData
     }
     
-    func fillPicker(with icons: [UIImage]) {
+    func fillPicker(with encodedIcons: [String]) {
+        var icons: [UIImage] = []
+        for encodedIcon in encodedIcons {
+            icons.append(UIImage.from(base64string: encodedIcon))
+        }
         displayedIcons = icons
+        iconPicker.reloadData()
     }
     
     func updateFiltersetNameTextField(to name: String) {
@@ -111,12 +118,16 @@ extension SelectFiltersetIconAndNamePopupViewController: AKPickerViewDataSource,
         return displayedIcons.count
     }
     
-    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
-        return "displayedIcons[item]"
+    func pickerView(_ pickerView: AKPickerView, imageForItem item: Int) -> UIImage {
+        guard let icon = displayedIcons[item].filled(withColor: .white).scaled(toHeight: pickerView.height) else {
+            Debug.print(.error(source: .location(Source()), message: "Could not edit icon for picker."))
+            return UIImage()
+        }
+        return icon
     }
     
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
-        
+        interpreter.iconSelected(displayedIcons[item].base64encoded)
     }
     
 }

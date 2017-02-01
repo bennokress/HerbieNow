@@ -266,16 +266,6 @@ extension String {
 
 }
 
-extension UITextField {
-
-    func clear() {
-        DispatchQueue.main.async {
-            self.text = ""
-        }
-    }
-
-}
-
 extension UIColor {
 
     convenience init(html htmlString: String) {
@@ -301,4 +291,28 @@ extension UIColor {
         self.init(red:red, green:green, blue:blue, alpha:1)
     }
 
+}
+
+extension UIImage {
+    
+    var base64encoded: String {
+        let imageData: NSData = UIImagePNGRepresentation(self)! as NSData
+        return imageData.base64EncodedString(options: .lineLength64Characters)
+    }
+    
+    static func from(base64string: String) -> UIImage {
+        let dataDecode = Data(base64Encoded: base64string, options:.ignoreUnknownCharacters)!
+        return UIImage(data: dataDecode)!
+    }
+    
+}
+
+extension UITextField {
+    
+    func clear() {
+        DispatchQueue.main.async {
+            self.text = ""
+        }
+    }
+    
 }
