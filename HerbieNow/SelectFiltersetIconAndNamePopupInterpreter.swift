@@ -11,6 +11,8 @@ import Foundation
 protocol SelectFiltersetIconAndNamePopupInterpreterProtocol {
     
     func viewDidAppear(with data: ViewData?)
+    
+    func iconSelected(_ encodedIcon: String)
 
 }
 
@@ -49,6 +51,10 @@ extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndName
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }
+    }
+    
+    func iconSelected(_ encodedIcon: String) {
+        
     }
     
 }

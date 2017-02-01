@@ -88,7 +88,7 @@ enum ViewData {
     case internalModelOptionsPopupData(Filterset)
     case externalModelOptionsPopupData(Filterset)
     case modelsPopupData(Filterset, displayedModels: [Model])
-    case filtersetNameAndIconPopupData(Filterset, displayedIcons: [UIImage])
+    case filtersetNameAndIconPopupData(Filterset, displayedEncodedIcons: [String])
 
     var displayedFiltersets: [Filterset?]? {
         switch self {
@@ -144,7 +144,7 @@ enum ViewData {
         }
     }
     
-    var displayedIcons: [UIImage]? {
+    var displayedEncodedIcons: [String]? {
         switch self {
         case .filtersetNameAndIconPopupData(_, let displayedIcons):
             return displayedIcons
