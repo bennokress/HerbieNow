@@ -231,7 +231,7 @@ extension MainViewController: InternalRouting {
             
             if let filterset = filterset {
                 
-                currentButton.setImageForAllStates(UIImage.from(base64string: filterset.encodedImage))
+                currentButton.setImageForAllStates(UIImage.from(base64string: filterset.encodedImage).filled(withColor: .white))
                 currentLabel.text = filterset.name
                 
             } else {

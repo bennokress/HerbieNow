@@ -109,18 +109,18 @@ extension SelectInternalModelOptionsPopupViewController: SelectInternalModelOpti
     }
     
     func updateFuelTypeButtonsActiveState(diesel dieselActive: Bool, petrol petrolActive: Bool, electric electricActive: Bool) {
-        changeButtonState(toActive: dieselActive, button: fuelTypeDieselButton, label: fuelTypeDieselLabel)
-        changeButtonState(toActive: petrolActive, button: fuelTypePetrolButton, label: fuelTypePetrolLabel)
-        changeButtonState(toActive: electricActive, button: fuelTypeElectricButton, label: fuelTypeElectricLabel)
+        changeButtonState(toActive: dieselActive, imageIdentifier: "diesel", button: fuelTypeDieselButton, label: fuelTypeDieselLabel)
+        changeButtonState(toActive: petrolActive, imageIdentifier: "petrol", button: fuelTypePetrolButton, label: fuelTypePetrolLabel)
+        changeButtonState(toActive: electricActive, imageIdentifier: "electric", button: fuelTypeElectricButton, label: fuelTypeElectricLabel)
     }
     
     func updateTransmissionTypeButtonsActiveState(automatic automaticActive: Bool, manual manualActive: Bool) {
-        changeButtonState(toActive: automaticActive, button: transmissionTypeAutomaticButton, label: transmissionTypeAutomaticLabel)
-        changeButtonState(toActive: manualActive, button: transmissionTypeManualButton, label: transmissionTypeManualLabel)
+        changeButtonState(toActive: automaticActive, imageIdentifier: "automatic", button: transmissionTypeAutomaticButton, label: transmissionTypeAutomaticLabel)
+        changeButtonState(toActive: manualActive, imageIdentifier: "manual", button: transmissionTypeManualButton, label: transmissionTypeManualLabel)
     }
     
     func updateHiFiSystemButtonActiveState(hifiSystemOnly: Bool) {
-        changeButtonState(toActive: hifiSystemOnly, button: hifiSystemOnlyButton)
+        changeButtonState(toActive: hifiSystemOnly, imageIdentifier: "hifi", button: hifiSystemOnlyButton)
     }
     
 }
@@ -137,8 +137,12 @@ extension SelectInternalModelOptionsPopupViewController: InternalRouting {
         delegate?.popupDismissed(with: returnData, via: action)
     }
     
-    fileprivate func changeButtonState(toActive active: Bool, button: UIButton, label: UILabel? = nil) {
-        active ? (button.tintColor = UIColor.white) : (button.tintColor = UIColor.darkGray)
+    fileprivate func changeButtonState(toActive active: Bool, imageIdentifier: String, button: UIButton, label: UILabel? = nil) {
+        guard let activeImage = UIImage(named: "\(imageIdentifier)"), let inactiveImage = UIImage(named: "\(imageIdentifier)Gray") else {
+            Debug.print(.error(source: .location(Source()), message: "Could not find the right Filter Icon"))
+            return
+        }
+        active ? button.setImageForAllStates(activeImage) : button.setImageForAllStates(inactiveImage)
         if let label = label {
             active ? (label.textColor = UIColor.white) : (label.textColor = UIColor.darkGray)
         }
