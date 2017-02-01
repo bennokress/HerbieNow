@@ -119,7 +119,11 @@ extension SelectFiltersetIconAndNamePopupViewController: AKPickerViewDataSource,
     }
     
     func pickerView(_ pickerView: AKPickerView, imageForItem item: Int) -> UIImage {
-        return displayedIcons[item].filled(withColor: .white)
+        guard let icon = displayedIcons[item].filled(withColor: .white).scaled(toHeight: pickerView.height) else {
+            Debug.print(.error(source: .location(Source()), message: "Could not edit icon for picker."))
+            return UIImage()
+        }
+        return icon
     }
     
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
