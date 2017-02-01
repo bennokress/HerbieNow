@@ -12,11 +12,18 @@ import Presentr
 protocol SelectExternalModelOptionsPopupViewControllerProtocol: class {
 
     var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol { get set }
+    
+    func updateViewData(to newData: ViewData)
+    
+    func updateSeatsButtonsActiveState(two twoActive: Bool, four fourActive: Bool, five fiveActive: Bool)
+    func updateDoorsButtonsActiveState(three threeActive: Bool, five fiveActive: Bool)
+    func updateHorsePowerLabelTexts(min minValue: Int, max maxValue: Int)
+    func updateFuelLevelLabelTexts(min minValue: Int, max maxValue: Int)
 
 }
 
 // MARK: -
-class SelectExternalModelOptionsPopupViewController: PopupViewController, SelectExternalModelOptionsPopupViewControllerProtocol {
+class SelectExternalModelOptionsPopupViewController: PopupViewController {
     
     lazy var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol = SelectExternalModelOptionsPopupInterpreter(for: self) as SelectExternalModelOptionsPopupInterpreterProtocol
     
@@ -94,6 +101,37 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
         }
         interpreter.doorsButtonTapped(for: tappedDoors, with: data)
     }
+    
+}
+
+// MARK: - Select External Model Options Popup View Controller Protocol Conformance
+extension SelectExternalModelOptionsPopupViewController: SelectExternalModelOptionsPopupViewControllerProtocol {
+    
+    func updateViewData(to newData: ViewData) {
+        data = newData
+    }
+    
+    func updateSeatsButtonsActiveState(two twoActive: Bool, four fourActive: Bool, five fiveActive: Bool) {
+        changeButtonState(toActive: twoActive, button: twoSeatsButton)
+        changeButtonState(toActive: fourActive, button: fourSeatsButton)
+        changeButtonState(toActive: fiveActive, button: fiveSeatsButton)
+    }
+    
+    func updateDoorsButtonsActiveState(three threeActive: Bool, five fiveActive: Bool) {
+        changeButtonState(toActive: threeActive, button: threeDoorsButton)
+        changeButtonState(toActive: fiveActive, button: fiveDoorsButton)
+    }
+    
+    func updateHorsePowerLabelTexts(min minValue: Int, max maxValue: Int) {
+        // TODO: Add Value Label
+        Debug.print(.info(source: .location(Source()), message: "Update Horse Power Label Texts to: \"\(minValue)\" and \"\(maxValue)\""))
+    }
+    
+    func updateFuelLevelLabelTexts(min minValue: Int, max maxValue: Int) {
+        // TODO: Add Value Label
+        Debug.print(.info(source: .location(Source()), message: "Update Fuel Level Label Texts to: \"\(minValue)\" and \"\(maxValue)\""))
+    }
+    
     
 }
 

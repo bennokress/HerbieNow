@@ -19,12 +19,12 @@ class SelectExternalModelOptionsPopupPresenter {
 
     // MARK: Links
 
-    weak var vehicleMapVC: SelectExternalModelOptionsPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
+    weak var popupVC: SelectExternalModelOptionsPopupViewControllerProtocol? // avoiding a retain cycle with this weak reference
 
     // MARK: Initialization
 
     init(to vehicleMapViewController: SelectExternalModelOptionsPopupViewControllerProtocol? = nil) {
-        vehicleMapVC = vehicleMapViewController
+        popupVC = vehicleMapViewController
     }
 
 }
@@ -33,17 +33,18 @@ class SelectExternalModelOptionsPopupPresenter {
 extension SelectExternalModelOptionsPopupPresenter: SelectExternalModelOptionsPopupPresenterProtocol {
     
     func updateAllElements(for filterset: Filterset) {
-//        if case .fuelType(let petrol, let diesel, let electric) = filterset.fuelTypeFilter,
-//            case .transmission(let automatic, let manual) = filterset.transmissionFilter,
-//            case .hifiSystem(let onlyHiFiSystem) = filterset.hiFiSystemFilter {
-//            
-//            let newData = ViewData.internalModelOptionsPopupData(filterset)
-//            popupVC?.updateViewData(to: newData)
-//            popupVC?.updateFuelTypeButtonsActiveState(diesel: diesel, petrol: petrol, electric: electric)
-//            popupVC?.updateTransmissionTypeButtonsActiveState(automatic: automatic, manual: manual)
-//            popupVC?.updateHiFiSystemButtonActiveState(hifiSystemOnly: onlyHiFiSystem)
-//            
-//        }
+        if case .seats(let twoSeats, let fourSeats, let fiveSeats) = filterset.seatsFilter,
+            case .doors(let threeDoors, let fiveDoors) = filterset.doorsFilter,
+            case .hp(let minHP, let maxHP) = filterset.hpFilter,
+            case .fuelLevel(let minFuelLevel, let maxFuelLevel) = filterset.fuelLevelFilter {
+            
+            let newData = ViewData.internalModelOptionsPopupData(filterset)
+            popupVC?.updateViewData(to: newData)
+            popupVC?.updateSeatsButtonsActiveState(two: twoSeats, four: fourSeats, five: fiveSeats)
+            popupVC?.updateDoorsButtonsActiveState(three: threeDoors, five: fiveDoors)
+            popupVC?.updateHorsePowerLabelTexts(min: minHP, max: maxHP)
+            popupVC?.updateFuelLevelLabelTexts(min: minFuelLevel, max: maxFuelLevel)
+        }
     }
 
 }

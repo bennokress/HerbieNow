@@ -1408,11 +1408,12 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5r-Uw-0Rp">
                                                                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="74.666666666666657" height="101.66666666666667"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-DR-utP">
-                                                                                        <rect key="frame" x="1.3333333333333357" y="15.333333333333329" width="71.333333333333314" height="71.333333333333343"/>
+                                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-DR-utP">
+                                                                                        <rect key="frame" x="1.3333333333333357" y="16.000000000000014" width="71.333333333333314" height="71.333333333333314"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="2O7-DR-utP" secondAttribute="height" multiplier="1:1" id="0bD-NC-c8p"/>
                                                                                         </constraints>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="antrieb"/>
                                                                                         <connections>
                                                                                             <action selector="seatsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="NVK-nZ-3uQ"/>
@@ -1429,12 +1430,10 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hd-rn-2qW">
                                                                                 <rect key="frame" x="112" y="0.33333333333334281" width="74" height="101.66666666666667"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
-                                                                                        <rect key="frame" x="1.3333333333333428" y="15.333333333333329" width="71.666666666666657" height="71.333333333333343"/>
-                                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                                                        <state key="normal" image="antrieb">
-                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                        </state>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
+                                                                                        <rect key="frame" x="1.3333333333333428" y="16.000000000000014" width="71.666666666666657" height="71.333333333333314"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <state key="normal" image="antrieb"/>
                                                                                         <connections>
                                                                                             <action selector="seatsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="Tdd-8o-Sdq"/>
                                                                                         </connections>
@@ -1447,12 +1446,10 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2g-hw-nTT">
                                                                                 <rect key="frame" x="223.33333333333331" y="0.33333333333334281" width="74" height="101.66666666666667"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-NE-cts">
-                                                                                        <rect key="frame" x="1.3333333333333712" y="15.333333333333329" width="72" height="71.333333333333343"/>
-                                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                                                        <state key="normal" image="antrieb">
-                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                        </state>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-NE-cts">
+                                                                                        <rect key="frame" x="1.3333333333333712" y="16.000000000000014" width="72" height="71.333333333333314"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <state key="normal" image="antrieb"/>
                                                                                         <connections>
                                                                                             <action selector="seatsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="jpW-gn-sGF"/>
                                                                                         </connections>
@@ -1524,11 +1521,12 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-Yb-1eN">
                                                                                 <rect key="frame" x="0.0" y="0.66666666666665719" width="74.666666666666657" height="102.66666666666669"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2F-3F-Pl3">
+                                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2F-3F-Pl3">
                                                                                         <rect key="frame" x="1.3333333333333357" y="15.666666666666686" width="72" height="71.666666666666629"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="F2F-3F-Pl3" secondAttribute="height" multiplier="1:1" id="wk8-ok-HoK"/>
                                                                                         </constraints>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="antrieb"/>
                                                                                         <connections>
                                                                                             <action selector="doorsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="Xxg-MV-1sb"/>
@@ -1545,12 +1543,10 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-PF-JDi">
                                                                                 <rect key="frame" x="112.33333333333334" y="0.66666666666665719" width="74.333333333333314" height="102.66666666666669"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="2.3333333333333428" y="15.666666666666686" width="71.333333333333314" height="72"/>
-                                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                                                        <state key="normal" image="antrieb">
-                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                        </state>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
+                                                                                        <rect key="frame" x="2.6666666666666572" y="14.666666666666686" width="71.333333333333343" height="72"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                        <state key="normal" image="antrieb"/>
                                                                                         <connections>
                                                                                             <action selector="doorsSelectionButtonTapped:" destination="H6w-xS-JuJ" eventType="touchUpInside" id="4pL-Wg-ZnS"/>
                                                                                         </connections>
