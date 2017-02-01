@@ -85,11 +85,21 @@ extension Vehicle: CustomStringConvertible {
     
     func detailsForLine3() -> String {
         let userLocation = AppData.shared.userLocation?.asObject
-        var returnString = "details3 did not work"
+        var distance = self.location.getDistance(from: userLocation!)
+        var returnString: String = ""
+        if(distance < 1000.0){
+            distance = round(distance)
+            returnString = String(format: "%.0f", distance) + "m"
+        }else{
+            distance /= 100.0
+            distance = round(distance)
+            distance /= 10.0
+            returnString = "\(distance)km"
+        }
         
         self.location.getAddress { (locationData: (street: String, areaCode: String, city: String)?) in
             
-            returnString = "\(self.location.getDistance(from: userLocation!))km → \(locationData?.street)"
+            returnString += " → \(locationData?.street)"
         }
         return returnString
     }

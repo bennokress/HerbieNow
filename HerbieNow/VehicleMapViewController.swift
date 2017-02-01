@@ -39,6 +39,8 @@ class VehicleMapViewController: UIViewController {
     
     // MARK: Vehicle Detailed View Elements
     
+    @IBOutlet weak fileprivate var overlayView: UIView!
+    
     @IBOutlet weak fileprivate var reserveButton: UIButton!
     @IBOutlet weak fileprivate var vehicleImage: UIImageView!
     @IBOutlet weak fileprivate var line1Label: UILabel!
@@ -65,6 +67,12 @@ class VehicleMapViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         interpreter.backButtonPressed()
+    }
+    
+    
+    @IBAction func reserveButtonPressed(_ sender: Any) {
+        Debug.print(.event(source: .location(Source()), description: "Reserve Button Pressed"))
+        // TODO: perform actual reservation
     }
 }
 
@@ -137,6 +145,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
             return
         }
         
+        overlayView.isHidden = false
         let selectedAnnotation = view.annotation as! PinAnnotation
         
         // set values of calloutView
@@ -192,9 +201,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: AnnotationView.self) {
-            for subview in view.subviews {
-                subview.removeFromSuperview()
-            }
+            // overlayView.isHidden = true
         }
     }
 
