@@ -9,6 +9,8 @@
 import Foundation
 
 protocol SelectExternalModelOptionsPopupPresenterProtocol {
+    
+    func updateAllElements(for filterset: Filterset)
 
 }
 
@@ -29,5 +31,19 @@ class SelectExternalModelOptionsPopupPresenter {
 
 // MARK: Select External Model Options Popup Presenter Protocol Conformance
 extension SelectExternalModelOptionsPopupPresenter: SelectExternalModelOptionsPopupPresenterProtocol {
+    
+    func updateAllElements(for filterset: Filterset) {
+//        if case .fuelType(let petrol, let diesel, let electric) = filterset.fuelTypeFilter,
+//            case .transmission(let automatic, let manual) = filterset.transmissionFilter,
+//            case .hifiSystem(let onlyHiFiSystem) = filterset.hiFiSystemFilter {
+//            
+//            let newData = ViewData.internalModelOptionsPopupData(filterset)
+//            popupVC?.updateViewData(to: newData)
+//            popupVC?.updateFuelTypeButtonsActiveState(diesel: diesel, petrol: petrol, electric: electric)
+//            popupVC?.updateTransmissionTypeButtonsActiveState(automatic: automatic, manual: manual)
+//            popupVC?.updateHiFiSystemButtonActiveState(hifiSystemOnly: onlyHiFiSystem)
+//            
+//        }
+    }
 
 }

@@ -56,19 +56,73 @@ extension SelectExternalModelOptionsPopupInterpreter: SelectExternalModelOptions
     }
     
     func seatsButtonTapped(for seatSelection: Int, with data: ViewData?) {
-        Debug.print(.info(source: .location(Source()), message: "\(seatSelection) Seats tapped."))
+        guard let viewData = data, var displayedFilterset = viewData.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
+            return
+        }
+        if case .seats(let twoSelection, let fourSelection, let fiveSelection) = displayedFilterset.seatsFilter {
+            let newFilter: Filter
+            
+            switch seatSelection {
+            case 2:
+                newFilter = .seats(two: twoSelection.flipped, four: fourSelection, five: fiveSelection)
+            case 4:
+                newFilter = .seats(two: twoSelection, four: fourSelection.flipped, five: fiveSelection)
+            case 5:
+                newFilter = .seats(two: twoSelection, four: fourSelection, five: fiveSelection.flipped)
+            default:
+                newFilter = .seats(two: twoSelection, four: fourSelection, five: fiveSelection)
+            }
+            
+            displayedFilterset.update(filter: newFilter)
+            presenter.updateAllElements(for: displayedFilterset)
+        }
     }
     
     func doorsButtonTapped(for doorSelection: Int, with data: ViewData?) {
-        Debug.print(.info(source: .location(Source()), message: "\(doorSelection) Doors tapped."))
+        guard let viewData = data, var displayedFilterset = viewData.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
+            return
+        }
+        if case .doors(let threeSelection, let fiveSelection) = displayedFilterset.doorsFilter {
+            let newFilter: Filter
+            
+            switch doorSelection {
+            case 3:
+                newFilter = .doors(three: threeSelection.flipped, five: fiveSelection)
+            case 5:
+                newFilter = .doors(three: threeSelection, five: fiveSelection.flipped)
+            default:
+                newFilter = .doors(three: threeSelection, five: fiveSelection)
+            }
+            
+            displayedFilterset.update(filter: newFilter)
+            presenter.updateAllElements(for: displayedFilterset)
+        }
     }
     
     func horsePowerSliderChanged(min: Double, max: Double, with data: ViewData?) {
-        Debug.print(.info(source: .location(Source()), message: "\(min) - \(max) Horse Power selected."))
+        guard let viewData = data, var displayedFilterset = viewData.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
+            return
+        }
+        let minSelection = Int(min)
+        let maxSelection = Int(max)
+        let newFilter = Filter.hp(min: minSelection, max: maxSelection)
+        displayedFilterset.update(filter: newFilter)
+        presenter.updateAllElements(for: displayedFilterset)
     }
     
     func fuelLevelSliderChanged(min: Double, max: Double, with data: ViewData?) {
-        Debug.print(.info(source: .location(Source()), message: "\(min) - \(max) Fuel Level selected."))
+        guard let viewData = data, var displayedFilterset = viewData.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
+            return
+        }
+        let minSelection = Int(min)
+        let maxSelection = Int(max)
+        let newFilter = Filter.fuelLevel(min: minSelection, max: maxSelection)
+        displayedFilterset.update(filter: newFilter)
+        presenter.updateAllElements(for: displayedFilterset)
     }
 
 }
