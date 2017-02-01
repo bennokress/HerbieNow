@@ -77,7 +77,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     }
     
     func showMyLocation(at location: Location) {
-        let myAnnotation = PinAnnotation(title: "Me", vehicleDescription: "", distanceBonus: "", distanceUser: "", coordinate: location.asObject.coordinate, color: UIColor.brown)
+        let myAnnotation = PinAnnotation(title: "Me", vehicleDescription: "", fuelInfo: "", distanceUser: "", coordinate: location.asObject.coordinate, color: UIColor.brown)
         mapViewOutlet.addAnnotation(myAnnotation)
     }
     
@@ -94,7 +94,12 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
                 color = UIColor.red
             }
             
-            let anno = PinAnnotation(title: "Car", vehicleDescription: "", distanceBonus: "", distanceUser: "", coordinate: vehicle.location.asObject.coordinate, color: color)
+            let anno = PinAnnotation(title: "Car",
+                                     vehicleDescription: vehicle.detailsForLine1,
+                                     fuelInfo: vehicle.detailsForLine2,
+                                     distanceUser: vehicle.detailsForLine3(),
+                                     coordinate: vehicle.location.asObject.coordinate,
+                                     color: color)
             annotations.append(anno)
         }
         mapViewOutlet.addAnnotations(annotations)
@@ -135,7 +140,9 @@ extension VehicleMapViewController: MKMapViewDelegate {
         let selectedAnnotation = view.annotation as! PinAnnotation
         
         // set values of calloutView
-        line1Label.text = selectedAnnotation.description
+        line1Label.text = selectedAnnotation.verhicleDescription
+        line2Label.text = selectedAnnotation.fuelInfo
+        line3Label.text = selectedAnnotation.distanceUser
     
     }
     
