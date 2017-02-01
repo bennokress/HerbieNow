@@ -78,7 +78,13 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
             if logic.isAccountConfigured(for: provider) {
                 getFilteredVehicles(for: provider)
             } else {
-                // TODO: Login with Provider
+                if provider == .driveNow {
+                    presenter.presentPopup(.login)
+                } else if provider == .car2go {
+                    logic.getUserData(from: .car2go) { _ in
+                        self.getFilteredVehicles(for: provider)
+                    }
+                }
             }
         case .map:
             let driveNowConfigured = logic.isAccountConfigured(for: .driveNow)

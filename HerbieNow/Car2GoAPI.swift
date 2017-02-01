@@ -210,6 +210,7 @@ extension Car2GoAPI: API {
                         }
 
                         self.appData.addUserID(userID.toString(), for: .car2go)
+                        completion(.success(true))
 
                     } else {
                         response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
