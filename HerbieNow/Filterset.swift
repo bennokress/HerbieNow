@@ -43,7 +43,7 @@ struct Filterset {
     
     // MARK: Initialization
 
-    init(from initString: String = "11:1111:11111111111111111:111:11:090200:000100:11:111:0:0:Default Set:no image") {
+    init(from initString: String = "11:1111:11111111111111111:111:11:070200:000100:11:111:0:0:Default Set:no image") {
         let stringArray = initString.splitted(by: ":")
         
         guard stringArray.count == 13 else {
