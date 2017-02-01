@@ -12,22 +12,22 @@ import Presentr
 protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
 
     var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol { get set }
+    
+    func updateViewData(to newData: ViewData)
+    
+    func fillPicker(with icons: [UIImage])
+    func updateFiltersetNameTextField(to name: String)
 
 }
 
 // MARK: -
-class SelectFiltersetIconAndNamePopupViewController: PopupViewController, SelectFiltersetIconAndNamePopupViewControllerProtocol {
+class SelectFiltersetIconAndNamePopupViewController: PopupViewController {
     
     lazy var interpreter: SelectFiltersetIconAndNamePopupInterpreterProtocol = SelectFiltersetIconAndNamePopupInterpreter(for: self) as SelectFiltersetIconAndNamePopupInterpreterProtocol
     
     // MARK: Data
     
-    var filterset: Filterset = Filterset()
-    
-    let displayedIcons: [UIImage] = [] // TODO: Fill with actual Icons for AKPickerView
-    
-    var selectedIconID: Int = 1
-    var selectedName = ""
+    var displayedIcons: [UIImage] = []
     
     // MARK: UI Elements
 
@@ -72,28 +72,26 @@ class SelectFiltersetIconAndNamePopupViewController: PopupViewController, Select
         }
     }
 
-    // TODO: Implement AKPickerViewMethods
+}
 
+extension SelectFiltersetIconAndNamePopupViewController: SelectFiltersetIconAndNamePopupViewControllerProtocol {
+    
+    func updateViewData(to newData: ViewData) {
+        data = newData
+    }
+    
+    func fillPicker(with icons: [UIImage]) {
+        displayedIcons = icons
+    }
+    
+    func updateFiltersetNameTextField(to name: String) {
+        
+    }
+    
 }
 
 // MARK: - Internal Functions
 extension SelectFiltersetIconAndNamePopupViewController: InternalRouting {
-    
-    fileprivate func setFiltersetName(to newValue: String) {
-        selectedName = newValue
-    }
-    
-    // TODO: Add TextFieldDelegate that calls the above method
-    
-    fileprivate func configureNavigationButtons() {
-        DispatchQueue.main.async {
-            self.confirmButton.imageForNormal = UIImage(named: "Next")
-            self.confirmButton.imageView?.tintColor = UIColor.green
-            self.abortButton.imageForNormal = UIImage(named: "Cancel")
-            self.abortButton.imageView?.tintColor = UIColor.blue
-            self.backButton.isHidden = true
-        }
-    }
     
     fileprivate func executeAction(_ action: NavigationAction) {
         guard let data = data, let filtersetConfiguration = data.filterset else {
@@ -105,3 +103,22 @@ extension SelectFiltersetIconAndNamePopupViewController: InternalRouting {
     }
     
 }
+
+// MARK: - AKPickerView DataSource & Delegate Conformance
+extension SelectFiltersetIconAndNamePopupViewController: AKPickerViewDataSource, AKPickerViewDelegate {
+    
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
+        return displayedIcons.count
+    }
+    
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return "displayedIcons[item]"
+    }
+    
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
+        
+    }
+    
+}
+
+// TODO: Implement UITexfield Methods
