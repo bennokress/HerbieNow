@@ -13,7 +13,6 @@ import CoreLocation
 protocol VehicleMapViewControllerProtocol: class {
     
     func centerMap(on location: Location)
-    func showMyLocation(at location: Location)
     func showAnnotations(for vehicles: [Vehicle])
     func goBackToMainView()
 
@@ -84,11 +83,6 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
         mapViewOutlet.setRegion(coordinateRegion, animated: true)
     }
     
-    func showMyLocation(at location: Location) {
-        let myAnnotation = PinAnnotation(title: "Me", vehicleDescription: "", fuelInfo: "", distanceUser: "", coordinate: location.asObject.coordinate, color: UIColor.brown)
-        mapViewOutlet.addAnnotation(myAnnotation)
-    }
-    
     func showAnnotations(for vehicles: [Vehicle]) {
         Debug.print(.info(source: .location(Source()), message: "Presenting \(vehicles.count) vehicles on the map."))
         var annotations: [PinAnnotation] = []
@@ -101,16 +95,20 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
             } else {
                 color = UIColor.red
             }
+            vehicle.detailsForLine3 { line3String in
+                let anno = PinAnnotation(title: "Car",
+                                         vehicleDescription: vehicle.detailsForLine1,
+                                         fuelInfo: vehicle.detailsForLine2,
+                                         distanceUser: line3String,
+                                         coordinate: vehicle.location.asObject.coordinate,
+                                         color: color,
+                                         image: UIImage.from(base64string: vehicle.encodedImage)
+                )
+                annotations.append(anno)
+                self.mapViewOutlet.addAnnotations(annotations)
+            }
             
-            let anno = PinAnnotation(title: "Car",
-                                     vehicleDescription: vehicle.detailsForLine1,
-                                     fuelInfo: vehicle.detailsForLine2,
-                                     distanceUser: vehicle.detailsForLine3(),
-                                     coordinate: vehicle.location.asObject.coordinate,
-                                     color: color)
-            annotations.append(anno)
         }
-        mapViewOutlet.addAnnotations(annotations)
     }
     
     func goBackToMainView() {
@@ -152,6 +150,8 @@ extension VehicleMapViewController: MKMapViewDelegate {
         line1Label.text = selectedAnnotation.verhicleDescription
         line2Label.text = selectedAnnotation.fuelInfo
         line3Label.text = selectedAnnotation.distanceUser
+        
+        vehicleImage.image = selectedAnnotation.image
     
     }
     

@@ -6,7 +6,7 @@
 //  Copyright © 2017 LMU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import MapKit
 
 class PinAnnotation: NSObject, MKAnnotation {
@@ -16,14 +16,16 @@ class PinAnnotation: NSObject, MKAnnotation {
     let distanceUser: String
     let coordinate: CLLocationCoordinate2D
     let color: UIColor
+    let image: UIImage
 
-    init(title: String, vehicleDescription: String, fuelInfo: String, distanceUser: String, coordinate: CLLocationCoordinate2D, color: UIColor) {
+    init(title: String, vehicleDescription: String, fuelInfo: String, distanceUser: String, coordinate: CLLocationCoordinate2D, color: UIColor, image: UIImage) {
         self.title = title
         self.verhicleDescription = vehicleDescription
         self.fuelInfo = fuelInfo
         self.distanceUser = distanceUser
         self.coordinate = coordinate
         self.color = color
+        self.image = image
 
         super.init()
     }

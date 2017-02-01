@@ -109,19 +109,19 @@
                                                                                         <rect key="frame" x="207" y="0.0" width="207" height="134"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MINI 3 Door • 192HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-rt-tGy" userLabel="Detail Line 1 Label">
-                                                                                                <rect key="frame" x="0.0" y="30.333333333333371" width="159" height="20.333333333333258"/>
+                                                                                                <rect key="frame" x="0.0" y="30" width="159" height="21"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32% fueled • ~13km to bonus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="olq-jU-kUq" userLabel="Detail Line 2 Label">
-                                                                                                <rect key="frame" x="0.0" y="57.333333333333371" width="224.66666666666669" height="20.333333333333258"/>
+                                                                                                <rect key="frame" x="0.0" y="57" width="225" height="21"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,2 km → Geschwister-Scholl-Platz 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Sa8-4R-wa7" userLabel="Detail Line 3 Label">
-                                                                                                <rect key="frame" x="0.0" y="75" width="278.33333333333331" height="39"/>
+                                                                                                <rect key="frame" x="0.0" y="75" width="279" height="39"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="Sa8-4R-wa7" secondAttribute="height" multiplier="71:10" id="Sux-lK-6Ix"/>
                                                                                                 </constraints>
@@ -2811,11 +2811,11 @@
         <image name="back" width="67" height="67"/>
         <image name="backPopup" width="128" height="128"/>
         <image name="backgroundPopup" width="300" height="536"/>
-        <image name="bmw1er" width="190" height="98"/>
-        <image name="bmw2erAT" width="190" height="98"/>
-        <image name="bmw2erConvertible" width="190" height="98"/>
-        <image name="bmwI3" width="190" height="98"/>
-        <image name="bmwX1" width="190" height="98"/>
+        <image name="bmw1er" width="256" height="132"/>
+        <image name="bmw2erAT" width="256" height="132"/>
+        <image name="bmw2erConvertible" width="256" height="132"/>
+        <image name="bmwI3" width="256" height="132"/>
+        <image name="bmwX1" width="256" height="132"/>
         <image name="cancel" width="67" height="67"/>
         <image name="car2go" width="59" height="59"/>
         <image name="continue" width="128" height="128"/>

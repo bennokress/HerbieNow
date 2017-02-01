@@ -28,6 +28,10 @@ struct Vehicle {
     let isConvertible: Bool
     let doors: Int
     let seats: Int
+
+    var encodedImage: String {
+        return model.encodedImage
+    }
     
     // MARK: Initialization
 
@@ -83,7 +87,7 @@ extension Vehicle: CustomStringConvertible {
         return "\(fuelLevel)% fueled • \(fuelType.description())"
     }
     
-    func detailsForLine3() -> String {
+    func detailsForLine3(completion: @escaping (String) -> Void) {
         let userLocation = AppData.shared.userLocation?.asObject
         var distance = self.location.getDistance(from: userLocation!)
         var returnString: String = ""
@@ -98,10 +102,11 @@ extension Vehicle: CustomStringConvertible {
         }
         
         self.location.getAddress { (locationData: (street: String, areaCode: String, city: String)?) in
-            
-            returnString += " → \(locationData?.street)"
+            if let confirmedStreet = locationData?.street {
+                returnString += " → \(confirmedStreet)"
+            }
+            completion(returnString)
         }
-        return returnString
     }
     
 }

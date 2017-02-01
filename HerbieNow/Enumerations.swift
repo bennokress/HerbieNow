@@ -287,6 +287,44 @@ enum Model {
         }
 
     }
+    
+    var encodedImage: String {
+        
+        switch self {
+        case .mini3Door: return #imageLiteral(resourceName: "mini3door").base64encoded
+        case .mini5Door: return #imageLiteral(resourceName: "mini5door").base64encoded
+        case .miniConvertible: return #imageLiteral(resourceName: "miniConvertible").base64encoded
+        case .miniCountryman: return ""
+        case .miniClubman: return #imageLiteral(resourceName: "miniClubman").base64encoded
+        case .miniPaceman: return ""
+        case .miniCoupe: return ""
+        case .miniRoadster: return ""
+            
+        case .bmwI3: return #imageLiteral(resourceName: "bmwI3").base64encoded
+        case .bmwActiveE: return ""
+        case .bmw1er3Door: return #imageLiteral(resourceName: "bmw1er").base64encoded
+        case .bmw1er5Door: return #imageLiteral(resourceName: "bmw1er").base64encoded
+        case .bmw1erConvertible: return ""
+        case .bmw1erCoupe: return ""
+        case .bmw2erGT: return ""
+        case .bmw2erAT: return #imageLiteral(resourceName: "bmw2erAT").base64encoded
+        case .bmw2erConvertible: return #imageLiteral(resourceName: "bmw2erConvertible").base64encoded
+        case .bmw2erCoupe: return ""
+        case .bmwX1: return #imageLiteral(resourceName: "bmwX1").base64encoded
+            
+        case .smartForTwo: return #imageLiteral(resourceName: "smartForTwo").base64encoded
+        case .smartRoadster: return ""
+        case .smartForFour: return ""
+            
+        case .mercedesAclass: return #imageLiteral(resourceName: "mercedesAclass").base64encoded
+        case .mercedesBclass: return #imageLiteral(resourceName: "mercedesBclass").base64encoded
+        case .mercedesGLA: return #imageLiteral(resourceName: "mercedesGLA").base64encoded
+        case .mercedesCLA: return #imageLiteral(resourceName: "mercedesCLA").base64encoded
+            
+        case .unknown: return ""
+        }
+        
+    }
 
     var doors: Int {
 
