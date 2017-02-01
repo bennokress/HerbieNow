@@ -72,4 +72,26 @@ extension Vehicle: CustomStringConvertible {
         return "\(provider.rawValue): \(licensePlate)\t\tConvertible: \(isConvertible)\t\tHiFi-System: \(hasHiFiSystem)\t\tPower: \(hp)hp \t\(kW)kW \t\t\(location.coordinateDescription)\t\t\(make.rawValue) \(model)"
     }
     
+    var detailsForLine1: String {
+        return "\(make.rawValue) \(model.getString()) • \(hp)HP"
+    }
+    
+    var detailsForLine2: String {
+        if(fuelType == .electric) {
+            return "\(fuelLevel)% charged • \(fuelType.description())"
+        }
+        return "\(fuelLevel)% fueled • \(fuelType.description())"
+    }
+    
+    func detailsForLine3() -> String {
+        let userLocation = AppData.shared.userLocation?.asObject
+        var returnString = "details3 did not work"
+        
+        self.location.getAddress { (locationData: (street: String, areaCode: String, city: String)?) in
+            
+            returnString = "\(self.location.getDistance(from: userLocation!))km → \(locationData?.street)"
+        }
+        return returnString
+    }
+    
 }
