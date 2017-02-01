@@ -211,7 +211,8 @@ extension MainViewInterpreter: InternalRouting {
     fileprivate func handleDismissedIconAndNamePopup(with filterset: Filterset, via action: NavigationAction) {
         switch action {
         case .confirm:
-            // TODO: Save filterset
+            Debug.print(.success(source: .location(Source()), message: "Final filterset received ... will be saved!"))
+            filterset.debugPrint()
             viewDidAppear()
         case .back:
             // TODO: Get fitting filters based on current filterset

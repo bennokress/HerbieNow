@@ -92,7 +92,7 @@ extension SelectFiltersetIconAndNamePopupViewController: SelectFiltersetIconAndN
     }
     
     func updateFiltersetNameTextField(to name: String) {
-        
+        nameTextField.placeholder = name
     }
     
 }
@@ -101,11 +101,13 @@ extension SelectFiltersetIconAndNamePopupViewController: SelectFiltersetIconAndN
 extension SelectFiltersetIconAndNamePopupViewController: InternalRouting {
     
     fileprivate func executeAction(_ action: NavigationAction) {
-        guard let data = data, let filtersetConfiguration = data.filterset else {
+        guard let data = data, let filtersetConfiguration = data.filterset, let newName = nameTextField.text else {
             Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
             return
         }
-        let returnData = ViewReturnData.filtersetIconAndNamePopupReturnData(filtersetConfiguration: filtersetConfiguration)
+        var finalFilterset = filtersetConfiguration
+        finalFilterset.update(name: newName)
+        let returnData = ViewReturnData.filtersetIconAndNamePopupReturnData(filtersetConfiguration: finalFilterset)
         delegate?.popupDismissed(with: returnData, via: action)
     }
     
@@ -127,9 +129,18 @@ extension SelectFiltersetIconAndNamePopupViewController: AKPickerViewDataSource,
     }
     
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
-        interpreter.iconSelected(displayedIcons[item].base64encoded)
+        interpreter.iconSelected(displayedIcons[item].base64encoded, with: data)
     }
     
 }
 
-// TODO: Implement UITexfield Methods
+// MARK: - UITextField Delegate Conformance
+extension SelectFiltersetIconAndNamePopupViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let newName = nameTextField.text {
+            interpreter.filtersetNameChanged(to: newName, with: data)
+        }
+    }
+    
+}
