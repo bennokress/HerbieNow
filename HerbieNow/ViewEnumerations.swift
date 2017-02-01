@@ -87,7 +87,7 @@ enum ViewData {
     case vehicleMapData(displayedVehicles: [Vehicle])
     case internalModelOptionsPopupData(Filterset)
     case externalModelOptionsPopupData(Filterset)
-    case modelsPopupData(Filterset, displayedModels: [Model])
+    case modelsPopupData(Filterset)
     case filtersetNameAndIconPopupData(Filterset, displayedEncodedIcons: [String]?)
 
     var displayedFiltersets: [Filterset?]? {
@@ -128,17 +128,8 @@ enum ViewData {
     
     var filterset: Filterset? {
         switch self {
-        case .internalModelOptionsPopupData(let filterset), .externalModelOptionsPopupData(let filterset), .modelsPopupData(let filterset, _), .filtersetNameAndIconPopupData(let filterset, _):
+        case .internalModelOptionsPopupData(let filterset), .externalModelOptionsPopupData(let filterset), .modelsPopupData(let filterset), .filtersetNameAndIconPopupData(let filterset, _):
             return filterset
-        default:
-            return nil
-        }
-    }
-    
-    var displayedModels: [Model]? {
-        switch self {
-        case .modelsPopupData(_, let displayedModels):
-            return displayedModels
         default:
             return nil
         }

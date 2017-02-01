@@ -137,8 +137,8 @@ extension SelectModelsPopupViewController: SelectModelsPopupViewControllerProtoc
         changeButtonState(toActive: smartForTwo, imageIdentifier: "smartForTwo", button: smartForTwoButton, label: smartForTwoLabel)
         changeButtonState(toActive: mercedesGLA, imageIdentifier: "mercedesGLA", button: mercedesGLAButton, label: mercedesGLALabel)
         changeButtonState(toActive: mercedesCLA, imageIdentifier: "mercedesCLA", button: mercedesCLAButton, label: mercedesCLALabel)
-        changeButtonState(toActive: mercedesA, imageIdentifier: "mercedesA", button: mercedesAclassButton, label: mercedesAclassLabel)
-        changeButtonState(toActive: mercedesB, imageIdentifier: "mercedesB", button: mercedesBclassButton, label: mercedesBclassLabel)
+        changeButtonState(toActive: mercedesA, imageIdentifier: "mercedesAclass", button: mercedesAclassButton, label: mercedesAclassLabel)
+        changeButtonState(toActive: mercedesB, imageIdentifier: "mercedesBclass", button: mercedesBclassButton, label: mercedesBclassLabel)
     }
     
 }

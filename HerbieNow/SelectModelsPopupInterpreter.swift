@@ -45,28 +45,7 @@ extension SelectModelsPopupInterpreter: SelectModelsPopupInterpreterProtocol {
             return
         }
         
-        if case .modelsPopupData(var filterset, let displayedModels) = viewData {
-            let mini3door = displayedModels.contains(Model.mini3Door)
-            let mini5door = displayedModels.contains(Model.mini5Door)
-            let miniConvertible = displayedModels.contains(Model.miniConvertible)
-            let miniClubman = displayedModels.contains(Model.miniClubman)
-            let miniCountryman = displayedModels.contains(Model.miniCountryman)
-            let bmwI3 = displayedModels.contains(Model.bmwI3)
-            let bmw1er = displayedModels.contains(Model.bmw1er3Door) || displayedModels.contains(Model.bmw1er3Door)
-            let bmwX1 = displayedModels.contains(Model.bmwX1)
-            let bmw2erAT = displayedModels.contains(Model.bmw2erAT)
-            let bmw2erConvertible = displayedModels.contains(Model.bmw2erConvertible)
-            let smartForTwo = displayedModels.contains(Model.smartForTwo)
-            let smartRoadster = displayedModels.contains(Model.smartRoadster)
-            let smartForFour = displayedModels.contains(Model.smartForFour)
-            let mercedesGLA = displayedModels.contains(Model.mercedesGLA)
-            let mercedesCLA = displayedModels.contains(Model.mercedesCLA)
-            let mercedesA = displayedModels.contains(Model.mercedesAclass)
-            let mercedesB = displayedModels.contains(Model.mercedesBclass)
-            
-            let modelFilter = Filter.model(mini3door: mini3door, mini5door: mini5door, miniConvertible: miniConvertible, miniClubman: miniClubman, miniCountryman: miniCountryman, bmwI3: bmwI3, bmw1er: bmw1er, bmwX1: bmwX1, bmw2erAT: bmw2erAT, bmw2erConvertible: bmw2erConvertible, smartForTwo: smartForTwo, smartRoadster: smartRoadster, smartForFour: smartForFour, mercedesGLA: mercedesGLA, mercedesCLA: mercedesCLA, mercedesA: mercedesA, mercedesB: mercedesB)
-            
-            filterset.update(filter: modelFilter)
+        if case .modelsPopupData(let filterset) = viewData {
             presenter.updateAllElements(for: filterset)
             filterset.debugPrint()
         } else {

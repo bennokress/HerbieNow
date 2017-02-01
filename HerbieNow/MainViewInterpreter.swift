@@ -184,8 +184,7 @@ extension MainViewInterpreter: InternalRouting {
     fileprivate func handleDismissedExternalPopup(with filterset: Filterset, via action: NavigationAction) {
         switch action {
         case .next:
-            // TODO: Get fitting models based on current filterset
-            let popupData = ViewData.modelsPopupData(filterset, displayedModels: [])
+            let popupData = ViewData.modelsPopupData(filterset)
             presenter.presentPopup(.models(data: popupData))
         case .back:
             let popupData = ViewData.internalModelOptionsPopupData(filterset)
@@ -216,8 +215,7 @@ extension MainViewInterpreter: InternalRouting {
             logic.saveNewFilterset(filterset)
             viewDidAppear()
         case .back:
-            // TODO: Get fitting models based on current filterset
-            let popupData = ViewData.modelsPopupData(filterset, displayedModels: [.bmw1er3Door,.bmw1er5Door,.bmwI3])
+            let popupData = ViewData.modelsPopupData(filterset)
             presenter.presentPopup(.models(data: popupData))
         default:
             presenter.dismissLoadingAnimation()
