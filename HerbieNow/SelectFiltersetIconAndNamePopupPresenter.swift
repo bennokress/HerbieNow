@@ -6,12 +6,12 @@
 //  Copyright © 2017 LMU. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol SelectFiltersetIconAndNamePopupPresenterProtocol {
     
-    func fillPicker(with icons: [UIImage])
-    func updateAllElements(for filterset: Filterset, with icons: [UIImage])
+    func fillPicker(with encodedIcons: [String])
+    func updateAllElements(for filterset: Filterset, with encodedIcons: [String])
 }
 
 // MARK: -
@@ -32,12 +32,12 @@ class SelectFiltersetIconAndNamePopupPresenter {
 // MARK: Select Filterset Icon and Name Popup Presenter Protocol Conformance
 extension SelectFiltersetIconAndNamePopupPresenter: SelectFiltersetIconAndNamePopupPresenterProtocol {
     
-    func fillPicker(with icons: [UIImage]) {
-        popupVC?.fillPicker(with: icons)
+    func fillPicker(with encodedIcons: [String]) {
+        popupVC?.fillPicker(with: encodedIcons)
     }
     
-    func updateAllElements(for filterset: Filterset, with icons: [UIImage]) {
-        let newData = ViewData.filtersetNameAndIconPopupData(filterset, displayedIcons: icons)
+    func updateAllElements(for filterset: Filterset, with encodedIcons: [String]) {
+        let newData = ViewData.filtersetNameAndIconPopupData(filterset, displayedEncodedIcons: encodedIcons)
         popupVC?.updateViewData(to: newData)
         popupVC?.updateFiltersetNameTextField(to: filterset.name)
     }
