@@ -10,6 +10,15 @@ import UIKit
 import JASON
 import Alamofire
 
+extension Array {
+    
+    mutating func replaceElement(at index: Int, with newElement: Element) {
+        self.remove(at: index)
+        self.insert(newElement, at: index)
+    }
+    
+}
+
 extension Bool {
     
     var flipped: Bool {
@@ -197,6 +206,10 @@ extension String {
 
     mutating func removeWhitespace() {
         self = self.replacing(" ", with: "")
+    }
+    
+    mutating func removeLastCharacter() {
+        self.remove(at: self.index(before: self.endIndex))
     }
 
     func replaceGermanCharacters() -> String {

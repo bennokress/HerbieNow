@@ -13,11 +13,13 @@ protocol LogicProtocol {
     typealias Callback = (APICallResult) -> Void
     
     // MARK: App Data
-    func getConfiguredFiltersets() -> [Filterset?]
     func isAccountConfigured(for provider: Provider) -> Bool
     func saveUpdatedLocation(_ location: Location)
     func save(username: String, password: String)
     func getLastKnownUserLocation() -> Location?
+    func saveNewFilterset(_ filterset: Filterset)
+    func getConfiguredFiltersets() -> [Filterset?]
+    func deleteFilterset(at index: Int)
 
     // MARK: API Methods
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback)
@@ -59,6 +61,10 @@ extension Logic: LogicProtocol {
         appData.addPassword(password, for: .driveNow)
     }
     
+    func saveNewFilterset(_ filterset: Filterset) {
+        appData.addNewFilterset(filterset)
+    }
+    
     func isAccountConfigured(for provider: Provider) -> Bool {
         switch provider {
         case .driveNow:
@@ -74,9 +80,7 @@ extension Logic: LogicProtocol {
     }
 
     func getConfiguredFiltersets() -> [Filterset?] {
-        // TODO: Filtersets aus AppData abrufen
-        return [nil, nil, nil, nil, nil, nil, nil, nil, nil]
-
+        return appData.getFiltersets()
     }
     
     func getLastKnownUserLocation() -> Location? {
@@ -85,6 +89,10 @@ extension Logic: LogicProtocol {
 
     func logout(of provider:Provider) {
         appData.deleteCredentials(for: provider)
+    }
+    
+    func deleteFilterset(at index: Int) {
+        appData.deleteFilterset(at: index)
     }
 
     // MARK: API
