@@ -114,39 +114,10 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
 extension VehicleMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? PinAnnotation {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                let coloredAnnotation = annotation
-                view.pinTintColor = coloredAnnotation.color
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                /*
-                 let calloutButton = UIButton(type: .custom)
-                 calloutButton.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
-                 calloutButton.layer.borderWidth = 1
-                 calloutButton.layer.borderColor = UIColor.black.cgColor
-                 calloutButton.setTitle("Reservieren", for: .normal)
-                 */
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-            }
-            return view
-        }
-        return nil
-    }
-    /*
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        if annotation is MKUserLocation
-        {
+        if annotation is MKUserLocation   {
             return nil
         }
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
         if annotationView == nil{
             annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
             annotationView?.canShowCallout = false
@@ -156,6 +127,19 @@ extension VehicleMapViewController: MKMapViewDelegate {
         annotationView?.image = UIImage(named: "starbucks")
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            // Don't proceed with custom callout
+            return
+        }
+        
+        //let pinAnnotation = view.annotation as! PinAnnotation
+        //let calloutView: HerbieBlurView
+        //set values of subview
+    }
+    /*
+  
     func mapView(_ mapView: MKMapView,
                  didSelect view: MKAnnotationView)
     {
@@ -199,8 +183,8 @@ extension VehicleMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if view.isKind(of: AnnotationView.self){
-            for subview in view.subviews{
+        if view.isKind(of: AnnotationView.self) {
+            for subview in view.subviews {
                 subview.removeFromSuperview()
             }
         }
