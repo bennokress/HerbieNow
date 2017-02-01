@@ -41,9 +41,7 @@ class VehicleMapViewController: UIViewController {
     
     @IBOutlet weak fileprivate var reserveButton: UIButton!
     @IBOutlet weak fileprivate var vehicleImage: UIImageView!
-    @IBOutlet weak fileprivate var modelLabel: UILabel!
-    @IBOutlet weak fileprivate var fuelLevelLabel: UILabel!
-    @IBOutlet weak fileprivate var transmissionTypeLabel: UILabel!
+
     
     
     // MARK: Mandatory View Functions
@@ -78,7 +76,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     }
     
     func showMyLocation(at location: Location) {
-        let myAnnotation = PinAnnotation(title: "Me", locationName: "I am here", discipline: "Person", coordinate: location.asObject.coordinate, color: UIColor.brown)
+        let myAnnotation = PinAnnotation(title: "Me", vehicleDescription: "", distanceBonus: "", distanceUser: "", coordinate: location.asObject.coordinate, color: UIColor.brown)
         mapViewOutlet.addAnnotation(myAnnotation)
     }
     
@@ -95,11 +93,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
                 color = UIColor.red
             }
             
-            let anno = PinAnnotation(title: "Car",
-                                     locationName: vehicle.description,
-                                     discipline: "Car",
-                                     coordinate: vehicle.location.asObject.coordinate,
-                                     color: color)
+            let anno = PinAnnotation(title: "Car", vehicleDescription: "", distanceBonus: "", distanceUser: "", coordinate: vehicle.location.asObject.coordinate, color: color)
             annotations.append(anno)
         }
         mapViewOutlet.addAnnotations(annotations)
@@ -114,18 +108,21 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
 extension VehicleMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation   {
-            return nil
+        if let annotation = annotation as? PinAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                let coloredAnnotation = annotation
+                view.pinTintColor = coloredAnnotation.color
+                view.canShowCallout = false
+            }
+            return view
         }
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
-        if annotationView == nil{
-            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
-            annotationView?.canShowCallout = false
-        }else{
-            annotationView?.annotation = annotation
-        }
-        annotationView?.image = UIImage(named: "starbucks")
-        return annotationView
+        return nil
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -134,10 +131,13 @@ extension VehicleMapViewController: MKMapViewDelegate {
             return
         }
         
-        //let pinAnnotation = view.annotation as! PinAnnotation
-        //let calloutView: HerbieBlurView
-        //set values of subview
+        let selectedAnnotation = view.annotation as! PinAnnotation
+        
+        // set values of calloutView
+        modelLabel.text = selectedAnnotation.description
+    
     }
+    
     /*
   
     func mapView(_ mapView: MKMapView,
@@ -174,7 +174,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
         if let annot = view.annotation as? PinAnnotation {
             // alert window
             let ac = UIAlertController(title: "Hier kann man nun reservieren",
-                                       message: annot.locationName,
+                                       message: annot.description,
                                        preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
