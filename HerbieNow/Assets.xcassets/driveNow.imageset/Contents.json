@@ -2,7 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "DriveNow.pdf"
+      "filename" : "drivenowButton~universal@1x.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "drivenowButton~universal@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "drivenowButton~universal@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
