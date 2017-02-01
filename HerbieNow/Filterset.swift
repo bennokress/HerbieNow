@@ -165,12 +165,62 @@ struct Filterset {
     
     func debugPrint() {
         Debug.print(.info(source: .location(Source()), message: "Received Filterset:"))
-        if case .fuelType(let petrol, let diesel, let electric) = self.fuelTypeFilter {
-            
+        if case .model(let mini3door, let mini5door, let miniConvertible, let miniClubman, let miniCountryman, let bmwI3, let bmw1er, let bmwX1, let bmw2erAT, let bmw2erConvertible, let smartForTwo, let smartRoadster, let smartForFour, let mercedesGLA, let mercedesCLA, let mercedesA, let mercedesB) = self.modelFilter {
+            Debug.print(.list(item: "Models", indent: 1))
+            if mini3door { Debug.print(.list(item: "Mini 3 Door", indent: 2)) }
+            if mini5door { Debug.print(.list(item: "Mini 5 Door", indent: 2)) }
+            if miniConvertible { Debug.print(.list(item: "Mini Convertible", indent: 2)) }
+            if miniClubman { Debug.print(.list(item: "Mini Clubman", indent: 2)) }
+            if bmwI3 { Debug.print(.list(item: "BMW i3", indent: 2)) }
+            if bmw1er { Debug.print(.list(item: "BMW 1er", indent: 2)) }
+            if bmwX1 { Debug.print(.list(item: "BMW X1", indent: 2)) }
+            if bmw2erAT { Debug.print(.list(item: "BMW 2er Active Tourer", indent: 2)) }
+            if bmw2erConvertible { Debug.print(.list(item: "BMW 2er Convertible", indent: 2)) }
+            if smartForTwo { Debug.print(.list(item: "Smart fortwo", indent: 2)) }
+            if mercedesA { Debug.print(.list(item: "Mercedes Benz A Class", indent: 2)) }
+            if mercedesB { Debug.print(.list(item: "Mercedes Benz B Class", indent: 2)) }
+            if mercedesCLA { Debug.print(.list(item: "Mercedes Benz CLA", indent: 2)) }
+            if mercedesGLA { Debug.print(.list(item: "Mercedes Benz GLA", indent: 2)) }
         }
-        
-    }
+        if case .fuelType(let petrol, let diesel, let electric) = self.fuelTypeFilter {
+            Debug.print(.list(item: "Fuel Types", indent: 1))
+            if petrol { Debug.print(.list(item: "Petrol", indent: 2)) }
+            if diesel { Debug.print(.list(item: "Diesel", indent: 2)) }
+            if electric { Debug.print(.list(item: "Electric", indent: 2)) }
+        }
+        if case .transmission(let automatic, let manual) = self.transmissionFilter {
+            Debug.print(.list(item: "Transmission Types", indent: 1))
+            if automatic { Debug.print(.list(item: "Automatic", indent: 2)) }
+            if manual { Debug.print(.list(item: "Manual", indent: 2)) }
+        }
+        if case .hp(let min, let max) = self.hpFilter {
+            Debug.print(.list(item: "Horse Power", indent: 1))
+            Debug.print(.list(item: "Min: \(min)", indent: 2))
+            Debug.print(.list(item: "Max: \(max)", indent: 2))
+        }
+        if case .fuelLevel(let min, let max) = self.fuelLevelFilter {
+            Debug.print(.list(item: "Fuel Level", indent: 1))
+            Debug.print(.list(item: "Min: \(min)", indent: 2))
+            Debug.print(.list(item: "Max: \(max)", indent: 2))
+        }
+        if case .doors(let three, let five) = self.doorsFilter {
+            Debug.print(.list(item: "Doors", indent: 1))
+            if three { Debug.print(.list(item: "Three", indent: 2)) }
+            if five { Debug.print(.list(item: "Five", indent: 2)) }
+        }
+        if case .seats(let two, let four, let five) = self.seatsFilter {
+            Debug.print(.list(item: "Seats", indent: 1))
+            if two { Debug.print(.list(item: "Two", indent: 2)) }
+            if four { Debug.print(.list(item: "Four", indent: 2)) }
+            if five { Debug.print(.list(item: "Five", indent: 2)) }
+        }
+        if case .hifiSystem(let only) = self.hiFiSystemFilter {
+            Debug.print(.list(item: "Only Cars with upgraded HiFi System", indent: 1))
+            if only { Debug.print(.list(item: "yes", indent: 2)) } else { Debug.print(.list(item: "no", indent: 2)) }
+        }
     
+    }
+
 }
 
 // MARK: - Internal Functions

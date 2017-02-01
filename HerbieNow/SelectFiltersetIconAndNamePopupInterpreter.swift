@@ -44,6 +44,7 @@ extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndName
         
         if case .filtersetNameAndIconPopupData(let filterset, let icons) = viewData {
             // TODO: Retrieve Data from ViewData
+            filterset.debugPrint()
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

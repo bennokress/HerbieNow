@@ -44,6 +44,7 @@ extension SelectModelsPopupInterpreter: SelectModelsPopupInterpreterProtocol {
         
         if case .modelsPopupData(let filterset, let displayedModels) = viewData {
             // TODO: Retrieve Data from ViewData
+            filterset.debugPrint()
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

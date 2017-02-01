@@ -49,6 +49,7 @@ extension SelectInternalModelOptionsPopupInterpreter: SelectInternalModelOptions
         
         if case .internalModelOptionsPopupData(let filterset) = viewData {
             presenter.updateAllElements(for: filterset)
+            filterset.debugPrint()
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }

@@ -50,6 +50,7 @@ extension SelectExternalModelOptionsPopupInterpreter: SelectExternalModelOptions
         
         if case .externalModelOptionsPopupData(let filterset) = viewData {
             // TODO: Retrieve Data from ViewData
+            filterset.debugPrint()
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }
