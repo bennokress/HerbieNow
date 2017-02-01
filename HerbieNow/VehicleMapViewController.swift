@@ -41,8 +41,9 @@ class VehicleMapViewController: UIViewController {
     
     @IBOutlet weak fileprivate var reserveButton: UIButton!
     @IBOutlet weak fileprivate var vehicleImage: UIImageView!
-
-    
+    @IBOutlet weak fileprivate var line1Label: UILabel!
+    @IBOutlet weak fileprivate var line2Label: UILabel!
+    @IBOutlet weak fileprivate var line3Label: UILabel!
     
     // MARK: Mandatory View Functions
     
@@ -134,7 +135,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
         let selectedAnnotation = view.annotation as! PinAnnotation
         
         // set values of calloutView
-        modelLabel.text = selectedAnnotation.description
+        line1Label.text = selectedAnnotation.description
     
     }
     
