@@ -112,14 +112,14 @@ extension SelectExternalModelOptionsPopupViewController: SelectExternalModelOpti
     }
     
     func updateSeatsButtonsActiveState(two twoActive: Bool, four fourActive: Bool, five fiveActive: Bool) {
-        changeButtonState(toActive: twoActive, button: twoSeatsButton)
-        changeButtonState(toActive: fourActive, button: fourSeatsButton)
-        changeButtonState(toActive: fiveActive, button: fiveSeatsButton)
+        changeButtonState(toActive: twoActive, imageIdentifier: "seats2", button: twoSeatsButton)
+        changeButtonState(toActive: fourActive, imageIdentifier: "seats4", button: fourSeatsButton)
+        changeButtonState(toActive: fiveActive, imageIdentifier: "seats5", button: fiveSeatsButton)
     }
     
     func updateDoorsButtonsActiveState(three threeActive: Bool, five fiveActive: Bool) {
-        changeButtonState(toActive: threeActive, button: threeDoorsButton)
-        changeButtonState(toActive: fiveActive, button: fiveDoorsButton)
+        changeButtonState(toActive: threeActive, imageIdentifier: "doors3", button: threeDoorsButton)
+        changeButtonState(toActive: fiveActive, imageIdentifier: "doors5", button: fiveDoorsButton)
     }
     
     func updateHorsePowerLabelTexts(min minValue: Int, max maxValue: Int) {
@@ -147,8 +147,12 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
         delegate?.popupDismissed(with: returnData, via: action)
     }
     
-    fileprivate func changeButtonState(toActive active: Bool, button: UIButton, label: UILabel? = nil) {
-        active ? (button.tintColor = UIColor.white) : (button.tintColor = UIColor.darkGray)
+    fileprivate func changeButtonState(toActive active: Bool, imageIdentifier: String, button: UIButton, label: UILabel? = nil) {
+        guard let activeImage = UIImage(named: "\(imageIdentifier)"), let inactiveImage = UIImage(named: "\(imageIdentifier)Gray") else {
+            Debug.print(.error(source: .location(Source()), message: "Could not find the right Filter Icon"))
+            return
+        }
+        active ? button.setImageForAllStates(activeImage) : button.setImageForAllStates(inactiveImage)
         if let label = label {
             active ? (label.textColor = UIColor.white) : (label.textColor = UIColor.darkGray)
         }

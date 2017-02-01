@@ -125,23 +125,20 @@ extension SelectModelsPopupViewController: SelectModelsPopupViewControllerProtoc
     }
     
     func updateModelsButtonsActiveState(mini3door: Bool, mini5door: Bool, miniConvertible: Bool, miniClubman: Bool, miniCountryman: Bool, bmwI3: Bool, bmw1er: Bool, bmwX1: Bool, bmw2erAT: Bool, bmw2erConvertible: Bool, smartForTwo: Bool, smartRoadster: Bool, smartForFour: Bool, mercedesGLA: Bool, mercedesCLA: Bool, mercedesA: Bool, mercedesB: Bool) {
-        changeButtonState(toActive: mini3door, button: mini3DoorButton, label: mini3DoorLabel)
-        changeButtonState(toActive: mini5door, button: mini5DoorButton, label: mini5DoorLabel)
-        changeButtonState(toActive: miniConvertible, button: miniConvertibleButton, label: miniConvertibleLabel)
-        changeButtonState(toActive: miniClubman, button: miniClubmanButton, label: miniClubmanLabel)
-//        changeButtonState(toActive: miniCountryman, button: miniCountrymanButton, label: miniCountrymanLabel)
-        changeButtonState(toActive: bmwI3, button: bmwI3Button, label: bmwI3Label)
-        changeButtonState(toActive: bmw1er, button: bmw1er5DoorButton, label: bmw1er5DoorLabel)
-        changeButtonState(toActive: bmwX1, button: bmwX1Button, label: bmwX1Label)
-        changeButtonState(toActive: bmw2erAT, button: bmw2erATButton, label: bmw2erATLabel)
-        changeButtonState(toActive: bmw2erConvertible, button: bmw2erConvertibleButton, label: bmw2erConvertibleLabel)
-        changeButtonState(toActive: smartForTwo, button: smartForTwoButton, label: smartForTwoLabel)
-        //        changeButtonState(toActive: smartRoadster, button: smartRoadsterButton, label: smartRoadsterLabel)
-//        changeButtonState(toActive: smartForFour, button: smartForFourButton, label: smartForFourLabel)
-        changeButtonState(toActive: mercedesGLA, button: mercedesGLAButton, label: mercedesGLALabel)
-        changeButtonState(toActive: mercedesCLA, button: mercedesCLAButton, label: mercedesCLALabel)
-        changeButtonState(toActive: mercedesA, button: mercedesAclassButton, label: mercedesAclassLabel)
-        changeButtonState(toActive: mercedesB, button: mercedesBclassButton, label: mercedesBclassLabel)
+        changeButtonState(toActive: mini3door, imageIdentifier: "mini3door", button: mini3DoorButton, label: mini3DoorLabel)
+        changeButtonState(toActive: mini5door, imageIdentifier: "mini5door", button: mini5DoorButton, label: mini5DoorLabel)
+        changeButtonState(toActive: miniConvertible, imageIdentifier: "miniConvertible", button: miniConvertibleButton, label: miniConvertibleLabel)
+        changeButtonState(toActive: miniClubman, imageIdentifier: "miniClubman", button: miniClubmanButton, label: miniClubmanLabel)
+        changeButtonState(toActive: bmwI3, imageIdentifier: "bmwI3", button: bmwI3Button, label: bmwI3Label)
+        changeButtonState(toActive: bmw1er, imageIdentifier: "bmw1er", button: bmw1er5DoorButton, label: bmw1er5DoorLabel)
+        changeButtonState(toActive: bmwX1, imageIdentifier: "bmwX1", button: bmwX1Button, label: bmwX1Label)
+        changeButtonState(toActive: bmw2erAT, imageIdentifier: "bmw2erAT", button: bmw2erATButton, label: bmw2erATLabel)
+        changeButtonState(toActive: bmw2erConvertible, imageIdentifier: "bmw2erConvertible", button: bmw2erConvertibleButton, label: bmw2erConvertibleLabel)
+        changeButtonState(toActive: smartForTwo, imageIdentifier: "smartForTwo", button: smartForTwoButton, label: smartForTwoLabel)
+        changeButtonState(toActive: mercedesGLA, imageIdentifier: "mercedesGLA", button: mercedesGLAButton, label: mercedesGLALabel)
+        changeButtonState(toActive: mercedesCLA, imageIdentifier: "mercedesCLA", button: mercedesCLAButton, label: mercedesCLALabel)
+        changeButtonState(toActive: mercedesA, imageIdentifier: "mercedesA", button: mercedesAclassButton, label: mercedesAclassLabel)
+        changeButtonState(toActive: mercedesB, imageIdentifier: "mercedesB", button: mercedesBclassButton, label: mercedesBclassLabel)
     }
     
 }
@@ -158,8 +155,12 @@ extension SelectModelsPopupViewController: InternalRouting {
         delegate?.popupDismissed(with: returnData, via: action)
     }
     
-    fileprivate func changeButtonState(toActive active: Bool, button: UIButton, label: UILabel? = nil) {
-        active ? (button.tintColor = UIColor.white) : (button.tintColor = UIColor.darkGray)
+    fileprivate func changeButtonState(toActive active: Bool, imageIdentifier: String, button: UIButton, label: UILabel? = nil) {
+        guard let activeImage = UIImage(named: "\(imageIdentifier)"), let inactiveImage = UIImage(named: "\(imageIdentifier)Gray") else {
+            Debug.print(.error(source: .location(Source()), message: "Could not find the right Filter Icon"))
+            return
+        }
+        active ? button.setImageForAllStates(activeImage) : button.setImageForAllStates(inactiveImage)
         if let label = label {
             active ? (label.textColor = UIColor.white) : (label.textColor = UIColor.darkGray)
         }
