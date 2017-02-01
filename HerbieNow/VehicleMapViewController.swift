@@ -41,9 +41,7 @@ class VehicleMapViewController: UIViewController {
     
     @IBOutlet weak fileprivate var reserveButton: UIButton!
     @IBOutlet weak fileprivate var vehicleImage: UIImageView!
-    @IBOutlet weak fileprivate var modelLabel: UILabel!
-    @IBOutlet weak fileprivate var fuelLevelLabel: UILabel!
-    @IBOutlet weak fileprivate var transmissionTypeLabel: UILabel!
+
     
     
     // MARK: Mandatory View Functions
@@ -78,7 +76,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     }
     
     func showMyLocation(at location: Location) {
-        let myAnnotation = PinAnnotation(title: "Me", locationName: "I am here", discipline: "Person", coordinate: location.asObject.coordinate, color: UIColor.brown)
+        let myAnnotation = PinAnnotation(title: "Me", vehicleDescription: "", distanceBonus: "", distanceUser: "", coordinate: location.asObject.coordinate, color: UIColor.brown)
         mapViewOutlet.addAnnotation(myAnnotation)
     }
     
@@ -95,11 +93,7 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
                 color = UIColor.red
             }
             
-            let anno = PinAnnotation(title: "Car",
-                                     locationName: vehicle.description,
-                                     discipline: "Car",
-                                     coordinate: vehicle.location.asObject.coordinate,
-                                     color: color)
+            let anno = PinAnnotation(title: "Car", vehicleDescription: "", distanceBonus: "", distanceUser: "", coordinate: vehicle.location.asObject.coordinate, color: color)
             annotations.append(anno)
         }
         mapViewOutlet.addAnnotations(annotations)
@@ -124,38 +118,28 @@ extension VehicleMapViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 let coloredAnnotation = annotation
                 view.pinTintColor = coloredAnnotation.color
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                /*
-                 let calloutButton = UIButton(type: .custom)
-                 calloutButton.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
-                 calloutButton.layer.borderWidth = 1
-                 calloutButton.layer.borderColor = UIColor.black.cgColor
-                 calloutButton.setTitle("Reservieren", for: .normal)
-                 */
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+                view.canShowCallout = false
             }
             return view
         }
         return nil
     }
-    /*
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            // Don't proceed with custom callout
+            return
+        }
         
-        if annotation is MKUserLocation
-        {
-            return nil
-        }
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
-        if annotationView == nil{
-            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
-            annotationView?.canShowCallout = false
-        }else{
-            annotationView?.annotation = annotation
-        }
-        annotationView?.image = UIImage(named: "starbucks")
-        return annotationView
+        let selectedAnnotation = view.annotation as! PinAnnotation
+        
+        // set values of calloutView
+        modelLabel.text = selectedAnnotation.description
+    
     }
+    
+    /*
+  
     func mapView(_ mapView: MKMapView,
                  didSelect view: MKAnnotationView)
     {
@@ -190,7 +174,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
         if let annot = view.annotation as? PinAnnotation {
             // alert window
             let ac = UIAlertController(title: "Hier kann man nun reservieren",
-                                       message: annot.locationName,
+                                       message: annot.description,
                                        preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
@@ -199,8 +183,8 @@ extension VehicleMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if view.isKind(of: AnnotationView.self){
-            for subview in view.subviews{
+        if view.isKind(of: AnnotationView.self) {
+            for subview in view.subviews {
                 subview.removeFromSuperview()
             }
         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -108,20 +108,20 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-ZV-GQf">
                                                                                         <rect key="frame" x="160" y="0.0" width="160" height="114"/>
                                                                                         <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-rt-tGy">
-                                                                                                <rect key="frame" x="0.0" y="24" width="47.5" height="20.5"/>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-rt-tGy" userLabel="Detail Line 1 Label">
+                                                                                                <rect key="frame" x="0.0" y="30" width="39.666666666666657" height="20.333333333333371"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="olq-jU-kUq">
-                                                                                                <rect key="frame" x="0.0" y="46" width="76.5" height="20.5"/>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="olq-jU-kUq" userLabel="Detail Line 2 Label">
+                                                                                                <rect key="frame" x="0.0" y="56" width="42.333333333333343" height="20.333333333333371"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Sa8-4R-wa7">
-                                                                                                <rect key="frame" x="0.0" y="69.5" width="146" height="20.5"/>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Sa8-4R-wa7" userLabel="Detail Line 3 Label">
+                                                                                                <rect key="frame" x="0.0" y="83.333333333333371" width="144.66666666666669" height="20.333333333333258"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="Sa8-4R-wa7" secondAttribute="height" multiplier="71:10" id="Sux-lK-6Ix"/>
                                                                                                 </constraints>
@@ -224,11 +224,8 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="fuelLevelLabel" destination="olq-jU-kUq" id="3lC-ji-RCG"/>
                         <outlet property="mapViewOutlet" destination="AhY-h4-zBU" id="S4u-Bu-EKQ"/>
-                        <outlet property="modelLabel" destination="AlJ-rt-tGy" id="Hrw-Gf-zYr"/>
                         <outlet property="reserveButton" destination="lX0-dl-hEQ" id="vm7-ab-dNM"/>
-                        <outlet property="transmissionTypeLabel" destination="Sa8-4R-wa7" id="hCE-KB-M0D"/>
                         <outlet property="vehicleImage" destination="m6N-Tc-dZ7" id="8ZW-xk-HTb"/>
                     </connections>
                 </viewController>
@@ -290,7 +287,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90.5" height="69"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdo-lc-8LX">
-                                                                                        <rect key="frame" x="17" y="7" width="55.5" height="55"/>
+                                                                                        <rect key="frame" x="23" y="9" width="72" height="72"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="tdo-lc-8LX" secondAttribute="height" multiplier="1:1" id="qmK-Ml-lu9"/>
                                                                                         </constraints>
@@ -328,7 +325,7 @@
                                                                         <rect key="frame" x="90.5" y="0.0" width="91" height="92"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D07-OZ-TZY">
-                                                                                <rect key="frame" x="18" y="7" width="55" height="55"/>
+                                                                                <rect key="frame" x="24" y="9" width="72" height="72"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="dtv-3H-yvb"/>
@@ -353,7 +350,7 @@
                                                                         <rect key="frame" x="181.5" y="0.0" width="90.5" height="92"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEl-Hk-FMA">
-                                                                                <rect key="frame" x="18" y="7" width="55" height="55"/>
+                                                                                <rect key="frame" x="24" y="9" width="72" height="72"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="MBn-cn-qSI"/>
@@ -411,7 +408,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90.5" height="64.5"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-Go-546">
-                                                                                        <rect key="frame" x="17" y="4.5" width="55.5" height="55.5"/>
+                                                                                        <rect key="frame" x="23" y="6" width="72" height="72"/>
                                                                                         <state key="normal" image="addFilter"/>
                                                                                         <connections>
                                                                                             <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="76D-BW-zm1"/>
@@ -445,7 +442,7 @@
                                                                         <rect key="frame" x="90.5" y="0.0" width="91" height="91"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLF-AJ-oCT">
-                                                                                <rect key="frame" x="18" y="4.5" width="55" height="55.5"/>
+                                                                                <rect key="frame" x="24" y="6" width="72" height="72"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="7er-cB-0W6"/>
@@ -470,7 +467,7 @@
                                                                         <rect key="frame" x="181.5" y="0.0" width="90.5" height="91"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCf-YE-8Fg">
-                                                                                <rect key="frame" x="18" y="4.5" width="55" height="55.5"/>
+                                                                                <rect key="frame" x="24" y="6" width="72" height="72"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="8N5-E4-N6e"/>
@@ -560,7 +557,7 @@
                                                                         <rect key="frame" x="90.5" y="0.0" width="91" height="91"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-E7-Ady">
-                                                                                <rect key="frame" x="18" y="4.5" width="55" height="55.5"/>
+                                                                                <rect key="frame" x="24" y="6" width="72" height="72"/>
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="PvR-Qq-DI7"/>
@@ -980,19 +977,19 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OfS-Rk-r0P">
-                                                        <rect key="frame" x="27" y="9.5" width="64" height="21.5"/>
+                                                        <rect key="frame" x="27" y="12.333333333333329" width="83" height="28"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="19"/>
                                                         <color key="textColor" red="0.56470588239999997" green="0.65098039220000004" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yca-KZ-dAY">
-                                                        <rect key="frame" x="45" y="31" width="230" height="109"/>
+                                                        <rect key="frame" x="58" y="40.333333333333329" width="298" height="141.66666666666669"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naE-np-RsW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="109"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdw-Yc-nMS">
-                                                                        <rect key="frame" x="1.5" y="10" width="54.5" height="54.5"/>
+                                                                        <rect key="frame" x="-0.6666666666666643" y="10.000000000000014" width="76.333333333333314" height="76.666666666666657"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Tdw-Yc-nMS" secondAttribute="height" multiplier="1:1" id="amV-4K-HgI"/>
                                                                         </constraints>
@@ -1003,7 +1000,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Petrol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-dc-ZzG">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="58" height="18.5"/>
+                                                                        <rect key="frame" x="0.0" y="96.666666666666671" width="75" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1019,10 +1016,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7i-QY-yhm">
-                                                                <rect key="frame" x="86" y="0.0" width="58" height="109"/>
+                                                                <rect key="frame" x="111.66666666666666" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-qx-5mg">
-                                                                        <rect key="frame" x="2.5" y="10" width="54" height="54.5"/>
+                                                                        <rect key="frame" x="0.33333333333331439" y="10.000000000000014" width="76.333333333333343" height="76.666666666666657"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="antrieb"/>
                                                                         <connections>
@@ -1030,7 +1027,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diesel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YKi-SQ-aex">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="58" height="18.5"/>
+                                                                        <rect key="frame" x="1" y="96.666666666666671" width="75" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1043,10 +1040,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDx-AZ-wxI">
-                                                                <rect key="frame" x="172" y="0.0" width="58" height="109"/>
+                                                                <rect key="frame" x="223" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVD-cT-lYS">
-                                                                        <rect key="frame" x="2" y="10" width="54.5" height="54.5"/>
+                                                                        <rect key="frame" x="-0.66666666666668561" y="10.000000000000014" width="76.333333333333371" height="76.666666666666657"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="antrieb"/>
                                                                         <connections>
@@ -1054,7 +1051,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electric" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gpK-Oq-wPO">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="58" height="18.5"/>
+                                                                        <rect key="frame" x="0.0" y="96.666666666666671" width="75" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1113,19 +1110,19 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="D1h-Jt-LSf">
-                                                        <rect key="frame" x="27" y="9.5" width="128.5" height="21.5"/>
+                                                        <rect key="frame" x="27" y="12.333333333333314" width="166" height="28"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="19"/>
                                                         <color key="textColor" red="0.56470588239999997" green="0.65098039220000004" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqy-pC-qaT">
-                                                        <rect key="frame" x="45" y="31" width="230" height="109"/>
+                                                        <rect key="frame" x="58" y="40.333333333333314" width="298" height="141.66666666666669"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKO-GJ-dBa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="109"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt9-Ya-u0c">
-                                                                        <rect key="frame" x="1.5" y="10" width="54.5" height="54.5"/>
+                                                                        <rect key="frame" x="-0.6666666666666643" y="10" width="76.333333333333314" height="76.666666666666686"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="wt9-Ya-u0c" secondAttribute="height" multiplier="1:1" id="vIt-A1-m7h"/>
                                                                         </constraints>
@@ -1136,7 +1133,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="NvQ-iR-x0z">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="58" height="18.5"/>
+                                                                        <rect key="frame" x="0.0" y="96.666666666666686" width="75" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1152,10 +1149,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-XO-SgE">
-                                                                <rect key="frame" x="79.5" y="0.0" width="70" height="109"/>
+                                                                <rect key="frame" x="103.66666666666666" y="0.0" width="90" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
-                                                                        <rect key="frame" x="8.5" y="10" width="54" height="54.5"/>
+                                                                        <rect key="frame" x="7.6666666666666572" y="10" width="76.666666666666657" height="76.666666666666686"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="gtG-5c-SPq" secondAttribute="height" multiplier="1:1" id="jEw-tm-5vc"/>
                                                                         </constraints>
@@ -1166,7 +1163,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YT4-EP-evN">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="70" height="18.5"/>
+                                                                        <rect key="frame" x="1" y="96.666666666666686" width="90" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1220,7 +1217,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="58" height="110.5"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSl-xU-np9">
-                                                                        <rect key="frame" x="1.5" y="10" width="54.5" height="54.5"/>
+                                                                        <rect key="frame" x="-0.6666666666666643" y="10" width="76.333333333333314" height="76.666666666666629"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="tSl-xU-np9" secondAttribute="height" multiplier="1:1" id="9Tm-Dg-KZd"/>
                                                                         </constraints>
@@ -1231,7 +1228,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xK8-sa-mOD">
-                                                                        <rect key="frame" x="0.0" y="74.5" width="58" height="19.5"/>
+                                                                        <rect key="frame" x="0.0" y="96.666666666666629" width="75" height="25"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1247,7 +1244,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only available in MINI 3 Door." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-hn-2cb">
-                                                                <rect key="frame" x="68.5" y="30.5" width="161.5" height="13"/>
+                                                                <rect key="frame" x="89" y="39.666666666666629" width="209" height="17"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Rxe-hn-2cb" secondAttribute="height" multiplier="209:17" id="heO-qa-8Ma"/>
                                                                 </constraints>
@@ -1569,7 +1566,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="57.5" height="79.5"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2F-3F-Pl3">
-                                                                                        <rect key="frame" x="0.5" y="12.5" width="55.5" height="55.5"/>
+                                                                                        <rect key="frame" x="1" y="16.666666666666686" width="72" height="72"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="F2F-3F-Pl3" secondAttribute="height" multiplier="1:1" id="wk8-ok-HoK"/>
                                                                                         </constraints>
@@ -1590,7 +1587,7 @@
                                                                                 <rect key="frame" x="86" y="0.0" width="58" height="79.5"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="2" y="12.5" width="55" height="55.5"/>
+                                                                                        <rect key="frame" x="2.6666666666666572" y="16" width="72" height="72"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="antrieb"/>
                                                                                         <connections>
@@ -2043,7 +2040,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 2er Active Tourer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="0iz-Lp-GFw">
-                                                                                <rect key="frame" x="8" y="94" width="144" height="12.5"/>
+                                                                                <rect key="frame" x="10" y="122" width="187" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2165,7 +2162,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Lx-x4b">
-                                                                                <rect key="frame" x="8" y="94" width="144" height="12.5"/>
+                                                                                <rect key="frame" x="10" y="122" width="187" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2227,7 +2224,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-VO-t9Q">
-                                                                                <rect key="frame" x="8" y="94" width="144" height="12.5"/>
+                                                                                <rect key="frame" x="10" y="122" width="187" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2289,7 +2286,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qxr-Yk-hlw">
-                                                                                <rect key="frame" x="8" y="94" width="144" height="12.5"/>
+                                                                                <rect key="frame" x="10" y="122" width="187" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2351,7 +2348,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="arn-HM-otY">
-                                                                                <rect key="frame" x="8" y="94" width="144" height="12.5"/>
+                                                                                <rect key="frame" x="10" y="122" width="187" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2413,7 +2410,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW 1er" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-iZ-tmw">
-                                                                                <rect key="frame" x="8" y="94" width="144" height="12.5"/>
+                                                                                <rect key="frame" x="10" y="122" width="187" height="16"/>
                                                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2502,7 +2499,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eF5-d8-qIk">
-                                                <rect key="frame" x="138.5" y="16.5" width="43" height="43"/>
+                                                <rect key="frame" x="179" y="27" width="56" height="56"/>
                                                 <state key="normal" image="cancel"/>
                                                 <connections>
                                                     <action selector="abortButtonTapped:" destination="mw9-Aa-KCr" eventType="touchUpInside" id="VKF-48-WnJ"/>
