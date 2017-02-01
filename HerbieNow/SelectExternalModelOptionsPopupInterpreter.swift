@@ -11,6 +11,12 @@ import Foundation
 protocol SelectExternalModelOptionsPopupInterpreterProtocol {
     
     func viewDidAppear(with data: ViewData?)
+    
+    // MARK: UI Interaction
+    func seatsButtonTapped(for seatSelection: Int, with data: ViewData?)
+    func doorsButtonTapped(for doorSelection: Int, with data: ViewData?)
+    func horsePowerSliderChanged(min: Double, max: Double, with data: ViewData?)
+    func fuelLevelSliderChanged(min: Double, max: Double, with data: ViewData?)
 
 }
 
@@ -47,6 +53,22 @@ extension SelectExternalModelOptionsPopupInterpreter: SelectExternalModelOptions
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }
+    }
+    
+    func seatsButtonTapped(for seatSelection: Int, with data: ViewData?) {
+        Debug.print(.info(source: .location(Source()), message: "\(seatSelection) Seats tapped."))
+    }
+    
+    func doorsButtonTapped(for doorSelection: Int, with data: ViewData?) {
+        Debug.print(.info(source: .location(Source()), message: "\(doorSelection) Doors tapped."))
+    }
+    
+    func horsePowerSliderChanged(min: Double, max: Double, with data: ViewData?) {
+        Debug.print(.info(source: .location(Source()), message: "\(min) - \(max) Horse Power selected."))
+    }
+    
+    func fuelLevelSliderChanged(min: Double, max: Double, with data: ViewData?) {
+        Debug.print(.info(source: .location(Source()), message: "\(min) - \(max) Fuel Level selected."))
     }
 
 }

@@ -20,15 +20,6 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     
     lazy var interpreter: SelectExternalModelOptionsPopupInterpreterProtocol = SelectExternalModelOptionsPopupInterpreter(for: self) as SelectExternalModelOptionsPopupInterpreterProtocol
     
-    // MARK: Data
-    
-    var filterset: Filterset = Filterset()
-    
-    var selectedFuelLevelRange: (min: Int, max: Int) = (0, 100)
-    var selectedDoorOptions: [Int : Bool] = [3 : true, 5: true]
-    var selectedSeatOptions: [Int : Bool] = [2 : true, 4 : true, 5: true]
-    var selectedHiFiMandatorySetting: Bool = false
-    
     // MARK: UI Elements
     
     @IBOutlet fileprivate weak var threeDoorsButton: UIButton!
@@ -82,59 +73,32 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     }
     
     @IBAction func seatsSelectionButtonTapped(_ sender: UIButton) {
-    
+        let tappedSeats: Int
+        switch sender {
+        case twoSeatsButton: tappedSeats = 2
+        case fourSeatsButton: tappedSeats = 4
+        case fiveSeatsButton: tappedSeats = 5
+        default:
+            tappedSeats = 0
+        }
+        interpreter.seatsButtonTapped(for: tappedSeats, with: data)
     }
     
     @IBAction func doorsSelectionButtonTapped(_ sender: UIButton) {
-        
+        let tappedDoors: Int
+        switch sender {
+        case threeDoorsButton: tappedDoors = 3
+        case fiveDoorsButton: tappedDoors = 5
+        default:
+            tappedDoors = 0
+        }
+        interpreter.doorsButtonTapped(for: tappedDoors, with: data)
     }
     
 }
 
 // MARK: - Internal Functions
 extension SelectExternalModelOptionsPopupViewController: InternalRouting {
-
-    //    fileprivate func flipDoorSelection(for type: Doors) {
-    //        if selectedDoorTypes.contains(type) {
-    //            selectedDoorTypes.remove(type)
-    //        } else {
-    //            selectedDoorTypes.insert(type)
-    //        }
-    //    }
-    //
-    //    fileprivate func flipSelection(for type: Seats) {
-    //        if selectedSeatTypes.contains(type) {
-    //            selectedSeatTypes.remove(type)
-    //        } else {
-    //            selectedSeatTypes.insert(type)
-    //        }
-    //    }
-
-    fileprivate func flipSelectionForHiFi() {
-        selectedHiFiMandatorySetting = !selectedHiFiMandatorySetting
-    }
-
-    // TODO: Add generic button function that calls the correct flip based on button ID
-
-    fileprivate func adjustMinFuelLevel(to newValue: Int) {
-        selectedFuelLevelRange.min = newValue
-    }
-
-    fileprivate func adjustMaxFuelLevel(to newValue: Int) {
-        selectedFuelLevelRange.max = newValue
-    }
-
-    // TODO: Add TextFieldDelegate that calls the above methods
-
-    fileprivate func configureNavigationButtons() {
-        DispatchQueue.main.async {
-            self.nextButton.imageForNormal = UIImage(named: "Next")
-            self.nextButton.imageView?.tintColor = UIColor.green
-            self.abortButton.imageForNormal = UIImage(named: "Cancel")
-            self.abortButton.imageView?.tintColor = UIColor.blue
-            self.backButton.isHidden = true
-        }
-    }
     
     fileprivate func executeAction(_ action: NavigationAction) {
         guard let data = data, let filtersetConfiguration = data.filterset else {
@@ -144,6 +108,13 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
         let returnData = ViewReturnData.externalModelOptionsPopupReturnData(filtersetConfiguration: filtersetConfiguration)
         delegate?.popupDismissed(with: returnData, via: action)
     }
+    
+    fileprivate func changeButtonState(toActive active: Bool, button: UIButton, label: UILabel? = nil) {
+        active ? (button.tintColor = UIColor.white) : (button.tintColor = UIColor.darkGray)
+        if let label = label {
+            active ? (label.textColor = UIColor.white) : (label.textColor = UIColor.darkGray)
+        }
+    }
 
 }
 
@@ -151,7 +122,13 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
 extension SelectExternalModelOptionsPopupViewController: RangeSliderDelegate {
     
     func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
-        rangeSlider == horsePowerSlider ? print("HP: (\(rangeSlider.lowerValue) , \(rangeSlider.upperValue))") : print("Fuel Level: (\(rangeSlider.lowerValue) , \(rangeSlider.upperValue))")
+        let selectedMinimum = rangeSlider.lowerValue
+        let selectedMaximum = rangeSlider.upperValue
+        if rangeSlider == horsePowerSlider {
+            interpreter.horsePowerSliderChanged(min: selectedMinimum, max: selectedMaximum, with: data)
+        } else if rangeSlider == fuelLevelRangeSlider {
+            interpreter.fuelLevelSliderChanged(min: selectedMinimum, max: selectedMaximum, with: data)
+        }
     }
     
 }

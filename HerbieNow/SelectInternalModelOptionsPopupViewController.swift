@@ -128,15 +128,6 @@ extension SelectInternalModelOptionsPopupViewController: SelectInternalModelOpti
 // MARK: - Internal Functions
 extension SelectInternalModelOptionsPopupViewController: InternalRouting {
 
-    fileprivate func configureNavigationButtons() {
-        DispatchQueue.main.async {
-            self.nextButton.imageForNormal = UIImage(named: "Next")
-            self.nextButton.imageView?.tintColor = UIColor.green
-            self.abortButton.imageForNormal = UIImage(named: "Cancel")
-            self.abortButton.imageView?.tintColor = UIColor.blue
-        }
-    }
-
     fileprivate func executeAction(_ action: NavigationAction) {
         guard let data = data, let filtersetConfiguration = data.filterset else {
             Debug.print(.error(source: .location(Source()), message: "View Data could not be read."))
