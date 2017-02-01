@@ -20,6 +20,7 @@
 		037578AA1DD0B7E200AA8FC0 /* MainViewInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */; };
 		039F0B721DD8D6A000AB56C0 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B711DD8D6A000AB56C0 /* Enumerations.swift */; };
 		039F0B761DD8DE6E00AB56C0 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F0B751DD8DE6E00AB56C0 /* Logic.swift */; };
+		14F978E81E422DD700717C9E /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F978E71E422DD700717C9E /* AnnotationView.swift */; };
 		14FB0F151E3F7E9200BA763C /* VehicleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */; };
 		14FB0F1A1E3F7FAA00BA763C /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */; };
 		9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6969311E16B0D100E70773 /* CaviarDreams.ttf */; };
@@ -131,6 +132,7 @@
 		037578A91DD0B7E200AA8FC0 /* MainViewInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewInterpreter.swift; sourceTree = "<group>"; };
 		039F0B711DD8D6A000AB56C0 /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		039F0B751DD8DE6E00AB56C0 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		14F978E71E422DD700717C9E /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		14FB0F141E3F7E9200BA763C /* VehicleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleMapViewController.swift; sourceTree = "<group>"; };
 		14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		9E6871481E16B7CA00994011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			children = (
 				D39568631E2FCE98003FC042 /* AKPickerView.swift */,
 				9E782D641E4099F90038349F /* HerbieBlurView.swift */,
+				14F978E71E422DD700717C9E /* AnnotationView.swift */,
 				14FB0F191E3F7FAA00BA763C /* PinAnnotation.swift */,
 				9E782CD91E3A7EF50038349F /* HerbieTextField.swift */,
 				D384D4CE1E3F8D4900418581 /* ViewEnumerations.swift */,
@@ -714,6 +717,7 @@
 				D39568621E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift in Sources */,
 				D384D4C71E3F89C200418581 /* SelectInternalModelOptionsPopupPresenter.swift in Sources */,
 				037578A31DD0B53400AA8FC0 /* Vehicle.swift in Sources */,
+				14F978E81E422DD700717C9E /* AnnotationView.swift in Sources */,
 				034EC16B1DD0B34D00E32EC6 /* AppDelegate.swift in Sources */,
 				D384D4B71E3F83A700418581 /* VehicleMapViewPresenter.swift in Sources */,
 				D340A2DF1E01FD60001D5153 /* Extensions.swift in Sources */,

@@ -89,7 +89,7 @@ extension LoginPopupViewController: InternalRouting {
     fileprivate func configureButtons() {
         DispatchQueue.main.async {
             //            self.confirmButton.setImageForAllStates(NavigationAction.confirm.icon)
-            self.confirmButton.imageView?.tintColor = UIColor.green
+            self.loginButton.imageView?.tintColor = UIColor.green
         }
     }
 
