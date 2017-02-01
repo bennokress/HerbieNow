@@ -96,6 +96,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         switch selectedData {
         case .loginPopupReturnData, .noReturnData:
             presenter.dismissLoadingAnimation()
+            viewDidAppear()
         case .internalModelOptionsPopupReturnData(let filterset):
             handleDismissedInternalPopup(with: filterset, via: navigationAction)
         case .externalModelOptionsPopupReturnData(let filterset):
