@@ -306,22 +306,24 @@ extension MainViewController: MainViewControllerProtocol {
 extension MainViewController: PopupSetup {
     
     var popupConfiguration: Presentr {
-        let width = ModalSize.fluid(percentage: 0.9)
-        let height = ModalSize.fluid(percentage: 0.8)
-        let center = ModalCenterPosition.center
+        let width = ModalSize.full
+        let screenHeight = super.view.height
+        let topSpaceHeight = screenHeight * 0.11 + UIApplication.shared.statusBarFrame.height // Top View is set to 11% of full height in storyboard!
+        let popupHeight = screenHeight - topSpaceHeight
+        let height = ModalSize.custom(size: Float(popupHeight))
+        let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 0, y: topSpaceHeight))
         let customType = PresentationType.custom(width: width, height: height, center: center)
         
         let customPopup = Presentr(presentationType: customType)
-        customPopup.transitionType = .coverHorizontalFromRight
+        customPopup.transitionType = .coverVertical // presenting upwards
+        customPopup.dismissTransitionType = .coverVerticalFromTop // dismissing downwards
         customPopup.dismissOnTap = true
         customPopup.dismissOnSwipe = false
         customPopup.dismissAnimated = true
-        customPopup.dismissTransitionType = .coverHorizontalFromLeft
-        customPopup.roundCorners = true
-        customPopup.cornerRadius = 5
-        customPopup.backgroundOpacity = 1.0
-        customPopup.blurBackground = true
-        customPopup.blurStyle = UIBlurEffectStyle.light
+        customPopup.roundCorners = false
+        customPopup.backgroundOpacity = 0.5
+        customPopup.blurBackground = false
+        
         return customPopup
     }
     

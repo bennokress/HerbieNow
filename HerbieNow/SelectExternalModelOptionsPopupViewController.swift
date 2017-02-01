@@ -30,10 +30,7 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     var selectedHiFiMandatorySetting: Bool = false
     
     // MARK: UI Elements
-
-    @IBOutlet fileprivate weak var fuelLevelMinTextField: UITextField!
-    @IBOutlet fileprivate weak var fuelLevelMaxTextField: UITextField!
-
+    
     @IBOutlet fileprivate weak var threeDoorsButton: UIButton!
     @IBOutlet fileprivate weak var fiveDoorsButton: UIButton!
 
@@ -45,11 +42,17 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController, Select
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
     
+    @IBOutlet weak var horsePowerSlider: RangeSlider!
+    
+    @IBOutlet weak var fuelLevelRangeSlider: RangeSlider!
+    
     // MARK: Mandatory View Functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
+        horsePowerSlider.addTarget(self, action: #selector(SelectExternalModelOptionsPopupViewController.rangeSliderValueChanged(_:)), for: .valueChanged)
+        fuelLevelRangeSlider.addTarget(self, action: #selector(SelectExternalModelOptionsPopupViewController.rangeSliderValueChanged(_:)), for: .valueChanged)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -134,4 +137,13 @@ extension SelectExternalModelOptionsPopupViewController: InternalRouting {
         delegate?.popupDismissed(with: returnData, via: action)
     }
 
+}
+
+// MARK: - Range Slider Delegate
+extension SelectExternalModelOptionsPopupViewController: RangeSliderDelegate {
+    
+    func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
+        rangeSlider == horsePowerSlider ? print("HP: (\(rangeSlider.lowerValue) , \(rangeSlider.upperValue))") : print("Fuel Level: (\(rangeSlider.lowerValue) , \(rangeSlider.upperValue))")
+    }
+    
 }

@@ -27,3 +27,4 @@ protocol ViewDataPreparation { }
 
 // MARK: - View Controllers
 protocol PopupSetup { }
+protocol RangeSliderDelegate { }
