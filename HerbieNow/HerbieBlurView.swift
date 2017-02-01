@@ -13,7 +13,7 @@ class HerbieBlurView: UIVisualEffectView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        effect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        effect = UIBlurEffect(style: UIBlurEffectStyle.dark)
     }
     
     

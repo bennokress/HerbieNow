@@ -12,7 +12,8 @@ protocol SelectFiltersetIconAndNamePopupInterpreterProtocol {
     
     func viewDidAppear(with data: ViewData?)
     
-    func iconSelected(_ encodedIcon: String)
+    func iconSelected(_ encodedIcon: String, with data: ViewData?)
+    func filtersetNameChanged(to newName: String, with data: ViewData?)
 
 }
 
@@ -45,16 +46,30 @@ extension SelectFiltersetIconAndNamePopupInterpreter: SelectFiltersetIconAndName
         }
         
         if case .filtersetNameAndIconPopupData(let filterset, let icons) = viewData {
-            presenter.fillPicker(with: icons)
-            presenter.updateAllElements(for: filterset, with: icons)
+            if let icons = icons { presenter.fillPicker(with: icons) }
+            presenter.updateAllElements(for: filterset)
             filterset.debugPrint()
         } else {
             Debug.print(.error(source: .location(Source()), message: "Data is in wrong format."))
         }
     }
     
-    func iconSelected(_ encodedIcon: String) {
-        
+    func iconSelected(_ encodedIcon: String, with data: ViewData?) {
+        guard let viewData = data, var displayedFilterset = viewData.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
+            return
+        }
+        displayedFilterset.update(image: encodedIcon)
+        presenter.updateAllElements(for: displayedFilterset)
+    }
+    
+    func filtersetNameChanged(to newName: String, with data: ViewData?) {
+        guard let viewData = data, var displayedFilterset = viewData.filterset else {
+            Debug.print(.error(source: .location(Source()), message: "Invalid View Data received!"))
+            return
+        }
+        displayedFilterset.update(name: newName)
+        presenter.updateAllElements(for: displayedFilterset)
     }
     
 }
