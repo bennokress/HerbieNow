@@ -73,6 +73,15 @@
 		D39568681E300279003FC042 /* Presentr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39568671E300279003FC042 /* Presentr.framework */; };
 		D3ADC5D81E4117FD0084B5B6 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */; };
 		D3ADC5DA1E4134280084B5B6 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADC5D91E4134280084B5B6 /* RangeSlider.swift */; };
+		D3ADC5E41E4220BD0084B5B6 /* Augsburg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5DB1E4220BD0084B5B6 /* Augsburg.gpx */; };
+		D3ADC5E51E4220BD0084B5B6 /* Berlin.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5DC1E4220BD0084B5B6 /* Berlin.gpx */; };
+		D3ADC5E61E4220BD0084B5B6 /* Hamburg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5DD1E4220BD0084B5B6 /* Hamburg.gpx */; };
+		D3ADC5E71E4220BD0084B5B6 /* Köln.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5DE1E4220BD0084B5B6 /* Köln.gpx */; };
+		D3ADC5E81E4220BD0084B5B6 /* Kopenhagen.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5DF1E4220BD0084B5B6 /* Kopenhagen.gpx */; };
+		D3ADC5E91E4220BD0084B5B6 /* London.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5E01E4220BD0084B5B6 /* London.gpx */; };
+		D3ADC5EA1E4220BD0084B5B6 /* München.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5E11E4220BD0084B5B6 /* München.gpx */; };
+		D3ADC5EB1E4220BD0084B5B6 /* Stockholm.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5E21E4220BD0084B5B6 /* Stockholm.gpx */; };
+		D3ADC5EC1E4220BD0084B5B6 /* Wien.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D3ADC5E31E4220BD0084B5B6 /* Wien.gpx */; };
 		D3C247611E0063CC0019AFA7 /* DriveNowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */; };
 		D3C247631E0063D90019AFA7 /* Car2GoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */; };
 		D3C247651E0064080019AFA7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C247641E0064080019AFA7 /* API.swift */; };
@@ -174,6 +183,15 @@
 		D39568671E300279003FC042 /* Presentr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Presentr.framework; path = Carthage/Build/iOS/Presentr.framework; sourceTree = "<group>"; };
 		D3ADC5D71E4117FD0084B5B6 /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		D3ADC5D91E4134280084B5B6 /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		D3ADC5DB1E4220BD0084B5B6 /* Augsburg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Augsburg.gpx; sourceTree = "<group>"; };
+		D3ADC5DC1E4220BD0084B5B6 /* Berlin.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Berlin.gpx; sourceTree = "<group>"; };
+		D3ADC5DD1E4220BD0084B5B6 /* Hamburg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Hamburg.gpx; sourceTree = "<group>"; };
+		D3ADC5DE1E4220BD0084B5B6 /* Köln.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Köln.gpx"; sourceTree = "<group>"; };
+		D3ADC5DF1E4220BD0084B5B6 /* Kopenhagen.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kopenhagen.gpx; sourceTree = "<group>"; };
+		D3ADC5E01E4220BD0084B5B6 /* London.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = London.gpx; sourceTree = "<group>"; };
+		D3ADC5E11E4220BD0084B5B6 /* München.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "München.gpx"; sourceTree = "<group>"; };
+		D3ADC5E21E4220BD0084B5B6 /* Stockholm.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Stockholm.gpx; sourceTree = "<group>"; };
+		D3ADC5E31E4220BD0084B5B6 /* Wien.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Wien.gpx; sourceTree = "<group>"; };
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -338,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				9E6871481E16B7CA00994011 /* Assets.xcassets */,
+				D3ADC5ED1E4220C30084B5B6 /* Location Files */,
 				9E6969301E16B09900E70773 /* Fonts */,
 				034EC1711DD0B34D00E32EC6 /* HerbieNow.xcdatamodeld */,
 				D39160C21E0982F1000DBE17 /* HerbieNow.entitlements */,
@@ -434,6 +453,22 @@
 				D39568611E2FC18D003FC042 /* SelectFiltersetIconAndNamePopupViewController.swift */,
 			);
 			name = Popups;
+			sourceTree = "<group>";
+		};
+		D3ADC5ED1E4220C30084B5B6 /* Location Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3ADC5DB1E4220BD0084B5B6 /* Augsburg.gpx */,
+				D3ADC5DC1E4220BD0084B5B6 /* Berlin.gpx */,
+				D3ADC5DD1E4220BD0084B5B6 /* Hamburg.gpx */,
+				D3ADC5DE1E4220BD0084B5B6 /* Köln.gpx */,
+				D3ADC5DF1E4220BD0084B5B6 /* Kopenhagen.gpx */,
+				D3ADC5E01E4220BD0084B5B6 /* London.gpx */,
+				D3ADC5E11E4220BD0084B5B6 /* München.gpx */,
+				D3ADC5E21E4220BD0084B5B6 /* Stockholm.gpx */,
+				D3ADC5E31E4220BD0084B5B6 /* Wien.gpx */,
+			);
+			name = "Location Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,11 +594,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3ADC5EB1E4220BD0084B5B6 /* Stockholm.gpx in Resources */,
+				D3ADC5E71E4220BD0084B5B6 /* Köln.gpx in Resources */,
+				D3ADC5EA1E4220BD0084B5B6 /* München.gpx in Resources */,
+				D3ADC5E91E4220BD0084B5B6 /* London.gpx in Resources */,
 				9E782CD61E3979850038349F /* Ailerons-Typeface.otf in Resources */,
+				D3ADC5E41E4220BD0084B5B6 /* Augsburg.gpx in Resources */,
+				D3ADC5E61E4220BD0084B5B6 /* Hamburg.gpx in Resources */,
 				9E782CD51E3979820038349F /* ADAM.CG PRO.otf in Resources */,
+				D3ADC5EC1E4220BD0084B5B6 /* Wien.gpx in Resources */,
 				9E6871471E16B2FD00994011 /* CaviarDreams_Bold.ttf in Resources */,
 				9E6871461E16B2F100994011 /* CaviarDreams.ttf in Resources */,
+				D3ADC5E81E4220BD0084B5B6 /* Kopenhagen.gpx in Resources */,
 				034EC1781DD0B34D00E32EC6 /* LaunchScreen.storyboard in Resources */,
+				D3ADC5E51E4220BD0084B5B6 /* Berlin.gpx in Resources */,
 				034EC1701DD0B34D00E32EC6 /* Main.storyboard in Resources */,
 				9E6871491E16B7CA00994011 /* Assets.xcassets in Resources */,
 			);

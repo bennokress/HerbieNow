@@ -161,6 +161,16 @@ struct Filterset {
         image = newImage
     }
     
+    // MARK: Console Output
+    
+    func debugPrint() {
+        Debug.print(.info(source: .location(Source()), message: "Received Filterset:"))
+        if case .fuelType(let petrol, let diesel, let electric) = self.fuelTypeFilter {
+            
+        }
+        
+    }
+    
 }
 
 // MARK: - Internal Functions

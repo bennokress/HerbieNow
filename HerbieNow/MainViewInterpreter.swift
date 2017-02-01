@@ -87,18 +87,7 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
                 }
             }
         case .map:
-            let driveNowConfigured = logic.isAccountConfigured(for: .driveNow)
-            let car2goConfigured = logic.isAccountConfigured(for: .car2go)
-            if driveNowConfigured && car2goConfigured {
-                getUnfilteredVehicles()
-            } else if driveNowConfigured {
-                getFilteredVehicles(for: .driveNow)
-            } else if car2goConfigured {
-                getFilteredVehicles(for: .car2go)
-            } else {
-                Debug.print(.warning(source: .location(Source()), message: "Function not yet implemented (DriveNow and Car2Go are not logged in)."))
-                // TODO: Alert - please login with one of the providers (option 1: DriveNow, option 2: Car2Go, option 3: cancel)
-            }
+            getUnfilteredVehicles()
         }
         
     }
