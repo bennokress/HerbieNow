@@ -17,15 +17,17 @@ class PinAnnotation: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let color: UIColor
     let image: UIImage
+    let vin: String
 
-    init(title: String, vehicleDescription: String, fuelInfo: String, distanceUser: String, coordinate: CLLocationCoordinate2D, color: UIColor, image: UIImage) {
-        self.title = title
-        self.verhicleDescription = vehicleDescription
-        self.fuelInfo = fuelInfo
-        self.distanceUser = distanceUser
-        self.coordinate = coordinate
-        self.color = color
-        self.image = image
+    init(vehicle: Vehicle, userDistance: String) {
+        self.title = "Car"
+        self.verhicleDescription = vehicle.detailsForLine1
+        self.fuelInfo = vehicle.detailsForLine2
+        self.distanceUser = userDistance
+        self.coordinate = vehicle.location.asObject.coordinate
+        vehicle.provider == .driveNow ? (self.color = UIColor.blue) : (self.color = UIColor.red)
+        self.image = UIImage.from(base64string: vehicle.encodedImage)
+        self.vin = vehicle.vin
 
         super.init()
     }
