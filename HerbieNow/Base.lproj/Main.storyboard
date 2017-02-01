@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,7 +77,7 @@
                                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-h4-zBU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="659"/>
                                                             </mapView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-t2-BiN" userLabel="OverlayView">
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XU0-t2-BiN" userLabel="OverlayView">
                                                                 <rect key="frame" x="0.0" y="461" width="414" height="198"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-WB-6Mb" customClass="HerbieBlurView" customModule="HerbieNow" customModuleProvider="target">
@@ -109,19 +109,19 @@
                                                                                         <rect key="frame" x="207" y="0.0" width="207" height="134"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MINI 3 Door • 192HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-rt-tGy" userLabel="Detail Line 1 Label">
-                                                                                                <rect key="frame" x="0.0" y="30" width="159" height="21"/>
+                                                                                                <rect key="frame" x="0.0" y="30.333333333333371" width="159" height="20.333333333333258"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32% fueled • ~13km to bonus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="olq-jU-kUq" userLabel="Detail Line 2 Label">
-                                                                                                <rect key="frame" x="0.0" y="57" width="225" height="21"/>
+                                                                                                <rect key="frame" x="0.0" y="57.333333333333371" width="224.66666666666669" height="20.333333333333258"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,2 km → Geschwister-Scholl-Platz 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Sa8-4R-wa7" userLabel="Detail Line 3 Label">
-                                                                                                <rect key="frame" x="0.0" y="75" width="279" height="39"/>
+                                                                                                <rect key="frame" x="0.0" y="75" width="278.33333333333331" height="39"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="Sa8-4R-wa7" secondAttribute="height" multiplier="71:10" id="Sux-lK-6Ix"/>
                                                                                                 </constraints>
@@ -147,6 +147,9 @@
                                                                                 <state key="normal" title="Reservieren">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="reserveButtonPressed:" destination="Zrg-Ig-d3B" eventType="touchUpInside" id="y7M-wk-iKs"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <constraints>
@@ -228,6 +231,7 @@
                         <outlet property="line2Label" destination="olq-jU-kUq" id="w62-5T-dMN"/>
                         <outlet property="line3Label" destination="Sa8-4R-wa7" id="2wv-7N-wWO"/>
                         <outlet property="mapViewOutlet" destination="AhY-h4-zBU" id="S4u-Bu-EKQ"/>
+                        <outlet property="overlayView" destination="XU0-t2-BiN" id="xeT-iP-BXu"/>
                         <outlet property="reserveButton" destination="lX0-dl-hEQ" id="vm7-ab-dNM"/>
                         <outlet property="vehicleImage" destination="m6N-Tc-dZ7" id="8ZW-xk-HTb"/>
                     </connections>
@@ -1022,7 +1026,7 @@
                                                                 <rect key="frame" x="111.66666666666666" y="0.0" width="75" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-qx-5mg">
-                                                                        <rect key="frame" x="0.0" y="10.000000000000014" width="76.666666666666657" height="76.666666666666657"/>
+                                                                        <rect key="frame" x="-0.66666666666668561" y="10.000000000000014" width="76.666666666666686" height="76.666666666666657"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="diesel"/>
                                                                         <connections>
@@ -1155,7 +1159,7 @@
                                                                 <rect key="frame" x="103.66666666666666" y="0.0" width="90" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
-                                                                        <rect key="frame" x="7" y="10" width="76.333333333333314" height="76.666666666666686"/>
+                                                                        <rect key="frame" x="7.6666666666666572" y="10" width="76.333333333333343" height="76.666666666666686"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="gtG-5c-SPq" secondAttribute="height" multiplier="1:1" id="jEw-tm-5vc"/>
                                                                         </constraints>
@@ -1456,7 +1460,7 @@
                                                                                 <rect key="frame" x="0.0" y="2.3333333333333286" width="73" height="97.000000000000014"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-DR-utP">
-                                                                                        <rect key="frame" x="3" y="15.333333333333343" width="67" height="67"/>
+                                                                                        <rect key="frame" x="3" y="16" width="67" height="67"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="2O7-DR-utP" secondAttribute="height" multiplier="1:1" id="0bD-NC-c8p"/>
                                                                                         </constraints>
@@ -1477,7 +1481,7 @@
                                                                                 <rect key="frame" x="110.66666666666666" y="2.3333333333333286" width="73" height="97.000000000000014"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
-                                                                                        <rect key="frame" x="3.6666666666666572" y="15.333333333333343" width="67" height="67"/>
+                                                                                        <rect key="frame" x="4" y="16" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="seats4"/>
                                                                                         <connections>
@@ -1493,7 +1497,7 @@
                                                                                 <rect key="frame" x="221" y="2.3333333333333286" width="73" height="97.000000000000014"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-NE-cts">
-                                                                                        <rect key="frame" x="3" y="15.333333333333343" width="67" height="67"/>
+                                                                                        <rect key="frame" x="3" y="16" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="seats5"/>
                                                                                         <connections>
@@ -1590,7 +1594,7 @@
                                                                                 <rect key="frame" x="111.66666666666666" y="3.6666666666666856" width="75" height="96"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="5" y="14" width="67" height="67"/>
+                                                                                        <rect key="frame" x="4.3333333333333144" y="14" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="doors5"/>
                                                                                         <connections>
