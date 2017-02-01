@@ -27,7 +27,7 @@ class LoginPopupViewController: PopupViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     // MARK: Mandatory View Functions
 
@@ -46,7 +46,7 @@ class LoginPopupViewController: PopupViewController {
     
     // MARK: UI Element Interaction Functions
 
-    @IBAction func ConfirmButtonPressed(_ sender: Any) {
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
         login()
     }
 
