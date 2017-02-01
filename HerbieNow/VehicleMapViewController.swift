@@ -89,21 +89,8 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
         
         // iterate through vehicles to set every pin
         for vehicle in vehicles {
-            var color: UIColor
-            if(vehicle.provider == .driveNow){
-                color = UIColor.blue
-            } else {
-                color = UIColor.red
-            }
             vehicle.detailsForLine3 { line3String in
-                let anno = PinAnnotation(title: "Car",
-                                         vehicleDescription: vehicle.detailsForLine1,
-                                         fuelInfo: vehicle.detailsForLine2,
-                                         distanceUser: line3String,
-                                         coordinate: vehicle.location.asObject.coordinate,
-                                         color: color,
-                                         image: UIImage.from(base64string: vehicle.encodedImage)
-                )
+                let anno = PinAnnotation(vehicle: vehicle, userDistance: line3String)
                 annotations.append(anno)
                 self.mapViewOutlet.addAnnotations(annotations)
             }

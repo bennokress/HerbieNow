@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
     <device id="retina4_7" orientation="portrait">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pd-Dk-mcs">
+    <device id="retina5_5" orientation="portrait">
+>>>>>>> 4e216cc913b98369ec484de5cf8235438c0f8a8e
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -1025,8 +1030,13 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7i-QY-yhm">
                                                                 <rect key="frame" x="101" y="0.0" width="68" height="128"/>
                                                                 <subviews>
+<<<<<<< HEAD
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-qx-5mg">
                                                                         <rect key="frame" x="0.0" y="10" width="68" height="68"/>
+=======
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlD-qx-5mg">
+                                                                        <rect key="frame" x="-0.33333333333334281" y="10.000000000000014" width="76.333333333333343" height="76.666666666666657"/>
+>>>>>>> 4e216cc913b98369ec484de5cf8235438c0f8a8e
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" image="diesel"/>
                                                                         <connections>
@@ -1158,8 +1168,13 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-XO-SgE">
                                                                 <rect key="frame" x="94" y="0.0" width="82" height="128"/>
                                                                 <subviews>
+<<<<<<< HEAD
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
                                                                         <rect key="frame" x="7.5" y="10" width="68" height="68"/>
+=======
+                                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
+                                                                        <rect key="frame" x="7" y="10" width="76.666666666666657" height="76.666666666666686"/>
+>>>>>>> 4e216cc913b98369ec484de5cf8235438c0f8a8e
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="gtG-5c-SPq" secondAttribute="height" multiplier="1:1" id="jEw-tm-5vc"/>
                                                                         </constraints>
@@ -1460,7 +1475,11 @@
                                                                                 <rect key="frame" x="0.0" y="0.5" width="66" height="91"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-DR-utP">
+<<<<<<< HEAD
                                                                                         <rect key="frame" x="1.5" y="14.5" width="63" height="64"/>
+=======
+                                                                                        <rect key="frame" x="3" y="16.333333333333343" width="67" height="67"/>
+>>>>>>> 4e216cc913b98369ec484de5cf8235438c0f8a8e
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="2O7-DR-utP" secondAttribute="height" multiplier="1:1" id="0bD-NC-c8p"/>
                                                                                         </constraints>
@@ -1481,7 +1500,11 @@
                                                                                 <rect key="frame" x="100.5" y="0.5" width="65.5" height="91"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
+<<<<<<< HEAD
                                                                                         <rect key="frame" x="1.5" y="14.5" width="63" height="64"/>
+=======
+                                                                                        <rect key="frame" x="4" y="16.333333333333343" width="67" height="67"/>
+>>>>>>> 4e216cc913b98369ec484de5cf8235438c0f8a8e
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="seats4"/>
                                                                                         <connections>
@@ -1497,7 +1520,11 @@
                                                                                 <rect key="frame" x="200.5" y="0.5" width="66" height="91"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-NE-cts">
+<<<<<<< HEAD
                                                                                         <rect key="frame" x="1" y="14.5" width="63" height="64"/>
+=======
+                                                                                        <rect key="frame" x="3" y="16.333333333333343" width="67" height="67"/>
+>>>>>>> 4e216cc913b98369ec484de5cf8235438c0f8a8e
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="seats5"/>
                                                                                         <connections>

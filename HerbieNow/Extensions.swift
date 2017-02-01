@@ -314,8 +314,10 @@ extension UIImage {
     }
     
     static func from(base64string: String) -> UIImage {
-        let dataDecode = Data(base64Encoded: base64string, options:.ignoreUnknownCharacters)!
-        return UIImage(data: dataDecode)!
+        guard let dataDecode = Data(base64Encoded: base64string, options:.ignoreUnknownCharacters), let image = UIImage(data: dataDecode) else {
+            return UIImage()
+        }
+        return image
     }
     
 }
