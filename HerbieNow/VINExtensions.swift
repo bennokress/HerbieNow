@@ -90,16 +90,14 @@ extension String {
         case "SY11", "SY31", "SY51", "SY71", "SY91": return .miniRoadster                                                                                                            // R59
         case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return .miniCountryman                                  // R60
         case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return .miniPaceman                                                     // R61
-            
         // Car2Go
-        case "4503", "4504", "4513", "4514": return .smartForTwo
+        case "4503", "4504", "4513", "4514", "4533": return .smartForTwo
         case "4523", "4524": return .smartRoadster
         case "4533", "4534": return .smartForFour
-            // TODO: Fix decoding for smart
-            
-        case "1760": return .mercedesAclass
-//            case "1569": return .mercedesBclass
-            // TODO: Complete decoding for Mercedes-Benz
+        case "1760" : return .mercedesAclass
+        case "1569", "2462": return .mercedesBclass
+        case "1173": return .mercedesCLA
+        case "1569": return .mercedesGLA
             
         default: return .unknown
         
@@ -480,7 +478,6 @@ extension String {
             }
             
         } else if self.make == .smart || self.make == .mercedes {
-            
             switch self.engineID {
                 
             // Smart
@@ -490,12 +487,13 @@ extension String {
             case "33": return 35  // Petrol
             case "34": return 60  // Petrol
             case "35": return 40  // Petrol
-                //            case "42": return  // TODO: Decoding for current smart models
+            case "42": return 52  // Petrol
                 
             // Mercedes
+                
+            case "01": return 74  // Petrol
             case "12": return 80  // Diesel
             case "43": return 115 // Petrol
-                // TODO: Decoding for more Mercedes-Benz models
                 
             // Unknown Engine Code in VIN
             default: return 0
