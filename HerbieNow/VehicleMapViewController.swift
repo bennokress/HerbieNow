@@ -16,6 +16,7 @@ protocol VehicleMapViewControllerProtocol: class {
     func showAnnotations(for vehicles: [Vehicle])
     func goBackToMainView()
     func showConfirmationPopUp()
+    func showFailedPopUp()
 
 }
 
@@ -73,7 +74,10 @@ class VehicleMapViewController: UIViewController {
     
     @IBAction func reserveButtonPressed(_ sender: Any) {
         Debug.print(.event(source: .location(Source()), description: "Reserve Button Pressed"))
-        interpreter.performReservation(for: currentVehicle!)
+        if let vehicle = currentVehicle {
+            delegate?.showLoadingAnimation(title: "Reserving Vehicle")
+            interpreter.performReservation(for: vehicle)
+        }
     }
 }
 
@@ -102,14 +106,12 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     }
     
     func showConfirmationPopUp() {
-        // alert window
-        let ac = UIAlertController(title: "Success",
-                                   message: "Reservation was successful",
-                                   preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-        
-        // hide detail window
+        delegate?.showReservationCompletion(success: true)
+        overlayView.isHidden = true
+    }
+    
+    func showFailedPopUp() {
+        delegate?.showReservationCompletion(success: false)
         overlayView.isHidden = true
     }
 }

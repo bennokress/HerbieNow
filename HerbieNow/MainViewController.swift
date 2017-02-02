@@ -321,7 +321,6 @@ extension MainViewController: InternalRouting {
     fileprivate func reloadProviderButtons() {
         driveNowConfigured ? driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "driveNow")) : driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "driveNowGray"))
         car2goConfigured ? car2goButton.setImageForAllStates(#imageLiteral(resourceName: "car2go")) : car2goButton.setImageForAllStates(#imageLiteral(resourceName: "car2goGray"))
-        // TODO: Implement greyed out buttons if false
     }
     
     fileprivate func presentPopup(ofType popup: Presentr, viewController: PopupViewController, with data: ViewData? = nil) {
@@ -487,6 +486,17 @@ extension MainViewController: PopupDelegate {
             spinner.title = title
             SwiftSpinner.show(title)
         }
+    }
+    
+    func showReservationCompletion(success: Bool) {
+        let spinner = SwiftSpinner.sharedInstance
+        spinner.backgroundColor = UIColor(html: "#010215")
+        spinner.innerColor = UIColor(html: "#8fa6c2")
+        spinner.outerColor = UIColor(html: "#12253d")
+        spinner.titleLabel.textColor = UIColor(html: "#8fa6c2")
+        spinner.titleLabel.font = UIFont(name: "Ailerons-Regular", size: 22)
+        let message = success ? "Reservation successful" : "Reservation failed"
+        SwiftSpinner.show(duration: 2.0, title: message)
     }
 
     func dismissLoadingAnimation() {
