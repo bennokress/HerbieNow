@@ -15,6 +15,7 @@ protocol VehicleMapViewControllerProtocol: class {
     func centerMap(on location: Location)
     func showAnnotations(for vehicles: [Vehicle])
     func goBackToMainView()
+    func showConfirmationPopUp()
 
 }
 
@@ -30,6 +31,7 @@ class VehicleMapViewController: UIViewController {
     
     var data: ViewData? = nil
     let zoomRadius: CLLocationDistance = 1000
+    var currentVehicle: Vehicle? = nil
     
     // MARK: UI Elements
 
@@ -71,7 +73,7 @@ class VehicleMapViewController: UIViewController {
     
     @IBAction func reserveButtonPressed(_ sender: Any) {
         Debug.print(.event(source: .location(Source()), description: "Reserve Button Pressed"))
-        // TODO: perform actual reservation
+        interpreter.performReservation(for: currentVehicle!)
     }
 }
 
@@ -100,6 +102,18 @@ extension VehicleMapViewController: VehicleMapViewControllerProtocol {
     
     func goBackToMainView() {
         performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
+    func showConfirmationPopUp() {
+        // alert window
+        let ac = UIAlertController(title: "Success",
+                                   message: "Reservation was successful",
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+        
+        // hide detail window
+        overlayView.isHidden = true
     }
 }
 
@@ -139,6 +153,8 @@ extension VehicleMapViewController: MKMapViewDelegate {
         line3Label.text = selectedAnnotation.distanceUser
         
         vehicleImage.image = selectedAnnotation.image
+        
+        currentVehicle = selectedAnnotation.vehicleObject
     
     }
     

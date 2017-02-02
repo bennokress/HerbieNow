@@ -14,7 +14,7 @@ protocol VehicleMapViewInterpreterProtocol {
     
     // MARK: UI Interaction
     func backButtonPressed()
-    func vehicleSelected()
+    func performReservation(for vehicle: Vehicle)
     
 }
 
@@ -74,8 +74,16 @@ extension VehicleMapViewInterpreter: VehicleMapViewInterpreterProtocol {
         presenter.goToMainView()
     }
     
-    func vehicleSelected() {
-        // TODO: implement
+    func performReservation(for vehicle: Vehicle) {
+        logic.reserveVehicle(withVIN: vehicle.vin, of: vehicle.provider) {
+            response in
+                if (response.getDetails() == true){
+                    self.presenter.showConfirmationPopUp()
+                } else {
+                    // reservation failed
+                }
+        }
+        
     }
     
 }
