@@ -1502,7 +1502,7 @@
                                                                                 <rect key="frame" x="110.66666666666666" y="2.6666666666666714" width="73" height="95.999999999999986"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
-                                                                                        <rect key="frame" x="3.6666666666666572" y="13.999999999999986" width="67" height="67"/>
+                                                                                        <rect key="frame" x="3.3333333333333144" y="13.999999999999986" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="seats4"/>
                                                                                         <connections>
@@ -1594,7 +1594,7 @@
                                                                                 <rect key="frame" x="0.0" y="5.3333333333333144" width="75" height="93"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2F-3F-Pl3">
-                                                                                        <rect key="frame" x="4" y="14" width="67" height="67"/>
+                                                                                        <rect key="frame" x="4" y="13.666666666666686" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="doors3"/>
                                                                                         <connections>
@@ -1611,7 +1611,7 @@
                                                                                 <rect key="frame" x="111.66666666666666" y="5.3333333333333144" width="75" height="93"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="4.6666666666666572" y="14" width="67" height="67"/>
+                                                                                        <rect key="frame" x="4.3333333333333144" y="13.666666666666686" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="doors5"/>
                                                                                         <connections>
@@ -2026,7 +2026,11 @@
                         <outlet property="fiveDoorsButton" destination="76e-RJ-GNH" id="TF4-o3-bnw"/>
                         <outlet property="fiveSeatsButton" destination="UFh-NE-cts" id="CXi-Ql-QXL"/>
                         <outlet property="fourSeatsButton" destination="ME8-ny-hey" id="8b4-5E-EhW"/>
+                        <outlet property="fuelLevelMaxLabel" destination="DdG-ZQ-0hx" id="joa-Yf-h3X"/>
+                        <outlet property="fuelLevelMinLabel" destination="AFG-Ng-CGJ" id="Mgc-3U-vs2"/>
                         <outlet property="fuelLevelRangeSlider" destination="pdq-f2-Ea7" id="eKw-nF-tRi"/>
+                        <outlet property="horsePowerMaxLabel" destination="9O1-29-78E" id="RIc-qJ-0Pa"/>
+                        <outlet property="horsePowerMinLabel" destination="lZ8-Uc-Nvo" id="avJ-fg-ShT"/>
                         <outlet property="horsePowerSlider" destination="AsB-Bq-Ec1" id="Zsf-fq-s8b"/>
                         <outlet property="nextButton" destination="mGg-XF-mKU" id="11T-FQ-h21"/>
                         <outlet property="threeDoorsButton" destination="F2F-3F-Pl3" id="kVE-CP-gjk"/>

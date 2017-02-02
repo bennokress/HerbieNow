@@ -40,8 +40,12 @@ class SelectExternalModelOptionsPopupViewController: PopupViewController {
     @IBOutlet fileprivate weak var backButton: UIButton!
     @IBOutlet fileprivate weak var abortButton: UIButton!
     
+    @IBOutlet weak var horsePowerMinLabel: UILabel!
+    @IBOutlet weak var horsePowerMaxLabel: UILabel!
     @IBOutlet weak var horsePowerSlider: RangeSlider!
     
+    @IBOutlet weak var fuelLevelMinLabel: UILabel!
+    @IBOutlet weak var fuelLevelMaxLabel: UILabel!
     @IBOutlet weak var fuelLevelRangeSlider: RangeSlider!
     
     // MARK: Mandatory View Functions
@@ -123,13 +127,13 @@ extension SelectExternalModelOptionsPopupViewController: SelectExternalModelOpti
     }
     
     func updateHorsePowerLabelTexts(min minValue: Int, max maxValue: Int) {
-        // TODO: Add Value Label
-        Debug.print(.info(source: .location(Source()), message: "Update Horse Power Label Texts to: \"\(minValue)\" and \"\(maxValue)\""))
+        horsePowerMinLabel.text = "\(minValue)"
+        horsePowerMaxLabel.text = "\(maxValue)"
     }
     
     func updateFuelLevelLabelTexts(min minValue: Int, max maxValue: Int) {
-        // TODO: Add Value Label
-        Debug.print(.info(source: .location(Source()), message: "Update Fuel Level Label Texts to: \"\(minValue)\" and \"\(maxValue)\""))
+        fuelLevelMinLabel.text = "\(minValue)"
+        fuelLevelMaxLabel.text = "\(maxValue)"
     }
     
     
