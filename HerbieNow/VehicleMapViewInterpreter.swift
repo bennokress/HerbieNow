@@ -80,7 +80,7 @@ extension VehicleMapViewInterpreter: VehicleMapViewInterpreterProtocol {
                 if (response.getDetails() == true){
                     self.presenter.showConfirmationPopUp()
                 } else {
-                    // reservation failed
+                    self.presenter.showFailedPopUp()
                 }
         }
         

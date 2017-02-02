@@ -10,6 +10,8 @@ import Foundation
 
 protocol MapViewDelegate {
     
+    func showLoadingAnimation(title: String)
+    func showReservationCompletion(success: Bool)
     func dismissLoadingAnimation()
     
 }

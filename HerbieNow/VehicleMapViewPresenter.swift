@@ -14,6 +14,7 @@ protocol VehicleMapViewPresenterProtocol {
     func goToMainView()
     func showVehicles(from data: ViewData)
     func showConfirmationPopUp()
+    func showFailedPopUp()
     
 }
 
@@ -51,6 +52,10 @@ extension VehicleMapViewPresenter: VehicleMapViewPresenterProtocol {
     
     func showConfirmationPopUp() {
         vehicleMapVC?.showConfirmationPopUp()
+    }
+    
+    func showFailedPopUp() {
+        vehicleMapVC?.showFailedPopUp()
     }
     
 }
