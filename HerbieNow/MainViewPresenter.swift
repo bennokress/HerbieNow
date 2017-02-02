@@ -12,6 +12,8 @@ protocol MainViewPresenterProtocol {
 
     func presentVehicleMapView(with vehicles: [Vehicle])
     func presentPopup(_ popup: View)
+    func presentAlertForLogout(of provider: Provider)
+    func presentAlertForFiltersetDeletion(of id: Int)
     func updateData(with viewData: ViewData)
     func dismissLoadingAnimation()
 
@@ -56,6 +58,14 @@ extension MainViewPresenter: MainViewPresenterProtocol {
             Debug.print(.error(source: .location(Source()), message: "No fitting Popup View Data received"))
             break
         }
+    }
+    
+    func presentAlertForLogout(of provider: Provider) {
+        mainVC?.presentAlertForLogout(of: provider)
+    }
+    
+    func presentAlertForFiltersetDeletion(of id: Int) {
+        mainVC?.presentAlertForFiltersetDeletion(of: id)
     }
 
     func updateData(with viewData: ViewData) {

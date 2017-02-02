@@ -20,6 +20,7 @@ protocol LogicProtocol {
     func saveNewFilterset(_ filterset: Filterset)
     func getConfiguredFiltersets() -> [Filterset?]
     func deleteFilterset(at index: Int)
+    func logout(of provider: Provider)
 
     // MARK: API Methods
     func login(with provider: Provider, as username: String?, withPassword password: String?, completion: @escaping Callback)

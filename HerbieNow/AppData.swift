@@ -226,7 +226,19 @@ extension AppData: AppDataProtocol {
     }
     
     func deleteFilterset(at index: Int) {
-        removeValueFromKeychain(forKey: "Filterset Configurations")
+        var savedFiltersets = getFiltersets()
+        savedFiltersets.replaceElement(at: index-1, with: nil)
+        var filtersetString = ""
+        for filterset in savedFiltersets {
+            if let savedFilterset = filterset {
+                filtersetString.append(savedFilterset.asString)
+                filtersetString.append("*")
+            } else {
+                filtersetString.append(" *")
+            }
+        }
+        filtersetString.removeLastCharacter() // this is an unused *
+        addToKeychain(value: filtersetString, forKey: "Filterset Configurations")
     }
 
 }

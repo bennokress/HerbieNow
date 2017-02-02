@@ -25,6 +25,10 @@ protocol MainViewControllerProtocol: class {
     func presentSelectExternalModelOptionsPopup(with data: ViewData)
     func presentSelectModelsPopup(with data: ViewData)
     func presentSelectFiltersetIconAndNamePopup(with data: ViewData)
+    
+    // MARK: Alerts
+    func presentAlertForLogout(of provider: Provider)
+    func presentAlertForFiltersetDeletion(of id: Int)
 
 }
 
@@ -307,11 +311,11 @@ extension MainViewController: InternalRouting {
     }
     
     fileprivate func longFiltersetButtonPress(on filtersetIndex: Int) {
-        
+        interpreter.userLongPressedFiltersetButton(for: filtersetIndex)
     }
     
     fileprivate func longProviderButtonPress(for provider: Provider) {
-        
+        interpreter.userLongPressedProviderButton(for: provider)
     }
     
     fileprivate func reloadProviderButtons() {
@@ -369,6 +373,38 @@ extension MainViewController: MainViewControllerProtocol {
     
     func presentSelectFiltersetIconAndNamePopup(with data: ViewData) {
         presentPopup(ofType: popupConfiguration, viewController: filtersetIconAndNamePopupVC, with: data)
+    }
+    
+    // MARK: Alerts
+    
+    func presentAlertForLogout(of provider: Provider) {
+        let title = "Logout"
+        let message = "Do you really want to logout for \(provider.rawValue)?"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: { (_) in
+            Debug.print(.info(source: .location(Source()), message: "The user cancelled his logout."))
+        })
+        let confirmAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+            self.interpreter.userConfirmedLogout(for: provider)
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func presentAlertForFiltersetDeletion(of id: Int) {
+        let title = "Delete Filterset"
+        let message = "Do you really want to delete your filterset named \"\(displayedFiltersets[id-1]?.name)\"?"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: { (_) in
+            Debug.print(.info(source: .location(Source()), message: "The user cancelled his logout."))
+        })
+        let confirmAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+            self.interpreter.userConfirmedFiltersetDeletion(for: id)
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

@@ -13,6 +13,10 @@ protocol MainViewInterpreterProtocol {
 
     func viewDidAppear()
     func userTapped(button: MainViewButton)
+    func userLongPressedProviderButton(for provider: Provider)
+    func userLongPressedFiltersetButton(for filtersetID: Int)
+    func userConfirmedLogout(for provider: Provider)
+    func userConfirmedFiltersetDeletion(for filtersetID: Int)
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction)
 
 }
@@ -91,6 +95,25 @@ extension MainViewInterpreter: MainViewInterpreterProtocol {
         }
         
     }
+    
+    func userLongPressedProviderButton(for provider: Provider) {
+        presenter.presentAlertForLogout(of: provider)
+    }
+    
+    func userLongPressedFiltersetButton(for filtersetID: Int) {
+        presenter.presentAlertForFiltersetDeletion(of: filtersetID)
+    }
+    
+    func userConfirmedLogout(for provider: Provider) {
+        logic.logout(of: provider)
+        viewDidAppear()
+    }
+    
+    func userConfirmedFiltersetDeletion(for filtersetID: Int) {
+        logic.deleteFilterset(at: filtersetID)
+        viewDidAppear()
+    }
+    
     
     func userDismissedPopup(with selectedData: ViewReturnData, via navigationAction: NavigationAction) {
         switch selectedData {
