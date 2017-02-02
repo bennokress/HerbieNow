@@ -87,26 +87,22 @@ extension Vehicle: CustomStringConvertible {
         return "\(fuelLevel)% fueled • \(fuelType.description())"
     }
     
-    func detailsForLine3(completion: @escaping (String) -> Void) {
-        let userLocation = AppData.shared.userLocation?.asObject
-        var distance = self.location.getDistance(from: userLocation!)
-        var returnString: String = ""
-        if(distance < 1000.0){
+    var detailsForLine3: String {
+        guard let userLocation = AppData.shared.userLocation?.asObject else {
+            return ""
+        }
+        var distance = self.location.getDistance(from: userLocation)
+        var distanceInformation = ""
+        if (distance < 1000.0) {
             distance = round(distance)
-            returnString = String(format: "%.0f", distance) + "m"
-        }else{
+            distanceInformation = String(format: "%.0f", distance) + "m"
+        } else {
             distance /= 100.0
             distance = round(distance)
             distance /= 10.0
-            returnString = "\(distance)km"
+            distanceInformation = "\(distance)km"
         }
-        
-        self.location.getAddress { (locationData: (street: String, areaCode: String, city: String)?) in
-            if let confirmedStreet = locationData?.street {
-                returnString += " → \(confirmedStreet)"
-            }
-            completion(returnString)
-        }
+        return distanceInformation
     }
     
 }

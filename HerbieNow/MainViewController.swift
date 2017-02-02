@@ -319,8 +319,8 @@ extension MainViewController: InternalRouting {
     }
     
     fileprivate func reloadProviderButtons() {
-        driveNowConfigured ? driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "driveNow")) : driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "Face11"))
-        car2goConfigured ? car2goButton.setImageForAllStates(#imageLiteral(resourceName: "car2go")) : car2goButton.setImageForAllStates(#imageLiteral(resourceName: "Face03"))
+        driveNowConfigured ? driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "driveNow")) : driveNowButton.setImageForAllStates(#imageLiteral(resourceName: "driveNowGray"))
+        car2goConfigured ? car2goButton.setImageForAllStates(#imageLiteral(resourceName: "car2go")) : car2goButton.setImageForAllStates(#imageLiteral(resourceName: "car2goGray"))
         // TODO: Implement greyed out buttons if false
     }
     
