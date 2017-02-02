@@ -183,7 +183,7 @@ enum FuelType: Character {
         case .electric:
             return "Electric"
         default:
-            return "Unknown fuel type"
+            return ""
         }
     }
 
@@ -192,7 +192,7 @@ enum FuelType: Character {
 enum Make: String {
 
     case bmw = "BMW"
-    case mercedes = "Mercedes-Benz"
+    case mercedes = "Mercedes"
     case mini = "MINI"
     case smart = "smart"
     case unknown = "Unknown"
@@ -283,7 +283,7 @@ enum Model {
         case .mercedesGLA: return "GLA"
         case .mercedesCLA: return "CLA"
 
-        case .unknown: return "Model"
+        case .unknown: return "Vehicle"
         }
 
     }
