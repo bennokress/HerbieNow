@@ -45,6 +45,8 @@ class MainViewController: UIViewController, MapViewDelegate {
 
     // MARK: UI Elements
     
+    @IBOutlet var longPressRecognizer: UILongPressGestureRecognizer!
+    
     @IBOutlet fileprivate weak var filterset1Button: UIButton!
     @IBOutlet fileprivate weak var filterset2Button: UIButton!
     @IBOutlet fileprivate weak var filterset3Button: UIButton!
@@ -133,6 +135,11 @@ class MainViewController: UIViewController, MapViewDelegate {
         interpreter.userTapped(button: filtersetButton)
     }
 
+    @IBAction func buttonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            Debug.print(.info(source: .location(Source()), message: "Long Press detected"))
+        }
+    }
 //    @IBAction func filtersetButtonLongPressed(_ sender: UIButton) {
 //        let id: Int
 //        switch sender {

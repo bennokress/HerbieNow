@@ -301,6 +301,7 @@
                                                                                         <state key="normal" image="addFilter"/>
                                                                                         <connections>
                                                                                             <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="KOA-sl-fBv"/>
+                                                                                            <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="W7h-FT-Aaz"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
@@ -336,6 +337,7 @@
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="dtv-3H-yvb"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="pP8-5a-JIW"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96k-18-eHT">
@@ -361,6 +363,7 @@
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="MBn-cn-qSI"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="oSu-xV-mVC"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-yF-jDS">
@@ -419,6 +422,7 @@
                                                                                         <state key="normal" image="addFilter"/>
                                                                                         <connections>
                                                                                             <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="76D-BW-zm1"/>
+                                                                                            <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="j0g-hj-uzZ"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
@@ -453,6 +457,7 @@
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="7er-cB-0W6"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="tja-0p-Aso"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-Kr-dUK">
@@ -478,6 +483,7 @@
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="8N5-E4-N6e"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="BF6-lo-jJV"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-hq-6kt">
@@ -534,6 +540,7 @@
                                                                                         <state key="normal" image="addFilter"/>
                                                                                         <connections>
                                                                                             <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="bZU-ZR-ZgU"/>
+                                                                                            <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="yqo-f7-pp0"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
@@ -568,6 +575,7 @@
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="PvR-Qq-DI7"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="q3y-CT-oEa"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC5-xk-8mT">
@@ -593,6 +601,7 @@
                                                                                 <state key="normal" image="addFilter"/>
                                                                                 <connections>
                                                                                     <action selector="filtersetButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="dTD-HO-hK4"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="eNk-Ed-Srv"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cza-OO-WmI">
@@ -655,6 +664,9 @@
                                                     <constraint firstItem="8A8-Ju-gla" firstAttribute="width" secondItem="D43-Zn-XsW" secondAttribute="width" id="ycN-CU-omc"/>
                                                     <constraint firstItem="s11-Go-546" firstAttribute="width" secondItem="tdo-lc-8LX" secondAttribute="width" id="zGc-oq-zx8"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="Rxk-dZ-0vK"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -678,6 +690,7 @@
                                                                                 <state key="normal" image="driveNow"/>
                                                                                 <connections>
                                                                                     <action selector="providerButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="iwV-Wr-X8e"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="3FO-Gn-coN"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -690,9 +703,11 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-uQ-MqM">
                                                                                 <rect key="frame" x="26" y="34" width="68" height="68"/>
+                                                                                <gestureRecognizers/>
                                                                                 <state key="normal" image="car2go"/>
                                                                                 <connections>
                                                                                     <action selector="providerButtonPressed:" destination="3pd-Dk-mcs" eventType="touchUpInside" id="mwL-XI-bVW"/>
+                                                                                    <outletCollection property="gestureRecognizers" destination="tV8-eA-79c" appends="YES" id="64V-R0-DZ5"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -768,6 +783,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="cwg-Ew-DMX" firstAttribute="leading" secondItem="Vov-fZ-GvJ" secondAttribute="leading" id="1EX-wF-Gbk"/>
                                     <constraint firstAttribute="trailing" secondItem="nAO-5k-vVF" secondAttribute="trailing" id="7tk-Vr-gSd"/>
@@ -823,6 +839,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8j-RG-STd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="tV8-eA-79c">
+                    <connections>
+                        <action selector="buttonLongPressed:" destination="3pd-Dk-mcs" id="uvZ-hW-g6P"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="136.95652173913044"/>
         </scene>
@@ -1159,7 +1180,7 @@
                                                                 <rect key="frame" x="104.66666666666666" y="0.0" width="90" height="141.66666666666669"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-5c-SPq">
-                                                                        <rect key="frame" x="7" y="10" width="76.333333333333314" height="76.666666666666686"/>
+                                                                        <rect key="frame" x="7" y="10" width="76.333333333333343" height="76.666666666666686"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="gtG-5c-SPq" secondAttribute="height" multiplier="1:1" id="jEw-tm-5vc"/>
                                                                         </constraints>
@@ -1170,7 +1191,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automatic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YT4-EP-evN">
-                                                                        <rect key="frame" x="0.33333333333331439" y="96.666666666666686" width="90" height="24"/>
+                                                                        <rect key="frame" x="0.33333333333334281" y="96.666666666666686" width="90" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -1481,7 +1502,7 @@
                                                                                 <rect key="frame" x="110.66666666666666" y="2.6666666666666714" width="73" height="95.999999999999986"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-ny-hey">
-                                                                                        <rect key="frame" x="3.3333333333333144" y="13.999999999999986" width="67" height="67"/>
+                                                                                        <rect key="frame" x="3.6666666666666572" y="13.999999999999986" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="seats4"/>
                                                                                         <connections>
@@ -1573,7 +1594,7 @@
                                                                                 <rect key="frame" x="0.0" y="5.3333333333333144" width="75" height="93"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2F-3F-Pl3">
-                                                                                        <rect key="frame" x="4" y="13.666666666666686" width="67" height="67"/>
+                                                                                        <rect key="frame" x="4" y="14" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="doors3"/>
                                                                                         <connections>
@@ -1590,7 +1611,7 @@
                                                                                 <rect key="frame" x="111.66666666666666" y="5.3333333333333144" width="75" height="93"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-RJ-GNH">
-                                                                                        <rect key="frame" x="4.3333333333333144" y="13.666666666666686" width="67" height="67"/>
+                                                                                        <rect key="frame" x="4.6666666666666572" y="14" width="67" height="67"/>
                                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <state key="normal" image="doors5"/>
                                                                                         <connections>
