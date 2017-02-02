@@ -18,18 +18,20 @@ class PinAnnotation: NSObject, MKAnnotation {
     let color: UIColor
     let image: UIImage
     let vin: String
+    let pin: UIImage
     let vehicleObject: Vehicle
 
-    init(vehicle: Vehicle, userDistance: String) {
+    init(vehicle: Vehicle) {
         self.title = "Car"
         self.verhicleDescription = vehicle.detailsForLine1
         self.fuelInfo = vehicle.detailsForLine2
-        self.distanceUser = userDistance
+        self.distanceUser = vehicle.detailsForLine3
         self.coordinate = vehicle.location.asObject.coordinate
         vehicle.provider == .driveNow ? (self.color = UIColor.blue) : (self.color = UIColor.red)
         self.image = UIImage.from(base64string: vehicle.encodedImage)
         self.vin = vehicle.vin
         self.vehicleObject = vehicle
+        self.pin = (vehicle.provider == .driveNow) ? #imageLiteral(resourceName: "pinDriveNow") : #imageLiteral(resourceName: "pinCar2Go")
 
         super.init()
     }
