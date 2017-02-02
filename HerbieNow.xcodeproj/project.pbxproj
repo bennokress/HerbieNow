@@ -106,13 +106,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0338BF571DD9F5880061EC48 /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = Carthage/Build/iOS/Async.framework; sourceTree = "<group>"; };
 		0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = Carthage/Build/iOS/IQKeyboardManager.framework; sourceTree = "<group>"; };
 		0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
-		0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSpinner.framework; path = Carthage/Build/iOS/SwiftSpinner.framework; sourceTree = "<group>"; };
-		0338BF5C1DD9F5880061EC48 /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = Carthage/Build/iOS/Unbox.framework; sourceTree = "<group>"; };
-		0338BF5D1DD9F5880061EC48 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Whisper.framework; path = Carthage/Build/iOS/Whisper.framework; sourceTree = "<group>"; };
 		034EC1671DD0B34D00E32EC6 /* HerbieNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HerbieNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034EC16A1DD0B34D00E32EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034EC16C1DD0B34D00E32EC6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +141,6 @@
 		D306D1B71E1692E800D5CD64 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		D320899F1E0ACE5300C17BD7 /* LocationUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdateDelegate.swift; sourceTree = "<group>"; };
-		D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
 		D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwiftAlamofire.framework; path = Carthage/Build/iOS/OAuthSwiftAlamofire.framework; sourceTree = "<group>"; };
 		D3297A391E06B3D000831923 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		D33132491E07D92100645858 /* VINExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VINExtensions.swift; sourceTree = "<group>"; };
@@ -197,8 +192,6 @@
 		D3C247601E0063CC0019AFA7 /* DriveNowAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveNowAPI.swift; sourceTree = "<group>"; };
 		D3C247621E0063D90019AFA7 /* Car2GoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car2GoAPI.swift; sourceTree = "<group>"; };
 		D3C247641E0064080019AFA7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		D3FDAFDD1E40BE2300FF84FC /* RangeSliderFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RangeSliderFramework.framework; path = Carthage/Build/iOS/RangeSliderFramework.framework; sourceTree = "<group>"; };
-		D3FF5CDB1E0AC53C0018EDF6 /* SwiftLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftLocation.framework; path = Carthage/Build/iOS/SwiftLocation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,26 +235,19 @@
 		0338BF561DD9F5870061EC48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3FDAFDD1E40BE2300FF84FC /* RangeSliderFramework.framework */,
 				D39568671E300279003FC042 /* Presentr.framework */,
 				D39568651E300269003FC042 /* SkyFloatingLabelTextField.framework */,
 				D39568511E2E7176003FC042 /* AlamofireNetworkActivityIndicator.framework */,
 				D395684F1E2E536A003FC042 /* Locksmith.framework */,
 				D306D1B91E1694BE00D5CD64 /* SwifterSwift.framework */,
 				D32089A41E0C353A00C17BD7 /* OAuthSwiftAlamofire.framework */,
-				D32089A11E0C299600C17BD7 /* SwiftyOAuth.framework */,
-				D3FF5CDB1E0AC53C0018EDF6 /* SwiftLocation.framework */,
 				D39160C01E0982B7000DBE17 /* MapKit.framework */,
 				D39160BE1E0969BA000DBE17 /* Alamofire.framework */,
 				D39160BC1E0969AD000DBE17 /* JASON.framework */,
 				D39160BA1E0969A2000DBE17 /* OAuthSwift.framework */,
-				0338BF571DD9F5880061EC48 /* Async.framework */,
 				0338BF581DD9F5880061EC48 /* IQKeyboardManager.framework */,
 				0338BF591DD9F5880061EC48 /* IQKeyboardManagerSwift.framework */,
-				0338BF5A1DD9F5880061EC48 /* KeychainAccess.framework */,
 				0338BF5B1DD9F5880061EC48 /* SwiftSpinner.framework */,
-				0338BF5C1DD9F5880061EC48 /* Unbox.framework */,
-				0338BF5D1DD9F5880061EC48 /* Whisper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
