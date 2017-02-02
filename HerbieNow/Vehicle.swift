@@ -95,12 +95,12 @@ extension Vehicle: CustomStringConvertible {
         var distanceInformation = ""
         if (distance < 1000.0) {
             distance = round(distance)
-            distanceInformation = String(format: "%.0f", distance) + "m"
+            distanceInformation = String(format: "%.0f", distance) + " m from here"
         } else {
             distance /= 100.0
             distance = round(distance)
             distance /= 10.0
-            distanceInformation = "\(distance)km"
+            distanceInformation = "\(distance) km from here"
         }
         return distanceInformation
     }
