@@ -16,7 +16,6 @@ protocol SelectFiltersetIconAndNamePopupViewControllerProtocol: class {
     func updateViewData(to newData: ViewData)
     
     func fillPicker(with encodedIcons: [String])
-    func updateFiltersetNameTextField(to name: String)
 
 }
 
@@ -89,10 +88,6 @@ extension SelectFiltersetIconAndNamePopupViewController: SelectFiltersetIconAndN
         }
         displayedIcons = icons
         iconPicker.reloadData()
-    }
-    
-    func updateFiltersetNameTextField(to name: String) {
-        nameTextField.placeholder = name
     }
     
 }

@@ -39,7 +39,6 @@ extension SelectFiltersetIconAndNamePopupPresenter: SelectFiltersetIconAndNamePo
     func updateAllElements(for filterset: Filterset) {
         let newData = ViewData.filtersetNameAndIconPopupData(filterset, displayedEncodedIcons: nil)
         popupVC?.updateViewData(to: newData)
-        popupVC?.updateFiltersetNameTextField(to: filterset.name)
     }
 
 }
