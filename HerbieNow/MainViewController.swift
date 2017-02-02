@@ -45,7 +45,17 @@ class MainViewController: UIViewController, MapViewDelegate {
 
     // MARK: UI Elements
     
-    @IBOutlet var longPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var driveNowLongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var car2goLongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset1LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset2LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset3LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset4LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset5LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset6LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset7LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset8LongPressRecognizer: UILongPressGestureRecognizer!
+    @IBOutlet var filterset9LongPressRecognizer: UILongPressGestureRecognizer!
     
     @IBOutlet fileprivate weak var filterset1Button: UIButton!
     @IBOutlet fileprivate weak var filterset2Button: UIButton!
@@ -77,17 +87,19 @@ class MainViewController: UIViewController, MapViewDelegate {
         super.viewDidLoad()
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
         setExclusiveTouchForAllButtons()
-//        let longPressFilterSetButton1 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton2 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton3 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton5 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton4 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton6 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton7 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton8 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressFilterSetButton9 = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longFiltersetButtonPress(gesture:)))
-//        let longPressDriveNowButton = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longProviderButtonPress(gesture:)))
-//        let longPressCar2GoButton = UILongPressGestureRecognizer(target: self, action: #selector(MainViewController.longProviderButtonPress(gesture:)))
+        
+        filterset1Button.addGestureRecognizer(filterset1LongPressRecognizer)
+        filterset2Button.addGestureRecognizer(filterset2LongPressRecognizer)
+        filterset3Button.addGestureRecognizer(filterset3LongPressRecognizer)
+        filterset4Button.addGestureRecognizer(filterset4LongPressRecognizer)
+        filterset5Button.addGestureRecognizer(filterset5LongPressRecognizer)
+        filterset6Button.addGestureRecognizer(filterset6LongPressRecognizer)
+        filterset7Button.addGestureRecognizer(filterset7LongPressRecognizer)
+        filterset8Button.addGestureRecognizer(filterset8LongPressRecognizer)
+        filterset9Button.addGestureRecognizer(filterset9LongPressRecognizer)
+        driveNowButton.addGestureRecognizer(driveNowLongPressRecognizer)
+        car2goButton.addGestureRecognizer(car2goLongPressRecognizer)
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -135,39 +147,71 @@ class MainViewController: UIViewController, MapViewDelegate {
         interpreter.userTapped(button: filtersetButton)
     }
 
-    @IBAction func buttonLongPressed(_ sender: AnyObject) {
+    @IBAction func driveNowButtonLongPressed(_ sender: AnyObject) {
         if sender.state == UIGestureRecognizerState.began {
-            Debug.print(.info(source: .location(Source()), message: "Long Press detected"))
+            longProviderButtonPress(for: .driveNow)
         }
     }
-//    @IBAction func filtersetButtonLongPressed(_ sender: UIButton) {
-//        let id: Int
-//        switch sender {
-//        case filterset1Button:
-//            id = 1
-//        case filterset2Button:
-//            id = 2
-//        case filterset3Button:
-//            id = 3
-//        case filterset4Button:
-//            id = 4
-//        case filterset5Button:
-//            id = 5
-//        case filterset6Button:
-//            id = 6
-//        case filterset7Button:
-//            id = 7
-//        case filterset8Button:
-//            id = 8
-//        case filterset9Button:
-//            id = 9
-//        default:
-//            return
-//        }
-//        Debug.print(.event(source: .location(Source()), description: "Filterset \(id) Button Long Pressed"))
-//        let filtersetButton = MainViewButton.filterset(displayFiltersets[id])
-//        interpreter.userLongPressed(button: filtersetButton)
-//    }
+    
+    @IBAction func car2goButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longProviderButtonPress(for: .car2go)
+        }
+    }
+    
+    @IBAction func filterset1ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 1)
+        }
+    }
+    
+    @IBAction func filterset2ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 2)
+        }
+    }
+    
+    @IBAction func filterset3ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 3)
+        }
+    }
+    
+    @IBAction func filterset4ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 4)
+        }
+    }
+    
+    @IBAction func filterset5ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 5)
+        }
+    }
+    
+    @IBAction func filterset6ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 6)
+        }
+    }
+    
+    @IBAction func filterset7ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 7)
+        }
+    }
+    
+    @IBAction func filterset8ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 8)
+        }
+    }
+    
+    @IBAction func filterset9ButtonLongPressed(_ sender: AnyObject) {
+        if sender.state == UIGestureRecognizerState.began {
+            longFiltersetButtonPress(on: 9)
+        }
+    }
 
     @IBAction func providerButtonPressed(_ sender: UIButton) {
         let provider: Provider
@@ -260,13 +304,13 @@ extension MainViewController: InternalRouting {
             }
         }
         
-        func longFiltersetButtonPress(gesture: UILongPressGestureRecognizer) {
-            Debug.print(.info(source: .location(Source()), message: "Long Press recognized."))
-        }
+    }
+    
+    fileprivate func longFiltersetButtonPress(on filtersetIndex: Int) {
         
-        func longProviderButtonPress(gesture: UILongPressGestureRecognizer) {
-            Debug.print(.info(source: .location(Source()), message: "Long Press recognized."))
-        }
+    }
+    
+    fileprivate func longProviderButtonPress(for provider: Provider) {
         
     }
     
