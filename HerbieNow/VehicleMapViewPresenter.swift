@@ -13,6 +13,7 @@ protocol VehicleMapViewPresenterProtocol {
     func centerMap(on location: Location)
     func goToMainView()
     func showVehicles(from data: ViewData)
+    func showConfirmationPopUp()
     
 }
 
@@ -46,6 +47,10 @@ extension VehicleMapViewPresenter: VehicleMapViewPresenterProtocol {
         if case .vehicleMapData(let vehicles) = data {
             vehicleMapVC?.showAnnotations(for: vehicles)
         }
+    }
+    
+    func showConfirmationPopUp() {
+        vehicleMapVC?.showConfirmationPopUp()
     }
     
 }
