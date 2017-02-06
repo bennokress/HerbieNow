@@ -44,7 +44,7 @@ extension String {
         return self[0...2] // The first 3 characters of the vehicle identification number are its manufacturer
     }
     
-    private var engineID: String {
+    var engineID: String {
         return self[7...8] // Smart have their engine information at character 8 and 9 of the vehicle identification number
     }
     

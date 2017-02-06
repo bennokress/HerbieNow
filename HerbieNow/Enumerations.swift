@@ -173,6 +173,18 @@ enum FuelType: Character {
     init(fromRawValue rawValue: Character) {
         self = FuelType(rawValue: rawValue) ?? .unknown
     }
+    
+    init(from vin: String) {
+        if let mercedesAndSmartEngineID = vin.engineID.int {
+            if mercedesAndSmartEngineID < 30 {
+                self = .diesel
+            } else {
+                self = .petrol
+            }
+        } else {
+            self = .unknown
+        }
+    }
 
     func description() -> String {
         switch self {

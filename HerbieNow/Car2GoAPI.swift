@@ -87,62 +87,39 @@ class Car2GoAPI {
     }
 
     fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
-        guard let vin = json["vin"].string,
-            let fuelLevelInPercent = json["fuel"].int,
-            let transmissionChar = json["engineType"].character
-            else {
-                return nil
-        }
-        var licensePlateValue:String?=nil
-        var locationValue:Location?=nil
-
-
-        if let licensePlate = json["name"].string {
-            licensePlateValue = licensePlate
-        } else if let licensePlate = json["numberPlate"].string {
-            licensePlateValue = licensePlate
-        } else {
-            return nil
-        }
-
-        guard let license = licensePlateValue else {
-            Debug.print(.error(source: .location(Source()), message: "License Plate not Detected"))
-            return nil
-        }
-
+        
+        var locationConstruction: Location?
+        
         if let latitude = json["coordinates"][1].double, let longitude = json["coordinates"][0].double {
-            locationValue = Location(latitude: latitude, longitude: longitude)
+            locationConstruction = Location(latitude: latitude, longitude: longitude)
         } else if let latitude = json["position"]["latitude"].double, let longitude = json["position"]["longitude"].double {
-            locationValue = Location(latitude: latitude, longitude: longitude)
-        } else {
-            return nil
+            locationConstruction = Location(latitude: latitude, longitude: longitude)
         }
-        guard let location = locationValue else {
-            Debug.print(.error(source: .location(Source()), message: "Convertaion for Coordinates failed."))
+        
+        var licensePlateConstruction: String?
+        
+        if let licensePlate = json["name"].string {
+            licensePlateConstruction = licensePlate
+        } else if let licensePlate = json["numberPlate"].string {
+            licensePlateConstruction = licensePlate
+        }
+        
+        guard let vin = json["vin"].string, let fuelLevelInPercent = json["fuel"].int, let location = locationConstruction, let licensePlate = licensePlateConstruction else {
             return nil
         }
 
-        var fuelType = FuelType(fromRawValue: "U");
-        //Car2Go just give electric or combustion Engine
-        
-        if transmissionChar == "E" {
-            fuelType = FuelType(fromRawValue: "E")
-        }
-        else{
-            fuelType = FuelType(fromRawValue: "U")
-        }
-        
-        
-        let transmissionType = TransmissionType(fromRawValue: transmissionChar)
+        let fuelType = FuelType(from: vin)
+        let transmissionType = TransmissionType.automatic
 
         return Vehicle(provider: car2go,
                        vin: vin,
                        fuelLevel: fuelLevelInPercent,
                        fuelType: fuelType,
                        transmissionType: transmissionType,
-                       licensePlate: license,
+                       licensePlate: licensePlate,
                        location: location
         )
+        
     }
 
     fileprivate func getReservationFromJSON(_ json:JSON) -> Reservation? {
