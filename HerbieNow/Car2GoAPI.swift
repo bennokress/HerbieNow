@@ -340,42 +340,51 @@ extension Car2GoAPI: API {
     }
 
     func reserveVehicle(withVIN vin: String, completion: @escaping Callback) {
-
-        getNearestCity(to: appData.getUserLocation()) { _ in
-
-            let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)&vin=\(vin)&account=\(self.appData.getUserID(for: .car2go))"
-
-            self.getOAuthSessionManager() { sessionManager in
-
-                guard let AlamofireWithOAuth = sessionManager else {
-                    let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: Source().function)
-                    completion(error)
-                    return
-                }
-
-                AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
-
-                    let response: APICallResult
-
-                    if let json = callback.result.value {
-                        guard let bookingArray = json["booking"].jsonArray else {
-                            response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: Source().function)
-                            completion(response)
-                            return
-                        }
-
-                        let userHasActiveReservation = (bookingArray.count > 0) ? true : false
-
-                        response = .success(userHasActiveReservation)
-
-                    } else {
-                        response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
-                    }
-                    completion(response)
-                }
-
+        
+        guard let accountID = appData.getUserID(for: .car2go) else {
+            let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No User ID stored for Car2Go!", parentFunction: Source().function)
+            completion(error)
+            return
+        }
+        
+        let url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)&vin=\(vin)&account=\(accountID)"
+        
+        self.getOAuthSessionManager() { sessionManager in
+            
+            guard let AlamofireWithOAuth = sessionManager else {
+                let error = APICallResult.error(code: 0, codeDetail: "not_logged_in", message: "No user credentials stored for Car2Go!", parentFunction: Source().function)
+                completion(error)
+                return
             }
-
+            
+            AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+                
+                print(callback)
+                
+                let response: APICallResult
+                
+                if let json = callback.result.value {
+                    
+                    guard let bookingArray = json["booking"].jsonArray else {
+                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false", in: Source().function)
+                        completion(response)
+                        return
+                    }
+                    
+                    let userHasActiveReservation = (bookingArray.count > 0) ? true : false
+                    
+                    response = .success(userHasActiveReservation)
+                    
+                } else {
+                    
+                    response = .error(code: 0, codeDetail: "response_format_error", message: "The response was not in JSON format!", parentFunction: Source().function)
+                    
+                }
+                
+                completion(response)
+                
+            }
+            
         }
 
     }

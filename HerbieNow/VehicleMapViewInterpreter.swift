@@ -51,9 +51,7 @@ extension VehicleMapViewInterpreter: LocationUpdateDelegate {
             presenter.centerMap(on: location)
             mapCentered = true
         }
-        logic.saveUpdatedLocation(location)
-        //mapView does this itself
-        //presenter.showMyLocation(at: location)
+        logic.saveUpdatedLocation(location) // FIXME: Is this neccessary???
     }
     
 }
@@ -75,15 +73,13 @@ extension VehicleMapViewInterpreter: VehicleMapViewInterpreterProtocol {
     }
     
     func performReservation(for vehicle: Vehicle) {
-        logic.reserveVehicle(withVIN: vehicle.vin, of: vehicle.provider) {
-            response in
-                if (response.getDetails() == true){
-                    self.presenter.showConfirmationPopUp()
-                } else {
-                    self.presenter.showFailedPopUp()
-                }
-        }
-        
+        logic.reserveVehicle(withVIN: vehicle.vin, of: vehicle.provider) { response in
+            if (response.getDetails() == true){
+                self.presenter.showConfirmationPopUp()
+            } else {
+                self.presenter.showFailedPopUp()
+            }
+        }   
     }
     
 }
