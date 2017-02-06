@@ -15,14 +15,18 @@ import JASON
 class Car2GoAPI {
 
     typealias Callback = (APICallResult) -> Void
-
+    
+    // MARK: Links
+    
     let appData: AppDataProtocol = AppData.shared
     let car2go = Provider.car2go
+    
+    // MARK: Data & Settings
 
     let consumerKey = "HerbyNow"
     let consumerSecret = "e1t9zimQmxmGrJ9eoMaq"
     let format = "json"
-    let test = 1
+    let test = 0
 
     let oauthswift: OAuth1Swift
 
@@ -36,8 +40,8 @@ class Car2GoAPI {
             return nil
         }
     }
-
-    // Singleton - call via Car2GoAPI.shared
+    
+    // MARK: Private Initalization & Public Singleton
     static var shared = Car2GoAPI()
     private init() {
         oauthswift = OAuth1Swift(
@@ -49,109 +53,9 @@ class Car2GoAPI {
         )
     }
 
-    fileprivate func authorizeHerbieNowForCar2Go(completion: @escaping Callback) {
-
-        oauthswift.authorize(
-            withCallbackURL: "oob",
-            success: { credential, _, _ in
-                self.appData.addOAuthToken(credential.oauthToken, for: self.car2go)
-                self.appData.addOAuthTokenSecret(credential.oauthTokenSecret, for: self.car2go)
-                completion(.credential(credential))
-        },
-            failure: { error in
-                completion(.error(code: 0, codeDetail: "not_authorized", message: "The user has not authorized HerbieNow for his Car2Go Account.", parentFunction: #function))
-        }
-        )
-
-    }
-
-    fileprivate func getOAuthSessionManager(completion: @escaping (SessionManager?) -> Void) {
-        let oauthSessionManager = SessionManager.default
-        if let savedCredential = credential {
-            oauthswift.client.credential.oauthToken = savedCredential.oauthToken
-            oauthswift.client.credential.oauthTokenSecret = savedCredential.oauthTokenSecret
-            oauthSessionManager.adapter = OAuthSwiftRequestAdapter(oauthswift)
-            completion(oauthSessionManager)
-        } else {
-            authorizeHerbieNowForCar2Go() { response in
-                guard let newCredential: OAuthSwiftCredential = response.getDetails() else {
-                    completion(nil)
-                    return
-                }
-                self.oauthswift.client.credential.oauthToken = newCredential.oauthToken
-                self.oauthswift.client.credential.oauthTokenSecret = newCredential.oauthTokenSecret
-                oauthSessionManager.adapter = self.oauthswift.requestAdapter
-                completion(oauthSessionManager)
-            }
-        }
-    }
-
-    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
-        
-        var locationConstruction: Location?
-        
-        if let latitude = json["coordinates"][1].double, let longitude = json["coordinates"][0].double {
-            locationConstruction = Location(latitude: latitude, longitude: longitude)
-        } else if let latitude = json["position"]["latitude"].double, let longitude = json["position"]["longitude"].double {
-            locationConstruction = Location(latitude: latitude, longitude: longitude)
-        }
-        
-        var licensePlateConstruction: String?
-        
-        if let licensePlate = json["name"].string {
-            licensePlateConstruction = licensePlate
-        } else if let licensePlate = json["numberPlate"].string {
-            licensePlateConstruction = licensePlate
-        }
-        
-        guard let vin = json["vin"].string, let fuelLevelInPercent = json["fuel"].int, let location = locationConstruction, let licensePlate = licensePlateConstruction else {
-            return nil
-        }
-
-        let fuelType = FuelType(from: vin)
-        let transmissionType = TransmissionType.automatic
-
-        return Vehicle(provider: car2go,
-                       vin: vin,
-                       fuelLevel: fuelLevelInPercent,
-                       fuelType: fuelType,
-                       transmissionType: transmissionType,
-                       licensePlate: licensePlate,
-                       location: location
-        )
-        
-    }
-
-    fileprivate func getReservationFromJSON(_ json:JSON) -> Reservation? {
-        guard let startTime = json["reservationTime"]["timeInMillis"].double,
-            let vehicle = getVehicleFromJSON(json["vehicle"]) else {
-                return nil
-        }
-
-        let endTime = (startTime + 30*60*1000) // add 30 min Reservation Time
-        let endDate = Date(unixTimestamp: endTime)
-        return Reservation(provider: car2go, endTime: endDate, vehicle: vehicle)
-    }
-
-    fileprivate func errorDetails(code: Int, status: String, message: String, in function: String) -> APICallResult {
-        let error: APICallResult
-        error = .error(code: code, codeDetail: status, message: message, parentFunction: function)
-        return error
-    }
-
-    fileprivate func getCityFromJSON(_ json: JSON) -> Location? {
-        guard let name = json["locationName"].string,
-            let longitude = json["mapSection"]["center"]["longitude"].double,
-            let latitude = json["mapSection"]["center"]["latitude"].double
-            else {
-                return nil
-
-        }
-        return Location(latitude: latitude, longitude: longitude, car2goCityName: name)
-    }
-
 }
 
+// MARK: - API Protocol Conformance
 extension Car2GoAPI: API {
 
     func login(completion: @escaping Callback) {
@@ -263,7 +167,7 @@ extension Car2GoAPI: API {
                     var vehicles: [Vehicle] = []
 
                     guard let jsonVehicles = json["placemarks"].jsonArray else {
-                        response = self.errorDetails(code: 0, status: "vehicles_not_found", message: "No Vehicles in JSON Response found.", in: #function)
+                        response = self.errorDetails(code: 0, status: "vehicles_not_found", message: "No Vehicles in JSON Response found.", in: Source().function)
                         completion(response)
                         return
                     }
@@ -391,8 +295,6 @@ extension Car2GoAPI: API {
 
     func cancelReservation(completion: @escaping Callback) {
 
-        var url = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)"
-
         self.getOAuthSessionManager() { sessionManager in
 
             guard let AlamofireWithOAuth = sessionManager else {
@@ -400,14 +302,17 @@ extension Car2GoAPI: API {
                 completion(error)
                 return
             }
+            
+            let bookingsOverviewURL = "https://www.car2go.com/api/v2.1/bookings?format=\(self.format)&test=\(self.test)"
 
-            AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { callback in
+            AlamofireWithOAuth.request(bookingsOverviewURL, method: .get, encoding: URLEncoding.default).responseJASON { bookingsOverviewCallback in
 
                 var response: APICallResult
 
-                if let json = callback.result.value {
+                if let json = bookingsOverviewCallback.result.value {
+                    
                     guard let bookingArray = json["booking"].jsonArray else {
-                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Request is gone false 1", in: Source().function)
+                        response = self.errorDetails(code: 0, status: "Car2Go", message: "Bookings Overview Call failed", in: Source().function)
                         completion(response)
                         return
                     }
@@ -415,30 +320,32 @@ extension Car2GoAPI: API {
                     let userHasActiveReservation = (bookingArray.count > 0) ? true : false
 
                     if userHasActiveReservation {
+                        
                         let bookingID = bookingArray[0]["bookingId"]
-                        url="https://www.car2go.com/api/v2.1/booking/\(bookingID)"
-                        response = .success(true)
+                        let cancelBookingURL = "https://www.car2go.com/api/v2.1/booking/\(bookingID)"
+                        response = .success(false)
 
-                        AlamofireWithOAuth.request(url, method: .get, encoding: URLEncoding.default).responseJASON { _ in
-
-                            guard let bookingStatus = json["returnValue"]["code"].int else {
-                                response = self.errorDetails(code: 0, status: "Car2Go", message: "CancleRequest is gone false 2", in: Source().function)
-                                completion(response)
-                                return
-                            }
-                            var cancleRequest:Bool
-
-                            if bookingStatus == 0 {
-                                cancleRequest=true
+                        AlamofireWithOAuth.request(cancelBookingURL, method: .get, encoding: URLEncoding.default).responseJASON { cancelBookingCallback in
+                            
+                            if let json = cancelBookingCallback.result.value {
+                                
+                                guard let bookingStatus = json["returnValue"]["code"].int else {
+                                    response = self.errorDetails(code: 0, status: "Car2Go", message: "Cancel Request failed", in: Source().function)
+                                    completion(response)
+                                    return
+                                }
+                                
+                                let cancleRequest = (bookingStatus == 0)
+                                
+                                response = .success(cancleRequest)
+                                
                             } else {
-                                cancleRequest=false
+                                response = .success(false)
                             }
-
-                            response = .success(cancleRequest)
 
                         }
                     } else {
-                        response = .success(true) //Keine Aktive Reservierung vorhanden
+                        response = .success(true) // No active reservations anyhow
                     }
 
                 } else {
@@ -462,4 +369,110 @@ extension Car2GoAPI: API {
 
     }
 
+}
+
+// MARK: - Internal Functions
+extension Car2GoAPI: InternalRouting {
+    
+    fileprivate func authorizeHerbieNowForCar2Go(completion: @escaping Callback) {
+        
+        oauthswift.authorize(
+            withCallbackURL: "oob",
+            success: { credential, _, _ in
+                self.appData.addOAuthToken(credential.oauthToken, for: self.car2go)
+                self.appData.addOAuthTokenSecret(credential.oauthTokenSecret, for: self.car2go)
+                completion(.credential(credential))
+        },
+            failure: { error in
+                completion(.error(code: 0, codeDetail: "not_authorized", message: "The user has not authorized HerbieNow for his Car2Go Account.", parentFunction: #function))
+        }
+        )
+        
+    }
+    
+    fileprivate func getOAuthSessionManager(completion: @escaping (SessionManager?) -> Void) {
+        let oauthSessionManager = SessionManager.default
+        if let savedCredential = credential {
+            oauthswift.client.credential.oauthToken = savedCredential.oauthToken
+            oauthswift.client.credential.oauthTokenSecret = savedCredential.oauthTokenSecret
+            oauthSessionManager.adapter = OAuthSwiftRequestAdapter(oauthswift)
+            completion(oauthSessionManager)
+        } else {
+            authorizeHerbieNowForCar2Go() { response in
+                guard let newCredential: OAuthSwiftCredential = response.getDetails() else {
+                    completion(nil)
+                    return
+                }
+                self.oauthswift.client.credential.oauthToken = newCredential.oauthToken
+                self.oauthswift.client.credential.oauthTokenSecret = newCredential.oauthTokenSecret
+                oauthSessionManager.adapter = self.oauthswift.requestAdapter
+                completion(oauthSessionManager)
+            }
+        }
+    }
+    
+    fileprivate func getVehicleFromJSON(_ json: JSON) -> Vehicle? {
+        
+        var locationConstruction: Location?
+        
+        if let latitude = json["coordinates"][1].double, let longitude = json["coordinates"][0].double {
+            locationConstruction = Location(latitude: latitude, longitude: longitude)
+        } else if let latitude = json["position"]["latitude"].double, let longitude = json["position"]["longitude"].double {
+            locationConstruction = Location(latitude: latitude, longitude: longitude)
+        }
+        
+        var licensePlateConstruction: String?
+        
+        if let licensePlate = json["name"].string {
+            licensePlateConstruction = licensePlate
+        } else if let licensePlate = json["numberPlate"].string {
+            licensePlateConstruction = licensePlate
+        }
+        
+        guard let vin = json["vin"].string, let fuelLevelInPercent = json["fuel"].int, let location = locationConstruction, let licensePlate = licensePlateConstruction else {
+            return nil
+        }
+        
+        let fuelType = FuelType(from: vin)
+        let transmissionType = TransmissionType.automatic
+        
+        return Vehicle(provider: car2go,
+                       vin: vin,
+                       fuelLevel: fuelLevelInPercent,
+                       fuelType: fuelType,
+                       transmissionType: transmissionType,
+                       licensePlate: licensePlate,
+                       location: location
+        )
+        
+    }
+    
+    fileprivate func getReservationFromJSON(_ json:JSON) -> Reservation? {
+        guard let startTime = json["reservationTime"]["timeInMillis"].double,
+            let vehicle = getVehicleFromJSON(json["vehicle"]) else {
+                return nil
+        }
+        
+        let endTime = (startTime + 30*60*1000) // add 30 min Reservation Time
+        let endDate = Date(unixTimestamp: endTime)
+        return Reservation(provider: car2go, endTime: endDate, vehicle: vehicle)
+    }
+    
+    fileprivate func errorDetails(code: Int, status: String, message: String, in function: String) -> APICallResult {
+        let error: APICallResult
+        error = .error(code: code, codeDetail: status, message: message, parentFunction: function)
+        return error
+    }
+    
+    fileprivate func getCityFromJSON(_ json: JSON) -> Location? {
+        guard let name = json["locationName"].string,
+            let longitude = json["mapSection"]["center"]["longitude"].double,
+            let latitude = json["mapSection"]["center"]["latitude"].double
+            else {
+                return nil
+                
+        }
+        return Location(latitude: latitude, longitude: longitude, car2goCityName: name)
+    }
+    
 }

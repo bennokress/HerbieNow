@@ -27,6 +27,7 @@ class DriveNowAPI {
     var api2Headers: HTTPHeaders
 
     // MARK: Private Initalization & Public Singleton
+    
     static var shared = DriveNowAPI()
     private init() {
 
