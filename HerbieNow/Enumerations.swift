@@ -186,7 +186,7 @@ enum FuelType: Character {
         }
     }
 
-    func description() -> String {
+    var description: String {
         switch self {
         case .petrol:
             return "Petrol"
@@ -416,7 +416,7 @@ enum TransmissionType: Character {
         self = TransmissionType(rawValue: rawValue) ?? .unknown
     }
 
-    func description() -> String {
+    var description: String {
         switch self {
         case .automatic:
             return "Automatic"

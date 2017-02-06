@@ -76,15 +76,26 @@ extension Vehicle: CustomStringConvertible {
         return "\(provider.rawValue): \(licensePlate)\t\tConvertible: \(isConvertible)\t\tHiFi-System: \(hasHiFiSystem)\t\tPower: \(hp)hp \t\(kW)kW \t\t\(location.coordinateDescription)\t\t\(make.rawValue) \(model)"
     }
     
+    func debugPrint() {
+        let fuelingWord = (fuelType == .electric) ? "charged" : "fueled"
+        let hifiAddition = hasHiFiSystem ? " • HiFi System" : ""
+        let convertibleAddition = isConvertible ? " • Convertible" : ""
+        Debug.print(.list(item: "\(provider.rawValue): \(licensePlate)", indent: 1))
+        Debug.print(.list(item: "\(make.rawValue) \(model.getString()) • \(hp)HP • \(transmissionType.description)", indent: 2))
+        Debug.print(.list(item: "\(location.coordinateDescription)", indent: 2))
+        Debug.print(.list(item: "\(fuelLevel)% \(fuelingWord) • \(fuelType.description)", indent: 2))
+        Debug.print(.list(item: "\(doors) doors • \(seats) seats\(hifiAddition)\(convertibleAddition)", indent: 2))
+    }
+    
     var detailsForLine1: String {
         return "\(make.rawValue) \(model.getString()) • \(hp)HP"
     }
     
     var detailsForLine2: String {
-        if(fuelType == .electric) {
-            return "\(fuelLevel)% charged • \(fuelType.description())"
+        if (fuelType == .electric) {
+            return "\(fuelLevel)% charged • \(fuelType.description)"
         }
-        return "\(fuelLevel)% fueled • \(fuelType.description())"
+        return "\(fuelLevel)% fueled • \(fuelType.description)"
     }
     
     var detailsForLine3: String {

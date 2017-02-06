@@ -180,6 +180,10 @@ extension MainViewInterpreter: InternalRouting {
     fileprivate func getFilteredVehicles(for provider: Provider) {
         logic.getAvailableVehicles(from: provider) { response in
             guard let vehicles: [Vehicle] = response.getDetails() else { return }
+//            Debug.print(.success(source: .location(Source()), message: "Presenting the following vehicles:"))
+//            for car in vehicles {
+//                car.debugPrint()
+//            }
             self.presentVehicleMapView(with: vehicles)
         }
     }
