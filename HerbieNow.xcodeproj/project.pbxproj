@@ -874,7 +874,7 @@
 				);
 				INFOPLIST_FILE = HerbieNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.bennokress.HerbieNow;
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -891,7 +891,7 @@
 				);
 				INFOPLIST_FILE = HerbieNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.bennokress.HerbieNow;
+				PRODUCT_BUNDLE_IDENTIFIER = de.lmu.HerbieNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
