@@ -140,6 +140,7 @@ extension VehicleMapViewController: MKMapViewDelegate {
             if annotation is PinAnnotation {
                 let customAnnotation: PinAnnotation = annotation as! PinAnnotation
                 annotationView.image = customAnnotation.pin
+                annotationView.centerOffset = CGPoint(x: 0, y: (-1 * (customAnnotation.pin.size.height / 2)))
             }
         }
         return annotationView
