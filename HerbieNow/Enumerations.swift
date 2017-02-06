@@ -202,7 +202,7 @@ enum Make: String {
         switch vin.makeID {
         case "WBA", "WBS", "WBY":
             self = .bmw
-        case "WDB", "WDC", "WDD", "WMX":
+        case "VSA", "WDB", "WDC", "WDD", "WDF", "WMX":
             self = .mercedes
         case "WME", "TTC":
             self = .smart

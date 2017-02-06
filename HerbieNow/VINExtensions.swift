@@ -58,7 +58,7 @@ extension String {
         
         switch self.modelID {
             
-        // DriveNow
+        // MARK: DriveNow
         case "UA11", "UA31", "UA51", "UA71", "UB11", "UB31", "UB51", "UB71", "UB91", "UK11", "UK31", "UK51": return .bmw1er3Door                                                     // E81 - 3 Door
         case "UC11", "UC31", "UC51", "UC71", "UC91", "UR11", "UR31", "UR51", "UR91": return .bmw1erCoupe                                                                             // E82
         case "UP31": return .bmwActiveE                                                                                                                                              // E82 - ActiveE
@@ -90,12 +90,11 @@ extension String {
         case "SY11", "SY31", "SY51", "SY71", "SY91": return .miniRoadster                                                                                                            // R59
         case "XD11", "XD31", "XD51", "XD71", "ZA31", "ZB31", "ZB51", "ZB71", "ZC31", "ZC51", "ZD11", "ZD31", "ZD51", "ZD71": return .miniCountryman                                  // R60
         case "RJ51", "RJ71", "RS11", "RS31", "RS51", "RS71", "RS91", "SS11", "SS31", "SS51", "SS71", "SS91": return .miniPaceman                                                     // R61
-        // Car2Go
-        case "4503", "4504", "4513", "4514", "4533": return .smartForTwo
-        case "4523", "4524": return .smartRoadster
-        case "4533", "4534": return .smartForFour
-        case "1760" : return .mercedesAclass
-        case "1569", "2462": return .mercedesBclass
+            
+        // MARK: Car2Go
+        case "4533": return .smartForTwo
+        case "1760": return .mercedesAclass
+        case "2462": return .mercedesBclass
         case "1173": return .mercedesCLA
         case "1569": return .mercedesGLA
             
@@ -472,36 +471,55 @@ extension String {
             case "SS71": return 135 // MINI Cooper S ALL4 Paceman
             case "SS91": return 160 // MINI John Cooper Works Paceman
                 
-            // Unknown
+            // Unknown BMW or MINI
             default: return 0
                 
             }
             
-        } else if self.make == .smart || self.make == .mercedes {
+        } else if self.make == .smart {
+            
             switch self.engineID {
                 
             // Smart
             case "00": return 30  // Diesel
-            case "30": return 37  // Petrol
-            case "32": return 45  // Petrol
-            case "33": return 35  // Petrol
-            case "34": return 60  // Petrol
-            case "35": return 40  // Petrol
+            case "01": return 40  // Diesel
+            case "30": return 45  // Petrol
+            case "31": return 52  // Petrol
+            case "32": return 62  // Petrol
+            case "33": return 72  // Petrol
+            case "41": return 45  // Petrol
             case "42": return 52  // Petrol
+            case "44": return 66  // Petrol
+            case "62": return 80  // Petrol
                 
+            // Unknown Smart
+            default: return 0
+                
+            }
+            
+        } else if self.make == .mercedes {
+            
+            switch self.engineID {
+        
             // Mercedes
-                
-            case "01": return 74  // Petrol
+            case "00": return 80  // Diesel
+            case "01": return 100 // Diesel
+            case "03": return 125 // Diesel
             case "12": return 80  // Diesel
+            case "42": return 90  // Petrol
             case "43": return 115 // Petrol
+            case "44": return 155 // Petrol
+            case "46": return 155 // Petrol
+            case "52": return 265 // Petrol
                 
-            // Unknown Engine Code in VIN
+            // Unknown Mercedes
             default: return 0
             
             }
             
         } else {
             
+            // Totally unknown vehicle
             return 0
             
         }
@@ -570,7 +588,6 @@ extension String {
             
         } else if self.make == .mercedes {
             
-            // TODO: Add convertible informations for Mercedes-Benz vehicles
             return false
             
         } else {
