@@ -416,7 +416,7 @@ extension MainViewController: PopupSetup {
         let screeWidth = super.view.width
         
         let sideAndBottomSpaceToScreen: CGFloat = 27
-        let topSpaceToScreen = screenHeight * 0.11 + UIApplication.shared.statusBarFrame.height // Top View is set to 11% of full height in storyboard!
+        let topSpaceToScreen = screenHeight * 0.11 + 20 // Top View is set to 11% of full height in storyboard + 20 for the hidden status bar!
         
         let popupHeight = Float(screenHeight - topSpaceToScreen - sideAndBottomSpaceToScreen)
         let height = ModalSize.custom(size: popupHeight)

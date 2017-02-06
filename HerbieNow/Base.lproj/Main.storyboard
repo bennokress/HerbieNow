@@ -220,9 +220,9 @@
                         <color key="backgroundColor" red="0.0039215686274509803" green="0.0078431372549019607" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qqq-gk-ZwQ" secondAttribute="trailing" id="6tZ-4S-ffb"/>
-                            <constraint firstItem="Qqq-gk-ZwQ" firstAttribute="top" secondItem="yMQ-vA-BM9" secondAttribute="bottom" id="9Te-Ni-vXJ"/>
                             <constraint firstItem="Qqq-gk-ZwQ" firstAttribute="leading" secondItem="zLu-v2-TsD" secondAttribute="leading" id="XgF-Aj-RYD"/>
                             <constraint firstItem="C2L-E3-d4m" firstAttribute="top" secondItem="Qqq-gk-ZwQ" secondAttribute="bottom" id="bLT-2j-HFP"/>
+                            <constraint firstItem="Qqq-gk-ZwQ" firstAttribute="top" secondItem="zLu-v2-TsD" secondAttribute="topMargin" constant="20" id="tFl-WK-EtQ"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -813,8 +813,8 @@
                         <color key="backgroundColor" red="0.0039215686274509803" green="0.0078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vov-fZ-GvJ" firstAttribute="leading" secondItem="8eO-lh-xOc" secondAttribute="leadingMargin" constant="8" id="8N5-q7-JBP"/>
-                            <constraint firstItem="Vov-fZ-GvJ" firstAttribute="top" secondItem="iLj-h7-0GE" secondAttribute="bottom" id="Lhx-Be-KfE"/>
                             <constraint firstAttribute="bottom" secondItem="Vov-fZ-GvJ" secondAttribute="bottom" id="jBb-fp-N6R"/>
+                            <constraint firstItem="Vov-fZ-GvJ" firstAttribute="top" secondItem="8eO-lh-xOc" secondAttribute="topMargin" constant="20" id="l81-rp-Uat"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vov-fZ-GvJ" secondAttribute="trailing" constant="8" id="llJ-fU-kSO"/>
                         </constraints>
                     </view>

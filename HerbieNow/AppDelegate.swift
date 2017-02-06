@@ -41,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
         // MARK: - Alamofire Network Indicator
         NetworkActivityIndicatorManager.shared.isEnabled = true
+        
+        // MARK: - Hide Status Bar
+        application.isStatusBarHidden = true
 
         return true
     }
