@@ -90,20 +90,7 @@ class MainViewController: UIViewController, MapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         Debug.print(.event(source: .location(Source()), description: "View Did Load"))
-        setExclusiveTouchForAllButtons()
-        
-        filterset1Button.addGestureRecognizer(filterset1LongPressRecognizer)
-        filterset2Button.addGestureRecognizer(filterset2LongPressRecognizer)
-        filterset3Button.addGestureRecognizer(filterset3LongPressRecognizer)
-        filterset4Button.addGestureRecognizer(filterset4LongPressRecognizer)
-        filterset5Button.addGestureRecognizer(filterset5LongPressRecognizer)
-        filterset6Button.addGestureRecognizer(filterset6LongPressRecognizer)
-        filterset7Button.addGestureRecognizer(filterset7LongPressRecognizer)
-        filterset8Button.addGestureRecognizer(filterset8LongPressRecognizer)
-        filterset9Button.addGestureRecognizer(filterset9LongPressRecognizer)
-        driveNowButton.addGestureRecognizer(driveNowLongPressRecognizer)
-        car2goButton.addGestureRecognizer(car2goLongPressRecognizer)
-        
+        configureButtons()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -245,6 +232,39 @@ class MainViewController: UIViewController, MapViewDelegate {
 
 // MARK: - Internal Functions
 extension MainViewController: InternalRouting {
+    
+    fileprivate func configureButtons() {
+        
+        // MARK: Long Press Recognizers
+        filterset1Button.addGestureRecognizer(filterset1LongPressRecognizer)
+        filterset2Button.addGestureRecognizer(filterset2LongPressRecognizer)
+        filterset3Button.addGestureRecognizer(filterset3LongPressRecognizer)
+        filterset4Button.addGestureRecognizer(filterset4LongPressRecognizer)
+        filterset5Button.addGestureRecognizer(filterset5LongPressRecognizer)
+        filterset6Button.addGestureRecognizer(filterset6LongPressRecognizer)
+        filterset7Button.addGestureRecognizer(filterset7LongPressRecognizer)
+        filterset8Button.addGestureRecognizer(filterset8LongPressRecognizer)
+        filterset9Button.addGestureRecognizer(filterset9LongPressRecognizer)
+        driveNowButton.addGestureRecognizer(driveNowLongPressRecognizer)
+        car2goButton.addGestureRecognizer(car2goLongPressRecognizer)
+        
+        // MARK: Image Insets (Place Icons inside Circle)
+        let buttonDiameter = filterset1Button.size.width
+        let inset = sqrt((buttonDiameter*buttonDiameter) / 2)
+        filterset1Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset2Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset3Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset4Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset5Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset6Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset7Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset8Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        filterset9Button.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        
+        // MARK: Set exclusive touch
+        setExclusiveTouchForAllButtons()
+        
+    }
     
     fileprivate func setExclusiveTouchForAllButtons() {
         for case let button as UIButton in self.view.subviews {
@@ -415,16 +435,17 @@ extension MainViewController: PopupSetup {
         let screenHeight = super.view.height
         let screeWidth = super.view.width
         
-        let sideAndBottomSpaceToScreen: CGFloat = 27
-        let topSpaceToScreen = screenHeight * 0.11 + 20 // Top View is set to 11% of full height in storyboard + 20 for the hidden status bar!
+        let sideSpaceToScreen = screeWidth * 0.1
+        let bottomSpaceToScreen = screeWidth * 0.1
+        let topSpaceToScreen = screenHeight * 0.13 // Top View is set to 13% of full height in storyboard!
         
-        let popupHeight = Float(screenHeight - topSpaceToScreen - sideAndBottomSpaceToScreen)
+        let popupHeight = Float(screenHeight - topSpaceToScreen - bottomSpaceToScreen)
         let height = ModalSize.custom(size: popupHeight)
         
-        let popupWidth = Float(screeWidth - (2 * sideAndBottomSpaceToScreen))
+        let popupWidth = Float(screeWidth - (2 * sideSpaceToScreen))
         let width = ModalSize.custom(size: popupWidth)
         
-        let originX: CGFloat = sideAndBottomSpaceToScreen
+        let originX: CGFloat = sideSpaceToScreen
         let originY: CGFloat = topSpaceToScreen
         let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: originX, y: originY))
         let customType = PresentationType.custom(width: width, height: height, center: center)
