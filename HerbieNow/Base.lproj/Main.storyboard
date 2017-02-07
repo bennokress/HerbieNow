@@ -224,13 +224,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hS8-v2-Haf" userLabel="Button View">
-                                <rect key="frame" x="41.333333333333343" y="95.666666666666657" width="331.33333333333337" height="493"/>
+                                <rect key="frame" x="41.333333333333343" y="95.666666666666686" width="331.33333333333337" height="544.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJs-sA-yiB" userLabel="Row 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="331.33333333333337" height="122.99999999999999"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="331.33333333333337" height="136"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdo-lc-8LX">
-                                                <rect key="frame" x="0.0" y="0.0" width="76" height="76.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="84.666666666666671"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tdo-lc-8LX" secondAttribute="height" multiplier="1:1" id="qmK-Ml-lu9"/>
@@ -243,13 +243,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-h0-LHN">
-                                                <rect key="frame" x="0.0" y="84.666666666666671" width="76" height="15.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="92.666666666666671" width="84" height="15.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D07-OZ-TZY">
-                                                <rect key="frame" x="126.33333333333331" y="0.0" width="77" height="76.666666666666671"/>
+                                                <rect key="frame" x="122.33333333333331" y="0.0" width="85" height="84.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="D07-OZ-TZY" secondAttribute="height" multiplier="1:1" id="ZsD-8A-4fJ"/>
                                                 </constraints>
@@ -261,13 +261,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96k-18-eHT">
-                                                <rect key="frame" x="126.33333333333331" y="84.666666666666671" width="77" height="15.333333333333314"/>
+                                                <rect key="frame" x="122.33333333333331" y="92.666666666666671" width="85" height="15.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEl-Hk-FMA">
-                                                <rect key="frame" x="255.33333333333337" y="0.0" width="76" height="76.666666666666671"/>
+                                                <rect key="frame" x="247.33333333333337" y="0.0" width="84" height="84.666666666666671"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="rEl-Hk-FMA" secondAttribute="height" multiplier="1:1" id="WVH-BD-HZ5"/>
@@ -280,7 +280,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-yF-jDS">
-                                                <rect key="frame" x="255.33333333333337" y="84.666666666666671" width="76" height="15.333333333333314"/>
+                                                <rect key="frame" x="247.33333333333337" y="92.666666666666671" width="84" height="15.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -309,10 +309,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHP-m3-WKn" userLabel="Row 2">
-                                        <rect key="frame" x="0.0" y="122.99999999999999" width="331.33333333333337" height="122.66666666666664"/>
+                                        <rect key="frame" x="0.0" y="136" width="331.33333333333337" height="135.33333333333337"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-Go-546">
-                                                <rect key="frame" x="0.0" y="0.0" width="76.666666666666657" height="76.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84.666666666666657" height="84.333333333333343"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="s11-Go-546" secondAttribute="height" multiplier="1:1" id="yfj-Oz-wxz"/>
@@ -325,13 +325,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qu-Ly-21w">
-                                                <rect key="frame" x="0.0" y="84.333333333333343" width="76.666666666666657" height="16"/>
+                                                <rect key="frame" x="0.0" y="92.333333333333343" width="84.666666666666657" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLF-AJ-oCT">
-                                                <rect key="frame" x="127" y="0.0" width="76.333333333333314" height="76.333333333333343"/>
+                                                <rect key="frame" x="123" y="0.0" width="84.333333333333314" height="84.333333333333343"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="kLF-AJ-oCT" secondAttribute="height" multiplier="1:1" id="7jc-Qu-crJ"/>
@@ -344,13 +344,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-Kr-dUK">
-                                                <rect key="frame" x="127" y="84.333333333333343" width="76.333333333333314" height="16"/>
+                                                <rect key="frame" x="123" y="92.333333333333343" width="84.333333333333314" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCf-YE-8Fg">
-                                                <rect key="frame" x="255.33333333333334" y="0.0" width="76.333333333333286" height="76.333333333333343"/>
+                                                <rect key="frame" x="247.33333333333334" y="0.0" width="84.333333333333286" height="84.333333333333343"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="zCf-YE-8Fg" secondAttribute="height" multiplier="1:1" id="Wgz-0a-kjw"/>
@@ -363,7 +363,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-hq-6kt">
-                                                <rect key="frame" x="255.33333333333334" y="84.333333333333343" width="76.333333333333286" height="16"/>
+                                                <rect key="frame" x="247.33333333333334" y="92.333333333333343" width="84.333333333333286" height="16"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -388,10 +388,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuJ-gm-WBP" userLabel="Row 3">
-                                        <rect key="frame" x="0.0" y="245.66666666666663" width="331.33333333333337" height="123"/>
+                                        <rect key="frame" x="0.0" y="271.33333333333331" width="331.33333333333337" height="136"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5l-AY-KnA">
-                                                <rect key="frame" x="0.6666666666666643" y="0.0" width="76" height="76.666666666666686"/>
+                                                <rect key="frame" x="0.6666666666666643" y="0.0" width="84" height="84.666666666666686"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="U5l-AY-KnA" secondAttribute="height" multiplier="1:1" id="xEa-lb-Ffc"/>
@@ -404,13 +404,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEJ-eG-vPD">
-                                                <rect key="frame" x="0.6666666666666643" y="84.666666666666686" width="76" height="15.666666666666686"/>
+                                                <rect key="frame" x="0.6666666666666643" y="92.666666666666686" width="84" height="15.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-E7-Ady">
-                                                <rect key="frame" x="127" y="0.0" width="76.333333333333314" height="76.666666666666686"/>
+                                                <rect key="frame" x="123" y="0.0" width="84.333333333333314" height="84.666666666666686"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="WNQ-E7-Ady" secondAttribute="height" multiplier="1:1" id="rBr-0d-e3j"/>
@@ -423,13 +423,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC5-xk-8mT">
-                                                <rect key="frame" x="127" y="84.666666666666686" width="76.333333333333314" height="15.666666666666686"/>
+                                                <rect key="frame" x="123" y="92.666666666666686" width="84.333333333333314" height="15.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfX-uh-0JK">
-                                                <rect key="frame" x="255.33333333333334" y="0.0" width="76.333333333333286" height="76.666666666666686"/>
+                                                <rect key="frame" x="247.33333333333334" y="0.0" width="84.333333333333286" height="84.666666666666686"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KfX-uh-0JK" secondAttribute="height" multiplier="1:1" id="ceb-Cw-PXo"/>
@@ -442,7 +442,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cza-OO-WmI">
-                                                <rect key="frame" x="255.33333333333334" y="84.666666666666686" width="76.333333333333286" height="15.666666666666686"/>
+                                                <rect key="frame" x="247.33333333333334" y="92.666666666666686" width="84.333333333333286" height="15.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -467,10 +467,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i6-6o-oW5" userLabel="Row 4">
-                                        <rect key="frame" x="0.0" y="368.66666666666663" width="331.33333333333337" height="123.00000000000006"/>
+                                        <rect key="frame" x="0.0" y="407.33333333333331" width="331.33333333333337" height="135.99999999999994"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gX3-R6-lCW">
-                                                <rect key="frame" x="-16.666666666666664" y="6.3333333333333712" width="110.66666666666666" height="110.66666666666669"/>
+                                                <rect key="frame" x="-12.666666666666664" y="13" width="110.66666666666666" height="110.66666666666663"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gX3-R6-lCW" secondAttribute="height" multiplier="1:1" id="yyJ-C3-cgm"/>
                                                 </constraints>
@@ -481,7 +481,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVe-SH-y29">
-                                                <rect key="frame" x="121.66666666666666" y="6.3333333333333712" width="88" height="110.66666666666669"/>
+                                                <rect key="frame" x="121.66666666666666" y="13" width="88" height="110.66666666666663"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="LVe-SH-y29" secondAttribute="height" multiplier="0.8" id="jes-4f-b5J"/>
                                                 </constraints>
@@ -491,7 +491,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-uQ-MqM">
-                                                <rect key="frame" x="263.66666666666669" y="32" width="59" height="59.000000000000057"/>
+                                                <rect key="frame" x="259.66666666666669" y="38.666666666666629" width="59" height="59"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="y7A-uQ-MqM" secondAttribute="height" multiplier="1:1" id="so6-TQ-val"/>
@@ -545,10 +545,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfc-0z-7AP" userLabel="Reservation Detail View">
-                                <rect key="frame" x="0.0" y="588.66666666666652" width="414" height="147.33333333333337"/>
+                                <rect key="frame" x="0.0" y="640.33333333333348" width="414" height="95.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Active Reservation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJq-Bk-WKa">
-                                        <rect key="frame" x="54.666666666666657" y="58.666666666666742" width="305" height="30"/>
+                                        <rect key="frame" x="54.666666666666657" y="32.666666666666629" width="305" height="30"/>
                                         <fontDescription key="fontDescription" name="Ailerons-Regular" family="Ailerons" pointSize="25"/>
                                         <color key="textColor" red="0.5607843137254902" green="0.65098039215686276" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -574,7 +574,7 @@
                             <constraint firstItem="hS8-v2-Haf" firstAttribute="width" secondItem="8eO-lh-xOc" secondAttribute="width" multiplier="0.8" id="eYG-aD-xw4"/>
                             <constraint firstItem="xrc-JN-eWj" firstAttribute="width" secondItem="8eO-lh-xOc" secondAttribute="width" multiplier="0.382" id="iKA-AV-u1I"/>
                             <constraint firstItem="hS8-v2-Haf" firstAttribute="centerX" secondItem="8eO-lh-xOc" secondAttribute="centerX" id="kbH-DR-yck"/>
-                            <constraint firstItem="vfc-0z-7AP" firstAttribute="height" secondItem="8eO-lh-xOc" secondAttribute="height" multiplier="0.2" id="lq2-fQ-Upx"/>
+                            <constraint firstItem="vfc-0z-7AP" firstAttribute="height" secondItem="8eO-lh-xOc" secondAttribute="height" multiplier="0.13" id="lq2-fQ-Upx"/>
                             <constraint firstItem="VIR-Fs-eph" firstAttribute="leading" secondItem="8eO-lh-xOc" secondAttribute="leading" id="vuP-Ka-ler"/>
                         </constraints>
                     </view>
