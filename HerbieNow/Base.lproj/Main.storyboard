@@ -2578,7 +2578,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tay-Rq-eBm" secondAttribute="height" multiplier="1:1" id="d4N-gG-Ile"/>
                                         </constraints>
-                                        <state key="normal" image="continue"/>
+                                        <state key="normal" image="confirm"/>
                                         <connections>
                                             <action selector="confirmButtonTapped:" destination="dzQ-cz-5gZ" eventType="touchUpInside" id="w92-67-IQu"/>
                                         </connections>
@@ -2662,6 +2662,7 @@
         <image name="cancel" width="89" height="89"/>
         <image name="car2go" width="59" height="59"/>
         <image name="circle" width="43" height="43"/>
+        <image name="confirm" width="128" height="128"/>
         <image name="continue" width="128" height="128"/>
         <image name="diesel" width="43" height="44"/>
         <image name="doors3" width="43" height="44"/>
