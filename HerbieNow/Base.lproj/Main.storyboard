@@ -139,7 +139,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX0-dl-hEQ">
                                                 <rect key="frame" x="62" y="123.66666666666663" width="290.33333333333331" height="30"/>
                                                 <color key="backgroundColor" red="0.0036937640979886055" green="0.007122725248336792" blue="0.048535391688346863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Reservieren">
+                                                <state key="normal" title="Reserve">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -548,7 +548,7 @@
                                 <rect key="frame" x="0.0" y="640.33333333333348" width="414" height="95.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Active Reservation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJq-Bk-WKa">
-                                        <rect key="frame" x="54.666666666666657" y="32.666666666666629" width="305" height="30"/>
+                                        <rect key="frame" x="55" y="32.666666666666629" width="305" height="30"/>
                                         <fontDescription key="fontDescription" name="Ailerons-Regular" family="Ailerons" pointSize="25"/>
                                         <color key="textColor" red="0.5607843137254902" green="0.65098039215686276" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
