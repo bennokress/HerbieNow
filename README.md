@@ -1,5 +1,5 @@
 # HerbieNow
-![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)
+![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg) ![Swift Version](https://img.shields.io/badge/Swift-3.1-blue.svg)
 
 HerbieNow is based on an app project by team 6 of the "Praktikum iOS Entwicklung" at the LMU. It's goal is to provide a different approach to carsharing than the official DriveNow app does. The experience will be based on filters by parsing the data gathered from the official DriveNow API to get more detailed information on the vehicles. The filters will include horse power, special equipment, distance to fueling bonus and more.
 
